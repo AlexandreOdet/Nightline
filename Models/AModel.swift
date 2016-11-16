@@ -16,28 +16,9 @@ protocol IModel {
   required static func constructor(other: T)
  }
 
-class AModel: IModel {
-  typealias T = AModel
+class User: IModel {
   
-  func isEqual(other: AModel) -> Bool {
-    return true
-  }
-  
-  func ==(other: AModel) -> Bool {
-    return true
-  }
-  
-  func !=(other: AModel) -> Bool {
-    return true
-  }
-  
-  func constructor(other: AModel) {
-    
-  }
-  
-}
-
-class User: AModel {
+  typealias T = User
   var id: Int = 0
   var name: String = ""
   
