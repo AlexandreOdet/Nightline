@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
       make.size.equalTo(75)
     }
     logoutButton.translatesAutoresizingMaskIntoConstraints = false
-    logoutButton.addTarget(self, action: #selector(performLogoutAction), for: .touchUpInside)
+    logoutButton.addTarget(self, action: #selector(LogoutAction), for: .touchUpInside)
     logoutButton.backgroundColor = UIColor.white
   }
 

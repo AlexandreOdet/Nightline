@@ -10,43 +10,44 @@ import Foundation
 
 protocol IModel {
   associatedtype T
-  required func isEqual(other: T) -> Bool
-  required static func== (other: T) -> Bool
-  required static func !=(other: T) -> Bool
-  required static func constructor(other: T)
+  func isEqual(other: T) -> Bool
+  static func== (this: Self, other: T) -> Bool
+  func constructor(other: T)
  }
 
 class User: IModel {
-  
   typealias T = User
   var id: Int = 0
   var name: String = ""
   
-  override func isEqual(other: AModel) -> Bool {
-    let otherObject = other as? User
+  internal func constructor(other: User) {
+    self.id = other.id
+    self.name = other.name
+  }
+
+  static internal func ==(this: User, other: User) -> Bool {
     var isEqual:Bool = true
     
-    if self.id != otherObject.id {
+    if this.id != other.id {
       isEqual = false
     }
     
-    if self.name != otherObject?.name {
+    if this.name != other.name {
       isEqual = false
     }
     return isEqual
   }
-  
-  override func == (other: AModel) -> Bool {
-    return self.isEqual(other)
-  }
-  
-  override func != (other: AModel) -> Bool {
-    return self.isEqual(other) == false
-  }
-  
-  override static func constructor(other: AModel) {
-    let otherUser = other as? User
-    self.id = otherUser.id
-    self.name = otherUser.name
+
+  internal func isEqual(other: User) -> Bool {
+    var isEqual:Bool = true
+    
+    if self.id != other.id {
+      isEqual = false
+    }
+    
+    if self.name != other.name {
+      isEqual = false
+    }
+    return isEqual
   }
 }
