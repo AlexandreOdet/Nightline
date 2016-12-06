@@ -9,36 +9,46 @@
 import Foundation
 import UIKit
 import SnapKit
+import MapKit
 
 class HomeViewController: BaseViewController {
   
-  let logoutButton = UIButton()
+  var map = MKMapView()
+  let locationManager = CLLocationManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    requestLocationAccess()
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {
-      self.view.addSubview(logoutButton)
-      logoutButton.snp.makeConstraints { (make) -> Void in
-        make.center.equalTo(self.view)
-        make.size.equalTo(75)
+      self.view.addSubview(map)
+      map.snp.makeConstraints { (make) -> Void in
+        make.edges.equalTo(self.view)
       }
-      logoutButton.translatesAutoresizingMaskIntoConstraints = false
-      logoutButton.addTarget(self, action: #selector(LogoutAction), for: .touchUpInside)
-      logoutButton.backgroundColor = UIColor.white
-      
+      map.showsUserLocation = true
       let rightBarButton = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(goToUserProfileViewController))
       self.navigationItem.rightBarButtonItem = rightBarButton
     }
   }
   
-  func LogoutAction() {
-    //self.view.window?.rootViewController?.dismiss(animated:true, completion:nil)
-  }
-  
   func goToUserProfileViewController() {
     self.navigationController?.pushViewController(UserProfileViewController(), animated: true)
+  }
+  
+  func requestLocationAccess() {
+    let status = CLLocationManager.authorizationStatus()
+    
+    switch status {
+    case .authorizedAlways, .authorizedWhenInUse:
+      return
+      
+    case .denied, .restricted:
+      print("location access denied")
+      
+    default:
+      locationManager.requestWhenInUseAuthorization()
+    }
   }
   
 }

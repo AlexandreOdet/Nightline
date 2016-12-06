@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Nightline a besoin d&apos;accéder à votre localisation afin de vous proposer les soirées autour de vous.</string>
 </dict>
 </plist>

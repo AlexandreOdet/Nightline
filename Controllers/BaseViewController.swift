@@ -17,6 +17,7 @@ class BaseViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.view.backgroundColor = UIColor.black
     createNoConnectivityView()
   }
   
@@ -41,7 +42,6 @@ class BaseViewController: UIViewController {
   }
   
   func createNoConnectivityView() {
-    self.view.backgroundColor = UIColor.white
     img = UIImageView(image: UIImage(named: "logo"))
     self.view.addSubview(img)
     img.snp.makeConstraints { (make) -> Void in
@@ -75,12 +75,14 @@ class BaseViewController: UIViewController {
   }
   
   func showNoConnectivityView() {
+    self.view.backgroundColor = UIColor.white
     self.img.isHidden = false
     self.label.isHidden = false
     self.button.isHidden = false
   }
   
   func hideNoConnectivityView() {
+    self.view.backgroundColor = UIColor.black
     self.img.isHidden = true
     self.label.isHidden = true
     self.button.isHidden = true
