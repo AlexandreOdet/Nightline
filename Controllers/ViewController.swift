@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
 
   let buttonSignup = UIButton()
   let buttonSignin = UIButton()
@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
       make.width.equalTo(self.view)
     }
     buttonSignup.translatesAutoresizingMaskIntoConstraints = false
-    buttonSignup.backgroundColor = Utils.UI.getAccentColor()
+    buttonSignup.backgroundColor = self.getAccentColor()
     buttonSignup.setTitle("Sign up".uppercased(), for: .normal)
     buttonSignup.addTarget(self, action: #selector(goToSignUp(sender:)), for: .touchUpInside)
     
@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
       make.bottom.equalTo(buttonSignup.snp.top)
     }
     buttonSignin.translatesAutoresizingMaskIntoConstraints = false
-    buttonSignin.backgroundColor = Utils.UI.getPurpleColor()
+    buttonSignin.backgroundColor = self.getPurpleColor()
     buttonSignin.setTitle("Sign in".uppercased(), for: .normal)
     buttonSignin.addTarget(self, action: #selector(goToSignIn(sender:)), for: .touchUpInside)
   }

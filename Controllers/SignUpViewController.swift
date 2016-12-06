@@ -10,7 +10,7 @@ import Foundation
 import SnapKit
 import RealmSwift
 
-class SignupViewController: UIViewController {
+class SignupViewController: BaseViewController {
   
   let signupButton = UIButton()
   
@@ -38,23 +38,23 @@ class SignupViewController: UIViewController {
     
     emailTextField.backgroundColor = UIColor.black
     emailTextField.attributedPlaceholder = NSAttributedString(string:"E-mail",
-                                                                 attributes:[NSForegroundColorAttributeName: Utils.UI.getAccentColor()])
+                                                                 attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     emailTextField.highlightBottom()
-    emailTextField.textColor = Utils.UI.getAccentColor()
+    emailTextField.textColor = self.getAccentColor()
     emailTextField.textAlignment = .center
     
     nicknameTextField.backgroundColor = UIColor.black
     nicknameTextField.attributedPlaceholder = NSAttributedString(string:"Nickname",
-                                                                 attributes:[NSForegroundColorAttributeName: Utils.UI.getAccentColor()])
+                                                                 attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     nicknameTextField.highlightBottom()
-    nicknameTextField.textColor = Utils.UI.getAccentColor()
+    nicknameTextField.textColor = self.getAccentColor()
     nicknameTextField.textAlignment = .center
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password",
-                                                                 attributes:[NSForegroundColorAttributeName: Utils.UI.getAccentColor()])
+                                                                 attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     passwordTextField.highlightBottom()
-    passwordTextField.textColor = Utils.UI.getAccentColor()
+    passwordTextField.textColor = self.getAccentColor()
     passwordTextField.textAlignment = .center
 
     stackViewSignUp.addArrangedSubview(emailTextField)
@@ -70,12 +70,12 @@ class SignupViewController: UIViewController {
       make.width.equalTo(self.view)
     }
     signupButton.translatesAutoresizingMaskIntoConstraints = false
-    signupButton.backgroundColor = Utils.UI.getAccentColor()
+    signupButton.backgroundColor = self.getAccentColor()
     signupButton.setTitle("Sign up".uppercased(), for: .normal)
     signupButton.addTarget(self, action: #selector(showHomeScreen), for: .touchUpInside)
   }
   
   func showHomeScreen() {
-    present(HomeViewController(), animated: true, completion: nil)
+    self.navigationController?.pushViewController(HomeViewController(), animated: true)
   }
 }

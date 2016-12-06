@@ -27,7 +27,7 @@ extension UITextField {
   func highlightBottom() {
     let border = CALayer()
     let width = CGFloat(0.5)
-    border.borderColor = Utils.UI.getAccentColor().cgColor
+    border.borderColor = UIColor(hex: AppConstant.UI.Colors.colorAccent).cgColor
     border.frame = CGRect(x: 0, y: self.frame.size.height - 1, width:  self.frame.size.width, height: width)
     
     border.borderWidth = width

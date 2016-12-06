@@ -12,21 +12,7 @@ import UIKit
 class Utils {
   
   class UI {
-    static func getPurpleColor() -> UIColor {
-      return UIColor(hex: AppConstant.UI.Colors.purple)
-    }
-    
-    static func getPrimaryColor() -> UIColor {
-      return UIColor(hex: AppConstant.UI.Colors.colorPrimary)
-    }
-    
-    static func getAccentColor() -> UIColor {
-      return UIColor(hex: AppConstant.UI.Colors.colorAccent)
-    }
-    
-    static func getWhiteColor() -> UIColor {
-      return UIColor(hex: AppConstant.UI.Colors.white)
-    }
+  
   }
   
   class Network {

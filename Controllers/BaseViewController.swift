@@ -19,4 +19,20 @@ class BaseViewController: UIViewController {
     super.viewWillAppear(animated)
   }
   
+  func getPurpleColor() -> UIColor {
+    return UIColor(hex: AppConstant.UI.Colors.purple)
+  }
+  
+  func getPrimaryColor() -> UIColor {
+    return UIColor(hex: AppConstant.UI.Colors.colorPrimary)
+  }
+
+  func getAccentColor() -> UIColor {
+    return UIColor(hex: AppConstant.UI.Colors.colorAccent)
+  }
+
+  static func getWhiteColor() -> UIColor {
+    return UIColor(hex: AppConstant.UI.Colors.white)
+  }
+
 }

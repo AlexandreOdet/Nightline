@@ -16,9 +16,6 @@ class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let homeNavCtrl = UINavigationController()
-    homeNavCtrl.viewControllers = [self]
-    
     self.view.addSubview(logoutButton)
     logoutButton.snp.makeConstraints { (make) -> Void in
       make.center.equalTo(self.view)
@@ -27,10 +24,17 @@ class HomeViewController: UIViewController {
     logoutButton.translatesAutoresizingMaskIntoConstraints = false
     logoutButton.addTarget(self, action: #selector(LogoutAction), for: .touchUpInside)
     logoutButton.backgroundColor = UIColor.white
+    
+    let rightBarButton = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(goToUserProfileViewController))
+    self.navigationItem.rightBarButtonItem = rightBarButton
   }
 
   func LogoutAction() {
     //self.view.window?.rootViewController?.dismiss(animated:true, completion:nil)
+  }
+  
+ func goToUserProfileViewController() {
+    self.navigationController?.pushViewController(UserProfileViewController(), animated: true)
   }
   
 }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SigninViewController: UIViewController {
+class SigninViewController: BaseViewController {
   
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()
@@ -41,16 +41,16 @@ class SigninViewController: UIViewController {
     
     nicknameTextField.backgroundColor = UIColor.black
     nicknameTextField.attributedPlaceholder = NSAttributedString(string:"Nickname",
-                                                                 attributes:[NSForegroundColorAttributeName: Utils.UI.getAccentColor()])
+                                                                 attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     nicknameTextField.highlightBottom()
-    nicknameTextField.textColor = Utils.UI.getAccentColor()
+    nicknameTextField.textColor = self.getAccentColor()
     nicknameTextField.textAlignment = .center
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password",
-                                                           attributes:[NSForegroundColorAttributeName: Utils.UI.getAccentColor()])
+                                                           attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     passwordTextField.highlightBottom()
-    passwordTextField.textColor = Utils.UI.getAccentColor()
+    passwordTextField.textColor = self.getAccentColor()
     passwordTextField.textAlignment = .center
     
     stackViewSignIn.addArrangedSubview(nicknameTextField)
@@ -65,7 +65,7 @@ class SigninViewController: UIViewController {
     }
     forgotPasswordLabel.translatesAutoresizingMaskIntoConstraints = false
     forgotPasswordLabel.text = "Forgot Password ?"
-    forgotPasswordLabel.textColor = Utils.UI.getAccentColor()
+    forgotPasswordLabel.textColor = self.getAccentColor()
     forgotPasswordLabel.backgroundColor = UIColor.clear
   }
   
@@ -77,7 +77,7 @@ class SigninViewController: UIViewController {
       make.width.equalTo(self.view)
     }
     signinButton.translatesAutoresizingMaskIntoConstraints = false
-    signinButton.backgroundColor = Utils.UI.getAccentColor()
+    signinButton.backgroundColor = self.getAccentColor()
     signinButton.setTitle("Sign in".uppercased(), for: .normal)
     signinButton.addTarget(self, action: #selector(showHomeScreen), for: .touchUpInside)
   }
@@ -96,6 +96,6 @@ class SigninViewController: UIViewController {
   }
   
   func showHomeScreen() {
-    present(HomeViewController(), animated: true, completion: nil)
+    self.navigationController?.pushViewController(HomeViewController(), animated: true)
   }
 }
