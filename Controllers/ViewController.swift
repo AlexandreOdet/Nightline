@@ -10,17 +10,21 @@ import UIKit
 import SnapKit
 
 class MainViewController: BaseViewController {
-
+  
   let buttonSignup = UIButton()
   let buttonSignin = UIButton()
   let imgNightline = UIImageView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    addLogoToView()
-    addButtonsToView()
+    if Utils.Network.isInternetAvailable() == false {
+      self.showNoConnectivityView()
+    } else {
+      addLogoToView()
+      addButtonsToView()
+    }
   }
-
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
   }

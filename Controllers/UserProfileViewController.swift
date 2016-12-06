@@ -15,7 +15,11 @@ class UserProfileViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = UIColor.white
+    if Utils.Network.isInternetAvailable() == false {
+      self.showNoConnectivityView()
+    } else {
+      self.view.backgroundColor = UIColor.white
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {

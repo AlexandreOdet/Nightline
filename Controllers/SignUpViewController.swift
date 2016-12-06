@@ -17,8 +17,12 @@ class SignupViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Sign Up"
-    addBottomButton()
-    initAllFields()
+    if Utils.Network.isInternetAvailable() == false {
+      self.showNoConnectivityView()
+    } else {
+      addBottomButton()
+      initAllFields()
+    }
   }
   
   private func initAllFields() {
@@ -38,7 +42,7 @@ class SignupViewController: BaseViewController {
     
     emailTextField.backgroundColor = UIColor.black
     emailTextField.attributedPlaceholder = NSAttributedString(string:"E-mail",
-                                                                 attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
+                                                              attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     emailTextField.highlightBottom()
     emailTextField.textColor = self.getAccentColor()
     emailTextField.textAlignment = .center
@@ -56,7 +60,7 @@ class SignupViewController: BaseViewController {
     passwordTextField.highlightBottom()
     passwordTextField.textColor = self.getAccentColor()
     passwordTextField.textAlignment = .center
-
+    
     stackViewSignUp.addArrangedSubview(emailTextField)
     stackViewSignUp.addArrangedSubview(nicknameTextField)
     stackViewSignUp.addArrangedSubview(passwordTextField)

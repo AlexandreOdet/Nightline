@@ -19,13 +19,16 @@ class SigninViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Sign in"
-    self.view.backgroundColor = UIColor.black
-    initBottomButton()
-    initForgotPasswordLabel()
-    initStackView()
-    initNightlineLogo()
+    if Utils.Network.isInternetAvailable() == false {
+      self.showNoConnectivityView()
+    } else {
+      self.view.backgroundColor = UIColor.black
+      initBottomButton()
+      initForgotPasswordLabel()
+      initStackView()
+      initNightlineLogo()
+    }
   }
-  
   private func initStackView() {
     let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
     let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
@@ -48,7 +51,7 @@ class SigninViewController: BaseViewController {
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password",
-                                                           attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
+                                                                 attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     passwordTextField.highlightBottom()
     passwordTextField.textColor = self.getAccentColor()
     passwordTextField.textAlignment = .center
