@@ -36,3 +36,14 @@ extension UITextField {
   }
 }
 
+extension UIImageView {
+  func roundImage(withBorder: Bool = true, borderColor: UIColor = UIColor.white, borderSize: CGFloat = 1.0) {
+    self.layer.cornerRadius = self.frame.width / 2
+    self.clipsToBounds = true
+    if withBorder == true {
+      self.layer.borderWidth = borderSize
+      self.layer.borderColor = borderColor.cgColor
+    }
+  }
+}
+

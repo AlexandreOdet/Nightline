@@ -14,11 +14,13 @@ class BaseViewController: UIViewController {
   var img = UIImageView()
   var label = UILabel()
   var button = UIButton()
+  var refresh = UIRefreshControl()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.black
     createNoConnectivityView()
+    self.refresh.addTarget(self, action: #selector(pullToRefreshTask), for: .valueChanged)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -86,6 +88,10 @@ class BaseViewController: UIViewController {
     self.img.isHidden = true
     self.label.isHidden = true
     self.button.isHidden = true
+  }
+  
+  func pullToRefreshTask() {
+    
   }
   
 }

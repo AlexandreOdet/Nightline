@@ -13,16 +13,33 @@ import SnapKit
 
 class UserProfileViewController: BaseViewController {
   
+  var userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {
-      self.view.backgroundColor = UIColor.white
+      self.view.backgroundColor = UIColor.black
+      self.addComponentsToView()
     }
+  }
+  
+  private func addComponentsToView() {
+    self.view.addSubview(userProfilePicture)
+    userProfilePicture.snp.makeConstraints { (make) -> Void in
+      make.center.equalTo(self.view)
+      make.size.equalTo(50)
+    }
+    userProfilePicture.translatesAutoresizingMaskIntoConstraints = false
+    userProfilePicture.roundImage()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+  }
+  
+  override func pullToRefreshTask() {
+    print("UserProfileViewController pulls down to refresh")
   }
 }
