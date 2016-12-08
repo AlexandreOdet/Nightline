@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Rswift
 
 enum Gender: String {
   case male = "male"
@@ -18,6 +19,15 @@ enum Gender: String {
       self = .female
     default:
       self = .male
+    }
+  }
+  
+  func toString() -> String {
+    switch self {
+    case .female:
+      return R.string.localizable.female()
+    default:
+      return R.string.localizable.male()
     }
   }
 }

@@ -14,7 +14,6 @@ import MapKit
 class HomeViewController: BaseViewController {
   
   var map = MKMapView()
-  let locationManager = CLLocationManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,7 +46,7 @@ class HomeViewController: BaseViewController {
       print("location access denied")
       
     default:
-      locationManager.requestWhenInUseAuthorization()
+      PermissionManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
     }
   }
   

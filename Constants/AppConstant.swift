@@ -23,6 +23,7 @@ class AppConstant {
       static let thumbnailPictureSize = CGFloat(128)
     }
   }
+  
   class Network {
     static let baseUrl = ""
     static let login = ""

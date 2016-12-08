@@ -96,7 +96,7 @@ class SigninViewController: BaseViewController {
       make.size.equalTo(20)
     }
     nightlineLogo.translatesAutoresizingMaskIntoConstraints = false
-    nightlineLogo.image = R.image.logo()//UIImage(named: "logo")
+    nightlineLogo.image = R.image.logo()
   }
   
   func showHomeScreen() {
