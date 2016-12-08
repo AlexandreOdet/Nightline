@@ -9,6 +9,7 @@
 import Foundation
 import SnapKit
 import RealmSwift
+import Rswift
 
 class SignupViewController: BaseViewController {
   
@@ -16,7 +17,7 @@ class SignupViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "Sign Up"
+    self.title = R.string.localizable.sign_up()
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {
@@ -41,21 +42,21 @@ class SignupViewController: BaseViewController {
     stackViewSignUp.translatesAutoresizingMaskIntoConstraints = false
     
     emailTextField.backgroundColor = UIColor.black
-    emailTextField.attributedPlaceholder = NSAttributedString(string:"E-mail",
+    emailTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.email(),
                                                               attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     emailTextField.highlightBottom()
     emailTextField.textColor = self.getAccentColor()
     emailTextField.textAlignment = .center
     
     nicknameTextField.backgroundColor = UIColor.black
-    nicknameTextField.attributedPlaceholder = NSAttributedString(string:"Nickname",
+    nicknameTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.nickname(),
                                                                  attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     nicknameTextField.highlightBottom()
     nicknameTextField.textColor = self.getAccentColor()
     nicknameTextField.textAlignment = .center
     
     passwordTextField.backgroundColor = UIColor.black
-    passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password",
+    passwordTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.password(),
                                                                  attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     passwordTextField.highlightBottom()
     passwordTextField.textColor = self.getAccentColor()
@@ -75,7 +76,7 @@ class SignupViewController: BaseViewController {
     }
     signupButton.translatesAutoresizingMaskIntoConstraints = false
     signupButton.backgroundColor = self.getAccentColor()
-    signupButton.setTitle("Sign up".uppercased(), for: .normal)
+    signupButton.setTitle(R.string.localizable.sign_up().uppercased(), for: .normal)
     signupButton.addTarget(self, action: #selector(showHomeScreen), for: .touchUpInside)
   }
   

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import Rswift
 
 class SigninViewController: BaseViewController {
   
@@ -18,7 +19,7 @@ class SigninViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "Sign in"
+    self.title = R.string.localizable.sign_in()
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {
@@ -43,14 +44,14 @@ class SigninViewController: BaseViewController {
     
     
     nicknameTextField.backgroundColor = UIColor.black
-    nicknameTextField.attributedPlaceholder = NSAttributedString(string:"Nickname",
+    nicknameTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.nickname(),
                                                                  attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     nicknameTextField.highlightBottom()
     nicknameTextField.textColor = self.getAccentColor()
     nicknameTextField.textAlignment = .center
     
     passwordTextField.backgroundColor = UIColor.black
-    passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password",
+    passwordTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.password(),
                                                                  attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
     passwordTextField.highlightBottom()
     passwordTextField.textColor = self.getAccentColor()
@@ -67,7 +68,7 @@ class SigninViewController: BaseViewController {
       make.centerX.equalTo(self.view)
     }
     forgotPasswordLabel.translatesAutoresizingMaskIntoConstraints = false
-    forgotPasswordLabel.text = "Forgot Password ?"
+    forgotPasswordLabel.text = R.string.localizable.passwd_forgot()
     forgotPasswordLabel.textColor = self.getAccentColor()
     forgotPasswordLabel.backgroundColor = UIColor.clear
   }
@@ -81,7 +82,7 @@ class SigninViewController: BaseViewController {
     }
     signinButton.translatesAutoresizingMaskIntoConstraints = false
     signinButton.backgroundColor = self.getAccentColor()
-    signinButton.setTitle("Sign in".uppercased(), for: .normal)
+    signinButton.setTitle(R.string.localizable.sign_in().uppercased(), for: .normal)
     signinButton.addTarget(self, action: #selector(showHomeScreen), for: .touchUpInside)
   }
   
@@ -95,7 +96,7 @@ class SigninViewController: BaseViewController {
       make.size.equalTo(20)
     }
     nightlineLogo.translatesAutoresizingMaskIntoConstraints = false
-    nightlineLogo.image = UIImage(named: "logo")
+    nightlineLogo.image = R.image.logo()//UIImage(named: "logo")
   }
   
   func showHomeScreen() {

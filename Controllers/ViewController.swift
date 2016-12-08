@@ -35,7 +35,7 @@ class MainViewController: BaseViewController {
       make.center.equalTo(self.view)
     }
     imgNightline.translatesAutoresizingMaskIntoConstraints = false
-    imgNightline.image = UIImage(named: "logo")
+    imgNightline.image = R.image.logo()
   }
   
   private func addButtonsToView() {
@@ -47,7 +47,7 @@ class MainViewController: BaseViewController {
     }
     buttonSignup.translatesAutoresizingMaskIntoConstraints = false
     buttonSignup.backgroundColor = self.getAccentColor()
-    buttonSignup.setTitle("Sign up".uppercased(), for: .normal)
+    buttonSignup.setTitle(R.string.localizable.sign_up().uppercased(), for: .normal)
     buttonSignup.addTarget(self, action: #selector(goToSignUp(sender:)), for: .touchUpInside)
     
     self.view.addSubview(buttonSignin)
@@ -58,7 +58,7 @@ class MainViewController: BaseViewController {
     }
     buttonSignin.translatesAutoresizingMaskIntoConstraints = false
     buttonSignin.backgroundColor = self.getPurpleColor()
-    buttonSignin.setTitle("Sign in".uppercased(), for: .normal)
+    buttonSignin.setTitle(R.string.localizable.sign_in().uppercased(), for: .normal)
     buttonSignin.addTarget(self, action: #selector(goToSignIn(sender:)), for: .touchUpInside)
   }
   
