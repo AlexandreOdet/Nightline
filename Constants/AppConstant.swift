@@ -17,8 +17,10 @@ class AppConstant {
       static let white = 0xececec
       static let purple = 0x9b59b6
     }
+    
     class Dimensions {
       static let formElementsSpacing = CGFloat(25)
+      static let thumbnailPictureSize = CGFloat(128)
     }
   }
   class Network {

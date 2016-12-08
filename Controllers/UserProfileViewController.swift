@@ -13,7 +13,7 @@ import SnapKit
 
 class UserProfileViewController: BaseViewController {
   
-  var userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+  var userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,7 +29,7 @@ class UserProfileViewController: BaseViewController {
     self.view.addSubview(userProfilePicture)
     userProfilePicture.snp.makeConstraints { (make) -> Void in
       make.center.equalTo(self.view)
-      make.size.equalTo(50)
+      make.size.equalTo(AppConstant.UI.Dimensions.thumbnailPictureSize)
     }
     userProfilePicture.translatesAutoresizingMaskIntoConstraints = false
     userProfilePicture.roundImage()
