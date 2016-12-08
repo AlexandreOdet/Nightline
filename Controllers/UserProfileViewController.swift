@@ -14,6 +14,9 @@ import SnapKit
 class UserProfileViewController: BaseViewController {
   
   var userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
+  var imageNightline = UIImageView()
+  var nameApp = UILabel()
+  var currentVersion = UILabel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,11 +31,25 @@ class UserProfileViewController: BaseViewController {
   private func addComponentsToView() {
     self.view.addSubview(userProfilePicture)
     userProfilePicture.snp.makeConstraints { (make) -> Void in
-      make.center.equalTo(self.view)
+      make.centerX.equalTo(self.view)
+      make.top.equalTo(self.view).offset(-10)
       make.size.equalTo(AppConstant.UI.Dimensions.thumbnailPictureSize)
     }
     userProfilePicture.translatesAutoresizingMaskIntoConstraints = false
     userProfilePicture.roundImage()
+    addCurrentVersion()
+  }
+  
+  private func addCurrentVersion() {
+    self.currentVersion.text = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
+    self.view.addSubview(currentVersion)
+    currentVersion.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(userProfilePicture.snp.bottom).offset(15)
+      make.centerX.equalTo(self.view)
+    }
+    currentVersion.translatesAutoresizingMaskIntoConstraints = false
+    currentVersion.textColor = UIColor.white
+    currentVersion.numberOfLines = 0
   }
   
   override func viewWillAppear(_ animated: Bool) {
