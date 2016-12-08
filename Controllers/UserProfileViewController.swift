@@ -32,7 +32,7 @@ class UserProfileViewController: BaseViewController {
     self.view.addSubview(userProfilePicture)
     userProfilePicture.snp.makeConstraints { (make) -> Void in
       make.centerX.equalTo(self.view)
-      make.top.equalTo(self.view).offset(-10)
+      make.top.equalTo(self.view).offset(80)
       make.size.equalTo(AppConstant.UI.Dimensions.thumbnailPictureSize)
     }
     userProfilePicture.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +41,7 @@ class UserProfileViewController: BaseViewController {
   }
   
   private func addCurrentVersion() {
-    self.currentVersion.text = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
+    self.currentVersion.text = Utils.Files.getAppCurrentVersion()
     self.view.addSubview(currentVersion)
     currentVersion.snp.makeConstraints { (make) -> Void in
       make.top.equalTo(userProfilePicture.snp.bottom).offset(15)

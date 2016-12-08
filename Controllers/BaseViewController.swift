@@ -14,13 +14,14 @@ class BaseViewController: UIViewController {
   var img = UIImageView()
   var label = UILabel()
   var button = UIButton()
-  var refresh = UIRefreshControl()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.black
     createNoConnectivityView()
-    self.refresh.addTarget(self, action: #selector(pullToRefreshTask), for: .valueChanged)
+    let gesture = UISwipeGestureRecognizer(target: self, action: #selector(pullToRefreshTask))
+    gesture.direction = .down
+    self.view.addGestureRecognizer(gesture)
   }
   
   override func viewWillAppear(_ animated: Bool) {

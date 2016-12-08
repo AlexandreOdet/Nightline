@@ -12,6 +12,12 @@ import SystemConfiguration
 
 class Utils {
   
+  class Files {
+    static func getAppCurrentVersion() -> String {
+      return (Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String)!
+    }
+  }
+  
   class UI {
     
   }
@@ -56,6 +62,18 @@ class Utils {
       let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
       let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
       return (isReachable && !needsConnection)
+    }
+    
+    static var forceStayStart: Bool = false
+    
+    static func spinnerStart() {
+      UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    static func spinnerStop() {
+      if !self.forceStayStart {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+      }
     }
   }
 }
