@@ -14,6 +14,8 @@ class DbUser: Object {
   dynamic var firstName = ""
   dynamic var lastName = ""
   dynamic var gender = ""
+  dynamic var email = ""
+  dynamic var passwd = ""
   
   override static func primaryKey() -> String? {
     return "id"
