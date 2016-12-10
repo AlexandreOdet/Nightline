@@ -44,6 +44,10 @@ class BaseViewController: UIViewController {
     return UIColor(hex: AppConstant.UI.Colors.white)
   }
   
+  func getMidnightBlue() -> UIColor {
+    return UIColor(hex: AppConstant.UI.Colors.midnightBlue)
+  }
+  
   func createNoConnectivityView() {
     img = UIImageView(image: UIImage(named: "logo"))
     self.view.addSubview(img)

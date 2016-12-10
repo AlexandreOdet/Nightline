@@ -16,6 +16,7 @@ class AppConstant {
       static let colorAccent = 0xe87e07 //Orange
       static let white = 0xececec
       static let purple = 0x9b59b6
+      static let midnightBlue = 0x0e1728
     }
     
     class Dimensions {
