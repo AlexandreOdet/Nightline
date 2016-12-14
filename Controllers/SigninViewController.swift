@@ -16,6 +16,8 @@ class SigninViewController: BaseViewController {
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()
   private let stackViewSignIn = UIStackView()
+  private let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+  private let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,9 +33,6 @@ class SigninViewController: BaseViewController {
     }
   }
   private func initStackView() {
-    let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-    let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-    
     self.view.addSubview(stackViewSignIn)
     stackViewSignIn.snp.makeConstraints { (make) -> Void in
       make.center.equalTo(self.view)
@@ -56,6 +55,7 @@ class SigninViewController: BaseViewController {
     passwordTextField.highlightBottom()
     passwordTextField.textColor = self.getAccentColor()
     passwordTextField.textAlignment = .center
+    passwordTextField.isSecureTextEntry = true
     
     stackViewSignIn.addArrangedSubview(nicknameTextField)
     stackViewSignIn.addArrangedSubview(passwordTextField)
@@ -100,6 +100,18 @@ class SigninViewController: BaseViewController {
   }
   
   func showHomeScreen() {
-    self.navigationController?.pushViewController(HomeViewController(), animated: true)
+    let array = DatabaseHandler().getObjectArray(ofType: DbUser.self)
+    var isConnectionOk = false
+    for user in array {
+      isConnectionOk = user.areUserIdOk(nickname: self.nicknameTextField.text!, passwd: self.passwordTextField.text!)
+      if isConnectionOk == true {
+        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+      }
+    }
+    if isConnectionOk == false {
+      let alert = UIAlertController(title: R.string.localizable.error(), message: R.string.localizable.connection_fail(), preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+    }
   }
 }

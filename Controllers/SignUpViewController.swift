@@ -14,6 +14,9 @@ import Rswift
 class SignupViewController: BaseViewController {
   
   let signupButton = UIButton()
+  let emailTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+  let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+  let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,9 +30,6 @@ class SignupViewController: BaseViewController {
   }
   
   private func initAllFields() {
-    let emailTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-    let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-    let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
     
     let stackViewSignUp = UIStackView()
     stackViewSignUp.axis = .vertical
@@ -61,6 +61,7 @@ class SignupViewController: BaseViewController {
     passwordTextField.highlightBottom()
     passwordTextField.textColor = self.getAccentColor()
     passwordTextField.textAlignment = .center
+    passwordTextField.isSecureTextEntry = true
     
     stackViewSignUp.addArrangedSubview(emailTextField)
     stackViewSignUp.addArrangedSubview(nicknameTextField)
@@ -81,6 +82,16 @@ class SignupViewController: BaseViewController {
   }
   
   func showHomeScreen() {
-    self.navigationController?.pushViewController(HomeViewController(), animated: true)
+    if !((emailTextField.text?.isEmpty)!) && !(passwordTextField.text?.isEmpty)! && !(nicknameTextField.text?.isEmpty)! {
+      DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":emailTextField.text!,
+                                                                           "passwd":passwordTextField.text!,
+                                                                           "nickname":nicknameTextField.text!])
+      self.navigationController?.pushViewController(HomeViewController(), animated: true)
+    }
+    else {
+      let alert = UIAlertController(title: R.string.localizable.error(), message: R.string.localizable.connection_fail(), preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+    }
   }
 }

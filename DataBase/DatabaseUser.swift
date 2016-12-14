@@ -16,8 +16,17 @@ class DbUser: Object {
   dynamic var gender = ""
   dynamic var email = ""
   dynamic var passwd = ""
+  dynamic var nickname = ""
   
   override static func primaryKey() -> String? {
     return "id"
+  }
+  
+  func areUserIdOk(email: String, passwd: String) -> Bool {
+    return email == self.email && passwd == self.passwd
+  }
+  
+  func areUserIdOk(nickname: String, passwd: String) -> Bool {
+    return nickname == self.nickname && passwd == self.passwd
   }
 }
