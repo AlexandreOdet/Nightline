@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import SwiftyBeaver
+
+let log = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
