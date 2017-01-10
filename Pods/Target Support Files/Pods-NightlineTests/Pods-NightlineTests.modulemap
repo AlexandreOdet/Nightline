@@ -1,0 +1,6 @@
+framework module Pods_NightlineTests {
+  umbrella header "Pods-NightlineTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

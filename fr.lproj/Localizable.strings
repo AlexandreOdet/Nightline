@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Nightline
+
+  Created by Odet Alexandre on 15/12/2016.
+  Copyright © 2016 Odet Alexandre. All rights reserved.
+*/
+
+male = "Homme";
+female = "Femme";
+sign_up = "S'enregistrer";
+sign_in = "Se Connecter";
+email = "E-mail";
+nickname = "Pseudo";
+password = "Mot de passe";
+error = "Erreur";
+passwd_forgot = "Mot de passe oublié ?";
+connection_fail = "Les informations entrées ne sont pas valides";
+logout = "Se déconnecter";

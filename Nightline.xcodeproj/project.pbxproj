@@ -1,0 +1,924 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13153B87D1A4FBCA3E3D1A5D /* Pods_NightlineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82BFAD513DB6A99D8312DCE7 /* Pods_NightlineUITests.framework */; };
+		C74D67E6E1D3CCD69BC76140 /* Pods_Nightline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C36C169BD3522DEAF49DFA /* Pods_Nightline.framework */; };
+		FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB89D1E03495E00C8E437 /* R.generated.swift */; };
+		FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DB8A11E0349FE00C8E437 /* MapKit.framework */; };
+		FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB8A71E034CEA00C8E437 /* Localizable.strings */; };
+		FA3BFCDC1E039D0900A72B5F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFCDB1E039D0900A72B5F /* UserManager.swift */; };
+		FA3BFCDF1E039DE000A72B5F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFCDE1E039DE000A72B5F /* User.swift */; };
+		FAE161E31E1E984800FDC85C /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */; };
+		FAFF372C1E03402F001B2A8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFF372A1E03402F001B2A8F /* Main.storyboard */; };
+		FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */; };
+		FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFF37301E03402F001B2A8F /* Assets.xcassets */; };
+		FAFF373F1E03402F001B2A8F /* NightlineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF373E1E03402F001B2A8F /* NightlineTests.swift */; };
+		FAFF374A1E03402F001B2A8F /* NightlineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37491E03402F001B2A8F /* NightlineUITests.swift */; };
+		FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37571E034073001B2A8F /* AppDelegate.swift */; };
+		FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF375E1E0340C0001B2A8F /* AppConstant.swift */; };
+		FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37631E034147001B2A8F /* BaseViewController.swift */; };
+		FAFF376A1E034147001B2A8F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37641E034147001B2A8F /* HomeViewController.swift */; };
+		FAFF376B1E034147001B2A8F /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37651E034147001B2A8F /* SigninViewController.swift */; };
+		FAFF376C1E034147001B2A8F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37661E034147001B2A8F /* SignUpViewController.swift */; };
+		FAFF376D1E034147001B2A8F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37671E034147001B2A8F /* UserProfileViewController.swift */; };
+		FAFF376E1E034147001B2A8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37681E034147001B2A8F /* ViewController.swift */; };
+		FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37721E03421D001B2A8F /* DatabaseHandler.swift */; };
+		FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37731E03421D001B2A8F /* DatabaseUser.swift */; };
+		FAFF37771E034295001B2A8F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAFF37761E034295001B2A8F /* Info.plist */; };
+		FAFF377E1E034654001B2A8F /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377B1E034654001B2A8F /* PermissionManager.swift */; };
+		FAFF377F1E034654001B2A8F /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377C1E034654001B2A8F /* UIExtensions.swift */; };
+		FAFF37801E034654001B2A8F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377D1E034654001B2A8F /* Utils.swift */; };
+		FAFF37851E034678001B2A8F /* RABase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37841E034678001B2A8F /* RABase.swift */; };
+		FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF378A1E03470F001B2A8F /* Gender.swift */; };
+		FF48EB7092FAEE04942E0A95 /* Pods_NightlineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1741672ABE52DE35C2BE67 /* Pods_NightlineTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAFF373B1E03402F001B2A8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAFF371B1E03402F001B2A8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAFF37221E03402F001B2A8F;
+			remoteInfo = Nightline;
+		};
+		FAFF37461E03402F001B2A8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAFF371B1E03402F001B2A8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAFF37221E03402F001B2A8F;
+			remoteInfo = Nightline;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09181AECF5AEFBFD7A64E763 /* Pods-NightlineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.release.xcconfig"; sourceTree = "<group>"; };
+		10B2518230708D05E98AAC84 /* Pods-Nightline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nightline.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nightline/Pods-Nightline.debug.xcconfig"; sourceTree = "<group>"; };
+		1D1741672ABE52DE35C2BE67 /* Pods_NightlineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26C36C169BD3522DEAF49DFA /* Pods_Nightline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nightline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27EDDB266E82A3DBD059EDE1 /* Pods-NightlineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests.release.xcconfig"; sourceTree = "<group>"; };
+		328F72EDC5BFFCEBDCA6C9C6 /* Pods-Nightline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nightline.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nightline/Pods-Nightline.release.xcconfig"; sourceTree = "<group>"; };
+		4D29CABD4DA5A77DCF782125 /* Pods-NightlineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		52AC7CFB957CAC0F9B1438C7 /* Pods-NightlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests.debug.xcconfig"; sourceTree = "<group>"; };
+		82BFAD513DB6A99D8312DCE7 /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1DB89D1E03495E00C8E437 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		FA1DB8A11E0349FE00C8E437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FA1DB8A31E034C9300C8E437 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		FA1DB8A61E034CEA00C8E437 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA1DB8A81E034CEF00C8E437 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightline.entitlements; sourceTree = "<group>"; };
+		FA3BFCDB1E039D0900A72B5F /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Utils/UserManager.swift; sourceTree = "<group>"; };
+		FA3BFCDE1E039DE000A72B5F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettingsTableViewController.swift; path = Controllers/UserSettingsTableViewController.swift; sourceTree = "<group>"; };
+		FAFF37231E03402F001B2A8F /* Nightline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nightline.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFF372B1E03402F001B2A8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAFF372E1E03402F001B2A8F /* Nightline.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nightline.xcdatamodel; sourceTree = "<group>"; };
+		FAFF37301E03402F001B2A8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAFF373A1E03402F001B2A8F /* NightlineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightlineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFF373E1E03402F001B2A8F /* NightlineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightlineTests.swift; sourceTree = "<group>"; };
+		FAFF37401E03402F001B2A8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAFF37451E03402F001B2A8F /* NightlineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightlineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFF37491E03402F001B2A8F /* NightlineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightlineUITests.swift; sourceTree = "<group>"; };
+		FAFF374B1E03402F001B2A8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAFF37571E034073001B2A8F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAFF375E1E0340C0001B2A8F /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppConstant.swift; path = Constants/AppConstant.swift; sourceTree = "<group>"; };
+		FAFF37631E034147001B2A8F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Controllers/BaseViewController.swift; sourceTree = "<group>"; };
+		FAFF37641E034147001B2A8F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
+		FAFF37651E034147001B2A8F /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SigninViewController.swift; path = Controllers/SigninViewController.swift; sourceTree = "<group>"; };
+		FAFF37661E034147001B2A8F /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controllers/SignUpViewController.swift; sourceTree = "<group>"; };
+		FAFF37671E034147001B2A8F /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = Controllers/UserProfileViewController.swift; sourceTree = "<group>"; };
+		FAFF37681E034147001B2A8F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
+		FAFF37721E03421D001B2A8F /* DatabaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseHandler.swift; path = DataBase/DatabaseHandler.swift; sourceTree = "<group>"; };
+		FAFF37731E03421D001B2A8F /* DatabaseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseUser.swift; path = DataBase/DatabaseUser.swift; sourceTree = "<group>"; };
+		FAFF37761E034295001B2A8F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAFF377B1E034654001B2A8F /* PermissionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PermissionManager.swift; path = Utils/PermissionManager.swift; sourceTree = "<group>"; };
+		FAFF377C1E034654001B2A8F /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIExtensions.swift; path = Utils/UIExtensions.swift; sourceTree = "<group>"; };
+		FAFF377D1E034654001B2A8F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Utils/Utils.swift; sourceTree = "<group>"; };
+		FAFF37841E034678001B2A8F /* RABase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RABase.swift; path = Network/RABase.swift; sourceTree = "<group>"; };
+		FAFF378A1E03470F001B2A8F /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gender.swift; path = Enums/User/Gender.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAFF37201E03402F001B2A8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */,
+				C74D67E6E1D3CCD69BC76140 /* Pods_Nightline.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFF37371E03402F001B2A8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF48EB7092FAEE04942E0A95 /* Pods_NightlineTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFF37421E03402F001B2A8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13153B87D1A4FBCA3E3D1A5D /* Pods_NightlineUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ADBA09A3967E21B2C7F42E63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				10B2518230708D05E98AAC84 /* Pods-Nightline.debug.xcconfig */,
+				328F72EDC5BFFCEBDCA6C9C6 /* Pods-Nightline.release.xcconfig */,
+				52AC7CFB957CAC0F9B1438C7 /* Pods-NightlineTests.debug.xcconfig */,
+				27EDDB266E82A3DBD059EDE1 /* Pods-NightlineTests.release.xcconfig */,
+				4D29CABD4DA5A77DCF782125 /* Pods-NightlineUITests.debug.xcconfig */,
+				09181AECF5AEFBFD7A64E763 /* Pods-NightlineUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D79DDBCA71922E6E1A0DF5C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA1DB8A11E0349FE00C8E437 /* MapKit.framework */,
+				26C36C169BD3522DEAF49DFA /* Pods_Nightline.framework */,
+				1D1741672ABE52DE35C2BE67 /* Pods_NightlineTests.framework */,
+				82BFAD513DB6A99D8312DCE7 /* Pods_NightlineUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA3BFCDD1E039DC600A72B5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BFCDE1E039DE000A72B5F /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FAFF371A1E03402F001B2A8F = {
+			isa = PBXGroup;
+			children = (
+				FA1DB8A71E034CEA00C8E437 /* Localizable.strings */,
+				FA1DB89D1E03495E00C8E437 /* R.generated.swift */,
+				FAFF37251E03402F001B2A8F /* Nightline */,
+				FAFF373D1E03402F001B2A8F /* NightlineTests */,
+				FAFF37481E03402F001B2A8F /* NightlineUITests */,
+				FAFF37241E03402F001B2A8F /* Products */,
+				D79DDBCA71922E6E1A0DF5C4 /* Frameworks */,
+				ADBA09A3967E21B2C7F42E63 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		FAFF37241E03402F001B2A8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF37231E03402F001B2A8F /* Nightline.app */,
+				FAFF373A1E03402F001B2A8F /* NightlineTests.xctest */,
+				FAFF37451E03402F001B2A8F /* NightlineUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAFF37251E03402F001B2A8F /* Nightline */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BFCDD1E039DC600A72B5F /* Models */,
+				FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */,
+				FAFF37881E034703001B2A8F /* Enums */,
+				FAFF37831E034671001B2A8F /* Network */,
+				FAFF37571E034073001B2A8F /* AppDelegate.swift */,
+				FAFF377A1E034646001B2A8F /* Utils */,
+				FAFF37711E034211001B2A8F /* Database */,
+				FAFF375D1E0340B7001B2A8F /* Constants */,
+				FAFF37621E034137001B2A8F /* Controllers */,
+				FAFF37301E03402F001B2A8F /* Assets.xcassets */,
+				FAFF372A1E03402F001B2A8F /* Main.storyboard */,
+				FAFF37761E034295001B2A8F /* Info.plist */,
+				FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */,
+			);
+			path = Nightline;
+			sourceTree = "<group>";
+		};
+		FAFF373D1E03402F001B2A8F /* NightlineTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF373E1E03402F001B2A8F /* NightlineTests.swift */,
+				FAFF37401E03402F001B2A8F /* Info.plist */,
+			);
+			path = NightlineTests;
+			sourceTree = "<group>";
+		};
+		FAFF37481E03402F001B2A8F /* NightlineUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF37491E03402F001B2A8F /* NightlineUITests.swift */,
+				FAFF374B1E03402F001B2A8F /* Info.plist */,
+			);
+			path = NightlineUITests;
+			sourceTree = "<group>";
+		};
+		FAFF375D1E0340B7001B2A8F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF375E1E0340C0001B2A8F /* AppConstant.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		FAFF37621E034137001B2A8F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF37631E034147001B2A8F /* BaseViewController.swift */,
+				FAFF37641E034147001B2A8F /* HomeViewController.swift */,
+				FAFF37651E034147001B2A8F /* SigninViewController.swift */,
+				FAFF37661E034147001B2A8F /* SignUpViewController.swift */,
+				FAFF37671E034147001B2A8F /* UserProfileViewController.swift */,
+				FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */,
+				FAFF37681E034147001B2A8F /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FAFF37711E034211001B2A8F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF37721E03421D001B2A8F /* DatabaseHandler.swift */,
+				FAFF37731E03421D001B2A8F /* DatabaseUser.swift */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		FAFF377A1E034646001B2A8F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF377B1E034654001B2A8F /* PermissionManager.swift */,
+				FAFF377C1E034654001B2A8F /* UIExtensions.swift */,
+				FAFF377D1E034654001B2A8F /* Utils.swift */,
+				FA3BFCDB1E039D0900A72B5F /* UserManager.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		FAFF37831E034671001B2A8F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF37841E034678001B2A8F /* RABase.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		FAFF37881E034703001B2A8F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF37891E034709001B2A8F /* User */,
+			);
+			name = Enums;
+			sourceTree = "<group>";
+		};
+		FAFF37891E034709001B2A8F /* User */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF378A1E03470F001B2A8F /* Gender.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAFF37221E03402F001B2A8F /* Nightline */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAFF374E1E03402F001B2A8F /* Build configuration list for PBXNativeTarget "Nightline" */;
+			buildPhases = (
+				E941FD410B91EC275278F3A8 /* [CP] Check Pods Manifest.lock */,
+				FA1DB89C1E03484100C8E437 /* ShellScript */,
+				FAFF371F1E03402F001B2A8F /* Sources */,
+				FAFF37201E03402F001B2A8F /* Frameworks */,
+				FAFF37211E03402F001B2A8F /* Resources */,
+				944B8C6E5DD53CC04C91C05B /* [CP] Embed Pods Frameworks */,
+				28BCAAB526666702FAD8D64A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nightline;
+			productName = Nightline;
+			productReference = FAFF37231E03402F001B2A8F /* Nightline.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAFF37391E03402F001B2A8F /* NightlineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAFF37511E034030001B2A8F /* Build configuration list for PBXNativeTarget "NightlineTests" */;
+			buildPhases = (
+				B57070213690A124FF6C4D9F /* [CP] Check Pods Manifest.lock */,
+				FAFF37361E03402F001B2A8F /* Sources */,
+				FAFF37371E03402F001B2A8F /* Frameworks */,
+				FAFF37381E03402F001B2A8F /* Resources */,
+				B10EB4CD345ABB2F9B7DDA97 /* [CP] Embed Pods Frameworks */,
+				D0F8F11D0FA508DD3D55F8BD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAFF373C1E03402F001B2A8F /* PBXTargetDependency */,
+			);
+			name = NightlineTests;
+			productName = NightlineTests;
+			productReference = FAFF373A1E03402F001B2A8F /* NightlineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAFF37441E03402F001B2A8F /* NightlineUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAFF37541E034030001B2A8F /* Build configuration list for PBXNativeTarget "NightlineUITests" */;
+			buildPhases = (
+				AAD30DCF174DC63776B0FC0A /* [CP] Check Pods Manifest.lock */,
+				FAFF37411E03402F001B2A8F /* Sources */,
+				FAFF37421E03402F001B2A8F /* Frameworks */,
+				FAFF37431E03402F001B2A8F /* Resources */,
+				0EBC90486B63E53A8120D923 /* [CP] Embed Pods Frameworks */,
+				C00BF38E3191F2D7D869E299 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAFF37471E03402F001B2A8F /* PBXTargetDependency */,
+			);
+			name = NightlineUITests;
+			productName = NightlineUITests;
+			productReference = FAFF37451E03402F001B2A8F /* NightlineUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAFF371B1E03402F001B2A8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Odet Alexandre";
+				TargetAttributes = {
+					FAFF37221E03402F001B2A8F = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 97AYAAKHJ8;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					FAFF37391E03402F001B2A8F = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 97AYAAKHJ8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FAFF37221E03402F001B2A8F;
+					};
+					FAFF37441E03402F001B2A8F = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 97AYAAKHJ8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FAFF37221E03402F001B2A8F;
+					};
+				};
+			};
+			buildConfigurationList = FAFF371E1E03402F001B2A8F /* Build configuration list for PBXProject "Nightline" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAFF371A1E03402F001B2A8F;
+			productRefGroup = FAFF37241E03402F001B2A8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAFF37221E03402F001B2A8F /* Nightline */,
+				FAFF37391E03402F001B2A8F /* NightlineTests */,
+				FAFF37441E03402F001B2A8F /* NightlineUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAFF37211E03402F001B2A8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
+				FAFF37771E034295001B2A8F /* Info.plist in Resources */,
+				FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */,
+				FAFF372C1E03402F001B2A8F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFF37381E03402F001B2A8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFF37431E03402F001B2A8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EBC90486B63E53A8120D923 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		28BCAAB526666702FAD8D64A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nightline/Pods-Nightline-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		944B8C6E5DD53CC04C91C05B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nightline/Pods-Nightline-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAD30DCF174DC63776B0FC0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B10EB4CD345ABB2F9B7DDA97 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B57070213690A124FF6C4D9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C00BF38E3191F2D7D869E299 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0F8F11D0FA508DD3D55F8BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E941FD410B91EC275278F3A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA1DB89C1E03484100C8E437 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAFF371F1E03402F001B2A8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3BFCDC1E039D0900A72B5F /* UserManager.swift in Sources */,
+				FAFF376A1E034147001B2A8F /* HomeViewController.swift in Sources */,
+				FAFF376D1E034147001B2A8F /* UserProfileViewController.swift in Sources */,
+				FAE161E31E1E984800FDC85C /* UserSettingsTableViewController.swift in Sources */,
+				FAFF377F1E034654001B2A8F /* UIExtensions.swift in Sources */,
+				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
+				FAFF377E1E034654001B2A8F /* PermissionManager.swift in Sources */,
+				FAFF376C1E034147001B2A8F /* SignUpViewController.swift in Sources */,
+				FAFF376E1E034147001B2A8F /* ViewController.swift in Sources */,
+				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
+				FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */,
+				FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */,
+				FAFF376B1E034147001B2A8F /* SigninViewController.swift in Sources */,
+				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
+				FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */,
+				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,
+				FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */,
+				FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */,
+				FAFF37851E034678001B2A8F /* RABase.swift in Sources */,
+				FA3BFCDF1E039DE000A72B5F /* User.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFF37361E03402F001B2A8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAFF373F1E03402F001B2A8F /* NightlineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFF37411E03402F001B2A8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAFF374A1E03402F001B2A8F /* NightlineUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAFF373C1E03402F001B2A8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAFF37221E03402F001B2A8F /* Nightline */;
+			targetProxy = FAFF373B1E03402F001B2A8F /* PBXContainerItemProxy */;
+		};
+		FAFF37471E03402F001B2A8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAFF37221E03402F001B2A8F /* Nightline */;
+			targetProxy = FAFF37461E03402F001B2A8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA1DB8A71E034CEA00C8E437 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA1DB8A61E034CEA00C8E437 /* fr */,
+				FA1DB8A81E034CEF00C8E437 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		FAFF372A1E03402F001B2A8F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAFF372B1E03402F001B2A8F /* Base */,
+				FA1DB8A31E034C9300C8E437 /* fr */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAFF374C1E03402F001B2A8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAFF374D1E03402F001B2A8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAFF374F1E03402F001B2A8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10B2518230708D05E98AAC84 /* Pods-Nightline.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Nightline/Nightline.entitlements;
+				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				INFOPLIST_FILE = Nightline/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = OdetAlexandre.Nightline;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FAFF37501E03402F001B2A8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 328F72EDC5BFFCEBDCA6C9C6 /* Pods-Nightline.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Nightline/Nightline.entitlements;
+				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				INFOPLIST_FILE = Nightline/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = OdetAlexandre.Nightline;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		FAFF37521E034030001B2A8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52AC7CFB957CAC0F9B1438C7 /* Pods-NightlineTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				INFOPLIST_FILE = NightlineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = OdetAlexandre.NightlineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nightline.app/Nightline";
+			};
+			name = Debug;
+		};
+		FAFF37531E034030001B2A8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27EDDB266E82A3DBD059EDE1 /* Pods-NightlineTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				INFOPLIST_FILE = NightlineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = OdetAlexandre.NightlineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nightline.app/Nightline";
+			};
+			name = Release;
+		};
+		FAFF37551E034030001B2A8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D29CABD4DA5A77DCF782125 /* Pods-NightlineUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				INFOPLIST_FILE = NightlineUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = OdetAlexandre.NightlineUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Nightline;
+			};
+			name = Debug;
+		};
+		FAFF37561E034030001B2A8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09181AECF5AEFBFD7A64E763 /* Pods-NightlineUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				INFOPLIST_FILE = NightlineUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = OdetAlexandre.NightlineUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Nightline;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAFF371E1E03402F001B2A8F /* Build configuration list for PBXProject "Nightline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAFF374C1E03402F001B2A8F /* Debug */,
+				FAFF374D1E03402F001B2A8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAFF374E1E03402F001B2A8F /* Build configuration list for PBXNativeTarget "Nightline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAFF374F1E03402F001B2A8F /* Debug */,
+				FAFF37501E03402F001B2A8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAFF37511E034030001B2A8F /* Build configuration list for PBXNativeTarget "NightlineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAFF37521E034030001B2A8F /* Debug */,
+				FAFF37531E034030001B2A8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAFF37541E034030001B2A8F /* Build configuration list for PBXNativeTarget "NightlineUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAFF37551E034030001B2A8F /* Debug */,
+				FAFF37561E034030001B2A8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAFF372E1E03402F001B2A8F /* Nightline.xcdatamodel */,
+			);
+			currentVersion = FAFF372E1E03402F001B2A8F /* Nightline.xcdatamodel */;
+			path = Nightline.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FAFF371B1E03402F001B2A8F /* Project object */;
+}
