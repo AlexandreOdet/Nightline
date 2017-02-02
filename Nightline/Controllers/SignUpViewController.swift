@@ -20,6 +20,7 @@ class SignupViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.hideKeyboardWhenTappedAround()
     self.title = R.string.localizable.sign_up()
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
