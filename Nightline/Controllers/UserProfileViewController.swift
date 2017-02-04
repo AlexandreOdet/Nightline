@@ -28,10 +28,11 @@ class UserProfileViewController: BaseViewController {
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {
-      self.view.backgroundColor = UIColor.white
-      self.addComponentsToView()
-      let rightBarButton = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(goToUserSettingsViewController))
-      self.navigationItem.rightBarButtonItem = rightBarButton
+        self.view.backgroundColor = UIColor.black
+        self.addComponentsToView()
+        let rightBarButton = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(goToUserSettingsViewController))
+        //rightBarButton.tintColor = UIColor.orange
+        self.navigationItem.rightBarButtonItem = rightBarButton
     }
   }
   
@@ -93,6 +94,8 @@ class UserProfileViewController: BaseViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    self.navigationController?.navigationBar.barTintColor = UIColor.orange
+    self.navigationController?.navigationBar.tintColor = UIColor.black
   }
   
   func goToUserSettingsViewController() {

@@ -21,6 +21,7 @@ class SigninViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.hideKeyboardWhenTappedAround()
     self.title = R.string.localizable.sign_in()
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
