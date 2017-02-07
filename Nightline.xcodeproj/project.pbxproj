@@ -14,6 +14,7 @@
 		FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB8A71E034CEA00C8E437 /* Localizable.strings */; };
 		FA3BFCDC1E039D0900A72B5F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFCDB1E039D0900A72B5F /* UserManager.swift */; };
 		FA3BFCDF1E039DE000A72B5F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFCDE1E039DE000A72B5F /* User.swift */; };
+		FA8BA64F1E4961B300A644AB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8BA64E1E4961B300A644AB /* TabBarController.swift */; };
 		FAE161E31E1E984800FDC85C /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */; };
 		FAFF372C1E03402F001B2A8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFF372A1E03402F001B2A8F /* Main.storyboard */; };
 		FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */; };
@@ -74,6 +75,7 @@
 		FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightline.entitlements; sourceTree = "<group>"; };
 		FA3BFCDB1E039D0900A72B5F /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Utils/UserManager.swift; sourceTree = "<group>"; };
 		FA3BFCDE1E039DE000A72B5F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		FA8BA64E1E4961B300A644AB /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettingsTableViewController.swift; path = Controllers/UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		FAFF37231E03402F001B2A8F /* Nightline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nightline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFF372B1E03402F001B2A8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				FAFF37671E034147001B2A8F /* UserProfileViewController.swift */,
 				FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */,
 				FAFF37681E034147001B2A8F /* ViewController.swift */,
+				FA8BA64E1E4961B300A644AB /* TabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,
 				FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */,
 				FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */,
+				FA8BA64F1E4961B300A644AB /* TabBarController.swift in Sources */,
 				FAFF37851E034678001B2A8F /* RABase.swift in Sources */,
 				FA3BFCDF1E039DE000A72B5F /* User.swift in Sources */,
 			);
@@ -781,7 +785,7 @@
 				DEVELOPMENT_TEAM = 97AYAAKHJ8;
 				INFOPLIST_FILE = Nightline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = OdetAlexandre.Nightline;
+				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -798,7 +802,7 @@
 				DEVELOPMENT_TEAM = 97AYAAKHJ8;
 				INFOPLIST_FILE = Nightline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = OdetAlexandre.Nightline;
+				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

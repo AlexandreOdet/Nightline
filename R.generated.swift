@@ -31,14 +31,42 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 5 images.
   struct image {
+    /// Image `avatar`.
+    static let avatar = ImageResource(bundle: _R.hostingBundle, name: "avatar")
     /// Image `logo`.
     static let logo = ImageResource(bundle: _R.hostingBundle, name: "logo")
+    /// Image `placeholder_filled`.
+    static let placeholder_filled = ImageResource(bundle: _R.hostingBundle, name: "placeholder_filled")
+    /// Image `placeholder`.
+    static let placeholder = ImageResource(bundle: _R.hostingBundle, name: "placeholder")
+    /// Image `user`.
+    static let user = ImageResource(bundle: _R.hostingBundle, name: "user")
+    
+    /// `UIImage(named: "avatar", bundle: ..., traitCollection: ...)`
+    static func avatar(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.avatar, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
     static func logo(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "placeholder", bundle: ..., traitCollection: ...)`
+    static func placeholder(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "placeholder_filled", bundle: ..., traitCollection: ...)`
+    static func placeholder_filled(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.placeholder_filled, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "user", bundle: ..., traitCollection: ...)`
+    static func user(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.user, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -214,7 +242,7 @@ struct R {
 
 struct _R {
   static let applicationLocale = hostingBundle.preferredLocalizations.first.flatMap(Locale.init) ?? Locale.current
-  static let hostingBundle = Bundle(identifier: "OdetAlexandre.Nightline") ?? Bundle.main
+  static let hostingBundle = Bundle(identifier: "Nightline.AlexandreOdet") ?? Bundle.main
   
   struct nib {
     fileprivate init() {}

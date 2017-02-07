@@ -17,18 +17,22 @@ class HomeViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    requestLocationAccess()
-    if Utils.Network.isInternetAvailable() == false {
-      self.showNoConnectivityView()
+    if (keychain.get("token") != nil) {
+      self.present(MainViewController(), animated: true, completion: nil)
     } else {
-      self.view.addSubview(map)
-      map.snp.makeConstraints { (make) -> Void in
-        make.edges.equalTo(self.view)
+      requestLocationAccess()
+      if Utils.Network.isInternetAvailable() == false {
+        self.showNoConnectivityView()
+      } else {
+        self.view.addSubview(map)
+        map.snp.makeConstraints { (make) -> Void in
+          make.edges.equalTo(self.view)
+        }
+        map.showsUserLocation = true
+        map.isZoomEnabled = true
+        let rightBarButton = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(goToUserProfileViewController))
+        self.navigationItem.rightBarButtonItem = rightBarButton
       }
-      map.showsUserLocation = true
-      map.isZoomEnabled = true
-      let rightBarButton = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(goToUserProfileViewController))
-      self.navigationItem.rightBarButtonItem = rightBarButton
     }
   }
   
