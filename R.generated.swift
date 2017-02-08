@@ -12,17 +12,8 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 1 files.
+  /// This `R.file` struct is generated, and contains static references to 0 files.
   struct file {
-    /// Resource file `Info.plist`.
-    static let infoPlist = FileResource(bundle: _R.hostingBundle, name: "Info", pathExtension: "plist")
-    
-    /// `bundle.url(forResource: "Info", withExtension: "plist")`
-    static func infoPlist(_: Void = ()) -> URL? {
-      let fileResource = R.file.infoPlist
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-    
     fileprivate init() {}
   }
   
@@ -31,12 +22,14 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 5 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
     /// Image `avatar`.
     static let avatar = ImageResource(bundle: _R.hostingBundle, name: "avatar")
     /// Image `logo`.
     static let logo = ImageResource(bundle: _R.hostingBundle, name: "logo")
+    /// Image `pin`.
+    static let pin = ImageResource(bundle: _R.hostingBundle, name: "pin")
     /// Image `placeholder_filled`.
     static let placeholder_filled = ImageResource(bundle: _R.hostingBundle, name: "placeholder_filled")
     /// Image `placeholder`.
@@ -52,6 +45,11 @@ struct R {
     /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
     static func logo(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "pin", bundle: ..., traitCollection: ...)`
+    static func pin(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.pin, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "placeholder", bundle: ..., traitCollection: ...)`

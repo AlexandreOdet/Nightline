@@ -35,7 +35,9 @@ class UserSettingsTableViewController: UIViewController {
   }
   
   func performLogoutAction() {
-    self.navigationController?.popToRootViewController(animated: true)
+    if let nav = self.navigationController {
+      nav.popToRootViewController(animated: true)
+    }
     Utils.Network.logOutUser()
   }
 }
