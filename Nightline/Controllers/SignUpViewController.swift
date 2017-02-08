@@ -11,7 +11,7 @@ import SnapKit
 import RealmSwift
 import Rswift
 
-class SignupViewController: BaseViewController {
+class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   let signupButton = UIButton()
   let emailTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
@@ -48,6 +48,10 @@ class SignupViewController: BaseViewController {
     emailTextField.highlightBottom()
     emailTextField.textColor = self.getAccentColor()
     emailTextField.textAlignment = .center
+    emailTextField.delegate = self
+    emailTextField.keyboardType = .emailAddress
+    emailTextField.returnKeyType = .next
+    emailTextField.tag = 0
     
     nicknameTextField.backgroundColor = UIColor.black
     nicknameTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.nickname(),
@@ -55,6 +59,9 @@ class SignupViewController: BaseViewController {
     nicknameTextField.highlightBottom()
     nicknameTextField.textColor = self.getAccentColor()
     nicknameTextField.textAlignment = .center
+    nicknameTextField.delegate = self
+    nicknameTextField.returnKeyType = .next
+    nicknameTextField.tag = 1
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.password(),
@@ -63,6 +70,9 @@ class SignupViewController: BaseViewController {
     passwordTextField.textColor = self.getAccentColor()
     passwordTextField.textAlignment = .center
     passwordTextField.isSecureTextEntry = true
+    passwordTextField.returnKeyType = .done
+    passwordTextField.tag = 2
+    passwordTextField.delegate = self
     
     stackViewSignUp.addArrangedSubview(emailTextField)
     stackViewSignUp.addArrangedSubview(nicknameTextField)
@@ -73,7 +83,7 @@ class SignupViewController: BaseViewController {
     self.view.addSubview(signupButton)
     signupButton.snp.makeConstraints { (make) -> Void in
       make.bottom.equalTo(self.view)
-      make.height.equalTo((self.navigationController?.navigationBar.frame.height)!)
+      make.height.equalTo(50)
       make.width.equalTo(self.view)
     }
     signupButton.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +99,7 @@ class SignupViewController: BaseViewController {
       DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":emailTextField.text!,
                                                                            "passwd":passwordTextField.text!,
                                                                            "nickname":nicknameTextField.text!])
-      self.navigationController?.pushViewController(HomeViewController(), animated: true)
+      self.dismiss(animated: true, completion: nil)
     }
     else {
       log.error("Sign up fail")
@@ -98,4 +108,19 @@ class SignupViewController: BaseViewController {
       self.present(alert, animated: true, completion: nil)
     }
   }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    //
+    if textField.tag != 2 {
+      textField.resignFirstResponder()
+      let newTextField = self.view.viewWithTag(textField.tag + 1)
+      newTextField?.becomeFirstResponder()
+    } else {
+      textField.resignFirstResponder()
+      self.view.endEditing(true)
+    }
+    return true
+  }
+
+  
 }

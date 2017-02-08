@@ -11,16 +11,22 @@ import UIKit
 import SnapKit
 import MapKit
 
-class HomeViewController: BaseViewController {
+class HomeViewController: BaseViewController, CLLocationManagerDelegate {
   
   var map = MKMapView()
+  let locationManager = CLLocationManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if (keychain.get("token") != nil) {
+    if (keychain.get("token") == nil) {
       self.present(MainViewController(), animated: true, completion: nil)
     } else {
       requestLocationAccess()
+      if CLLocationManager.locationServicesEnabled() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.startUpdatingLocation()
+      }
       if Utils.Network.isInternetAvailable() == false {
         self.showNoConnectivityView()
       } else {
@@ -54,5 +60,12 @@ class HomeViewController: BaseViewController {
       PermissionManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
     }
   }
-  
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    let location = locations.last! as CLLocation
+    
+    let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+    
+    self.map.setRegion(region, animated: true)
+  }
 }

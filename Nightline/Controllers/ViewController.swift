@@ -42,7 +42,7 @@ class MainViewController: BaseViewController {
     self.view.addSubview(buttonSignup)
     buttonSignup.snp.makeConstraints { (make) -> Void in
       make.bottom.equalTo(self.view)
-      make.height.equalTo((self.navigationController?.navigationBar.frame.height)!)
+      make.height.equalTo(50)
       make.width.equalTo(self.view)
     }
     buttonSignup.translatesAutoresizingMaskIntoConstraints = false
@@ -64,12 +64,16 @@ class MainViewController: BaseViewController {
   
   func goToSignUp(sender: UIButton) {
     let nextViewController = SignupViewController()
-    self.navigationController?.pushViewController(nextViewController, animated: true)
+    self.present(nextViewController, animated: true, completion: { Void in
+      self.dismiss(animated: true, completion: nil)
+    })
   }
   
   func goToSignIn(sender: UIButton) {
     let nextViewController = SigninViewController()
-    self.navigationController?.pushViewController(nextViewController, animated: true)
+    self.present(nextViewController, animated: true, completion: { Void in
+      self.dismiss(animated: true, completion: nil)
+    })
   }
   
 }

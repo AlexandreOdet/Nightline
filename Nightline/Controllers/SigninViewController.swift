@@ -11,13 +11,13 @@ import UIKit
 import SnapKit
 import Rswift
 
-class SigninViewController: BaseViewController {
+class SigninViewController: BaseViewController, UITextFieldDelegate {
   
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()
   private let stackViewSignIn = UIStackView()
-  private let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
-  private let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+  private let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 400, height: 20))
+  private let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 400, height: 20))
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -49,6 +49,10 @@ class SigninViewController: BaseViewController {
     nicknameTextField.highlightBottom()
     nicknameTextField.textColor = self.getAccentColor()
     nicknameTextField.textAlignment = .center
+    nicknameTextField.returnKeyType = UIReturnKeyType.next
+    nicknameTextField.delegate = self
+    nicknameTextField.tag = 0
+    nicknameTextField.becomeFirstResponder()
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.password(),
@@ -57,6 +61,9 @@ class SigninViewController: BaseViewController {
     passwordTextField.textColor = self.getAccentColor()
     passwordTextField.textAlignment = .center
     passwordTextField.isSecureTextEntry = true
+    passwordTextField.returnKeyType = UIReturnKeyType.done
+    passwordTextField.delegate = self
+    passwordTextField.tag = 1
     
     stackViewSignIn.addArrangedSubview(nicknameTextField)
     stackViewSignIn.addArrangedSubview(passwordTextField)
@@ -77,8 +84,8 @@ class SigninViewController: BaseViewController {
   private func initBottomButton() {
     self.view.addSubview(signinButton)
     signinButton.snp.makeConstraints { (make) -> Void in
+      make.height.equalTo(50)
       make.bottom.equalTo(self.view)
-      make.height.equalTo((self.navigationController?.navigationBar.frame.height)!)
       make.width.equalTo(self.view)
     }
     signinButton.translatesAutoresizingMaskIntoConstraints = false
@@ -94,7 +101,7 @@ class SigninViewController: BaseViewController {
     nightlineLogo.snp.makeConstraints { (make) -> Void in
       make.bottom.equalTo(stackViewSignIn.snp.top).offset(-25)
       make.centerX.equalTo(self.view)
-      make.size.equalTo(20)
+      make.size.equalTo(150)
     }
     nightlineLogo.translatesAutoresizingMaskIntoConstraints = false
     nightlineLogo.image = R.image.logo()
@@ -110,7 +117,7 @@ class SigninViewController: BaseViewController {
         if keychain.get("token") == nil {
           keychain.set("AAAA", forKey: "token")
         }
-        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+        self.dismiss(animated: true, completion: nil)
       }
     }
     if isConnectionOk == false {
@@ -119,5 +126,17 @@ class SigninViewController: BaseViewController {
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
     }
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    if textField.tag == 0 {
+      textField.resignFirstResponder()
+      let newTextField = self.view.viewWithTag(textField.tag + 1)
+      newTextField?.becomeFirstResponder()
+    } else if textField.tag == 1 {
+      self.view.endEditing(true)
+      textField.resignFirstResponder()
+    }
+    return true
   }
 }
