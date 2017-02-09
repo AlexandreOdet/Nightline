@@ -11,27 +11,32 @@ import UIKit
 import SnapKit
 import Rswift
 
-class UserSettingsTableViewController: UIViewController {
+class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  var logoutButton = UIButton()
   var tableView = UITableView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    addLogoutButtonToView()
+    addTableView()
   }
   
-  private func addLogoutButtonToView() {
-    self.view.addSubview(logoutButton)
-    logoutButton.snp.makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self.view)
-      make.width.equalTo(self.view)
-      make.height.equalTo(50)
+  private func addTableView() {
+    self.view.addSubview(tableView)
+    tableView.snp.makeConstraints { (make) -> Void in
+      make.edges.equalTo(self.view)
     }
-    logoutButton.backgroundColor = UIColor.white
-    logoutButton.setTitle(R.string.localizable.logout(), for: .normal)
-    logoutButton.addTarget(self, action: #selector(performLogoutAction), for: .touchUpInside)
-    logoutButton.setTitleColor(.red, for: .normal)
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 5
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return UITableViewCell()
   }
   
   func performLogoutAction() {

@@ -64,16 +64,12 @@ class MainViewController: BaseViewController {
   
   func goToSignUp(sender: UIButton) {
     let nextViewController = SignupViewController()
-    self.present(nextViewController, animated: true, completion: { Void in
-      self.dismiss(animated: true, completion: nil)
-    })
+    self.present(nextViewController, animated: true, completion: nil)
   }
   
   func goToSignIn(sender: UIButton) {
     let nextViewController = SigninViewController()
-    self.present(nextViewController, animated: true, completion: { Void in
-      self.dismiss(animated: true, completion: nil)
-    })
+    self.present(nextViewController, animated: true, completion: nil)
   }
   
 }
