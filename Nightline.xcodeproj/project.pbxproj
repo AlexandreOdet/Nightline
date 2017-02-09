@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13153B87D1A4FBCA3E3D1A5D /* Pods_NightlineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82BFAD513DB6A99D8312DCE7 /* Pods_NightlineUITests.framework */; };
+		7B54F9751E49620800EF0E34 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B54F9741E49620800EF0E34 /* EditProfileViewController.swift */; };
 		C74D67E6E1D3CCD69BC76140 /* Pods_Nightline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26C36C169BD3522DEAF49DFA /* Pods_Nightline.framework */; };
 		FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB89D1E03495E00C8E437 /* R.generated.swift */; };
 		FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DB8A11E0349FE00C8E437 /* MapKit.framework */; };
@@ -65,6 +66,7 @@
 		328F72EDC5BFFCEBDCA6C9C6 /* Pods-Nightline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nightline.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nightline/Pods-Nightline.release.xcconfig"; sourceTree = "<group>"; };
 		4D29CABD4DA5A77DCF782125 /* Pods-NightlineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		52AC7CFB957CAC0F9B1438C7 /* Pods-NightlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B54F9741E49620800EF0E34 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = Controllers/EditProfileViewController.swift; sourceTree = "<group>"; };
 		82BFAD513DB6A99D8312DCE7 /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1DB89D1E03495E00C8E437 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		FA1DB8A11E0349FE00C8E437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -242,6 +244,7 @@
 				FAFF37651E034147001B2A8F /* SigninViewController.swift */,
 				FAFF37661E034147001B2A8F /* SignUpViewController.swift */,
 				FAFF37671E034147001B2A8F /* UserProfileViewController.swift */,
+				7B54F9741E49620800EF0E34 /* EditProfileViewController.swift */,
 				FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */,
 				FAFF37681E034147001B2A8F /* ViewController.swift */,
 			);
@@ -620,6 +623,7 @@
 				FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */,
 				FAFF37851E034678001B2A8F /* RABase.swift in Sources */,
 				FA3BFCDF1E039DE000A72B5F /* User.swift in Sources */,
+				7B54F9751E49620800EF0E34 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

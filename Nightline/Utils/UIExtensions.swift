@@ -34,6 +34,13 @@ extension UITextField {
     self.layer.addSublayer(border)
     self.layer.masksToBounds = true
   }
+    
+    func styleEditField() {
+        self.textAlignment = .center
+        self.backgroundColor = UIColor.gray
+        self.layer.cornerRadius = 5.0
+        self.textAlignment = .center
+    }
 }
 
 extension UIImageView {

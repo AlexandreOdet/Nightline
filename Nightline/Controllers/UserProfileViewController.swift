@@ -14,14 +14,14 @@ import Rswift
 
 class UserProfileViewController: BaseViewController {
   
-  var userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
-  
-  var headerView = UIView()
-  var userInfoStackView = UIStackView()
-  var userNameLabel = UILabel()
-  var userLastNameLabel = UILabel()
-  var age = UILabel()
-  var ville = UILabel()
+    var userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
+    var headerView = UIView()
+    var userInfoStackView = UIStackView()
+    var userNameLabel = UILabel()
+    var userLastNameLabel = UILabel()
+    var age = UILabel()
+    var ville = UILabel()
+    var logoutButton = UIButton()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,10 +30,11 @@ class UserProfileViewController: BaseViewController {
     } else {
         self.view.backgroundColor = UIColor.black
         self.addComponentsToView()
-        let rightBarButton = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(goToUserSettingsViewController))
+        let rightBarButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goToEditProfilViewController))
         //rightBarButton.tintColor = UIColor.orange
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
+    addLogoutButtonToView()
   }
   
   private func addComponentsToView() {
@@ -91,16 +92,39 @@ class UserProfileViewController: BaseViewController {
     userInfoStackView.addArrangedSubview(age)
     userInfoStackView.addArrangedSubview(ville)
   }
+    
+    private func addLogoutButtonToView() {
+        self.view.addSubview(logoutButton)
+        logoutButton.snp.makeConstraints { (make) -> Void in
+            make.bottom.equalTo(self.view)
+            make.width.equalTo(self.view)
+            make.height.equalTo(50)
+        }
+        logoutButton.backgroundColor = UIColor.white
+        logoutButton.setTitle(R.string.localizable.logout(), for: .normal)
+        logoutButton.addTarget(self, action: #selector(performLogoutAction), for: .touchUpInside)
+        logoutButton.setTitleColor(.red, for: .normal)
+    }
+    
+    func performLogoutAction() {
+        self.navigationController?.popToRootViewController(animated: true)
+        Utils.Network.logOutUser()
+    }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.navigationController?.navigationBar.barTintColor = UIColor.orange
-    self.navigationController?.navigationBar.tintColor = UIColor.black
+    //self.navigationController?.navigationBar.barTintColor = UIColor.orange
+    //self.navigationController?.navigationBar.tintColor = UIColor.black
   }
   
-  func goToUserSettingsViewController() {
-    let nextViewController = UserSettingsTableViewController()
-    self.navigationController?.pushViewController(nextViewController, animated: true)
-  }
+//  func goToUserSettingsViewController() {
+//    let nextViewController = UserSettingsTableViewController()
+//    self.navigationController?.pushViewController(nextViewController, animated: true)
+//  }
+    
+    func goToEditProfilViewController() {
+        let nextViewController = EditProfileViewController()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
   
 }
