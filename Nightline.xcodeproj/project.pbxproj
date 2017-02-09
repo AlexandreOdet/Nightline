@@ -14,7 +14,9 @@
 		FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DB8A11E0349FE00C8E437 /* MapKit.framework */; };
 		FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB8A71E034CEA00C8E437 /* Localizable.strings */; };
 		FA3BFCDC1E039D0900A72B5F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFCDB1E039D0900A72B5F /* UserManager.swift */; };
-		FA3BFCDF1E039DE000A72B5F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFCDE1E039DE000A72B5F /* User.swift */; };
+		FA75ADAB1E4BBA2B0078FFE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAA1E4BBA2B0078FFE9 /* User.swift */; };
+		FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */; };
+		FAA980121E4B77CF00DB98E6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA980111E4B77CF00DB98E6 /* TabBarController.swift */; };
 		FAE161E31E1E984800FDC85C /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */; };
 		FAFF372C1E03402F001B2A8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFF372A1E03402F001B2A8F /* Main.storyboard */; };
 		FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */; };
@@ -31,7 +33,6 @@
 		FAFF376E1E034147001B2A8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37681E034147001B2A8F /* ViewController.swift */; };
 		FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37721E03421D001B2A8F /* DatabaseHandler.swift */; };
 		FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37731E03421D001B2A8F /* DatabaseUser.swift */; };
-		FAFF37771E034295001B2A8F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAFF37761E034295001B2A8F /* Info.plist */; };
 		FAFF377E1E034654001B2A8F /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377B1E034654001B2A8F /* PermissionManager.swift */; };
 		FAFF377F1E034654001B2A8F /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377C1E034654001B2A8F /* UIExtensions.swift */; };
 		FAFF37801E034654001B2A8F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377D1E034654001B2A8F /* Utils.swift */; };
@@ -75,7 +76,9 @@
 		FA1DB8A81E034CEF00C8E437 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightline.entitlements; sourceTree = "<group>"; };
 		FA3BFCDB1E039D0900A72B5F /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Utils/UserManager.swift; sourceTree = "<group>"; };
-		FA3BFCDE1E039DE000A72B5F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		FA75ADAA1E4BBA2B0078FFE9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User/User.swift; sourceTree = "<group>"; };
+		FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Marker.swift; path = Models/Parties/Marker.swift; sourceTree = "<group>"; };
+		FAA980111E4B77CF00DB98E6 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettingsTableViewController.swift; path = Controllers/UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		FAFF37231E03402F001B2A8F /* Nightline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nightline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFF372B1E03402F001B2A8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -161,9 +164,26 @@
 		FA3BFCDD1E039DC600A72B5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FA3BFCDE1E039DE000A72B5F /* User.swift */,
+				FA75ADA51E4BB9820078FFE9 /* Parties */,
+				FA75ADA41E4BB97C0078FFE9 /* User */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FA75ADA41E4BB97C0078FFE9 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				FA75ADAA1E4BBA2B0078FFE9 /* User.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		FA75ADA51E4BB9820078FFE9 /* Parties */ = {
+			isa = PBXGroup;
+			children = (
+				FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */,
+			);
+			name = Parties;
 			sourceTree = "<group>";
 		};
 		FAFF371A1E03402F001B2A8F = {
@@ -241,12 +261,13 @@
 			children = (
 				FAFF37631E034147001B2A8F /* BaseViewController.swift */,
 				FAFF37641E034147001B2A8F /* HomeViewController.swift */,
-				FAFF37651E034147001B2A8F /* SigninViewController.swift */,
 				FAFF37661E034147001B2A8F /* SignUpViewController.swift */,
+				FAFF37651E034147001B2A8F /* SigninViewController.swift */,
 				FAFF37671E034147001B2A8F /* UserProfileViewController.swift */,
 				7B54F9741E49620800EF0E34 /* EditProfileViewController.swift */,
 				FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */,
 				FAFF37681E034147001B2A8F /* ViewController.swift */,
+				FAA980111E4B77CF00DB98E6 /* TabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -425,7 +446,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
-				FAFF37771E034295001B2A8F /* Info.plist in Resources */,
 				FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */,
 				FAFF372C1E03402F001B2A8F /* Main.storyboard in Resources */,
 			);
@@ -610,12 +630,14 @@
 				FAFF377F1E034654001B2A8F /* UIExtensions.swift in Sources */,
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
 				FAFF377E1E034654001B2A8F /* PermissionManager.swift in Sources */,
+				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
 				FAFF376C1E034147001B2A8F /* SignUpViewController.swift in Sources */,
 				FAFF376E1E034147001B2A8F /* ViewController.swift in Sources */,
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
 				FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */,
 				FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */,
 				FAFF376B1E034147001B2A8F /* SigninViewController.swift in Sources */,
+				FAA980121E4B77CF00DB98E6 /* TabBarController.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */,
 				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,
@@ -785,7 +807,7 @@
 				DEVELOPMENT_TEAM = 97AYAAKHJ8;
 				INFOPLIST_FILE = Nightline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = OdetAlexandre.Nightline;
+				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -802,7 +824,7 @@
 				DEVELOPMENT_TEAM = 97AYAAKHJ8;
 				INFOPLIST_FILE = Nightline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = OdetAlexandre.Nightline;
+				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -29,13 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     navigationBarAppearace.barTintColor = UIColor.orange
     self.window = UIWindow(frame: UIScreen.main.bounds)
     let nav1 = UINavigationController()
-    if keychain.get("token") != nil {
-      let mainView = HomeViewController()
-      nav1.viewControllers = [mainView]
-    } else {
-      let mainView = MainViewController() //ViewController = Name of your controller
-      nav1.viewControllers = [mainView]
-    }
+    let mainView = TabBarController()
+    nav1.viewControllers = [mainView]
     self.window!.rootViewController = nav1
     self.window?.makeKeyAndVisible()
     return true
