@@ -32,8 +32,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     tabTwo.tabBarItem = tabTwoBarItem2
     
+    let tabThree = UserSettingsTableViewController()
+    let tabBarThreeItem = UITabBarItem(title: "Settings", image: R.image.settings(), selectedImage: R.image.settings_filled())
+    tabThree.tabBarItem = tabBarThreeItem
+    
     self.tabBar.barTintColor = UIColor.orange
-    self.viewControllers = [tabOne, tabTwo]
+    self.viewControllers = [tabOne, tabTwo, tabThree]
   }
   
   // UITabBarControllerDelegate method

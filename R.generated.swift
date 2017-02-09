@@ -22,7 +22,7 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
     /// Image `avatar`.
     static let avatar = ImageResource(bundle: _R.hostingBundle, name: "avatar")
@@ -34,6 +34,10 @@ struct R {
     static let placeholder_filled = ImageResource(bundle: _R.hostingBundle, name: "placeholder_filled")
     /// Image `placeholder`.
     static let placeholder = ImageResource(bundle: _R.hostingBundle, name: "placeholder")
+    /// Image `settings_filled`.
+    static let settings_filled = ImageResource(bundle: _R.hostingBundle, name: "settings_filled")
+    /// Image `settings`.
+    static let settings = ImageResource(bundle: _R.hostingBundle, name: "settings")
     /// Image `user`.
     static let user = ImageResource(bundle: _R.hostingBundle, name: "user")
     
@@ -60,6 +64,16 @@ struct R {
     /// `UIImage(named: "placeholder_filled", bundle: ..., traitCollection: ...)`
     static func placeholder_filled(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.placeholder_filled, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "settings", bundle: ..., traitCollection: ...)`
+    static func settings(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.settings, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "settings_filled", bundle: ..., traitCollection: ...)`
+    static func settings_filled(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.settings_filled, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "user", bundle: ..., traitCollection: ...)`

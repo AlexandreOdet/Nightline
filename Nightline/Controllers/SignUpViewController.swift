@@ -99,7 +99,10 @@ class SignupViewController: BaseViewController, UITextFieldDelegate {
       DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":emailTextField.text!,
                                                                            "passwd":passwordTextField.text!,
                                                                            "nickname":nicknameTextField.text!])
-      self.dismiss(animated: true, completion: nil)
+      let presentingViewController = self.presentingViewController
+      self.dismiss(animated: false, completion: {
+        presentingViewController!.dismiss(animated: true, completion: {})
+      })
     }
     else {
       log.error("Sign up fail")

@@ -15,6 +15,8 @@
 		FA3BFCDC1E039D0900A72B5F /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFCDB1E039D0900A72B5F /* UserManager.swift */; };
 		FA75ADAB1E4BBA2B0078FFE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAA1E4BBA2B0078FFE9 /* User.swift */; };
 		FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */; };
+		FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */; };
+		FA75ADB51E4CE6180078FFE9 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB41E4CE6180078FFE9 /* UserProfileCell.swift */; };
 		FAA980121E4B77CF00DB98E6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA980111E4B77CF00DB98E6 /* TabBarController.swift */; };
 		FAE161E31E1E984800FDC85C /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */; };
 		FAFF372C1E03402F001B2A8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFF372A1E03402F001B2A8F /* Main.storyboard */; };
@@ -76,6 +78,8 @@
 		FA3BFCDB1E039D0900A72B5F /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Utils/UserManager.swift; sourceTree = "<group>"; };
 		FA75ADAA1E4BBA2B0078FFE9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User/User.swift; sourceTree = "<group>"; };
 		FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Marker.swift; path = Models/Parties/Marker.swift; sourceTree = "<group>"; };
+		FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCell.swift; path = Enums/CustomCells/Settings/SettingsCell.swift; sourceTree = "<group>"; };
+		FA75ADB41E4CE6180078FFE9 /* UserProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
 		FAA980111E4B77CF00DB98E6 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettingsTableViewController.swift; path = Controllers/UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		FAFF37231E03402F001B2A8F /* Nightline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nightline.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +188,38 @@
 			name = Parties;
 			sourceTree = "<group>";
 		};
+		FA75ADAE1E4CE3B00078FFE9 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				FA75ADAF1E4CE3F80078FFE9 /* Settings */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		FA75ADAF1E4CE3F80078FFE9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		FA75ADB21E4CE5C20078FFE9 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				FA75ADB31E4CE6060078FFE9 /* Settings */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		FA75ADB31E4CE6060078FFE9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA75ADB41E4CE6180078FFE9 /* UserProfileCell.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		FAFF371A1E03402F001B2A8F = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +293,7 @@
 		FAFF37621E034137001B2A8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA75ADB21E4CE5C20078FFE9 /* CustomCells */,
 				FAFF37631E034147001B2A8F /* BaseViewController.swift */,
 				FAFF37641E034147001B2A8F /* HomeViewController.swift */,
 				FAFF37661E034147001B2A8F /* SignUpViewController.swift */,
@@ -300,6 +337,7 @@
 		FAFF37881E034703001B2A8F /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				FA75ADAE1E4CE3B00078FFE9 /* CustomCells */,
 				FAFF37891E034709001B2A8F /* User */,
 			);
 			name = Enums;
@@ -620,6 +658,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */,
 				FA3BFCDC1E039D0900A72B5F /* UserManager.swift in Sources */,
 				FAFF376A1E034147001B2A8F /* HomeViewController.swift in Sources */,
 				FAFF376D1E034147001B2A8F /* UserProfileViewController.swift in Sources */,
@@ -635,6 +674,7 @@
 				FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */,
 				FAFF376B1E034147001B2A8F /* SigninViewController.swift in Sources */,
 				FAA980121E4B77CF00DB98E6 /* TabBarController.swift in Sources */,
+				FA75ADB51E4CE6180078FFE9 /* UserProfileCell.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */,
 				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,
