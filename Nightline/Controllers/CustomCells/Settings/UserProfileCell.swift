@@ -44,5 +44,15 @@ class UserProfileCell: UITableViewCell {
       make.trailing.equalTo(self.contentView).offset(-15)
     }
     labelName.translatesAutoresizingMaskIntoConstraints = false
+    
+    self.contentView.addSubview(labelEmail)
+    labelEmail.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(self.contentView.snp.centerY).offset(3)
+      make.leading.equalTo(userPicture.snp.trailing).offset(10)
+      make.trailing.equalTo(self.contentView).offset(-15)
+    }
+    labelEmail.translatesAutoresizingMaskIntoConstraints = false
+    labelEmail.text = "test@test.com"
+    labelEmail.textColor = UIColor.lightGray
   }
 }

@@ -13,6 +13,8 @@ import MapKit
 
 class HomeViewController: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
   
+  static let notificationIdentifier = "presentConnexionScreen"
+  
   var map = MKMapView()
   let locationManager = CLLocationManager()
   
@@ -41,6 +43,7 @@ class HomeViewController: BaseViewController, CLLocationManagerDelegate, MKMapVi
         self.navigationItem.rightBarButtonItem = rightBarButton
       }
     }
+    NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: HomeViewController.notificationIdentifier), object: nil)
   }
   
   func goToUserProfileViewController() {
@@ -58,7 +61,7 @@ class HomeViewController: BaseViewController, CLLocationManagerDelegate, MKMapVi
       print("location access denied")
       
     default:
-      PermissionManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
+      self.locationManager.requestWhenInUseAuthorization()
     }
   }
   
@@ -102,4 +105,9 @@ class HomeViewController: BaseViewController, CLLocationManagerDelegate, MKMapVi
                         coordinate: GML)
     self.map.addAnnotation(marker)
   }
+  
+  func callbackObserver() {
+    self.present(MainViewController(), animated: true, completion: nil)
+  }
+  
 }

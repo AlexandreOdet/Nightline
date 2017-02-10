@@ -11,10 +11,14 @@ import UIKit
 import SnapKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
+  
+  static let notificationIdentifier = "LogoutNotification"
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.delegate = self
-      }
+    NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: TabBarController.notificationIdentifier), object: nil)
+  }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -44,4 +48,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
   func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
     self.title = viewController.title
   }
+  
+  func callbackObserver() {
+    self.selectedIndex = 0
+    let notificationName = Notification.Name(HomeViewController.notificationIdentifier)
+    NotificationCenter.default.post(name: notificationName, object: nil)
+  }
+  
 }

@@ -18,6 +18,7 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.title = R.string.localizable.settings()
     addTableView()
   }
   
@@ -30,7 +31,6 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
     tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.delegate = self
     tableView.dataSource = self
-    tableView.isUserInteractionEnabled = false
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -59,23 +59,39 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
     if indexPath.section == SettingsCell.Profile.rawValue {
       let profileCell = UserProfileCell()
       profileCell.labelName.text = "Alex Odet"
+      profileCell.isUserInteractionEnabled = false //soon édition du profil
       return profileCell
     } else {
       if indexPath.section == SettingsCell.Preference.rawValue {
         cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
-        cell.textLabel?.text = "Préférences \(indexPath.row)"
+        cell.textLabel?.text = (indexPath.row == 0) ? R.string.localizable.etabl() : R.string.localizable.drinks()
         cell.accessoryType = .disclosureIndicator
       } else if indexPath.section == SettingsCell.Info.rawValue {
         cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
         cell.textLabel?.text = "Infos \(indexPath.row)"
+        cell.isUserInteractionEnabled = false
       } else {
         cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
-        cell.textLabel?.text = "Se déconnecter"
+        cell.textLabel?.text = R.string.localizable.logout()
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.textColor = .red
       }
     }
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if indexPath.section == SettingsCell.Preference.rawValue {
+      if indexPath.row == 0 {
+        let nextViewController = EtablishmentTableViewController()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+      } else {
+        let nextViewController = ConsommationTableViewController()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+      }
+    } else if indexPath.section == SettingsCell.Logout.rawValue {
+      self.performLogoutAction()
+    }
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -86,9 +102,8 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
   }
   
   func performLogoutAction() {
-    if let nav = self.navigationController {
-      nav.popToRootViewController(animated: true)
-    }
     Utils.Network.logOutUser()
+    let notificationName = Notification.Name(TabBarController.notificationIdentifier)
+    NotificationCenter.default.post(name: notificationName, object: nil)
   }
 }

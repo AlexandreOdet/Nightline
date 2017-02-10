@@ -16,7 +16,11 @@
 		FA75ADAB1E4BBA2B0078FFE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAA1E4BBA2B0078FFE9 /* User.swift */; };
 		FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */; };
 		FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */; };
-		FA75ADB51E4CE6180078FFE9 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB41E4CE6180078FFE9 /* UserProfileCell.swift */; };
+		FA75ADB81E4D30420078FFE9 /* Etablishments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB71E4D30420078FFE9 /* Etablishments.swift */; };
+		FA75ADBA1E4D321E0078FFE9 /* Consommation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB91E4D321E0078FFE9 /* Consommation.swift */; };
+		FA75ADBC1E4D32440078FFE9 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADBB1E4D32440078FFE9 /* UserProfileCell.swift */; };
+		FA75ADBE1E4D357B0078FFE9 /* EtablishmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADBD1E4D357B0078FFE9 /* EtablishmentTableViewController.swift */; };
+		FA75ADC01E4D3BDE0078FFE9 /* ConsommationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADBF1E4D3BDE0078FFE9 /* ConsommationTableViewController.swift */; };
 		FAA980121E4B77CF00DB98E6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA980111E4B77CF00DB98E6 /* TabBarController.swift */; };
 		FAE161E31E1E984800FDC85C /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */; };
 		FAFF372C1E03402F001B2A8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFF372A1E03402F001B2A8F /* Main.storyboard */; };
@@ -34,7 +38,6 @@
 		FAFF376E1E034147001B2A8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37681E034147001B2A8F /* ViewController.swift */; };
 		FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37721E03421D001B2A8F /* DatabaseHandler.swift */; };
 		FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37731E03421D001B2A8F /* DatabaseUser.swift */; };
-		FAFF377E1E034654001B2A8F /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377B1E034654001B2A8F /* PermissionManager.swift */; };
 		FAFF377F1E034654001B2A8F /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377C1E034654001B2A8F /* UIExtensions.swift */; };
 		FAFF37801E034654001B2A8F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377D1E034654001B2A8F /* Utils.swift */; };
 		FAFF37851E034678001B2A8F /* RABase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37841E034678001B2A8F /* RABase.swift */; };
@@ -79,7 +82,11 @@
 		FA75ADAA1E4BBA2B0078FFE9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User/User.swift; sourceTree = "<group>"; };
 		FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Marker.swift; path = Models/Parties/Marker.swift; sourceTree = "<group>"; };
 		FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCell.swift; path = Enums/CustomCells/Settings/SettingsCell.swift; sourceTree = "<group>"; };
-		FA75ADB41E4CE6180078FFE9 /* UserProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
+		FA75ADB71E4D30420078FFE9 /* Etablishments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Etablishments.swift; path = Enums/Parties/Etablishments.swift; sourceTree = "<group>"; };
+		FA75ADB91E4D321E0078FFE9 /* Consommation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Consommation.swift; path = Enums/Parties/Consommation.swift; sourceTree = "<group>"; };
+		FA75ADBB1E4D32440078FFE9 /* UserProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileCell.swift; path = Controllers/CustomCells/Settings/UserProfileCell.swift; sourceTree = "<group>"; };
+		FA75ADBD1E4D357B0078FFE9 /* EtablishmentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishmentTableViewController.swift; path = Controllers/EtablishmentTableViewController.swift; sourceTree = "<group>"; };
+		FA75ADBF1E4D3BDE0078FFE9 /* ConsommationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsommationTableViewController.swift; path = Controllers/ConsommationTableViewController.swift; sourceTree = "<group>"; };
 		FAA980111E4B77CF00DB98E6 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettingsTableViewController.swift; path = Controllers/UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		FAFF37231E03402F001B2A8F /* Nightline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nightline.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +110,6 @@
 		FAFF37721E03421D001B2A8F /* DatabaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseHandler.swift; path = DataBase/DatabaseHandler.swift; sourceTree = "<group>"; };
 		FAFF37731E03421D001B2A8F /* DatabaseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseUser.swift; path = DataBase/DatabaseUser.swift; sourceTree = "<group>"; };
 		FAFF37761E034295001B2A8F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAFF377B1E034654001B2A8F /* PermissionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PermissionManager.swift; path = Utils/PermissionManager.swift; sourceTree = "<group>"; };
 		FAFF377C1E034654001B2A8F /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIExtensions.swift; path = Utils/UIExtensions.swift; sourceTree = "<group>"; };
 		FAFF377D1E034654001B2A8F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Utils/Utils.swift; sourceTree = "<group>"; };
 		FAFF37841E034678001B2A8F /* RABase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RABase.swift; path = Network/RABase.swift; sourceTree = "<group>"; };
@@ -215,9 +221,18 @@
 		FA75ADB31E4CE6060078FFE9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				FA75ADB41E4CE6180078FFE9 /* UserProfileCell.swift */,
+				FA75ADBB1E4D32440078FFE9 /* UserProfileCell.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		FA75ADB61E4D301F0078FFE9 /* Parties */ = {
+			isa = PBXGroup;
+			children = (
+				FA75ADB71E4D30420078FFE9 /* Etablishments.swift */,
+				FA75ADB91E4D321E0078FFE9 /* Consommation.swift */,
+			);
+			name = Parties;
 			sourceTree = "<group>";
 		};
 		FAFF371A1E03402F001B2A8F = {
@@ -300,6 +315,8 @@
 				FAFF37651E034147001B2A8F /* SigninViewController.swift */,
 				FAFF37671E034147001B2A8F /* UserProfileViewController.swift */,
 				FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */,
+				FA75ADBF1E4D3BDE0078FFE9 /* ConsommationTableViewController.swift */,
+				FA75ADBD1E4D357B0078FFE9 /* EtablishmentTableViewController.swift */,
 				FAFF37681E034147001B2A8F /* ViewController.swift */,
 				FAA980111E4B77CF00DB98E6 /* TabBarController.swift */,
 			);
@@ -318,7 +335,6 @@
 		FAFF377A1E034646001B2A8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				FAFF377B1E034654001B2A8F /* PermissionManager.swift */,
 				FAFF377C1E034654001B2A8F /* UIExtensions.swift */,
 				FAFF377D1E034654001B2A8F /* Utils.swift */,
 				FA3BFCDB1E039D0900A72B5F /* UserManager.swift */,
@@ -337,6 +353,7 @@
 		FAFF37881E034703001B2A8F /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				FA75ADB61E4D301F0078FFE9 /* Parties */,
 				FA75ADAE1E4CE3B00078FFE9 /* CustomCells */,
 				FAFF37891E034709001B2A8F /* User */,
 			);
@@ -665,22 +682,25 @@
 				FAE161E31E1E984800FDC85C /* UserSettingsTableViewController.swift in Sources */,
 				FAFF377F1E034654001B2A8F /* UIExtensions.swift in Sources */,
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
-				FAFF377E1E034654001B2A8F /* PermissionManager.swift in Sources */,
 				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
 				FAFF376C1E034147001B2A8F /* SignUpViewController.swift in Sources */,
 				FAFF376E1E034147001B2A8F /* ViewController.swift in Sources */,
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
+				FA75ADBA1E4D321E0078FFE9 /* Consommation.swift in Sources */,
 				FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */,
 				FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */,
+				FA75ADBE1E4D357B0078FFE9 /* EtablishmentTableViewController.swift in Sources */,
+				FA75ADC01E4D3BDE0078FFE9 /* ConsommationTableViewController.swift in Sources */,
 				FAFF376B1E034147001B2A8F /* SigninViewController.swift in Sources */,
 				FAA980121E4B77CF00DB98E6 /* TabBarController.swift in Sources */,
-				FA75ADB51E4CE6180078FFE9 /* UserProfileCell.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
+				FA75ADB81E4D30420078FFE9 /* Etablishments.swift in Sources */,
 				FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */,
 				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,
 				FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */,
 				FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */,
 				FAFF37851E034678001B2A8F /* RABase.swift in Sources */,
+				FA75ADBC1E4D32440078FFE9 /* UserProfileCell.swift in Sources */,
 				FA75ADAB1E4BBA2B0078FFE9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

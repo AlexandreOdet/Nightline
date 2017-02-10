@@ -114,8 +114,40 @@ struct R {
   
   /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 11 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 26 localization keys.
     struct localizable {
+      /// fr translation: Bar
+      /// 
+      /// Locales: fr, en
+      static let bar = StringResource(key: "bar", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Bar lounge
+      /// 
+      /// Locales: fr, en
+      static let lounge = StringResource(key: "lounge", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Bière
+      /// 
+      /// Locales: fr, en
+      static let beer = StringResource(key: "beer", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Boissons
+      /// 
+      /// Locales: fr, en
+      static let drinks = StringResource(key: "drinks", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Boîte de nuit
+      /// 
+      /// Locales: fr, en
+      static let club = StringResource(key: "club", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Bourbon
+      /// 
+      /// Locales: fr, en
+      static let bourbon = StringResource(key: "bourbon", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Champagne
+      /// 
+      /// Locales: fr, en
+      static let champagne = StringResource(key: "champagne", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Cocktails
+      /// 
+      /// Locales: fr, en
+      static let cocktail = StringResource(key: "cocktail", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: E-mail
       /// 
       /// Locales: fr, en
@@ -124,6 +156,10 @@ struct R {
       /// 
       /// Locales: fr, en
       static let error = StringResource(key: "error", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Établissements
+      /// 
+      /// Locales: fr, en
+      static let etabl = StringResource(key: "etabl", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: Femme
       /// 
       /// Locales: fr, en
@@ -148,6 +184,18 @@ struct R {
       /// 
       /// Locales: fr, en
       static let nickname = StringResource(key: "nickname", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Pub irlandais
+      /// 
+      /// Locales: fr, en
+      static let pub = StringResource(key: "pub", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Réglages
+      /// 
+      /// Locales: fr, en
+      static let settings = StringResource(key: "settings", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Rhum
+      /// 
+      /// Locales: fr, en
+      static let rhum = StringResource(key: "rhum", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: S'enregistrer
       /// 
       /// Locales: fr, en
@@ -160,6 +208,74 @@ struct R {
       /// 
       /// Locales: fr, en
       static let logout = StringResource(key: "logout", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Vin
+      /// 
+      /// Locales: fr, en
+      static let wine = StringResource(key: "wine", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Vodka
+      /// 
+      /// Locales: fr, en
+      static let vodka = StringResource(key: "vodka", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Whisky
+      /// 
+      /// Locales: fr, en
+      static let whisky = StringResource(key: "whisky", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      
+      /// fr translation: Bar
+      /// 
+      /// Locales: fr, en
+      static func bar(_: Void = ()) -> String {
+        return NSLocalizedString("bar", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Bar lounge
+      /// 
+      /// Locales: fr, en
+      static func lounge(_: Void = ()) -> String {
+        return NSLocalizedString("lounge", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Bière
+      /// 
+      /// Locales: fr, en
+      static func beer(_: Void = ()) -> String {
+        return NSLocalizedString("beer", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Boissons
+      /// 
+      /// Locales: fr, en
+      static func drinks(_: Void = ()) -> String {
+        return NSLocalizedString("drinks", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Boîte de nuit
+      /// 
+      /// Locales: fr, en
+      static func club(_: Void = ()) -> String {
+        return NSLocalizedString("club", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Bourbon
+      /// 
+      /// Locales: fr, en
+      static func bourbon(_: Void = ()) -> String {
+        return NSLocalizedString("bourbon", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Champagne
+      /// 
+      /// Locales: fr, en
+      static func champagne(_: Void = ()) -> String {
+        return NSLocalizedString("champagne", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Cocktails
+      /// 
+      /// Locales: fr, en
+      static func cocktail(_: Void = ()) -> String {
+        return NSLocalizedString("cocktail", bundle: _R.hostingBundle, comment: "")
+      }
       
       /// fr translation: E-mail
       /// 
@@ -173,6 +289,13 @@ struct R {
       /// Locales: fr, en
       static func error(_: Void = ()) -> String {
         return NSLocalizedString("error", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Établissements
+      /// 
+      /// Locales: fr, en
+      static func etabl(_: Void = ()) -> String {
+        return NSLocalizedString("etabl", bundle: _R.hostingBundle, comment: "")
       }
       
       /// fr translation: Femme
@@ -217,6 +340,27 @@ struct R {
         return NSLocalizedString("nickname", bundle: _R.hostingBundle, comment: "")
       }
       
+      /// fr translation: Pub irlandais
+      /// 
+      /// Locales: fr, en
+      static func pub(_: Void = ()) -> String {
+        return NSLocalizedString("pub", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Réglages
+      /// 
+      /// Locales: fr, en
+      static func settings(_: Void = ()) -> String {
+        return NSLocalizedString("settings", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Rhum
+      /// 
+      /// Locales: fr, en
+      static func rhum(_: Void = ()) -> String {
+        return NSLocalizedString("rhum", bundle: _R.hostingBundle, comment: "")
+      }
+      
       /// fr translation: S'enregistrer
       /// 
       /// Locales: fr, en
@@ -236,6 +380,27 @@ struct R {
       /// Locales: fr, en
       static func logout(_: Void = ()) -> String {
         return NSLocalizedString("logout", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Vin
+      /// 
+      /// Locales: fr, en
+      static func wine(_: Void = ()) -> String {
+        return NSLocalizedString("wine", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Vodka
+      /// 
+      /// Locales: fr, en
+      static func vodka(_: Void = ()) -> String {
+        return NSLocalizedString("vodka", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Whisky
+      /// 
+      /// Locales: fr, en
+      static func whisky(_: Void = ()) -> String {
+        return NSLocalizedString("whisky", bundle: _R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
