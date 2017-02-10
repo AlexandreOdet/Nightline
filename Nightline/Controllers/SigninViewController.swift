@@ -117,7 +117,10 @@ class SigninViewController: BaseViewController, UITextFieldDelegate {
         if keychain.get("token") == nil {
           keychain.set("AAAA", forKey: "token")
         }
-        self.dismiss(animated: true, completion: nil)
+        let presentingViewController = self.presentingViewController
+        self.dismiss(animated: false, completion: {
+          presentingViewController!.dismiss(animated: true, completion: {})
+        })
       }
     }
     if isConnectionOk == false {
