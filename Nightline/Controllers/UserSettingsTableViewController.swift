@@ -59,7 +59,8 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
     if indexPath.section == SettingsCell.Profile.rawValue {
       let profileCell = UserProfileCell()
       profileCell.labelName.text = "Alex Odet"
-      profileCell.isUserInteractionEnabled = false //soon édition du profil
+      profileCell.isUserInteractionEnabled = true //soon édition du profil
+        
       return profileCell
     } else {
       if indexPath.section == SettingsCell.Preference.rawValue {
@@ -91,6 +92,8 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
       }
     } else if indexPath.section == SettingsCell.Logout.rawValue {
       self.performLogoutAction()
+    } else if indexPath.section == SettingsCell.Profile.rawValue {
+        self.goToEditProfilViewController()
     }
   }
   
@@ -106,4 +109,9 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
     let notificationName = Notification.Name(TabBarController.notificationIdentifier)
     NotificationCenter.default.post(name: notificationName, object: nil)
   }
+    
+    func goToEditProfilViewController() {
+        let nextViewController = EditProfileViewController()
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
 }

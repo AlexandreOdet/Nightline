@@ -101,6 +101,7 @@ class EditProfileViewController: BaseViewController {
         ageLabel.textAlignment = .left
         age.textColor = self.getAccentColor()
         age.styleEditField()
+        age.keyboardType = UIKeyboardType.numberPad
         cityLabel.textColor = self.getAccentColor()
         cityLabel.textAlignment = .left
         city.textColor = self.getAccentColor()

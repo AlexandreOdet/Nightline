@@ -22,6 +22,7 @@ class UserProfileViewController: BaseViewController {
     var age = UILabel()
     var ville = UILabel()
     var logoutButton = UIButton()
+    var editProfileButton = UIButton()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,7 +32,6 @@ class UserProfileViewController: BaseViewController {
         self.view.backgroundColor = UIColor.black
         self.addComponentsToView()
         let rightBarButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goToEditProfilViewController))
-        //rightBarButton.tintColor = UIColor.orange
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
     addLogoutButtonToView()
