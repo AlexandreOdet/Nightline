@@ -316,10 +316,10 @@
 				FAFF37661E034147001B2A8F /* SignUpViewController.swift */,
 				FAFF37651E034147001B2A8F /* SigninViewController.swift */,
 				FAFF37671E034147001B2A8F /* UserProfileViewController.swift */,
+				7BD06A261E4D6C3E008FF04B /* EditProfileViewController.swift */,
 				FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */,
 				FA75ADBF1E4D3BDE0078FFE9 /* ConsommationTableViewController.swift */,
 				FA75ADBD1E4D357B0078FFE9 /* EtablishmentTableViewController.swift */,
-				7BD06A261E4D6C3E008FF04B /* EditProfileViewController.swift */,
 				FAFF37681E034147001B2A8F /* ViewController.swift */,
 				FAA980111E4B77CF00DB98E6 /* TabBarController.swift */,
 			);

@@ -11,12 +11,14 @@ import RealmSwift
 
 class User {
   
-  var firstName = ""
-  var lastName = ""
-  var email = ""
-  var nickname = ""
-  var passwd = ""
-  var id = 0
+    var firstName = ""
+    var lastName = ""
+    var email = ""
+    var nickname = ""
+    var passwd = ""
+    var city = ""
+    var age = ""
+    var id = 0
   
   required init() {
     
@@ -28,6 +30,8 @@ class User {
     self.email = otherUser.email
     self.passwd = otherUser.passwd
     self.nickname = otherUser.nickname
+    self.city = otherUser.city
+    self.age = otherUser.age
     self.id = otherUser.id
   }
 }
