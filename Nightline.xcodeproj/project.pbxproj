@@ -24,6 +24,10 @@
 		FA75ADC01E4D3BDE0078FFE9 /* ConsommationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADBF1E4D3BDE0078FFE9 /* ConsommationTableViewController.swift */; };
 		FAA980121E4B77CF00DB98E6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA980111E4B77CF00DB98E6 /* TabBarController.swift */; };
 		FAE161E31E1E984800FDC85C /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */; };
+		FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8001E554C7B003AF68E /* Animation.swift */; };
+		FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8021E554EC0003AF68E /* Plist.swift */; };
+		FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */; };
+		FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8071E55539B003AF68E /* UserPreferences.swift */; };
 		FAFF372C1E03402F001B2A8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFF372A1E03402F001B2A8F /* Main.storyboard */; };
 		FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */; };
 		FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFF37301E03402F001B2A8F /* Assets.xcassets */; };
@@ -91,6 +95,10 @@
 		FA75ADBF1E4D3BDE0078FFE9 /* ConsommationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsommationTableViewController.swift; path = Controllers/ConsommationTableViewController.swift; sourceTree = "<group>"; };
 		FAA980111E4B77CF00DB98E6 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
 		FAE161E21E1E984800FDC85C /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettingsTableViewController.swift; path = Controllers/UserSettingsTableViewController.swift; sourceTree = "<group>"; };
+		FAFBF8001E554C7B003AF68E /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Utils/Animation.swift; sourceTree = "<group>"; };
+		FAFBF8021E554EC0003AF68E /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Plist.swift; path = Utils/Plist.swift; sourceTree = "<group>"; };
+		FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelsProtocol.swift; path = Protocols/ModelsProtocol.swift; sourceTree = "<group>"; };
+		FAFBF8071E55539B003AF68E /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPreferences.swift; path = Models/User/UserPreferences.swift; sourceTree = "<group>"; };
 		FAFF37231E03402F001B2A8F /* Nightline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nightline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFF372B1E03402F001B2A8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAFF372E1E03402F001B2A8F /* Nightline.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nightline.xcdatamodel; sourceTree = "<group>"; };
@@ -184,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				FA75ADAA1E4BBA2B0078FFE9 /* User.swift */,
+				FAFBF8071E55539B003AF68E /* UserPreferences.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -237,6 +246,14 @@
 			name = Parties;
 			sourceTree = "<group>";
 		};
+		FAFBF8041E555117003AF68E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		FAFF371A1E03402F001B2A8F = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +281,7 @@
 		FAFF37251E03402F001B2A8F /* Nightline */ = {
 			isa = PBXGroup;
 			children = (
+				FAFBF8041E555117003AF68E /* Protocols */,
 				FA3BFCDD1E039DC600A72B5F /* Models */,
 				FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */,
 				FAFF37881E034703001B2A8F /* Enums */,
@@ -341,6 +359,8 @@
 				FAFF377C1E034654001B2A8F /* UIExtensions.swift */,
 				FAFF377D1E034654001B2A8F /* Utils.swift */,
 				FA3BFCDB1E039D0900A72B5F /* UserManager.swift */,
+				FAFBF8001E554C7B003AF68E /* Animation.swift */,
+				FAFBF8021E554EC0003AF68E /* Plist.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -678,6 +698,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */,
+				FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */,
 				FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */,
 				FA3BFCDC1E039D0900A72B5F /* UserManager.swift in Sources */,
 				FAFF376A1E034147001B2A8F /* HomeViewController.swift in Sources */,
@@ -687,6 +709,7 @@
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
 				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
 				FAFF376C1E034147001B2A8F /* SignUpViewController.swift in Sources */,
+				FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */,
 				FAFF376E1E034147001B2A8F /* ViewController.swift in Sources */,
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
 				FA75ADBA1E4D321E0078FFE9 /* Consommation.swift in Sources */,
@@ -698,6 +721,7 @@
 				FAA980121E4B77CF00DB98E6 /* TabBarController.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FA75ADB81E4D30420078FFE9 /* Etablishments.swift in Sources */,
+				FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */,
 				7BD06A271E4D6C3E008FF04B /* EditProfileViewController.swift in Sources */,
 				FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */,
 				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,

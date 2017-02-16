@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class DbUser: Object {
+class DbUser: Object, ModelsProtocol {
     dynamic var id = -1
     dynamic var firstName = ""
     dynamic var lastName = ""
@@ -19,6 +19,7 @@ class DbUser: Object {
     dynamic var nickname = ""
     dynamic var age = ""
     dynamic var city = ""
+    var preferences = UserPreferences()
   
   override static func primaryKey() -> String? {
     return "id"
@@ -31,4 +32,9 @@ class DbUser: Object {
   func areUserIdOk(nickname: String, passwd: String) -> Bool {
     return nickname == self.nickname && passwd == self.passwd
   }
+  
+  func toString() -> String {
+    return ""
+  }
+  
 }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class EtablishmentTableViewController: UITableViewController {
+final class EtablishmentTableViewController: UITableViewController {
   
   let reuseIdentifier = "EtablishmentCell"
   let array = Etablishment.unknown.getAllEtablishmentType()
@@ -32,11 +32,13 @@ class EtablishmentTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
     cell.textLabel?.text = self.array[indexPath.row].toString()
+    cell.selectionStyle = .none
     return cell
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if let cell = tableView.cellForRow(at: indexPath) {
+      cell.onClick()
       if cell.accessoryType == .none {
         cell.accessoryType = .checkmark
       } else {

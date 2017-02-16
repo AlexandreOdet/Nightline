@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import MapKit
 
-class HomeViewController: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+final class HomeViewController: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
   
   static let notificationIdentifier = "presentConnexionScreen"
   
@@ -83,6 +83,7 @@ class HomeViewController: BaseViewController, CLLocationManagerDelegate, MKMapVi
         pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         pinView!.canShowCallout = true
         pinView?.image = R.image.pin()
+        pinView?.tag = 1
       }
       else {
         pinView?.annotation = annotation
@@ -92,17 +93,29 @@ class HomeViewController: BaseViewController, CLLocationManagerDelegate, MKMapVi
     return nil
   }
   
+  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    guard view.tag == 1 else {
+      return
+    }
+    let actionList = UIAlertController(title: "", message: "Comment souhaitez-vous vous y rendre?", preferredStyle: .actionSheet)
+    actionList.addAction(UIAlertAction(title: "Voitures", style: .default, handler: nil))
+    actionList.addAction(UIAlertAction(title: "A Pied", style: .default, handler: nil))
+    actionList.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
+    self.present(actionList, animated: true, completion: nil)
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.addMarkerToMap()
   }
   
   private func addMarkerToMap() {
-    let GML = CLLocationCoordinate2DMake(42.328994, -83.039708)
-    let marker = Marker(title: "General Motors",
-                        locationName: "Renaissance Center",
+    //let GML = CLLocationCoordinate2DMake(42.328994, -83.039708)
+    let unionSquare = CLLocationCoordinate2DMake(37.78806, -122.4075)
+    let marker = Marker(title: "Union Square",
+                        locationName: "San Francisco Union Square",
                         discipline: "",
-                        coordinate: GML)
+                        coordinate: unionSquare)
     self.map.addAnnotation(marker)
   }
   

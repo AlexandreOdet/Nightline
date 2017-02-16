@@ -11,10 +11,11 @@ import UIKit
 import SnapKit
 import Rswift
 
-class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   let reuseIdentifier = "SettingsCell"
   var tableView = UITableView()
+  let infosArray = [R.string.localizable.thanks(), R.string.localizable.faq(), R.string.localizable.build()]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -60,7 +61,7 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
       let profileCell = UserProfileCell()
       profileCell.labelName.text = "Alex Odet"
       profileCell.isUserInteractionEnabled = true //soon édition du profil
-        
+      
       return profileCell
     } else {
       if indexPath.section == SettingsCell.Preference.rawValue {
@@ -69,7 +70,12 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
         cell.accessoryType = .disclosureIndicator
       } else if indexPath.section == SettingsCell.Info.rawValue {
         cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
-        cell.textLabel?.text = "Infos \(indexPath.row)"
+        cell.textLabel?.text = infosArray[indexPath.row]
+        if indexPath.row == 2 {
+          cell = UITableViewCell(style: .value1, reuseIdentifier: self.reuseIdentifier)
+          cell.textLabel?.text = infosArray[indexPath.row]
+          cell.detailTextLabel?.text = Plist.Info.getBuildVersion()
+        }
         cell.isUserInteractionEnabled = false
       } else {
         cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
@@ -78,11 +84,14 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
         cell.textLabel?.textColor = .red
       }
     }
+    cell.selectionStyle = .none
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if indexPath.section == SettingsCell.Preference.rawValue {
+      let cell = tableView.cellForRow(at: indexPath)
+      cell?.onClick()
       if indexPath.row == 0 {
         let nextViewController = EtablishmentTableViewController()
         self.navigationController?.pushViewController(nextViewController, animated: true)
@@ -91,9 +100,13 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
         self.navigationController?.pushViewController(nextViewController, animated: true)
       }
     } else if indexPath.section == SettingsCell.Logout.rawValue {
+      let cell = tableView.cellForRow(at: indexPath)
+      cell?.onClick()
       self.performLogoutAction()
     } else if indexPath.section == SettingsCell.Profile.rawValue {
-        self.goToEditProfilViewController()
+      let cell = tableView.cellForRow(at: indexPath)
+      cell?.onClick()
+      self.goToEditProfilViewController()
     }
   }
   
@@ -109,9 +122,9 @@ class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UI
     let notificationName = Notification.Name(TabBarController.notificationIdentifier)
     NotificationCenter.default.post(name: notificationName, object: nil)
   }
-    
-    func goToEditProfilViewController() {
-        let nextViewController = EditProfileViewController()
-        self.navigationController?.pushViewController(nextViewController, animated: true)
-    }
+  
+  func goToEditProfilViewController() {
+    let nextViewController = EditProfileViewController()
+    self.navigationController?.pushViewController(nextViewController, animated: true)
+  }
 }

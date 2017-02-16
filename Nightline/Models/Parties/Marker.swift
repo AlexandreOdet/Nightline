@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class Marker: NSObject, MKAnnotation {
+class Marker: NSObject, MKAnnotation, ModelsProtocol {
   let name: String?
   let locationName: String
   let discipline: String

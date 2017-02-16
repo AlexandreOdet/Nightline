@@ -11,7 +11,7 @@ import SnapKit
 import RealmSwift
 import Rswift
 
-class SignupViewController: BaseViewController, UITextFieldDelegate {
+final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   let signupButton = UIButton()
   let emailTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))

@@ -65,3 +65,9 @@ extension UIViewController {
     }
 }
 
+extension UITableViewCell {
+  func onClick() {
+    Animation().onClick(sender: self.contentView)
+  }
+}
+

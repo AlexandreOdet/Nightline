@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class TabBarController: UITabBarController, UITabBarControllerDelegate {
+final class TabBarController: UITabBarController, UITabBarControllerDelegate {
   
   static let notificationIdentifier = "LogoutNotification"
   

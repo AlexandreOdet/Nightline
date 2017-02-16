@@ -12,7 +12,7 @@ import UIKit
 import SnapKit
 import Rswift
 
-class UserProfileViewController: BaseViewController {
+final class UserProfileViewController: BaseViewController {
   
     var userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
     var headerView = UIView()

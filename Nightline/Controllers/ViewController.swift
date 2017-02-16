@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class MainViewController: BaseViewController {
+final class MainViewController: BaseViewController {
   
   let buttonSignup = UIButton()
   let buttonSignin = UIButton()

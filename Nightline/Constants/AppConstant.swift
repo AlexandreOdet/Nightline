@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AppConstant {
+final class AppConstant {
   class UI {
     class Colors {
       static let colorPrimary = 0x0e1728
@@ -22,6 +22,10 @@ class AppConstant {
     class Dimensions {
       static let formElementsSpacing = CGFloat(25)
       static let thumbnailPictureSize = CGFloat(128)
+    }
+    
+    class Animation {
+      static let onClickDuration = 0.5
     }
   }
   

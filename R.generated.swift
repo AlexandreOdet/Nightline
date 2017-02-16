@@ -114,7 +114,7 @@ struct R {
   
   /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 26 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 29 localization keys.
     struct localizable {
       /// fr translation: Bar
       /// 
@@ -160,6 +160,10 @@ struct R {
       /// 
       /// Locales: fr, en
       static let etabl = StringResource(key: "etabl", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: FAQ
+      /// 
+      /// Locales: fr, en
+      static let faq = StringResource(key: "faq", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: Femme
       /// 
       /// Locales: fr, en
@@ -188,6 +192,10 @@ struct R {
       /// 
       /// Locales: fr, en
       static let pub = StringResource(key: "pub", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Remerciements
+      /// 
+      /// Locales: fr, en
+      static let thanks = StringResource(key: "thanks", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: Réglages
       /// 
       /// Locales: fr, en
@@ -208,6 +216,10 @@ struct R {
       /// 
       /// Locales: fr, en
       static let logout = StringResource(key: "logout", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Version
+      /// 
+      /// Locales: fr, en
+      static let build = StringResource(key: "build", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: Vin
       /// 
       /// Locales: fr, en
@@ -298,6 +310,13 @@ struct R {
         return NSLocalizedString("etabl", bundle: _R.hostingBundle, comment: "")
       }
       
+      /// fr translation: FAQ
+      /// 
+      /// Locales: fr, en
+      static func faq(_: Void = ()) -> String {
+        return NSLocalizedString("faq", bundle: _R.hostingBundle, comment: "")
+      }
+      
       /// fr translation: Femme
       /// 
       /// Locales: fr, en
@@ -347,6 +366,13 @@ struct R {
         return NSLocalizedString("pub", bundle: _R.hostingBundle, comment: "")
       }
       
+      /// fr translation: Remerciements
+      /// 
+      /// Locales: fr, en
+      static func thanks(_: Void = ()) -> String {
+        return NSLocalizedString("thanks", bundle: _R.hostingBundle, comment: "")
+      }
+      
       /// fr translation: Réglages
       /// 
       /// Locales: fr, en
@@ -380,6 +406,13 @@ struct R {
       /// Locales: fr, en
       static func logout(_: Void = ()) -> String {
         return NSLocalizedString("logout", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Version
+      /// 
+      /// Locales: fr, en
+      static func build(_: Void = ()) -> String {
+        return NSLocalizedString("build", bundle: _R.hostingBundle, comment: "")
       }
       
       /// fr translation: Vin

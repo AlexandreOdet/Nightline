@@ -32,3 +32,6 @@ wine = "Vin";
 champagne = "Champagne";
 cocktail = "Cocktails";
 drinks = "Drinks";
+thanks = "Remerciements";
+faq = "FAQ";
+build = "Version";

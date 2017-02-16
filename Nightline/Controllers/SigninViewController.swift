@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import Rswift
 
-class SigninViewController: BaseViewController, UITextFieldDelegate {
+final class SigninViewController: BaseViewController, UITextFieldDelegate {
   
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()

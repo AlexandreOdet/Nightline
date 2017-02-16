@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class User {
+class User: ModelsProtocol {
   
     var firstName = ""
     var lastName = ""
@@ -19,6 +19,7 @@ class User {
     var city = ""
     var age = ""
     var id = 0
+    var preferences = UserPreferences()
   
   required init() {
     
@@ -34,4 +35,10 @@ class User {
     self.age = otherUser.age
     self.id = otherUser.id
   }
+  
+  func toString() -> String {
+    return ""
+  }
+  
 }
+

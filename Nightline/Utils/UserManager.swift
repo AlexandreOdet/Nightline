@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class UserManager {
+final class UserManager {
   static let instance = UserManager()
   var localUser = DatabaseHandler().getObjectArray(ofType: DbUser.self)
   var networkUser = User()
@@ -47,4 +47,53 @@ class UserManager {
     }
     return localUser[0].email
   }
+  
+  func getUserConsommationPreferences() -> Array<String> {
+    if networkUser.preferences.consoLiked.isEmpty == false {
+      return networkUser.preferences.consoLiked
+    }
+    return localUser[0].preferences.consoLiked
+  }
+  
+  func getUserEtablishmentsPreferences() -> Array<String> {
+    if networkUser.preferences.etablishmentLiked.isEmpty == false {
+      return networkUser.preferences.etablishmentLiked
+    }
+    return localUser[0].preferences.etablishmentLiked
+  }
+  
+  func addConsommationToUserPreferences(conso: String) {
+    networkUser.preferences.consoLiked.append(conso)
+    log.debug("Consommation: \(conso) - successfully added")
+  }
+  
+  func removeConsommationFromuserPreferences(conso: String) {
+    var index = 0
+    for value in networkUser.preferences.consoLiked where conso == value {
+      networkUser.preferences.consoLiked.remove(at: index)
+      index += 1
+      log.debug("Consommation: \(conso) - successfully remove")
+    }
+  }
+  
+  func addEtablishmentToUserPreferences(etablishment: String) {
+    networkUser.preferences.etablishmentLiked.append(etablishment)
+    log.debug("Etablishment: \(etablishment) - successfully added")
+  }
+  
+  func removeEtablishmentFromUserPreferences(etablishment: String) {
+    var index = 0
+    for value in networkUser.preferences.etablishmentLiked where etablishment == value {
+      networkUser.preferences.consoLiked.remove(at: index)
+      index += 1
+      log.debug("Etablishment: \(etablishment) - successfully remove")
+    }
+  }
+  
+  func updateUserPreferencesInDatabase() {
+    log.debug(networkUser.preferences.toString())
+    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["consos":networkUser.preferences.consoLiked])
+    log.debug(localUser[0].toString())
+  }
+  
 }
