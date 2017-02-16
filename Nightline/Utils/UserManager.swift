@@ -26,7 +26,7 @@ final class UserManager {
     if !networkUser.firstName.isEmpty {
       return networkUser.firstName
     }
-    return localUser[0].firstName
+    return (localUser[0].firstName.isEmpty) ? "": localUser[0].firstName
   }
   
   func updateUserFirstName(newValue: String) {
@@ -38,7 +38,7 @@ final class UserManager {
     if !networkUser.lastName.isEmpty {
       return networkUser.lastName
     }
-    return localUser[0].lastName
+    return (localUser[0].lastName.isEmpty) ? "" : localUser[0].lastName
   }
   
   func updateUserLasttName(newValue: String) {
@@ -57,7 +57,7 @@ final class UserManager {
     if !networkUser.email.isEmpty {
       return networkUser.email
     }
-    return localUser[0].email
+    return (localUser[0].email.isEmpty) ? "" : localUser[0].email
   }
   
   func updateUserEmail(newValue: String) {
@@ -70,6 +70,13 @@ final class UserManager {
       return networkUser.age
     }
     return localUser[0].age
+  }
+  
+  func getUserNickname() -> String {
+    if !networkUser.nickname.isEmpty {
+      return networkUser.nickname
+    }
+    return (localUser[0].nickname.isEmpty) ? "" : localUser[0].nickname
   }
   
   func updateUserAge(newValue: String) {

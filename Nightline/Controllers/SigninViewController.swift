@@ -114,8 +114,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
       isConnectionOk = user.areUserIdOk(nickname: self.nicknameTextField.text!, passwd: self.passwordTextField.text!)
       if isConnectionOk == true {
         log.info("Sign in OK")
-        if keychain.get("token") == nil {
-          keychain.set("AAAA", forKey: "token")
+        if tokenWrapper.getToken() == nil {
+          let token = "AAAA"
+          tokenWrapper.setToken(valueFor: token)
         }
         let presentingViewController = self.presentingViewController
         self.dismiss(animated: false, completion: {

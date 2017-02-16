@@ -52,6 +52,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     emailTextField.keyboardType = .emailAddress
     emailTextField.returnKeyType = .next
     emailTextField.tag = 0
+    emailTextField.becomeFirstResponder()
     
     nicknameTextField.backgroundColor = UIColor.black
     nicknameTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.nickname(),
@@ -95,7 +96,8 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   func showHomeScreen() {
     if !((emailTextField.text?.isEmpty)!) && !(passwordTextField.text?.isEmpty)! && !(nicknameTextField.text?.isEmpty)! {
       log.info("Sign up OK")
-      keychain.set("AAAA", forKey: "token")
+      let token = "AAAA"
+      tokenWrapper.setToken(valueFor: token)
       DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":emailTextField.text!,
                                                                            "passwd":passwordTextField.text!,
                                                                            "nickname":nicknameTextField.text!])

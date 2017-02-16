@@ -77,7 +77,7 @@ final class UserProfileViewController: BaseViewController {
     userInfoStackView.axis = .vertical
     userInfoStackView.spacing = 10
     
-    userNameLabel.text = UserManager.instance.getUserCompleteName()
+    userNameLabel.text = UserManager.instance.getUserNickname()//getUserCompleteName()
     age.text = UserManager.instance.getUserAge()
     ville.text = UserManager.instance.getUserCity()
     
@@ -107,7 +107,9 @@ final class UserProfileViewController: BaseViewController {
   }
   
   func performLogoutAction() {
-    self.navigationController?.popToRootViewController(animated: true)
+    if let nav = self.navigationController {
+      nav.popToRootViewController(animated: true)
+    }
     Utils.Network.logOutUser()
   }
   

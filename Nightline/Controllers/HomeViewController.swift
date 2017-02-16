@@ -20,7 +20,7 @@ final class HomeViewController: BaseViewController, CLLocationManagerDelegate, M
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if (keychain.get("token") == nil) {
+    if (tokenWrapper.getToken() == nil) {
       self.present(MainViewController(), animated: true, completion: nil)
     } else {
       requestLocationAccess()

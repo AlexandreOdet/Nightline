@@ -12,7 +12,7 @@ import SwiftyBeaver
 import KeychainSwift
 
 let log = SwiftyBeaver.self
-let keychain = KeychainSwift()
+let tokenWrapper = TokenWrapper()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

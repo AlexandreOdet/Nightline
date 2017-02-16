@@ -78,7 +78,7 @@ class Utils {
     }
     
     static func logOutUser() {
-      keychain.delete("token")
+      tokenWrapper.deleteToken()
     }
   }
 }
