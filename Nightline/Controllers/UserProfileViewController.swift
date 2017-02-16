@@ -14,25 +14,25 @@ import Rswift
 
 final class UserProfileViewController: BaseViewController {
   
-    var userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
-    var headerView = UIView()
-    var userInfoStackView = UIStackView()
-    var userNameLabel = UILabel()
-    var userLastNameLabel = UILabel()
-    var age = UILabel()
-    var ville = UILabel()
-    var logoutButton = UIButton()
-    var editProfileButton = UIButton()
+  var userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
+  var headerView = UIView()
+  var userInfoStackView = UIStackView()
+  var userNameLabel = UILabel()
+  var userLastNameLabel = UILabel()
+  var age = UILabel()
+  var ville = UILabel()
+  var logoutButton = UIButton()
+  var editProfileButton = UIButton()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {
-        self.view.backgroundColor = UIColor.black
-        self.addComponentsToView()
-        let rightBarButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goToEditProfilViewController))
-        self.navigationItem.rightBarButtonItem = rightBarButton
+      self.view.backgroundColor = UIColor.black
+      self.addComponentsToView()
+      let rightBarButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goToEditProfilViewController))
+      self.navigationItem.rightBarButtonItem = rightBarButton
     }
     addLogoutButtonToView()
   }
@@ -77,9 +77,9 @@ final class UserProfileViewController: BaseViewController {
     userInfoStackView.axis = .vertical
     userInfoStackView.spacing = 10
     
-    userNameLabel.text = "Alex Odet"
-    age.text = "18ans"
-    ville.text = "Los Angeles"
+    userNameLabel.text = UserManager.instance.getUserCompleteName()
+    age.text = UserManager.instance.getUserAge()
+    ville.text = UserManager.instance.getUserCity()
     
     userNameLabel.textColor = self.getAccentColor()
     userNameLabel.textAlignment = .center
@@ -92,24 +92,24 @@ final class UserProfileViewController: BaseViewController {
     userInfoStackView.addArrangedSubview(age)
     userInfoStackView.addArrangedSubview(ville)
   }
-    
-    private func addLogoutButtonToView() {
-        self.view.addSubview(logoutButton)
-        logoutButton.snp.makeConstraints { (make) -> Void in
-            make.bottom.equalTo(self.view)
-            make.width.equalTo(self.view)
-            make.height.equalTo(50)
-        }
-        logoutButton.backgroundColor = UIColor.white
-        logoutButton.setTitle(R.string.localizable.logout(), for: .normal)
-        logoutButton.addTarget(self, action: #selector(performLogoutAction), for: .touchUpInside)
-        logoutButton.setTitleColor(.red, for: .normal)
+  
+  private func addLogoutButtonToView() {
+    self.view.addSubview(logoutButton)
+    logoutButton.snp.makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self.view)
+      make.width.equalTo(self.view)
+      make.height.equalTo(50)
     }
-    
-    func performLogoutAction() {
-        self.navigationController?.popToRootViewController(animated: true)
-        Utils.Network.logOutUser()
-    }
+    logoutButton.backgroundColor = UIColor.white
+    logoutButton.setTitle(R.string.localizable.logout(), for: .normal)
+    logoutButton.addTarget(self, action: #selector(performLogoutAction), for: .touchUpInside)
+    logoutButton.setTitleColor(.red, for: .normal)
+  }
+  
+  func performLogoutAction() {
+    self.navigationController?.popToRootViewController(animated: true)
+    Utils.Network.logOutUser()
+  }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -117,14 +117,14 @@ final class UserProfileViewController: BaseViewController {
     //self.navigationController?.navigationBar.tintColor = UIColor.black
   }
   
-//  func goToUserSettingsViewController() {
-//    let nextViewController = UserSettingsTableViewController()
-//    self.navigationController?.pushViewController(nextViewController, animated: true)
-//  }
-    
-    func goToEditProfilViewController() {
-        let nextViewController = EditProfileViewController()
-        self.navigationController?.pushViewController(nextViewController, animated: true)
-    }
+  //  func goToUserSettingsViewController() {
+  //    let nextViewController = UserSettingsTableViewController()
+  //    self.navigationController?.pushViewController(nextViewController, animated: true)
+  //  }
+  
+  func goToEditProfilViewController() {
+    let nextViewController = EditProfileViewController()
+    self.navigationController?.pushViewController(nextViewController, animated: true)
+  }
   
 }

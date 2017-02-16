@@ -59,7 +59,7 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
     var cell: UITableViewCell!
     if indexPath.section == SettingsCell.Profile.rawValue {
       let profileCell = UserProfileCell()
-      profileCell.labelName.text = "Alex Odet"
+      profileCell.labelName.text = UserManager.instance.getUserCompleteName()
       profileCell.isUserInteractionEnabled = true //soon édition du profil
       
       return profileCell

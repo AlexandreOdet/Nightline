@@ -29,9 +29,9 @@ final class UserManager {
     return localUser[0].firstName
   }
   
-  func updateUserFirstName(newName: String) {
-    networkUser.firstName = newName
-    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["firstName":newName])
+  func updateUserFirstName(newValue: String) {
+    networkUser.firstName = newValue
+    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["firstName":newValue])
   }
   
   func getUserLastName() -> String {
@@ -41,11 +41,52 @@ final class UserManager {
     return localUser[0].lastName
   }
   
+  func updateUserLasttName(newValue: String) {
+    networkUser.lastName = newValue
+    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["lastName":newValue])
+  }
+  
+  func getUserCompleteName() -> String {
+    if !networkUser.lastName.isEmpty && !networkUser.firstName.isEmpty {
+      return networkUser.firstName + " " + networkUser.lastName
+    }
+    return localUser[0].firstName + " " + localUser[0].lastName
+  }
+  
   func getUserEmail() -> String {
     if !networkUser.email.isEmpty {
       return networkUser.email
     }
     return localUser[0].email
+  }
+  
+  func updateUserEmail(newValue: String) {
+    networkUser.email = newValue
+    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":newValue])
+  }
+  
+  func getUserAge() -> String {
+    if !networkUser.age.isEmpty {
+      return networkUser.age
+    }
+    return localUser[0].age
+  }
+  
+  func updateUserAge(newValue: String) {
+    networkUser.age = newValue
+    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["age":newValue])
+  }
+  
+  func getUserCity() -> String {
+    if !networkUser.city.isEmpty {
+      return networkUser.city
+    }
+    return localUser[0].city
+  }
+  
+  func updateUserCity(newValue: String) {
+    networkUser.city = newValue
+    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["city":newValue])
   }
   
   func getUserConsommationPreferences() -> Array<String> {
