@@ -24,12 +24,12 @@ final class HomeViewController: BaseViewController, CLLocationManagerDelegate, M
       self.present(MainViewController(), animated: true, completion: nil)
     } else {
       
-      RAUser().loginUser(email: "email", password: "password",
-                         callback: { user in
-      UserManager.instance.networkUser = user },
-                         callbackError: {
-         AlertUtils.networkErrorAlert(fromController: self)
-      })
+//      RAUser().loginUser(email: "email", password: "password",
+//                         callback: { user in
+//      UserManager.instance.networkUser = user },
+//                         callbackError: {
+//         AlertUtils.networkErrorAlert(fromController: self)
+//      })
       
       requestLocationAccess()
       if CLLocationManager.locationServicesEnabled() {

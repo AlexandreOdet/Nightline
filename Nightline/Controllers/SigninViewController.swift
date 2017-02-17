@@ -18,7 +18,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   private let stackViewSignIn = UIStackView()
   private let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 400, height: 20))
   private let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 400, height: 20))
-  
+  let backButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+
   override func viewDidLoad() {
     super.viewDidLoad()
     self.hideKeyboardWhenTappedAround()
@@ -31,6 +32,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
       initForgotPasswordLabel()
       initStackView()
       initNightlineLogo()
+      addBackButton()
     }
   }
   private func initStackView() {
@@ -143,4 +145,26 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     }
     return true
   }
+  
+  private func addBackButton() {
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backButtonPressed))
+    gestureRecognizer.numberOfTapsRequired = 1
+    self.view.addSubview(backButton)
+    backButton.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(self.view).offset(UIApplication.shared.statusBarFrame.height)
+      make.leading.equalTo(self.view).offset(10)
+      make.size.equalTo(50)
+    }
+    backButton.isUserInteractionEnabled = true
+    backButton.translatesAutoresizingMaskIntoConstraints = false
+    backButton.image = R.image.back_arrow()
+    backButton.backgroundColor = UIColor.white
+    backButton.roundImage(withBorder: true, borderColor: .red, borderSize: 1.0)
+    backButton.addGestureRecognizer(gestureRecognizer)
+  }
+  
+  func backButtonPressed() {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
 }
