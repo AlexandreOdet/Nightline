@@ -30,7 +30,7 @@ final class AppConstant {
   }
   
   class Network {
-    static let baseUrl = ""
+    static let baseUrl = "http://35.16.60.166:8080"
     static let login = ""
     static let signup = ""
     static let etablishment = ""

@@ -33,11 +33,11 @@ class Utils {
     }
     
     static func getLoginUrl() -> String {
-      return "some-url"
+      return "/login"
     }
     
     static func getSignUpUrl() -> String {
-      return "some-url"
+      return "/sign_up"
     }
     
     static func getUserProfileUrl() -> String {

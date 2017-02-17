@@ -23,6 +23,14 @@ final class HomeViewController: BaseViewController, CLLocationManagerDelegate, M
     if (tokenWrapper.getToken() == nil) {
       self.present(MainViewController(), animated: true, completion: nil)
     } else {
+      
+      RAUser().loginUser(email: "email", password: "password",
+                         callback: { user in
+      UserManager.instance.networkUser = user },
+                         callbackError: {
+         AlertUtils.networkErrorAlert(fromController: self)
+      })
+      
       requestLocationAccess()
       if CLLocationManager.locationServicesEnabled() {
         locationManager.delegate = self

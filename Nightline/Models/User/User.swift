@@ -8,8 +8,9 @@
 
 import Foundation
 import RealmSwift
+import ObjectMapper
 
-class User: ModelsProtocol {
+class User: ModelsProtocol, Mappable {
   
     var firstName = ""
     var lastName = ""
@@ -38,6 +39,14 @@ class User: ModelsProtocol {
   
   func toString() -> String {
     return ""
+  }
+  
+  required init?(map: Map) {
+    
+  }
+  
+  func mapping(map: Map) {
+    self.firstName <- map["firstName"]
   }
   
 }
