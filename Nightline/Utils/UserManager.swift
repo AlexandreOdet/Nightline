@@ -79,6 +79,11 @@ final class UserManager {
     return (localUser[0].nickname.isEmpty) ? "" : localUser[0].nickname
   }
   
+  func updateUserNickName(newValue: String) {
+    networkUser.nickname = newValue
+    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["nickName":newValue])
+  }
+  
   func updateUserAge(newValue: String) {
     networkUser.age = newValue
     DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["age":newValue])

@@ -18,10 +18,12 @@ class EditProfileViewController: BaseViewController {
   let userLastNameLabel = UILabel()
   let ageLabel = UILabel()
   let cityLabel = UILabel()
+  let nickNameLabel = UILabel()
   let userName = UITextField()
   let userLastName = UITextField()
   let userAge = UITextField()
   let userCity = UITextField()
+  let userNickName = UITextField()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -80,11 +82,13 @@ class EditProfileViewController: BaseViewController {
     userLastNameLabel.text = "Last name:"
     ageLabel.text = "Age:"
     cityLabel.text = "City:"
+    nickNameLabel.text = "Nickname:"
     
     userName.text = UserManager.instance.getUserFirstName()
     userLastName.text = UserManager.instance.getUserLastName()
-    userAge.text = "22"
+    userAge.text = UserManager.instance.getUserAge()
     userCity.text = UserManager.instance.getUserCity()
+    userNickName.text = UserManager.instance.getUserNickname()
     
     userNameLabel.textColor = self.getAccentColor()
     userNameLabel.textAlignment = .left
@@ -103,6 +107,12 @@ class EditProfileViewController: BaseViewController {
     cityLabel.textAlignment = .left
     userCity.textColor = self.getAccentColor()
     userCity.styleEditField()
+    nickNameLabel.textColor = self.getAccentColor()
+    nickNameLabel.textAlignment = .left
+    userNickName.textColor = self.getAccentColor()
+    userNickName.styleEditField()
+    userInfoStackView.addArrangedSubview(nickNameLabel)
+    userInfoStackView.addArrangedSubview(userNickName)
     userInfoStackView.addArrangedSubview(userNameLabel)
     userInfoStackView.addArrangedSubview(userName)
     userInfoStackView.addArrangedSubview(userLastNameLabel)
@@ -118,6 +128,7 @@ class EditProfileViewController: BaseViewController {
     UserManager.instance.updateUserLasttName(newValue: userLastName.text!)
     UserManager.instance.updateUserAge(newValue: userAge.text!)
     UserManager.instance.updateUserCity(newValue: userCity.text!)
+    UserManager.instance.updateUserNickName(newValue: userNickName.text!)
   }
   
   
