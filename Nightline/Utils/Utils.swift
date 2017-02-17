@@ -11,19 +11,8 @@ import UIKit
 import SystemConfiguration
 import KeychainSwift
 
-class Utils {
-  
-  class Files {
-    static func getAppCurrentVersion() -> String {
-      return (Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String)!
-    }
-  }
-  
-  class UI {
-    
-  }
-  
-  class Network {
+final class Utils {
+  final class Network {
     static func getEtablishmentUrl() -> String {
       return "some-url"
     }

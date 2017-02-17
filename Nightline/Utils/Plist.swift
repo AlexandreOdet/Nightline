@@ -10,13 +10,13 @@ import Foundation
 
 final class Plist {
   
-  class Info {
+  final class Info {
     static func getBuildVersion() -> String {
       return (Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String)!
     }
   }
   
-  class Color {
+  final class Color {
     static func get(colorWithName: String) -> String? {
       let path = Bundle.main.path(forResource: "Colors", ofType: "plist")
       guard let dict = NSDictionary(contentsOfFile: path!) else {

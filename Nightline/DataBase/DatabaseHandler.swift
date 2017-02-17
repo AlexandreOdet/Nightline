@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class DatabaseHandler {
+final class DatabaseHandler {
   let realm = try! Realm()
   
   func insertInDatabase<T: Object>(object: T.Type, properties: [String:Any], update: Bool = true) {

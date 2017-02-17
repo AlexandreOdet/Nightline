@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AlertUtils {
+final class AlertUtils {
   
   static func networkErrorAlert(fromController: UIViewController) {
     let alert = UIAlertController(title: "Erreur",

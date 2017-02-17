@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import MapKit
 
-final class HomeViewController: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+final class MainViewController: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
   
   static let notificationIdentifier = "presentConnexionScreen"
   
@@ -21,7 +21,7 @@ final class HomeViewController: BaseViewController, CLLocationManagerDelegate, M
   override func viewDidLoad() {
     super.viewDidLoad()
     if (tokenWrapper.getToken() == nil) {
-      self.present(MainViewController(), animated: true, completion: nil)
+      self.present(HomeViewController(), animated: true, completion: nil)
     } else {
       
 //      RAUser().loginUser(email: "email", password: "password",
@@ -51,7 +51,7 @@ final class HomeViewController: BaseViewController, CLLocationManagerDelegate, M
         self.navigationItem.rightBarButtonItem = rightBarButton
       }
     }
-    NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: HomeViewController.notificationIdentifier), object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
   }
   
   func goToUserProfileViewController() {
@@ -128,7 +128,7 @@ final class HomeViewController: BaseViewController, CLLocationManagerDelegate, M
   }
   
   func callbackObserver() {
-    self.present(MainViewController(), animated: true, completion: nil)
+    self.present(HomeViewController(), animated: true, completion: nil)
   }
   
 }

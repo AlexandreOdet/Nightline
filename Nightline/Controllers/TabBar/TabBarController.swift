@@ -24,7 +24,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     super.viewWillAppear(animated)
     
     // Create Tab one
-    let tabOne = HomeViewController()
+    let tabOne = MainViewController()
     let tabOneBarItem = UITabBarItem(title: "Map", image: R.image.placeholder(), selectedImage: R.image.placeholder_filled())
     
     tabOne.tabBarItem = tabOneBarItem
@@ -51,7 +51,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
   
   func callbackObserver() {
     self.selectedIndex = 0
-    let notificationName = Notification.Name(HomeViewController.notificationIdentifier)
+    let notificationName = Notification.Name(MainViewController.notificationIdentifier)
     NotificationCenter.default.post(name: notificationName, object: nil)
   }
   
