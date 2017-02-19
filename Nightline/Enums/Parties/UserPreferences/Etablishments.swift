@@ -15,21 +15,6 @@ enum Etablishment: String {
   case club = "club"
   case unknown = ""
   
-  func toString() -> String {
-    switch self {
-    case .bar:
-      return R.string.localizable.bar()
-    case .pub:
-      return R.string.localizable.pub()
-    case .lounge:
-      return R.string.localizable.lounge()
-    case .club:
-      return R.string.localizable.club()
-    default:
-      return ""
-    }
-  }
-  
   func getAllEtablishmentType() -> [Etablishment] {
     var array = Array<Etablishment>()
     array.append(Etablishment.pub)

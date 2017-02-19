@@ -26,13 +26,13 @@ class RAUser: RABase {
       case .success(let user):
         log.verbose("RestApiUser.login OK \(user)")
         callback(user)
-      case .failure(let error):
+      case .failure:
         callbackError()
         log.error("RestApiUser.login Fail : \(error)")
       }
     })
   }
-  
+
   func signUpUser(email: String, nickname: String, password: String,
                   callback: ()->(),
                   callbackError: ()->()) {

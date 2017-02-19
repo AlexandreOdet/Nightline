@@ -23,14 +23,6 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     if (tokenWrapper.getToken() == nil) {
       self.present(HomeViewController(), animated: true, completion: nil)
     } else {
-      
-//      RAUser().loginUser(email: "email", password: "password",
-//                         callback: { user in
-//      UserManager.instance.networkUser = user },
-//                         callbackError: {
-//         AlertUtils.networkErrorAlert(fromController: self)
-//      })
-      
       requestLocationAccess()
       if CLLocationManager.locationServicesEnabled() {
         locationManager.delegate = self
@@ -47,15 +39,9 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         map.showsUserLocation = true
         map.isZoomEnabled = true
         map.delegate = self
-        let rightBarButton = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(goToUserProfileViewController))
-        self.navigationItem.rightBarButtonItem = rightBarButton
       }
     }
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
-  }
-  
-  func goToUserProfileViewController() {
-    self.navigationController?.pushViewController(UserProfileViewController(), animated: true)
   }
   
   func requestLocationAccess() {

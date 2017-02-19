@@ -22,7 +22,7 @@ final class Utils {
     }
     
     static func getLoginUrl() -> String {
-      return "/login"
+      return AppConstant.Network.baseUrl + AppConstant.Network.login
     }
     
     static func getSignUpUrl() -> String {

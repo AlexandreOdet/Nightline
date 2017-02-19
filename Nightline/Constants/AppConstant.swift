@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 final class AppConstant {
-  class UI {
+  final class UI {
     class Colors {
       static let colorPrimary = 0x0e1728
       static let colorAccent = 0xe87e07 //Orange
@@ -19,19 +19,19 @@ final class AppConstant {
       static let midnightBlue = 0x0e1728
     }
     
-    class Dimensions {
+    final class Dimensions {
       static let formElementsSpacing = CGFloat(25)
       static let thumbnailPictureSize = CGFloat(128)
     }
     
-    class Animation {
+    final class Animation {
       static let onClickDuration = 0.5
     }
   }
   
-  class Network {
-    static let baseUrl = "http://35.16.60.166:8080"
-    static let login = ""
+  final class Network {
+    static let baseUrl = "http://35.16.53.22:8080"
+    static let login = "/login"
     static let signup = ""
     static let etablishment = ""
     static let drinks = ""

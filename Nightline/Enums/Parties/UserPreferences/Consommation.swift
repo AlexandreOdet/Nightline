@@ -19,29 +19,6 @@ enum Consommation: String {
   case cocktail = "cocktail"
   case unknown = ""
   
-  func toString() -> String {
-    switch self {
-    case .beer:
-      return R.string.localizable.beer()
-    case .vodka:
-      return R.string.localizable.vodka()
-    case .whisky:
-      return R.string.localizable.whisky()
-    case .rhum:
-      return R.string.localizable.rhum()
-    case .bourbon:
-      return R.string.localizable.bourbon()
-    case .wine:
-      return R.string.localizable.wine()
-    case .champagne:
-      return R.string.localizable.champagne()
-    case .cocktail:
-      return R.string.localizable.cocktail()
-    default:
-      return ""
-    }
-  }
-  
   func getAllConsommationTypes() -> [Consommation] {
     var array = Array<Consommation>()
     array.append(Consommation.beer)

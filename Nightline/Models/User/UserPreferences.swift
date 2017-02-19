@@ -16,7 +16,7 @@ class UserPreferences: ModelsProtocol {
   init() {
     
   }
-  
+
   func toString() -> String {
     var result = ""
     result += "Preferences : \nConso:\n"

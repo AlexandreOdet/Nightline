@@ -12,6 +12,7 @@
 		FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB89D1E03495E00C8E437 /* R.generated.swift */; };
 		FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DB8A11E0349FE00C8E437 /* MapKit.framework */; };
 		FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB8A71E034CEA00C8E437 /* Localizable.strings */; };
+		FA33BF511E57ECFD0037FC88 /* PersonFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33BF501E57ECFD0037FC88 /* PersonFilter.swift */; };
 		FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1691E576FCD002CF4FC /* Consommation.swift */; };
 		FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA16A1E576FCD002CF4FC /* Etablishments.swift */; };
 		FA3AA1711E577106002CF4FC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA16E1E577106002CF4FC /* HomeViewController.swift */; };
@@ -27,12 +28,20 @@
 		FA3AA1881E5771A8002CF4FC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */; };
 		FA3AA18C1E57720F002CF4FC /* TokenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */; };
 		FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18B1E57720F002CF4FC /* UserManager.swift */; };
-		FA3AA19A1E5774D3002CF4FC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1961E5774D3002CF4FC /* UIViewControllerExtension.swift */; };
-		FA3AA19B1E5774D3002CF4FC /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1971E5774D3002CF4FC /* UIImageViewExtension.swift */; };
-		FA3AA19C1E5774D3002CF4FC /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1981E5774D3002CF4FC /* UITableViewCellExtension.swift */; };
-		FA3AA19D1E5774D3002CF4FC /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1991E5774D3002CF4FC /* UITextFieldExtension.swift */; };
-		FA3AA19F1E577501002CF4FC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA19E1E577501002CF4FC /* UIColorExtension.swift */; };
 		FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */; };
+		FA5C2A911E5A4FFC00A0CB56 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A901E5A4FFC00A0CB56 /* EventType.swift */; };
+		FA5C2A9A1E5A519700A0CB56 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A951E5A519700A0CB56 /* UIColorExtension.swift */; };
+		FA5C2A9B1E5A519700A0CB56 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A961E5A519700A0CB56 /* UIImageViewExtension.swift */; };
+		FA5C2A9C1E5A519700A0CB56 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A971E5A519700A0CB56 /* UITableViewCellExtension.swift */; };
+		FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A981E5A519700A0CB56 /* UITextFieldExtension.swift */; };
+		FA5C2A9E1E5A519700A0CB56 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A991E5A519700A0CB56 /* UIViewControllerExtension.swift */; };
+		FA5C2AA01E5A51B300A0CB56 /* ExtensionConsommation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A9F1E5A51B300A0CB56 /* ExtensionConsommation.swift */; };
+		FA5C2AA21E5A57FD00A0CB56 /* ExtensionPersonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AA11E5A57FD00A0CB56 /* ExtensionPersonType.swift */; };
+		FA5C2AA41E5A5ACE00A0CB56 /* ExtensionEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AA31E5A5ACE00A0CB56 /* ExtensionEventType.swift */; };
+		FA5C2AA61E5A5AF800A0CB56 /* ExtensionEtablishments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AA51E5A5AF800A0CB56 /* ExtensionEtablishments.swift */; };
+		FA5C2AA81E5A5B3000A0CB56 /* GroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AA71E5A5B3000A0CB56 /* GroupType.swift */; };
+		FA5C2AAA1E5A5B6F00A0CB56 /* ExtensionGroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AA91E5A5B6F00A0CB56 /* ExtensionGroupType.swift */; };
+		FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */; };
 		FA75ADAB1E4BBA2B0078FFE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAA1E4BBA2B0078FFE9 /* User.swift */; };
 		FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */; };
 		FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */; };
@@ -90,6 +99,7 @@
 		FA1DB8A61E034CEA00C8E437 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1DB8A81E034CEF00C8E437 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightline.entitlements; sourceTree = "<group>"; };
+		FA33BF501E57ECFD0037FC88 /* PersonFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonFilter.swift; path = Enums/Parties/MapFilter/PersonFilter.swift; sourceTree = "<group>"; };
 		FA3AA1691E576FCD002CF4FC /* Consommation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Consommation.swift; path = Enums/Parties/UserPreferences/Consommation.swift; sourceTree = "<group>"; };
 		FA3AA16A1E576FCD002CF4FC /* Etablishments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Etablishments.swift; path = Enums/Parties/UserPreferences/Etablishments.swift; sourceTree = "<group>"; };
 		FA3AA16E1E577106002CF4FC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/Home/HomeViewController.swift; sourceTree = "<group>"; };
@@ -105,12 +115,20 @@
 		FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = Controllers/User/UserProfileViewController.swift; sourceTree = "<group>"; };
 		FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenWrapper.swift; path = Manager/TokenWrapper.swift; sourceTree = "<group>"; };
 		FA3AA18B1E57720F002CF4FC /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Manager/UserManager.swift; sourceTree = "<group>"; };
-		FA3AA1961E5774D3002CF4FC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = Extensions/UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		FA3AA1971E5774D3002CF4FC /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = Extensions/UIImageViewExtension.swift; sourceTree = "<group>"; };
-		FA3AA1981E5774D3002CF4FC /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewCellExtension.swift; path = Extensions/UITableViewCellExtension.swift; sourceTree = "<group>"; };
-		FA3AA1991E5774D3002CF4FC /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtension.swift; path = Extensions/UITextFieldExtension.swift; sourceTree = "<group>"; };
-		FA3AA19E1E577501002CF4FC /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Extensions/UIColorExtension.swift; sourceTree = "<group>"; };
 		FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertUtils.swift; path = Utils/AlertUtils.swift; sourceTree = "<group>"; };
+		FA5C2A901E5A4FFC00A0CB56 /* EventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventType.swift; path = Enums/Parties/MapFilter/EventType.swift; sourceTree = "<group>"; };
+		FA5C2A951E5A519700A0CB56 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Extensions/UI/UIColorExtension.swift; sourceTree = "<group>"; };
+		FA5C2A961E5A519700A0CB56 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = Extensions/UI/UIImageViewExtension.swift; sourceTree = "<group>"; };
+		FA5C2A971E5A519700A0CB56 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewCellExtension.swift; path = Extensions/UI/UITableViewCellExtension.swift; sourceTree = "<group>"; };
+		FA5C2A981E5A519700A0CB56 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtension.swift; path = Extensions/UI/UITextFieldExtension.swift; sourceTree = "<group>"; };
+		FA5C2A991E5A519700A0CB56 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = Extensions/UI/UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		FA5C2A9F1E5A51B300A0CB56 /* ExtensionConsommation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionConsommation.swift; path = Extensions/Enums/ExtensionConsommation.swift; sourceTree = "<group>"; };
+		FA5C2AA11E5A57FD00A0CB56 /* ExtensionPersonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionPersonType.swift; path = Extensions/Enums/ExtensionPersonType.swift; sourceTree = "<group>"; };
+		FA5C2AA31E5A5ACE00A0CB56 /* ExtensionEventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionEventType.swift; path = Extensions/Enums/ExtensionEventType.swift; sourceTree = "<group>"; };
+		FA5C2AA51E5A5AF800A0CB56 /* ExtensionEtablishments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionEtablishments.swift; path = Extensions/Enums/ExtensionEtablishments.swift; sourceTree = "<group>"; };
+		FA5C2AA71E5A5B3000A0CB56 /* GroupType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupType.swift; path = Enums/Parties/MapFilter/GroupType.swift; sourceTree = "<group>"; };
+		FA5C2AA91E5A5B6F00A0CB56 /* ExtensionGroupType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionGroupType.swift; path = Extensions/Enums/ExtensionGroupType.swift; sourceTree = "<group>"; };
+		FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapFilterManager.swift; path = Manager/MapFilterManager.swift; sourceTree = "<group>"; };
 		FA75ADAA1E4BBA2B0078FFE9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User/User.swift; sourceTree = "<group>"; };
 		FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Marker.swift; path = Models/Parties/Marker.swift; sourceTree = "<group>"; };
 		FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCell.swift; path = Enums/CustomCells/Settings/SettingsCell.swift; sourceTree = "<group>"; };
@@ -205,6 +223,9 @@
 		FA3AA1681E576FB6002CF4FC /* MapFilters */ = {
 			isa = PBXGroup;
 			children = (
+				FA33BF501E57ECFD0037FC88 /* PersonFilter.swift */,
+				FA5C2A901E5A4FFC00A0CB56 /* EventType.swift */,
+				FA5C2AA71E5A5B3000A0CB56 /* GroupType.swift */,
 			);
 			name = MapFilters;
 			sourceTree = "<group>";
@@ -268,6 +289,7 @@
 			children = (
 				FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */,
 				FA3AA18B1E57720F002CF4FC /* UserManager.swift */,
+				FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -275,11 +297,9 @@
 		FA3AA1951E577417002CF4FC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				FA3AA1961E5774D3002CF4FC /* UIViewControllerExtension.swift */,
-				FA3AA1971E5774D3002CF4FC /* UIImageViewExtension.swift */,
-				FA3AA1981E5774D3002CF4FC /* UITableViewCellExtension.swift */,
-				FA3AA1991E5774D3002CF4FC /* UITextFieldExtension.swift */,
-				FA3AA19E1E577501002CF4FC /* UIColorExtension.swift */,
+				FA5C2A941E5A516000A0CB56 /* Models */,
+				FA5C2A931E5A515C00A0CB56 /* Enums */,
+				FA5C2A921E5A515100A0CB56 /* UI */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -289,6 +309,37 @@
 			children = (
 				FA75ADA51E4BB9820078FFE9 /* Parties */,
 				FA75ADA41E4BB97C0078FFE9 /* User */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FA5C2A921E5A515100A0CB56 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FA5C2A951E5A519700A0CB56 /* UIColorExtension.swift */,
+				FA5C2A961E5A519700A0CB56 /* UIImageViewExtension.swift */,
+				FA5C2A971E5A519700A0CB56 /* UITableViewCellExtension.swift */,
+				FA5C2A981E5A519700A0CB56 /* UITextFieldExtension.swift */,
+				FA5C2A991E5A519700A0CB56 /* UIViewControllerExtension.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		FA5C2A931E5A515C00A0CB56 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				FA5C2A9F1E5A51B300A0CB56 /* ExtensionConsommation.swift */,
+				FA5C2AA11E5A57FD00A0CB56 /* ExtensionPersonType.swift */,
+				FA5C2AA31E5A5ACE00A0CB56 /* ExtensionEventType.swift */,
+				FA5C2AA51E5A5AF800A0CB56 /* ExtensionEtablishments.swift */,
+				FA5C2AA91E5A5B6F00A0CB56 /* ExtensionGroupType.swift */,
+			);
+			name = Enums;
+			sourceTree = "<group>";
+		};
+		FA5C2A941E5A516000A0CB56 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -783,40 +834,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5C2AA41E5A5ACE00A0CB56 /* ExtensionEventType.swift in Sources */,
 				FA3AA1801E57716E002CF4FC /* UserProfileCell.swift in Sources */,
 				FA3AA1711E577106002CF4FC /* HomeViewController.swift in Sources */,
 				FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */,
+				FA5C2AAA1E5A5B6F00A0CB56 /* ExtensionGroupType.swift in Sources */,
+				FA5C2A9C1E5A519700A0CB56 /* UITableViewCellExtension.swift in Sources */,
+				FA5C2A9E1E5A519700A0CB56 /* UIViewControllerExtension.swift in Sources */,
 				FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */,
 				FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */,
 				FA3AA1731E577106002CF4FC /* SignUpViewController.swift in Sources */,
 				FA3AA1761E577137002CF4FC /* MainViewController.swift in Sources */,
 				FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */,
-				FA3AA19A1E5774D3002CF4FC /* UIViewControllerExtension.swift in Sources */,
+				FA5C2AA01E5A51B300A0CB56 /* ExtensionConsommation.swift in Sources */,
+				FA5C2A9A1E5A519700A0CB56 /* UIColorExtension.swift in Sources */,
 				FA3AA1871E5771A8002CF4FC /* EditProfileViewController.swift in Sources */,
+				FA5C2AA61E5A5AF800A0CB56 /* ExtensionEtablishments.swift in Sources */,
+				FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */,
+				FA5C2A911E5A4FFC00A0CB56 /* EventType.swift in Sources */,
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
 				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
 				FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */,
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
-				FA3AA19B1E5774D3002CF4FC /* UIImageViewExtension.swift in Sources */,
 				FA3AA1881E5771A8002CF4FC /* UserProfileViewController.swift in Sources */,
 				FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */,
 				FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */,
 				FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */,
 				FA78B71B1E56978600765056 /* RAUser.swift in Sources */,
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
+				FA5C2AA21E5A57FD00A0CB56 /* ExtensionPersonType.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
+				FA5C2A9B1E5A519700A0CB56 /* UIImageViewExtension.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
+				FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */,
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
 				FA3AA17C1E577153002CF4FC /* EtablishmentTableViewController.swift in Sources */,
+				FA5C2AA81E5A5B3000A0CB56 /* GroupType.swift in Sources */,
 				FA3AA17D1E577153002CF4FC /* UserSettingsTableViewController.swift in Sources */,
 				FA3AA1831E57718B002CF4FC /* TabBarController.swift in Sources */,
 				FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */,
 				FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */,
 				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,
 				FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */,
-				FA3AA19D1E5774D3002CF4FC /* UITextFieldExtension.swift in Sources */,
-				FA3AA19F1E577501002CF4FC /* UIColorExtension.swift in Sources */,
-				FA3AA19C1E5774D3002CF4FC /* UITableViewCellExtension.swift in Sources */,
+				FA33BF511E57ECFD0037FC88 /* PersonFilter.swift in Sources */,
 				FA3AA18C1E57720F002CF4FC /* TokenWrapper.swift in Sources */,
 				FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */,
 				FAFF37851E034678001B2A8F /* RABase.swift in Sources */,
