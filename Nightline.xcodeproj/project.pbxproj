@@ -29,6 +29,9 @@
 		FA3AA18C1E57720F002CF4FC /* TokenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */; };
 		FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18B1E57720F002CF4FC /* UserManager.swift */; };
 		FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */; };
+		FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */; };
+		FA5729831E5CFBE800B36784 /* RoutesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5729821E5CFBE800B36784 /* RoutesAPI.swift */; };
+		FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */; };
 		FA5C2A911E5A4FFC00A0CB56 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A901E5A4FFC00A0CB56 /* EventType.swift */; };
 		FA5C2A9A1E5A519700A0CB56 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A951E5A519700A0CB56 /* UIColorExtension.swift */; };
 		FA5C2A9B1E5A519700A0CB56 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A961E5A519700A0CB56 /* UIImageViewExtension.swift */; };
@@ -116,6 +119,9 @@
 		FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenWrapper.swift; path = Manager/TokenWrapper.swift; sourceTree = "<group>"; };
 		FA3AA18B1E57720F002CF4FC /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Manager/UserManager.swift; sourceTree = "<group>"; };
 		FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertUtils.swift; path = Utils/AlertUtils.swift; sourceTree = "<group>"; };
+		FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutableProtocol.swift; path = Protocols/RoutableProtocol.swift; sourceTree = "<group>"; };
+		FA5729821E5CFBE800B36784 /* RoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutesAPI.swift; path = Enums/Routes/RoutesAPI.swift; sourceTree = "<group>"; };
+		FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionRoutesAPI.swift; path = Extensions/Enums/ExtensionRoutesAPI.swift; sourceTree = "<group>"; };
 		FA5C2A901E5A4FFC00A0CB56 /* EventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventType.swift; path = Enums/Parties/MapFilter/EventType.swift; sourceTree = "<group>"; };
 		FA5C2A951E5A519700A0CB56 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Extensions/UI/UIColorExtension.swift; sourceTree = "<group>"; };
 		FA5C2A961E5A519700A0CB56 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = Extensions/UI/UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -313,6 +319,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		FA5729811E5CFBBC00B36784 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				FA5729821E5CFBE800B36784 /* RoutesAPI.swift */,
+			);
+			name = Routes;
+			sourceTree = "<group>";
+		};
 		FA5C2A921E5A515100A0CB56 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +347,7 @@
 				FA5C2AA31E5A5ACE00A0CB56 /* ExtensionEventType.swift */,
 				FA5C2AA51E5A5AF800A0CB56 /* ExtensionEtablishments.swift */,
 				FA5C2AA91E5A5B6F00A0CB56 /* ExtensionGroupType.swift */,
+				FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */,
 			);
 			name = Enums;
 			sourceTree = "<group>";
@@ -390,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */,
+				FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -512,6 +528,7 @@
 		FAFF37881E034703001B2A8F /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				FA5729811E5CFBBC00B36784 /* Routes */,
 				FA75ADB61E4D301F0078FFE9 /* Parties */,
 				FA75ADAE1E4CE3B00078FFE9 /* CustomCells */,
 				FAFF37891E034709001B2A8F /* User */,
@@ -851,6 +868,8 @@
 				FA3AA1871E5771A8002CF4FC /* EditProfileViewController.swift in Sources */,
 				FA5C2AA61E5A5AF800A0CB56 /* ExtensionEtablishments.swift in Sources */,
 				FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */,
+				FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */,
+				FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */,
 				FA5C2A911E5A4FFC00A0CB56 /* EventType.swift in Sources */,
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
 				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
@@ -865,6 +884,7 @@
 				FA5C2AA21E5A57FD00A0CB56 /* ExtensionPersonType.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
 				FA5C2A9B1E5A519700A0CB56 /* UIImageViewExtension.swift in Sources */,
+				FA5729831E5CFBE800B36784 /* RoutesAPI.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */,
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,

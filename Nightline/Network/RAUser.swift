@@ -12,21 +12,20 @@ import AlamofireObjectMapper
 
 class RAUser: RABase {
   
-  let baseUrl = AppConstant.Network.baseUrl
   
   func loginUser(email: String, password: String,
                  callback: @escaping (User) -> (),
                  callbackError: @escaping () -> ()) {
     
     let parameters = ["email":email, "password":password]
-    let url = baseUrl.appending(Utils.Network.getLoginUrl())
-    Alamofire.request(url, method: .post, parameters: parameters)
+    let url = RoutesAPI.login.url
+    self.request = Alamofire.request(url, method: .post, parameters: parameters)
       .responseObject(completionHandler: { (response: DataResponse<User>) in
       switch response.result {
       case .success(let user):
         log.verbose("RestApiUser.login OK \(user)")
         callback(user)
-      case .failure:
+      case .failure(let error):
         callbackError()
         log.error("RestApiUser.login Fail : \(error)")
       }
@@ -37,9 +36,9 @@ class RAUser: RABase {
                   callback: ()->(),
                   callbackError: ()->()) {
     let parameters = ["email":email, "pseudo":nickname, "password":password]
-    let url = baseUrl.appending(Utils.Network.getSignUpUrl())
+    let url = RoutesAPI.signUp.url
     
-    Alamofire.request(url, method: .post, parameters: parameters).responseObject(completionHandler: {
+    self.request = Alamofire.request(url, method: .post, parameters: parameters).responseObject(completionHandler: {
       (response: DataResponse<User>) in
       switch response.result {
       case .success(let user):

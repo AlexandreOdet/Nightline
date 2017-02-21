@@ -17,6 +17,11 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   
   var map = MKMapView()
   let locationManager = CLLocationManager()
+  var restApiUser = RAUser()
+  
+  deinit {
+    restApiUser.cancelRequest()
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
