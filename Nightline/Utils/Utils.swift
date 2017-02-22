@@ -13,26 +13,6 @@ import KeychainSwift
 
 final class Utils {
   final class Network {
-    static func getEtablishmentUrl() -> String {
-      return "some-url"
-    }
-    
-    static func getDrinksByEtablishmentUrl(etablishmentId: Int) -> String {
-      return "some-url".appending(String(etablishmentId))
-    }
-    
-    static func getLoginUrl() -> String {
-      return AppConstant.Network.baseUrl + AppConstant.Network.login
-    }
-    
-    static func getSignUpUrl() -> String {
-      return "/sign_up"
-    }
-    
-    static func getUserProfileUrl() -> String {
-      return "some-url"
-    }
-    
     static func isInternetAvailable() -> Bool
     {
       var zeroAddress = sockaddr_in()

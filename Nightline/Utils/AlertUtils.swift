@@ -19,12 +19,4 @@ final class AlertUtils {
     alert.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
     fromController.present(alert, animated: true, completion: nil)
   }
-  
-  static func noConnectivityAlert(fromController: UIViewController) {
-    let alert = UIAlertController(title: "Erreur", message: "Une connexion internet est nécessaire pour profiter pleinement de Nightline", preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-    alert.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
-    fromController.present(alert, animated: true, completion: nil)
-  }
-  
 }
