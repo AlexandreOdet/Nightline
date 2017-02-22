@@ -63,7 +63,8 @@ final class UserProfileViewController: BaseViewController {
     }
     userProfilePicture.translatesAutoresizingMaskIntoConstraints = false
     userProfilePicture.roundImage()
-    userProfilePicture.image = R.image.logo()
+    userProfilePicture.backgroundColor = UIColor.white
+    userProfilePicture.image = UserManager.instance.getUserGender().image
   }
   
   private func addUserNameLabels() {
@@ -118,12 +119,7 @@ final class UserProfileViewController: BaseViewController {
     //self.navigationController?.navigationBar.barTintColor = UIColor.orange
     //self.navigationController?.navigationBar.tintColor = UIColor.black
   }
-  
-  //  func goToUserSettingsViewController() {
-  //    let nextViewController = UserSettingsTableViewController()
-  //    self.navigationController?.pushViewController(nextViewController, animated: true)
-  //  }
-  
+    
   func goToEditProfilViewController() {
     let nextViewController = EditProfileViewController()
     self.navigationController?.pushViewController(nextViewController, animated: true)

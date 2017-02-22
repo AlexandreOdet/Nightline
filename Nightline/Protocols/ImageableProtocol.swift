@@ -11,4 +11,5 @@ import UIKit
 
 protocol isImageable {
   var image: UIImage { get }
+  var placeholder: UIImage { get }
 }

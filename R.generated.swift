@@ -22,14 +22,20 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 9 images.
+  /// This `R.image` struct is generated, and contains static references to 12 images.
   struct image {
     /// Image `avatar`.
     static let avatar = ImageResource(bundle: _R.hostingBundle, name: "avatar")
     /// Image `back_arrow`.
     static let back_arrow = ImageResource(bundle: _R.hostingBundle, name: "back_arrow")
+    /// Image `female`.
+    static let female = ImageResource(bundle: _R.hostingBundle, name: "female")
+    /// Image `interrogation`.
+    static let interrogation = ImageResource(bundle: _R.hostingBundle, name: "interrogation")
     /// Image `logo`.
     static let logo = ImageResource(bundle: _R.hostingBundle, name: "logo")
+    /// Image `male`.
+    static let male = ImageResource(bundle: _R.hostingBundle, name: "male")
     /// Image `pin`.
     static let pin = ImageResource(bundle: _R.hostingBundle, name: "pin")
     /// Image `placeholder_filled`.
@@ -53,9 +59,24 @@ struct R {
       return UIImage(resource: R.image.back_arrow, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "female", bundle: ..., traitCollection: ...)`
+    static func female(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.female, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "interrogation", bundle: ..., traitCollection: ...)`
+    static func interrogation(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.interrogation, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
     static func logo(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "male", bundle: ..., traitCollection: ...)`
+    static func male(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.male, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "pin", bundle: ..., traitCollection: ...)`

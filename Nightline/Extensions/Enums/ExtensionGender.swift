@@ -10,7 +10,16 @@ import Foundation
 import UIKit
 
 extension Gender: isImageable {
+  var placeholder: UIImage {
+    return R.image.interrogation()!
+  }
+
   var image: UIImage {
-    return UIImage()
+    switch self {
+    case .male:
+      return R.image.male()!
+    default:
+      return R.image.female()!
+    }
   }
 }

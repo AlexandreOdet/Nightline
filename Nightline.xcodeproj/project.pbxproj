@@ -71,6 +71,8 @@
 		FAFF37801E034654001B2A8F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377D1E034654001B2A8F /* Utils.swift */; };
 		FAFF37851E034678001B2A8F /* RABase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37841E034678001B2A8F /* RABase.swift */; };
 		FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF378A1E03470F001B2A8F /* Gender.swift */; };
+		FAFF4EA21E5E4762006582C7 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF4EA11E5E4762006582C7 /* ExtensionString.swift */; };
+		FAFF4EA41E5E4827006582C7 /* ExtensionDBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF4EA31E5E4827006582C7 /* ExtensionDBUser.swift */; };
 		FF48EB7092FAEE04942E0A95 /* Pods_NightlineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1741672ABE52DE35C2BE67 /* Pods_NightlineTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -172,6 +174,8 @@
 		FAFF377D1E034654001B2A8F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Utils/Utils.swift; sourceTree = "<group>"; };
 		FAFF37841E034678001B2A8F /* RABase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RABase.swift; path = Network/RABase.swift; sourceTree = "<group>"; };
 		FAFF378A1E03470F001B2A8F /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gender.swift; path = Enums/User/Gender.swift; sourceTree = "<group>"; };
+		FAFF4EA11E5E4762006582C7 /* ExtensionString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionString.swift; path = Extensions/Utils/ExtensionString.swift; sourceTree = "<group>"; };
+		FAFF4EA31E5E4827006582C7 /* ExtensionDBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionDBUser.swift; path = Extensions/Models/User/ExtensionDBUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +244,7 @@
 			children = (
 				FA303F691E5D1EAE008961EF /* ExtensionUser.swift */,
 				FA303F6B1E5D1F26008961EF /* ExtensionUserPreferences.swift */,
+				FAFF4EA31E5E4827006582C7 /* ExtensionDBUser.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 		FA3AA1951E577417002CF4FC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FAFF4EA01E5E4736006582C7 /* Utils */,
 				FA5C2A941E5A516000A0CB56 /* Models */,
 				FA5C2A931E5A515C00A0CB56 /* Enums */,
 				FA5C2A921E5A515100A0CB56 /* UI */,
@@ -573,6 +579,14 @@
 				FAFF378A1E03470F001B2A8F /* Gender.swift */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		FAFF4EA01E5E4736006582C7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF4EA11E5E4762006582C7 /* ExtensionString.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -902,12 +916,14 @@
 				FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */,
 				FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */,
 				FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */,
+				FAFF4EA41E5E4827006582C7 /* ExtensionDBUser.swift in Sources */,
 				FA5C2A911E5A4FFC00A0CB56 /* EventType.swift in Sources */,
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
 				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
 				FA303F6C1E5D1F26008961EF /* ExtensionUserPreferences.swift in Sources */,
 				FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */,
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
+				FAFF4EA21E5E4762006582C7 /* ExtensionString.swift in Sources */,
 				FA3AA1881E5771A8002CF4FC /* UserProfileViewController.swift in Sources */,
 				FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */,
 				FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */,

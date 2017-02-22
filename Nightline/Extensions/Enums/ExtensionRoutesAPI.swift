@@ -13,11 +13,10 @@ extension RoutesAPI: RoutableProtocol {
     let path: String = {
       switch self {
       case .login:
-        return "/login"
+        return AppConstant.Network.login
       case .signUp:
-        return "/signup"
+        return AppConstant.Network.signup
       }
-      return ""
     }()
     return (RoutesAPI.baseUrl.appending(path))
   }

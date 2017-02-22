@@ -11,7 +11,7 @@ import UIKit
 
 final class AppConstant {
   final class UI {
-    class Colors {
+    final class Colors {
       static let colorPrimary = 0x0e1728
       static let colorAccent = 0xe87e07 //Orange
       static let white = 0xececec
@@ -32,7 +32,7 @@ final class AppConstant {
   final class Network {
     static let baseUrl = "http://35.16.53.22:8080"
     static let login = "/login"
-    static let signup = ""
+    static let signup = "/signup"
     static let etablishment = ""
     static let drinks = ""
   }

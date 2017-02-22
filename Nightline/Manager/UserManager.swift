@@ -101,6 +101,10 @@ final class UserManager {
     DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["city":newValue])
   }
   
+  func getUserGender() -> Gender {
+    return networkUser.gender
+  }
+  
   func getUserConsommationPreferences() -> Array<String> {
     if networkUser.preferences.consoLiked.isEmpty == false {
       return networkUser.preferences.consoLiked

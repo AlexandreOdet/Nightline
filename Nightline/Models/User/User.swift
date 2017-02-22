@@ -12,15 +12,16 @@ import ObjectMapper
 
 class User: Mappable {
   
-    var firstName = ""
-    var lastName = ""
-    var email = ""
-    var nickname = ""
-    var passwd = ""
-    var city = ""
-    var age = ""
-    var id = 0
-    var preferences = UserPreferences()
+  var firstName = ""
+  var lastName = ""
+  var email = ""
+  var nickname = ""
+  var passwd = ""
+  var city = ""
+  var age = ""
+  var id = 0
+  var preferences = UserPreferences()
+  var gender = Gender.male
   
   required init() {
     
