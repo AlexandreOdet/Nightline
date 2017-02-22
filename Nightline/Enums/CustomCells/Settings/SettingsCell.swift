@@ -9,9 +9,9 @@
 import Foundation
 
 enum SettingsCell: Int {
-  case Profile = 1
-  case Preference = 2
-  case Info = 3
-  case Logout = 4
-  case Unknown = 0
+  case Profile = 0
+  case Preference = 1
+  case Info = 2
+  case Logout = 3
+  case Unknown = -1
 }

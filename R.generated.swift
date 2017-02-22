@@ -121,7 +121,7 @@ struct R {
   
   /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 29 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 31 localization keys.
     struct localizable {
       /// fr translation: Bar
       /// 
@@ -147,6 +147,10 @@ struct R {
       /// 
       /// Locales: fr, en
       static let bourbon = StringResource(key: "bourbon", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Cancel
+      /// 
+      /// Locales: fr, en
+      static let cancel = StringResource(key: "cancel", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: Champagne
       /// 
       /// Locales: fr, en
@@ -163,6 +167,10 @@ struct R {
       /// 
       /// Locales: fr, en
       static let error = StringResource(key: "error", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Erreur au chargement des données
+      /// 
+      /// Locales: fr, en
+      static let error_loading_data = StringResource(key: "error_loading_data", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: Établissements
       /// 
       /// Locales: fr, en
@@ -282,6 +290,13 @@ struct R {
         return NSLocalizedString("bourbon", bundle: _R.hostingBundle, comment: "")
       }
       
+      /// fr translation: Cancel
+      /// 
+      /// Locales: fr, en
+      static func cancel(_: Void = ()) -> String {
+        return NSLocalizedString("cancel", bundle: _R.hostingBundle, comment: "")
+      }
+      
       /// fr translation: Champagne
       /// 
       /// Locales: fr, en
@@ -308,6 +323,13 @@ struct R {
       /// Locales: fr, en
       static func error(_: Void = ()) -> String {
         return NSLocalizedString("error", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Erreur au chargement des données
+      /// 
+      /// Locales: fr, en
+      static func error_loading_data(_: Void = ()) -> String {
+        return NSLocalizedString("error_loading_data", bundle: _R.hostingBundle, comment: "")
       }
       
       /// fr translation: Établissements

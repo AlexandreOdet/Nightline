@@ -101,7 +101,7 @@
 		4D29CABD4DA5A77DCF782125 /* Pods-NightlineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		52AC7CFB957CAC0F9B1438C7 /* Pods-NightlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests.debug.xcconfig"; sourceTree = "<group>"; };
 		82BFAD513DB6A99D8312DCE7 /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA1DB89D1E03495E00C8E437 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		FA1DB89D1E03495E00C8E437 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ../R.generated.swift; sourceTree = "<group>"; };
 		FA1DB8A11E0349FE00C8E437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FA1DB8A31E034C9300C8E437 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		FA1DB8A61E034CEA00C8E437 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -444,8 +444,6 @@
 		FAFF371A1E03402F001B2A8F = {
 			isa = PBXGroup;
 			children = (
-				FA1DB8A71E034CEA00C8E437 /* Localizable.strings */,
-				FA1DB89D1E03495E00C8E437 /* R.generated.swift */,
 				FAFF37251E03402F001B2A8F /* Nightline */,
 				FAFF373D1E03402F001B2A8F /* NightlineTests */,
 				FAFF37481E03402F001B2A8F /* NightlineUITests */,
@@ -468,6 +466,8 @@
 		FAFF37251E03402F001B2A8F /* Nightline */ = {
 			isa = PBXGroup;
 			children = (
+				FA1DB89D1E03495E00C8E437 /* R.generated.swift */,
+				FA1DB8A71E034CEA00C8E437 /* Localizable.strings */,
 				FAFF37571E034073001B2A8F /* AppDelegate.swift */,
 				FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */,
 				FAFF37301E03402F001B2A8F /* Assets.xcassets */,
@@ -980,6 +980,7 @@
 				FA1DB8A81E034CEF00C8E437 /* en */,
 			);
 			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		FAFF372A1E03402F001B2A8F /* Main.storyboard */ = {

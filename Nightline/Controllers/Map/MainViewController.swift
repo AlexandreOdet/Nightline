@@ -47,6 +47,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
       }
     }
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
+    log.verbose("\(FilterManager.instance.toParameters())")
   }
   
   func requestLocationAccess() {

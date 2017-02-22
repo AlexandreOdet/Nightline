@@ -12,7 +12,7 @@ import UIKit
 final class Animation {
   
   func onClick(sender: UIView, backgroundColor: UIColor = .lightGray) {
-    sender.backgroundColor = .lightGray
+    sender.backgroundColor = backgroundColor
     UIView.animate(withDuration: AppConstant.UI.Animation.onClickDuration) {
       sender.backgroundColor = .white
     }

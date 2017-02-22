@@ -35,3 +35,5 @@ cocktail = "Cocktails";
 thanks = "Remerciements";
 faq = "FAQ";
 build = "Version";
+error_loading_data = "Erreur au chargement des données";
+cancel = "Cancel";

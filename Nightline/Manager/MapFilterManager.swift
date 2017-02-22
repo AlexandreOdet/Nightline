@@ -41,8 +41,10 @@ class FilterManager {
     for item in array {
       value += item.rawValue + "|"
     }
-    value.remove(at: value.index(before: value.endIndex))
-    return value
+    if value.characters.count > 1 {
+      value.remove(at: value.index(before: value.endIndex))
+    }
+    return (value.isEmpty) ? "all" : value
   }
   
   private func formatArrayToParametersString(array: Array<EventType>) -> String {
@@ -50,8 +52,10 @@ class FilterManager {
     for item in array {
       value += item.rawValue + "|"
     }
-    value.remove(at: value.index(before: value.endIndex))
-    return value
+    if value.characters.count > 1 {
+      value.remove(at: value.index(before: value.endIndex))
+    }
+    return (value.isEmpty) ? "all" : value
   }
   
   private func formatArrayToParametersString(array: Array<PersonType>) -> String {
@@ -59,8 +63,10 @@ class FilterManager {
     for item in array {
       value += item.rawValue + "|"
     }
-    value.remove(at: value.index(before: value.endIndex))
-    return value
+    if value.characters.count > 1 {
+      value.remove(at: value.index(before: value.endIndex))
+    }
+    return (value.isEmpty) ? "all" : value
   }
   
   private func formatArrayToParametersString(array: Array<Etablishment>) -> String {
@@ -68,7 +74,9 @@ class FilterManager {
     for item in array {
       value += item.rawValue + "|"
     }
-    value.remove(at: value.index(before: value.endIndex))
-    return value
+    if value.characters.count > 1 {
+      value.remove(at: value.index(before: value.endIndex))
+    }
+    return (value.isEmpty) ? "all" : value
   }
 }

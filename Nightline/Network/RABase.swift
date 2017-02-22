@@ -9,11 +9,8 @@
 import Foundation
 import UIKit
 import Alamofire
-import AlamofireObjectMapper
 
 class RABase {
-  
-  
   var request: Alamofire.Request?
   
   func cancelRequest() {

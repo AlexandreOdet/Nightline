@@ -12,11 +12,11 @@ import UIKit
 final class AlertUtils {
   
   static func networkErrorAlert(fromController: UIViewController) {
-    let alert = UIAlertController(title: "Erreur",
-                                  message: "Une erreur est survenue au chargement des données !",
+    let alert = UIAlertController(title: R.string.localizable.error(),
+                                  message: R.string.localizable.error_loading_data(),
                                   preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-    alert.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
+    alert.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
     fromController.present(alert, animated: true, completion: nil)
   }
 }

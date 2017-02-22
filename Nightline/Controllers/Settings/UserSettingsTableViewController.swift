@@ -16,6 +16,7 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
   let reuseIdentifier = "SettingsCell"
   var tableView = UITableView()
   let infosArray = [R.string.localizable.thanks(), R.string.localizable.faq(), R.string.localizable.build()]
+  let sectionArray = ["Section 1", "Section 2", "Section 3", "Section 4"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,8 +35,10 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
     tableView.dataSource = self
   }
   
+  /*------------- UITableView Functions -------------*/
+  
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 5
+    return 4
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,6 +119,17 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
     }
     return UITableViewAutomaticDimension
   }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return sectionArray[section]
+  }
+  
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    var headerView = UIView()
+    return headerView
+  }
+  
+  /*------------- UITableView Actions -------------*/
   
   func performLogoutAction() {
     Utils.Network.logOutUser()
