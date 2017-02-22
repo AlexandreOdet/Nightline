@@ -8,25 +8,12 @@
 
 import Foundation
 
-class UserPreferences: ModelsProtocol {
+class UserPreferences {
   
   var consoLiked = Array<String>()
   var etablishmentLiked = Array<String>()
   
   init() {
     
-  }
-
-  func toString() -> String {
-    var result = ""
-    result += "Preferences : \nConso:\n"
-    for conso in self.consoLiked {
-      result += conso + "\n"
-    }
-    result += "--------------------\nEtablissements:\n"
-    for etabl in self.etablishmentLiked {
-      result += etabl + "\n"
-    }
-    return result
   }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class Marker: NSObject, MKAnnotation, ModelsProtocol {
+class Marker: NSObject, MKAnnotation {
   let name: String?
   let locationName: String
   let discipline: String
@@ -30,13 +30,5 @@ class Marker: NSObject, MKAnnotation, ModelsProtocol {
   
   var title: String? {
     return self.name
-  }
-  
-  func toString() -> String {
-    var ret = "Marker: \n"
-    ret += "Name: \(self.title)\n"
-    ret += "Description: \(self.locationName)\n"
-    ret += "Localisation =  latitude: \(self.coordinate.latitude) longitude: \(self.coordinate.longitude)\n"
-    return ret
   }
 }

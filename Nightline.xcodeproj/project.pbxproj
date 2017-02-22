@@ -12,6 +12,11 @@
 		FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB89D1E03495E00C8E437 /* R.generated.swift */; };
 		FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DB8A11E0349FE00C8E437 /* MapKit.framework */; };
 		FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB8A71E034CEA00C8E437 /* Localizable.strings */; };
+		FA303F651E5D1C75008961EF /* ExtensionMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F641E5D1C75008961EF /* ExtensionMarker.swift */; };
+		FA303F671E5D1D18008961EF /* ImageableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F661E5D1D18008961EF /* ImageableProtocol.swift */; };
+		FA303F6A1E5D1EAE008961EF /* ExtensionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F691E5D1EAE008961EF /* ExtensionUser.swift */; };
+		FA303F6C1E5D1F26008961EF /* ExtensionUserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F6B1E5D1F26008961EF /* ExtensionUserPreferences.swift */; };
+		FA303F6E1E5D23A1008961EF /* ExtensionGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F6D1E5D23A1008961EF /* ExtensionGender.swift */; };
 		FA33BF511E57ECFD0037FC88 /* PersonFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33BF501E57ECFD0037FC88 /* PersonFilter.swift */; };
 		FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1691E576FCD002CF4FC /* Consommation.swift */; };
 		FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA16A1E576FCD002CF4FC /* Etablishments.swift */; };
@@ -102,6 +107,11 @@
 		FA1DB8A61E034CEA00C8E437 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1DB8A81E034CEF00C8E437 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightline.entitlements; sourceTree = "<group>"; };
+		FA303F641E5D1C75008961EF /* ExtensionMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionMarker.swift; path = Extensions/Models/Parties/ExtensionMarker.swift; sourceTree = "<group>"; };
+		FA303F661E5D1D18008961EF /* ImageableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageableProtocol.swift; path = Protocols/ImageableProtocol.swift; sourceTree = "<group>"; };
+		FA303F691E5D1EAE008961EF /* ExtensionUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionUser.swift; path = Extensions/Models/User/ExtensionUser.swift; sourceTree = "<group>"; };
+		FA303F6B1E5D1F26008961EF /* ExtensionUserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionUserPreferences.swift; path = Extensions/Models/User/ExtensionUserPreferences.swift; sourceTree = "<group>"; };
+		FA303F6D1E5D23A1008961EF /* ExtensionGender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionGender.swift; path = Extensions/Enums/ExtensionGender.swift; sourceTree = "<group>"; };
 		FA33BF501E57ECFD0037FC88 /* PersonFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonFilter.swift; path = Enums/Parties/MapFilter/PersonFilter.swift; sourceTree = "<group>"; };
 		FA3AA1691E576FCD002CF4FC /* Consommation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Consommation.swift; path = Enums/Parties/UserPreferences/Consommation.swift; sourceTree = "<group>"; };
 		FA3AA16A1E576FCD002CF4FC /* Etablishments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Etablishments.swift; path = Enums/Parties/UserPreferences/Etablishments.swift; sourceTree = "<group>"; };
@@ -215,6 +225,23 @@
 				82BFAD513DB6A99D8312DCE7 /* Pods_NightlineUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA303F631E5D1C44008961EF /* Parties */ = {
+			isa = PBXGroup;
+			children = (
+				FA303F641E5D1C75008961EF /* ExtensionMarker.swift */,
+			);
+			name = Parties;
+			sourceTree = "<group>";
+		};
+		FA303F681E5D1E9A008961EF /* User */ = {
+			isa = PBXGroup;
+			children = (
+				FA303F691E5D1EAE008961EF /* ExtensionUser.swift */,
+				FA303F6B1E5D1F26008961EF /* ExtensionUserPreferences.swift */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		FA3AA1671E576FAF002CF4FC /* UserPreferences */ = {
@@ -348,6 +375,7 @@
 				FA5C2AA51E5A5AF800A0CB56 /* ExtensionEtablishments.swift */,
 				FA5C2AA91E5A5B6F00A0CB56 /* ExtensionGroupType.swift */,
 				FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */,
+				FA303F6D1E5D23A1008961EF /* ExtensionGender.swift */,
 			);
 			name = Enums;
 			sourceTree = "<group>";
@@ -355,6 +383,8 @@
 		FA5C2A941E5A516000A0CB56 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA303F681E5D1E9A008961EF /* User */,
+				FA303F631E5D1C44008961EF /* Parties */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -406,6 +436,7 @@
 			children = (
 				FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */,
 				FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */,
+				FA303F661E5D1D18008961EF /* ImageableProtocol.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -853,6 +884,7 @@
 			files = (
 				FA5C2AA41E5A5ACE00A0CB56 /* ExtensionEventType.swift in Sources */,
 				FA3AA1801E57716E002CF4FC /* UserProfileCell.swift in Sources */,
+				FA303F6E1E5D23A1008961EF /* ExtensionGender.swift in Sources */,
 				FA3AA1711E577106002CF4FC /* HomeViewController.swift in Sources */,
 				FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */,
 				FA5C2AAA1E5A5B6F00A0CB56 /* ExtensionGroupType.swift in Sources */,
@@ -873,6 +905,7 @@
 				FA5C2A911E5A4FFC00A0CB56 /* EventType.swift in Sources */,
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
 				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
+				FA303F6C1E5D1F26008961EF /* ExtensionUserPreferences.swift in Sources */,
 				FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */,
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
 				FA3AA1881E5771A8002CF4FC /* UserProfileViewController.swift in Sources */,
@@ -891,9 +924,12 @@
 				FA3AA17C1E577153002CF4FC /* EtablishmentTableViewController.swift in Sources */,
 				FA5C2AA81E5A5B3000A0CB56 /* GroupType.swift in Sources */,
 				FA3AA17D1E577153002CF4FC /* UserSettingsTableViewController.swift in Sources */,
+				FA303F6A1E5D1EAE008961EF /* ExtensionUser.swift in Sources */,
 				FA3AA1831E57718B002CF4FC /* TabBarController.swift in Sources */,
 				FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */,
 				FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */,
+				FA303F671E5D1D18008961EF /* ImageableProtocol.swift in Sources */,
+				FA303F651E5D1C75008961EF /* ExtensionMarker.swift in Sources */,
 				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,
 				FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */,
 				FA33BF511E57ECFD0037FC88 /* PersonFilter.swift in Sources */,

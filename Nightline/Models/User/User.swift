@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
-class User: ModelsProtocol, Mappable {
+class User: Mappable {
   
     var firstName = ""
     var lastName = ""
@@ -35,10 +35,6 @@ class User: ModelsProtocol, Mappable {
     self.city = otherUser.city
     self.age = otherUser.age
     self.id = otherUser.id
-  }
-  
-  func toString() -> String {
-    return ""
   }
   
   required init?(map: Map) {
