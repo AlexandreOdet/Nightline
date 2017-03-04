@@ -8,6 +8,16 @@
 
 import Foundation
 
+/**
+ Enum: eventType.
+ Enum containing all the possibilities for the eventType filter available on the map.
+ 
+ -> birthday: Birthday of one of your friend
+ 
+ -> festival: Festival available in your region.
+ 
+ */
+
 enum EventType: String {
   case birthday = "birthday"
   case festival = "festival"

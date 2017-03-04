@@ -9,7 +9,8 @@
 import Foundation
 
 /**
- Enum for all persons you're looking for on main Map.
+ Enum: PersonType.
+ Enum containing all the possibilities for the PersonType filter available on the map.
  
  -> Nobody: Nobody you know
  
@@ -25,6 +26,15 @@ enum PersonType: String {
   case friendLink = "friend_link"
   case unknown = ""
 
+  /**
+   Method of the PersonType enum.
+   Get the array of all the PersonType values.
+   
+   @param None.
+   
+   @return Array of all the values.
+   */
+  
   func getPersonTypeArray() -> [PersonType] {
     var types = Array<PersonType>()
     return types

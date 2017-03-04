@@ -9,10 +9,19 @@
 import Foundation
 import Rswift
 
+/*
+ Enum: Gender
+ All values possible for the user's gender.
+ */
+
 enum Gender: String {
   case male = "male"
   case female = "female"
   
+  /*
+   Initializer of gender enum.
+   @param: String containing the gender of the user
+   */
   init(gender: String) {
     switch gender {
     case "female":
@@ -22,6 +31,12 @@ enum Gender: String {
     }
   }
   
+  /*
+   toString method of the gender enum.
+   @param: None
+   @return: String containing the gender of the user
+   */
+
   func toString() -> String {
     switch self {
     case .female:

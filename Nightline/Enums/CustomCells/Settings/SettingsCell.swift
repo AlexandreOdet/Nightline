@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ Enum for my custom cells in the settings view.
+ */
+
 enum SettingsCell: Int {
   case Profile = 0
   case Preference = 1

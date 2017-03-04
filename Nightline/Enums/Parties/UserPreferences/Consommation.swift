@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ Enum: Consommation.
+ Enum containing all the possibilities for the consommation preferences.
+ */
+
 enum Consommation: String {
   case beer = "beer"
   case vodka = "vodka"
@@ -18,6 +23,14 @@ enum Consommation: String {
   case champagne = "champagne"
   case cocktail = "cocktail"
   case unknown = ""
+  
+  /**
+   Function of Consommation Enum.
+   Have the array of all consommation type available.
+   
+   @param: None
+   @return An array with all the consommation available.
+   */
   
   func getAllConsommationTypes() -> [Consommation] {
     var array = Array<Consommation>()

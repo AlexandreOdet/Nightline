@@ -8,6 +8,12 @@
 
 import Foundation
 
+/*
+ Enum: RoutesApi.
+ This enums contains all the routes availables for our API.
+ @properties baseUrl: The root of our API.
+ */
+
 enum RoutesAPI {
   
   static var baseUrl = AppConstant.Network.baseUrl
