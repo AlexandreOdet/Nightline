@@ -11,8 +11,26 @@ import UIKit
 import SystemConfiguration
 import KeychainSwift
 
+/*
+ Utils class
+ This class contains some subclasses which functions used all over the app.
+ */
+
 final class Utils {
+  
+  /*
+   Network class
+   This nested class contains some functions network oriented used all over the app.
+   */
   final class Network {
+    
+    /*
+     Utils.Network function.
+     Check if a internet and/or connectivity is available.
+     @param None
+     @return true if internet is available, false otherwise.
+     */
+    
     static func isInternetAvailable() -> Bool
     {
       var zeroAddress = sockaddr_in()
@@ -35,16 +53,37 @@ final class Utils {
     }
     
     static var forceStayStart: Bool = false
-    
+
+    /*
+     Utils.Network function.
+     Start the spinner in status bar.
+     @param None
+     @return None
+     */
+
     static func spinnerStart() {
       UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
+    /*
+     Utils.Network function.
+     Stop the spinner in status bar.
+     @param None
+     @return None
+     */
+
     static func spinnerStop() {
       if !self.forceStayStart {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
       }
     }
+    
+    /*
+     Utils.Network function.
+     log out the user.
+     @param None
+     @return None
+     */
     
     static func logOutUser() {
       tokenWrapper.deleteToken()

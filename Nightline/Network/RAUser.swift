@@ -10,9 +10,19 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
+/*
+ RAUser, subclass of RABase.
+ Here all the communications to the API related to the user.
+ */
+
 class RAUser: RABase {
   
-  
+  /*
+   func loginUser of RAUser.
+   REST API call for log the user.
+   @param email: user's mail, password: user's password, callback: the closure called when the request succeed, callbackError: the closure called when the request fail.
+   @return None
+   */
   func loginUser(email: String, password: String,
                  callback: @escaping (User) -> (),
                  callbackError: @escaping () -> ()) {
@@ -32,6 +42,13 @@ class RAUser: RABase {
     })
   }
 
+  /*
+   func signUpUser of RAUser.
+   REST API call for signing up the user.
+   @param email: user's mail, password: user's password, callback: the closure called when the request succeed, callbackError: the closure called when the request fail.
+   @return None
+   */
+  
   func signUpUser(email: String, nickname: String, password: String,
                   callback: ()->(),
                   callbackError: ()->()) {

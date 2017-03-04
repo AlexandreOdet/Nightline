@@ -9,8 +9,19 @@
 import Foundation
 import UIKit
 
+/*
+ Alert Utils Class.
+ This class contains function that contains UIAlertController that will be used often in the app.
+ */
+
 final class AlertUtils {
   
+  /*
+   func networkErrorAlert()
+   Create an alert when a request failed.
+   @param fromController: Controller that sends the request.
+   @return None
+   */
   static func networkErrorAlert(fromController: UIViewController) {
     let alert = UIAlertController(title: R.string.localizable.error(),
                                   message: R.string.localizable.error_loading_data(),

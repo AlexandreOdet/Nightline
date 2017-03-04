@@ -10,8 +10,20 @@ import Foundation
 import UIKit
 import Alamofire
 
+/*
+  RABase class.
+  Here is the base of all the REST API subclasses.
+ */
+
 class RABase {
   var request: Alamofire.Request?
+  
+  /*
+   RABase function.
+   Cancel a request when living a controller.
+   @param: None
+   @return: None
+   */
   
   func cancelRequest() {
     self.request?.cancel()
