@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+/**
+ Extension of UIColor class.
+ 
+ Add a new constructor (hex: Int) to create custom colors.
+ 
+ @param Integer on hexadecimal format (0x000000).
+ 
+ @return a UIColor corresponding to the integer you sent.
+ */
+
 extension UIColor {
   convenience init(red: Int, green: Int, blue: Int) {
     assert(red >= 0 && red <= 255, "Invalid red component")

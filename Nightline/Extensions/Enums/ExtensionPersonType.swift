@@ -7,6 +7,15 @@
 //
 
 import Foundation
+/**
+ Extension of PersonType enum.
+ Conforms to ModelsProtocol.
+ Add toString() method to display user infos in specific output
+ 
+ @param No param needed.
+ 
+ @return a localized string corresponding to current enum value.
+ */
 
 extension PersonType: ModelsProtocol {
   func toString() -> String {

@@ -8,6 +8,16 @@
 
 import Foundation
 
+/**
+ Extension Routes API enum.
+ Conform to RoutableProtocol.
+ Defining a specific URL for each value of the enum via the "url" variable.
+ 
+ @param No param needed.
+ 
+ @return URL from `self` value.
+ */
+
 extension RoutesAPI: RoutableProtocol {
   var url: String {
     let path: String = {

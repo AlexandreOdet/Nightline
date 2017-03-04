@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+/**
+ Extension of UIViewController class.
+ 
+ Add hideKeyboardWhenTappedAround method to hide the keyboard when user clicks outside of the UITextField.
+ 
+ @param No param needed.
+ 
+ @return Nothing.
+ */
+
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

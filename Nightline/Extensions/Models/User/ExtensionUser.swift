@@ -8,6 +8,16 @@
 
 import Foundation
 
+/**
+ Extension of User Model.
+ Conforms to ModelsProtocol.
+ Add toString() method to display user infos in specific output
+ 
+ @param No param needed.
+ 
+ @return a String containing all informations about User instance.
+ */
+
 extension User: ModelsProtocol {
   func toString() -> String {
     return ""

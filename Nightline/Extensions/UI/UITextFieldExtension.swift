@@ -9,6 +9,15 @@
 import Foundation
 import UIKit
 
+/**
+ Extension of UITextField class.
+ Add highlightBottom() method to underline the bottom of a UITextField.
+ 
+ @param No param needed.
+ 
+ @return Nothing
+ */
+
 extension UITextField {
   func highlightBottom() {
     let border = CALayer()
@@ -21,6 +30,15 @@ extension UITextField {
     self.layer.masksToBounds = true
   }
   
+  
+  /**
+   Extension of UITextField class.
+   Add styleEditTextField() method to defines a number of options commons to all UITextField used in the project.
+   
+   @param No param needed.
+   
+   @return Nothing.
+   */
   func styleEditField() {
     self.textAlignment = .center
     self.backgroundColor = UIColor.gray

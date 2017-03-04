@@ -8,6 +8,16 @@
 
 import Foundation
 
+/**
+ Extension of EventType enum.
+ Conforms to ModelsProtocol.
+ Add toString() method to display user infos in specific output
+ 
+ @param No param needed.
+ 
+ @return a localized string corresponding to current enum value.
+ */
+
 extension EventType: ModelsProtocol {
   func toString() -> String {
     return ""

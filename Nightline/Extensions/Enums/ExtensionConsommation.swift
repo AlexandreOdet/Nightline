@@ -8,6 +8,17 @@
 
 import Foundation
 
+/**
+ Extension of Consommation enum.
+ Conforms to ModelsProtocol.
+ Add toString() method to display user infos in specific output
+ 
+ @param No param needed.
+ 
+ @return a localized string corresponding to current enum value.
+ */
+
+
 extension Consommation: ModelsProtocol {
   func toString() -> String {
     switch self {

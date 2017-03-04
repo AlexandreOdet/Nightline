@@ -8,6 +8,17 @@
 
 import Foundation
 
+/**
+ Extension of Marker Model.
+ Conforms to ModelsProtocol.
+ Add toString() method to display user infos in specific output
+ 
+ @param No param needed.
+ 
+ @return a String containing all informations about Marker instance.
+ */
+
+
 extension Marker: ModelsProtocol {  
   func toString() -> String {
     var ret = "Marker: \n"
