@@ -8,6 +8,11 @@
 
 import Foundation
 
+/*
+  Protocols: ModelsProtocol
+  Contains all the functions that all the models should implement.
+*/
+
 protocol ModelsProtocol {
   func toString() -> String
 }
