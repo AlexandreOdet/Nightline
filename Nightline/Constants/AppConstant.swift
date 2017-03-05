@@ -9,7 +9,18 @@
 import Foundation
 import UIKit
 
+/*
+ AppConstant class.
+ This class defines all some constants used all over the app.
+ */
+
 final class AppConstant {
+  
+  /*
+   Nested class UI.
+   Defines all UI Constants
+   */
+  
   final class UI {
     final class Colors {
       static let colorPrimary = 0x0e1728
@@ -19,15 +30,30 @@ final class AppConstant {
       static let midnightBlue = 0x0e1728
     }
     
+    /*
+     Nested class Dimensions
+     Defines all Dimensions constants (for picture, for example...)
+     */
+    
     final class Dimensions {
       static let formElementsSpacing = CGFloat(25)
       static let thumbnailPictureSize = CGFloat(128)
     }
     
+    /*
+     Nested class Animation
+     Defines all Animation constants (like duration and/or mathematical values)
+     */
+    
     final class Animation {
       static let onClickDuration = 0.5
     }
   }
+  
+  /*
+   Nested class Network
+   Defines all Network constants
+   */
   
   final class Network {
     static let baseUrl = "http://35.16.53.22:8080"

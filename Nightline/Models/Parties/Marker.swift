@@ -9,6 +9,11 @@
 import Foundation
 import MapKit
 
+/*
+ Models: Marker
+ This is the custom Marker that is going to be used on the main map.
+ */
+
 class Marker: NSObject, MKAnnotation {
   let name: String?
   let locationName: String

@@ -8,6 +8,11 @@
 
 import Foundation
 
+/*
+ Models: UserPreferences
+ This models contains all the user's preferences.
+ */
+
 class UserPreferences {
   
   var consoLiked = Array<String>()

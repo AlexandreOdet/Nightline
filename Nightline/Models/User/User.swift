@@ -10,6 +10,11 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
+/*
+ Models: User.
+ This is the user models define on both client and API.
+ */
+
 class User: Mappable {
   
   var firstName = ""
@@ -26,6 +31,12 @@ class User: Mappable {
   required init() {
     
   }
+  
+  /*
+   init(otherUser: DbUser)
+   This initializer is used when no network is available and we need some data.
+   We copy all data stored in Realm in this user.
+   */
   
   init(otherUser: DbUser) {
     self.firstName = otherUser.firstName
