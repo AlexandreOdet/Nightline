@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import SnapKit
 
+/*
+ Controllers: ConsommationTableViewController.
+ This controller shows a UITableView containing all the consommation available.
+ */
+
 final class ConsommationTableViewController: UITableViewController {
   
   private let reuseIdentifier = "consommationCell"
@@ -20,7 +25,6 @@ final class ConsommationTableViewController: UITableViewController {
     super.viewDidLoad()
     self.title = R.string.localizable.drinks()
     self.tableView = UITableView(frame: self.view.frame, style: .grouped)
-    showUserConsoArray()
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,6 +58,13 @@ final class ConsommationTableViewController: UITableViewController {
     }
   }
   
+  /*
+   private isConsommationInUserPreferences() func.
+   This functions tells if a consommation is, or not, in the user's preferences.
+   @param conso: The consommation you want to check.
+   @return True if it's in the user's preferences, false otherwise
+   */
+  
   private func isConsommationInUserPreferences(conso: String) -> Bool {
     for consommation in userConsommationPreferences {
       if consommation == conso {
@@ -62,11 +73,4 @@ final class ConsommationTableViewController: UITableViewController {
     }
     return false
   }
-  
-  private func showUserConsoArray() {
-    for conso in userConsommationPreferences {
-      print(conso)
-    }
-  }
-  
 }

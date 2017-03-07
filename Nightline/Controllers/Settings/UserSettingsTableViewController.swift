@@ -11,6 +11,11 @@ import UIKit
 import SnapKit
 import Rswift
 
+/*
+ Controllers: UserSettingsTableViewController
+ This controller shows a UITableView containing all settings of the app.
+ */
+
 final class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   let reuseIdentifier = "SettingsCell"
@@ -23,6 +28,13 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
     self.title = R.string.localizable.settings()
     addTableView()
   }
+  
+  /*
+   addTableView() function.
+   This function adds the UITableView and sets the constraints into the view.
+   @param None.
+   @return None.
+   */
   
   private func addTableView() {
     self.tableView = UITableView(frame: self.view.frame, style: .grouped)
@@ -131,12 +143,26 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
   
   /*------------- UITableView Actions -------------*/
   
+  /*
+   performLogoutAction() function.
+   This function logout the user from the app.
+   @param None
+   @return None
+   */
+  
   func performLogoutAction() {
     Utils.Network.logOutUser()
     let notificationName = Notification.Name(TabBarController.notificationIdentifier)
     NotificationCenter.default.post(name: notificationName, object: nil)
   }
-  
+
+  /*
+   goToEditProfilViewController() function.
+   This function goes to user profile on editing mode.
+   @param None
+   @return None
+   */
+
   func goToEditProfilViewController() {
     let nextViewController = EditProfileViewController()
     self.navigationController?.pushViewController(nextViewController, animated: true)

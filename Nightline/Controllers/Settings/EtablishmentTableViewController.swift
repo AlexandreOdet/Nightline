@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import SnapKit
 
+/*
+ Controllers: EtablishmentTableViewController
+ This controller show a UITableView containing all etablishement types.
+ */
+
 final class EtablishmentTableViewController: UITableViewController {
   
   let reuseIdentifier = "EtablishmentCell"

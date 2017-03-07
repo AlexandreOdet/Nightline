@@ -11,6 +11,12 @@ import UIKit
 import SnapKit
 import MapKit
 
+/*
+ Controllers: MainViewController
+ This controller is the main one, when user launches the app it starts here.
+ Containing the Map with all the pins around user location.
+ */
+
 final class MainViewController: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
   
   static let notificationIdentifier = "presentConnexionScreen"
@@ -49,6 +55,13 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
     log.verbose("\(FilterManager.instance.toParameters())")
   }
+  
+  /*
+   requestLocationAccess() function
+   This function asks user's permission to access his location when he uses the app.
+   @param None
+   @return None
+   */
   
   func requestLocationAccess() {
     let status = CLLocationManager.authorizationStatus()
@@ -109,6 +122,13 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     self.addMarkerToMap()
   }
   
+  /*
+   addMarkerToMap() func.
+   This function will add all markers to the map.
+   @param None (soon will receive an array of Marker)
+   @return None
+   */
+  
   private func addMarkerToMap() {
     //let GML = CLLocationCoordinate2DMake(42.328994, -83.039708)
     let unionSquare = CLLocationCoordinate2DMake(37.78806, -122.4075)
@@ -118,6 +138,14 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                         coordinate: unionSquare)
     self.map.addAnnotation(marker)
   }
+  
+  /*
+   callbackObserver() func
+   This function is called when the observer subscribed in the viewDidLoad() method is called.
+   It will present the HomeViewController().
+   @param None
+   @return None
+   */
   
   func callbackObserver() {
     self.present(HomeViewController(), animated: true, completion: nil)

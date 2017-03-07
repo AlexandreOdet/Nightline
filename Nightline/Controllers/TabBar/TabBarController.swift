@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import SnapKit
 
+/*
+ Controllers: TabBarController.
+ This controller initialize the tab bar.
+ */
+
 final class TabBarController: UITabBarController, UITabBarControllerDelegate {
   
   static let notificationIdentifier = "LogoutNotification"
@@ -48,6 +53,13 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
   func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
     self.title = viewController.title
   }
+  
+  /*
+   callbackObserver() function.
+   When Observer sets in viewDidLoad function receive the notification "TabBarController.notificationIdentifier" this function is called.
+   @param None
+   @return None
+   */
   
   func callbackObserver() {
     self.selectedIndex = 0

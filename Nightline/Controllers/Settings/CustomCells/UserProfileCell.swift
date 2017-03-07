@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import SnapKit
 
+/*
+ Controllers: UserProfileCell
+ Custom Cell for the user's profile, subclass of UITableViewCell.
+ */
+
 class UserProfileCell: UITableViewCell {
   
   var type: SettingsCell = .Profile
@@ -25,6 +30,11 @@ class UserProfileCell: UITableViewCell {
     super.init(style: .default, reuseIdentifier: "")
     setUpView()
   }
+  
+  /*
+   Private setUpView() func.
+   This functions add and sets all the elements of the cell.
+   */
   
   private func setUpView() {
     self.contentView.addSubview(userPicture)
