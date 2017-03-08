@@ -14,15 +14,35 @@ import Rswift
 
 final class UserProfileViewController: BaseViewController {
   
-  var userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
-  var headerView = UIView()
-  var userInfoStackView = UIStackView()
-  var userNameLabel = UILabel()
-  var userLastNameLabel = UILabel()
-  var age = UILabel()
-  var ville = UILabel()
-  var logoutButton = UIButton()
-  var editProfileButton = UIButton()
+  
+  // General view
+  let profileView = UIView()
+  
+  // Header left
+  let headerLeft = UIView()
+  let userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
+  
+  // Header right
+  let headerRight = UIView()
+  let pseudoLabel = UILabel()
+  
+  // Body left
+  let bodyLeft = UIView()
+  let legendStackView = UIStackView()
+  let name = UILabel()
+  let age = UILabel()
+  let city = UILabel()
+  
+  // Body right
+  let bodyRight = UIView()
+  let userInfoStackView = UIStackView()
+  let userNameLabel = UILabel()
+  let userAgeLabel = UILabel()
+  let userCityLabel = UILabel()
+  
+  //useless ?
+  let logoutButton = UIButton()
+  let editProfileButton = UIButton()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,92 +54,137 @@ final class UserProfileViewController: BaseViewController {
       let rightBarButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goToEditProfilViewController))
       self.navigationItem.rightBarButtonItem = rightBarButton
     }
-    addLogoutButtonToView()
   }
   
   private func addComponentsToView() {
-    initHeaderView()
-    addUserProfilePicture()
-    addUserNameLabels()
+    initProfileView()
+    initHeader()
+    initBody()
   }
   
-  private func initHeaderView() {
-    self.view.addSubview(headerView)
-    headerView.snp.makeConstraints { (make) -> Void in
+  private func initProfileView() {
+    self.view.addSubview(profileView)
+    profileView.snp.makeConstraints { (make) -> Void in
+      make.bottom.right.left.equalToSuperview()
       make.top.equalTo(self.view).offset((self.navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height)
-      make.height.equalTo(UIScreen.main.bounds.width * (9/16))
-      make.width.equalTo(UIScreen.main.bounds.width)
+      make.bottom.equalTo(self.view).offset(-(self.tabBarController?.tabBar.frame.height)!)
     }
-    headerView.translatesAutoresizingMaskIntoConstraints = false
-    headerView.backgroundColor = self.getMidnightBlue()
+    profileView.translatesAutoresizingMaskIntoConstraints = false
+    profileView.backgroundColor = self.getMidnightBlue()
   }
   
-  private func addUserProfilePicture() {
-    self.headerView.addSubview(userProfilePicture)
+  private func initHeader() {
+    self.profileView.addSubview(headerLeft)
+    headerLeft.snp.makeConstraints { (make) -> Void in
+      make.left.top.equalTo(profileView)
+      make.width.equalTo(self.profileView).multipliedBy(0.5)
+      make.height.equalTo(self.profileView.snp.height).multipliedBy(0.4)
+    }
+    
+    self.profileView.addSubview(headerRight)
+    headerRight.snp.makeConstraints { make in
+      make.right.top.equalTo(profileView)
+      make.width.equalTo(self.profileView).multipliedBy(0.5)
+      make.height.equalTo(self.profileView.snp.height).multipliedBy(0.4)
+    }
+    
+    self.headerLeft.addSubview(userProfilePicture)
     userProfilePicture.snp.makeConstraints { (make) -> Void in
-      make.centerY.equalTo(self.headerView)
-      make.leading.equalTo(self.headerView).offset(15)
+      make.center.equalTo(self.headerLeft.snp.center)
       make.size.equalTo(AppConstant.UI.Dimensions.thumbnailPictureSize)
     }
     userProfilePicture.translatesAutoresizingMaskIntoConstraints = false
     userProfilePicture.roundImage()
     userProfilePicture.backgroundColor = UIColor.white
     userProfilePicture.image = UserManager.instance.getUserGender().image
+    
+    headerRight.addSubview(pseudoLabel)
+    pseudoLabel.snp.makeConstraints { make in
+     make.center.equalTo(self.headerRight)
+    }
+    pseudoLabel.text = UserManager.instance.getUserNickname()
+    pseudoLabel.textColor = self.getAccentColor()
+    pseudoLabel.textAlignment = .center
+    pseudoLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 22.0)
   }
   
-  private func addUserNameLabels() {
-    self.headerView.addSubview(userInfoStackView)
-    userInfoStackView.snp.makeConstraints { (make) -> Void in
-      make.leading.equalTo(self.headerView.snp.centerX)
-      make.trailing.equalTo(self.headerView).offset(-10)
-      make.centerY.equalTo(headerView)
+  private func initBody() {
+    self.profileView.addSubview(bodyLeft)
+    bodyLeft.snp.makeConstraints { make in
+      make.left.equalTo(profileView)
+      make.top.equalTo(self.headerLeft.snp.bottom)
+      make.height.equalTo(profileView.snp.height).multipliedBy(0.5)
+      make.width.equalTo(profileView.snp.width).multipliedBy(0.5)
     }
+    
+    self.profileView.addSubview(bodyRight)
+    bodyRight.snp.makeConstraints { make in
+      make.right.equalTo(profileView)
+      make.top.equalTo(self.headerLeft.snp.bottom)
+      make.height.equalTo(profileView.snp.height).multipliedBy(0.5)
+      make.width.equalTo(profileView.snp.width).multipliedBy(0.5)
+    }
+
+    addLegend()
+    addUserInformations()
+  }
+  
+  private func addLegend() {
+    self.bodyLeft.addSubview(legendStackView)
+    legendStackView.snp.makeConstraints { (make) -> Void in
+      make.center.equalTo(self.bodyLeft)
+      make.width.equalTo(self.bodyLeft).offset(-10)
+    }
+    self.legendStackView.translatesAutoresizingMaskIntoConstraints = false
+    self.legendStackView.axis = .vertical
+    self.legendStackView.spacing = 20
+    name.text = "Name :"
+    styleLegend(label: name)
+    age.text = "Age :"
+    styleLegend(label: age)
+    city.text = "City :"
+    styleLegend(label: city)
+    legendStackView.addArrangedSubview(name)
+    legendStackView.addArrangedSubview(age)
+    legendStackView.addArrangedSubview(city)
+  }
+  
+  private func addUserInformations() {
+    self.bodyRight.addSubview(userInfoStackView)
+    userInfoStackView.snp.makeConstraints { (make) -> Void in
+      make.center.equalTo(self.bodyRight)
+      make.width.equalTo(self.bodyRight).offset(-10)
+    }
+    
     userInfoStackView.translatesAutoresizingMaskIntoConstraints = false
     userInfoStackView.axis = .vertical
-    userInfoStackView.spacing = 10
+    userInfoStackView.spacing = 20
     
-    userNameLabel.text = UserManager.instance.getUserNickname()//getUserCompleteName()
-    age.text = UserManager.instance.getUserAge()
-    ville.text = UserManager.instance.getUserCity()
+    userNameLabel.text = UserManager.instance.getUserCompleteName()
+    userAgeLabel.text = UserManager.instance.getUserAge()
+    userCityLabel.text = UserManager.instance.getUserCity()
     
-    userNameLabel.textColor = self.getAccentColor()
-    userNameLabel.textAlignment = .center
-    userLastNameLabel.textAlignment = .center
-    age.textColor = self.getAccentColor()
-    age.textAlignment = .center
-    ville.textColor = self.getAccentColor()
-    ville.textAlignment = .center
+    styleUserInfo(label: userNameLabel)
+    styleUserInfo(label: userAgeLabel)
+    styleUserInfo(label: userCityLabel)
     userInfoStackView.addArrangedSubview(userNameLabel)
-    userInfoStackView.addArrangedSubview(age)
-    userInfoStackView.addArrangedSubview(ville)
+    userInfoStackView.addArrangedSubview(userAgeLabel)
+    userInfoStackView.addArrangedSubview(userCityLabel)
   }
   
-  private func addLogoutButtonToView() {
-    self.view.addSubview(logoutButton)
-    logoutButton.snp.makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self.view)
-      make.width.equalTo(self.view)
-      make.height.equalTo(50)
-    }
-    logoutButton.backgroundColor = UIColor.white
-    logoutButton.setTitle(R.string.localizable.logout(), for: .normal)
-    logoutButton.addTarget(self, action: #selector(performLogoutAction), for: .touchUpInside)
-    logoutButton.setTitleColor(.red, for: .normal)
+  
+  private func styleUserInfo(label: UILabel) {
+    label.font = UIFont(name:"HelveticaNeue-Medium", size: 18.0)
+    label.textAlignment = .left
+    label.textColor = self.getAccentColor()
   }
   
-  func performLogoutAction() {
-    if let nav = self.navigationController {
-      nav.popToRootViewController(animated: true)
-    }
-    Utils.Network.logOutUser()
+  private func styleLegend(label: UILabel) {
+    label.font = UIFont(name:"HelveticaNeueLight", size: 18.0)
+    label.textAlignment = .right
+    label.textColor = self.getAccentColor()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    //self.navigationController?.navigationBar.barTintColor = UIColor.orange
-    //self.navigationController?.navigationBar.tintColor = UIColor.black
-  }
-    
   func goToEditProfilViewController() {
     let nextViewController = EditProfileViewController()
     self.navigationController?.pushViewController(nextViewController, animated: true)
