@@ -9,6 +9,11 @@
 import UIKit
 import SnapKit
 
+/*
+ Controllers: HomeViewController
+ This controller is shown when user launches the app for the first time, or when he logouts from it.
+ */
+
 final class HomeViewController: BaseViewController {
   
   let buttonSignup = UIButton()
@@ -29,6 +34,13 @@ final class HomeViewController: BaseViewController {
     super.viewWillAppear(animated)
   }
   
+  /*
+   addLogoToView() func
+   This func add Nightline's logo into self.view.
+   @param None.
+   @return None.
+   */
+  
   private func addLogoToView() {
     self.view.addSubview(imgNightline)
     imgNightline.snp.makeConstraints { (make) -> Void in
@@ -37,6 +49,13 @@ final class HomeViewController: BaseViewController {
     imgNightline.translatesAutoresizingMaskIntoConstraints = false
     imgNightline.image = R.image.logo()
   }
+  
+  /*
+   addButtonsToView() func.
+   This function add the 2 bottom buttons into self.view.
+   @param None
+   @return None
+   */
   
   private func addButtonsToView() {
     self.view.addSubview(buttonSignup)
@@ -62,10 +81,26 @@ final class HomeViewController: BaseViewController {
     buttonSignin.addTarget(self, action: #selector(goToSignIn(sender:)), for: .touchUpInside)
   }
   
+  /*
+   goToSignUp(sender: UIButton) func.
+   This function is called when user clicks on the sign up button.
+   It displays the SignUpViewController.
+   @param sender: UIButton, button clicked.
+   @return None.
+   */
+  
   func goToSignUp(sender: UIButton) {
     let nextViewController = SignupViewController()
     self.present(nextViewController, animated: true, completion: nil)
   }
+  
+  /*
+   goToSignIn(sender: UIButton) func.
+   This function is called when user clicks on the sign in button.
+   It displays the SignInViewController.
+   @param sender: UIButton, button clicked.
+   @return None.
+   */
   
   func goToSignIn(sender: UIButton) {
     let nextViewController = SigninViewController()

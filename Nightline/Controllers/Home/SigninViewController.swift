@@ -11,6 +11,11 @@ import UIKit
 import SnapKit
 import Rswift
 
+/*
+ Controllers: SigninViewController.
+ This controllers is displayed when user tries to log into the app.
+ */
+
 final class SigninViewController: BaseViewController, UITextFieldDelegate {
   
   private let signinButton = UIButton()
@@ -35,6 +40,14 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
       addBackButton()
     }
   }
+  
+  /*
+   initStackView() func.
+   This function sets position and content of the UIStackView used into self.view
+   @param None
+   @return None
+   */
+  
   private func initStackView() {
     self.view.addSubview(stackViewSignIn)
     stackViewSignIn.snp.makeConstraints { (make) -> Void in
@@ -71,6 +84,13 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     stackViewSignIn.addArrangedSubview(passwordTextField)
   }
   
+  /*
+   initForgotPasswordLabel() func.
+   This function sets position and content of the forgotPasswordLabel into self.view
+   @param None
+   @return None
+   */
+
   private func initForgotPasswordLabel() {
     self.view.addSubview(forgotPasswordLabel)
     forgotPasswordLabel.snp.makeConstraints { (make) -> Void in
@@ -82,6 +102,13 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     forgotPasswordLabel.textColor = self.getAccentColor()
     forgotPasswordLabel.backgroundColor = UIColor.clear
   }
+
+  /*
+   initBottomButton() func.
+   This func sets position and content of signinButton into self.view
+   @param None
+   @return None
+   */
   
   private func initBottomButton() {
     self.view.addSubview(signinButton)
@@ -96,6 +123,13 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     signinButton.addTarget(self, action: #selector(showHomeScreen), for: .touchUpInside)
   }
   
+  /*
+   initNightlineLogo() func.
+   This func sets position of the Nightline's logo that'll be displayed into self.view
+   @param None
+   @return None
+   */
+  
   private func initNightlineLogo() {
     let nightlineLogo = UIImageView()
     
@@ -108,6 +142,14 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     nightlineLogo.translatesAutoresizingMaskIntoConstraints = false
     nightlineLogo.image = R.image.logo()
   }
+  
+  /*
+   showHomeScreen() func
+   This function is called when user clicks on signinButton.
+   If datas typed are OK that'll save token received by server into keychain service, otherwise it shows an UIAlertController.
+   @param None
+   @return None
+   */
   
   func showHomeScreen() {
     let array = DatabaseHandler().getObjectArray(ofType: DbUser.self)
@@ -146,6 +188,13 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     return true
   }
   
+  /*
+   addBackButton() func.
+   This function sets position and content of the backButton into self.view
+   @param None
+   @return None
+   */
+  
   private func addBackButton() {
     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backButtonPressed))
     gestureRecognizer.numberOfTapsRequired = 1
@@ -162,6 +211,14 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     backButton.roundImage(withBorder: true, borderColor: .red, borderSize: 1.0)
     backButton.addGestureRecognizer(gestureRecognizer)
   }
+  
+  /*
+   backButtonPressed() func.
+   This function is called when the backButton is pressed.
+   It dismisses this controller.
+   @param None
+   @return None
+   */
   
   func backButtonPressed() {
     self.dismiss(animated: true, completion: nil)
