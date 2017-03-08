@@ -20,6 +20,13 @@ import Foundation
 
 extension GroupType: ModelsProtocol {
   func toString() -> String {
-    return ""
+    switch self {
+    case .friend:
+      return R.string.localizable.friends()
+    case .brotherhood:
+      return R.string.localizable.brotherhood()
+    case .sisterhood:
+      return R.string.localizable.sisterhood()
+    }
   }
 }

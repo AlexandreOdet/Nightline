@@ -50,6 +50,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         map.showsUserLocation = true
         map.isZoomEnabled = true
         map.delegate = self
+        addFiltersToMap()
       }
     }
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
@@ -149,6 +150,91 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   
   func callbackObserver() {
     self.present(HomeViewController(), animated: true, completion: nil)
+  }
+  
+  private func addFiltersToMap() {
+    let stackView = UIStackView()
+    stackView.axis = .horizontal
+    stackView.spacing = 15
+    let grouplabel = UILabel()
+    let eventLabel = UILabel()
+    let personLabel = UILabel()
+    let etablishmentLabel = UILabel()
+    
+    let groupGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentGroupFilter))
+    groupGestureRecognizer.numberOfTapsRequired = 1
+    
+    let eventGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentEventFilter))
+    eventGestureRecognizer.numberOfTapsRequired = 1
+    
+    let personGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentPersonFilter))
+    personGestureRecognizer.numberOfTapsRequired = 1
+    
+    let etablishmentGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentEtablishmentFilter))
+    personGestureRecognizer.numberOfTapsRequired = 1
+    
+    self.view.addSubview(stackView)
+    stackView.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(self.view).offset((self.navigationController?.navigationBar.frame.height)! + 5)
+      make.width.equalTo(self.view)
+      make.height.equalTo(50)
+    }
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.backgroundColor = UIColor.black
+    
+    grouplabel.text = "Groupes"
+    grouplabel.isUserInteractionEnabled = true
+    grouplabel.addGestureRecognizer(groupGestureRecognizer)
+    
+    eventLabel.text = "Évènements"
+    eventLabel.isUserInteractionEnabled = true
+    eventLabel.addGestureRecognizer(eventGestureRecognizer)
+    
+    personLabel.text = "Personnes"
+    personLabel.isUserInteractionEnabled = true
+    personLabel.addGestureRecognizer(personGestureRecognizer)
+    
+    etablishmentLabel.text = "Etablissements"
+    etablishmentLabel.isUserInteractionEnabled = true
+    etablishmentLabel.addGestureRecognizer(etablishmentGestureRecognizer)
+    
+    stackView.addArrangedSubview(grouplabel)
+    stackView.addArrangedSubview(eventLabel)
+    stackView.addArrangedSubview(personLabel)
+    stackView.addArrangedSubview(etablishmentLabel)
+  }
+  
+  func presentGroupFilter() {
+    log.verbose("groupLabel clicked")
+    let alertSheetController = UIAlertController(title: "Filtres de groupe", message: nil, preferredStyle: .actionSheet)
+    
+    alertSheetController.addAction(UIAlertAction(title: GroupType.friend.toString(), style: .default, handler: { action in
+      FilterManager.instance.add(groupeType: GroupType.friend)
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: GroupType.brotherhood.toString(), style: .default, handler: { action in
+      FilterManager.instance.add(groupeType: GroupType.brotherhood)
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: GroupType.sisterhood.toString(), style: .default, handler: { action in
+      FilterManager.instance.add(groupeType: GroupType.sisterhood)
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
+    
+    self.present(alertSheetController, animated: true, completion: nil)
+  }
+  
+  func presentEventFilter() {
+    log.verbose("eventLabel clicked")
+  }
+  
+  func presentPersonFilter() {
+    log.verbose("personLabel clicked")
+  }
+  
+  func presentEtablishmentFilter() {
+    log.verbose("etablishmentLabel clicked")
   }
   
 }
