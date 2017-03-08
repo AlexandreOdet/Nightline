@@ -19,6 +19,15 @@ import Foundation
 
 extension PersonType: ModelsProtocol {
   func toString() -> String {
-    return ""
+    switch self {
+    case .friend:
+      return "Ami"
+    case .friendLink:
+      return "Ami d'un ami"
+    case .nobody:
+      return "Personne que tu connais"
+    default:
+      return ""
+    }
   }
 }

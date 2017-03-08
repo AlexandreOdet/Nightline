@@ -20,6 +20,11 @@ import Foundation
 
 extension EventType: ModelsProtocol {
   func toString() -> String {
-    return ""
+    switch self {
+    case .birthday:
+      return "Anniversaire"
+    default:
+      return "Festival"
+    }
   }
 }

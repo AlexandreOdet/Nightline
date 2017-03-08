@@ -159,7 +159,6 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     let grouplabel = UILabel()
     let eventLabel = UILabel()
     let personLabel = UILabel()
-    let etablishmentLabel = UILabel()
     
     let groupGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentGroupFilter))
     groupGestureRecognizer.numberOfTapsRequired = 1
@@ -170,7 +169,6 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     let personGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentPersonFilter))
     personGestureRecognizer.numberOfTapsRequired = 1
     
-    let etablishmentGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentEtablishmentFilter))
     personGestureRecognizer.numberOfTapsRequired = 1
     
     self.view.addSubview(stackView)
@@ -185,27 +183,24 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     grouplabel.text = "Groupes"
     grouplabel.isUserInteractionEnabled = true
     grouplabel.addGestureRecognizer(groupGestureRecognizer)
+    grouplabel.textAlignment = .center
     
     eventLabel.text = "Évènements"
     eventLabel.isUserInteractionEnabled = true
     eventLabel.addGestureRecognizer(eventGestureRecognizer)
+    eventLabel.textAlignment = .center
     
     personLabel.text = "Personnes"
     personLabel.isUserInteractionEnabled = true
     personLabel.addGestureRecognizer(personGestureRecognizer)
-    
-    etablishmentLabel.text = "Etablissements"
-    etablishmentLabel.isUserInteractionEnabled = true
-    etablishmentLabel.addGestureRecognizer(etablishmentGestureRecognizer)
+    personLabel.textAlignment = .center
     
     stackView.addArrangedSubview(grouplabel)
     stackView.addArrangedSubview(eventLabel)
     stackView.addArrangedSubview(personLabel)
-    stackView.addArrangedSubview(etablishmentLabel)
   }
   
   func presentGroupFilter() {
-    log.verbose("groupLabel clicked")
     let alertSheetController = UIAlertController(title: "Filtres de groupe", message: nil, preferredStyle: .actionSheet)
     
     alertSheetController.addAction(UIAlertAction(title: GroupType.friend.toString(), style: .default, handler: { action in
@@ -226,15 +221,35 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   }
   
   func presentEventFilter() {
-    log.verbose("eventLabel clicked")
+    let alertSheetController = UIAlertController(title: "Filtres d'évènements", message: nil, preferredStyle: .actionSheet)
+    
+    alertSheetController.addAction(UIAlertAction(title: EventType.birthday.toString(), style: .default, handler: { action in
+      FilterManager.instance.add(eventType: EventType.birthday)
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: EventType.festival.toString(), style: .default, handler: { action in
+      FilterManager.instance.add(eventType: EventType.festival)
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
+    
+    self.present(alertSheetController, animated: true, completion: nil)
+    
   }
   
   func presentPersonFilter() {
-    log.verbose("personLabel clicked")
+    let alertSheetController = UIAlertController(title: "Filtres de personne", message: nil, preferredStyle: .actionSheet)
+    
+    alertSheetController.addAction(UIAlertAction(title: PersonType.friend.toString(), style: .default, handler: { action in
+      FilterManager.instance.add(personType: PersonType.friend)
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: PersonType.friendLink.toString(), style: .default, handler: { action in
+      FilterManager.instance.add(personType: PersonType.friendLink)
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
+    
+    self.present(alertSheetController, animated: true, completion: nil)
   }
-  
-  func presentEtablishmentFilter() {
-    log.verbose("etablishmentLabel clicked")
-  }
-  
 }
