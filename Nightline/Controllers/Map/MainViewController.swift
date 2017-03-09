@@ -204,15 +204,27 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     let alertSheetController = UIAlertController(title: "Filtres de groupe", message: nil, preferredStyle: .actionSheet)
     
     alertSheetController.addAction(UIAlertAction(title: GroupType.friend.toString(), style: .default, handler: { action in
-      FilterManager.instance.add(groupeType: GroupType.friend)
+      if FilterManager.instance.isItemInArray(groupType: GroupType.friend) {
+        FilterManager.instance.remove(groupeType: GroupType.friend)
+      } else {
+        FilterManager.instance.add(groupeType: GroupType.friend)
+      }
     }))
     
     alertSheetController.addAction(UIAlertAction(title: GroupType.brotherhood.toString(), style: .default, handler: { action in
-      FilterManager.instance.add(groupeType: GroupType.brotherhood)
+      if FilterManager.instance.isItemInArray(groupType: GroupType.brotherhood) {
+        FilterManager.instance.remove(groupeType: GroupType.brotherhood)
+      } else {
+        FilterManager.instance.add(groupeType: GroupType.brotherhood)
+      }
     }))
     
     alertSheetController.addAction(UIAlertAction(title: GroupType.sisterhood.toString(), style: .default, handler: { action in
-      FilterManager.instance.add(groupeType: GroupType.sisterhood)
+      if FilterManager.instance.isItemInArray(groupType: GroupType.sisterhood) {
+        FilterManager.instance.remove(groupeType: GroupType.sisterhood)
+      } else {
+        FilterManager.instance.add(groupeType: GroupType.sisterhood)
+      }
     }))
     
     alertSheetController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
@@ -224,11 +236,19 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     let alertSheetController = UIAlertController(title: "Filtres d'évènements", message: nil, preferredStyle: .actionSheet)
     
     alertSheetController.addAction(UIAlertAction(title: EventType.birthday.toString(), style: .default, handler: { action in
-      FilterManager.instance.add(eventType: EventType.birthday)
+      if FilterManager.instance.isItemInArray(eventType: EventType.birthday) {
+        FilterManager.instance.remove(eventType: EventType.birthday)
+      } else {
+        FilterManager.instance.add(eventType: EventType.birthday)
+      }
     }))
     
     alertSheetController.addAction(UIAlertAction(title: EventType.festival.toString(), style: .default, handler: { action in
-      FilterManager.instance.add(eventType: EventType.festival)
+      if FilterManager.instance.isItemInArray(eventType: EventType.festival) {
+        FilterManager.instance.remove(eventType: EventType.festival)
+      } else {
+        FilterManager.instance.add(eventType: EventType.festival)
+      }
     }))
     
     alertSheetController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
@@ -241,11 +261,19 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     let alertSheetController = UIAlertController(title: "Filtres de personne", message: nil, preferredStyle: .actionSheet)
     
     alertSheetController.addAction(UIAlertAction(title: PersonType.friend.toString(), style: .default, handler: { action in
-      FilterManager.instance.add(personType: PersonType.friend)
+      if FilterManager.instance.isItemInArray(personType: PersonType.friend) {
+        FilterManager.instance.remove(personType: PersonType.friend)
+      } else {
+        FilterManager.instance.add(personType: PersonType.friend)
+      }
     }))
     
     alertSheetController.addAction(UIAlertAction(title: PersonType.friendLink.toString(), style: .default, handler: { action in
-      FilterManager.instance.add(personType: PersonType.friendLink)
+      if FilterManager.instance.isItemInArray(personType: PersonType.friendLink) {
+        FilterManager.instance.remove(personType: PersonType.friendLink)
+      } else {
+        FilterManager.instance.add(personType: PersonType.friendLink)
+      }
     }))
     
     alertSheetController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))

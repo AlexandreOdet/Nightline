@@ -16,11 +16,9 @@ import Foundation
 final class FilterManager {
   static let instance = FilterManager()
   
-  var hasFilterActivated: Bool = false
-  var groupFilterArray = Array<GroupType>()
-  var eventFilterArray = Array<EventType>()
-  var personFilterArray = Array<PersonType>()
-  var etablishmentFilterArray = Array<Etablishment>()
+  private var groupFilterArray = Array<GroupType>()
+  private var eventFilterArray = Array<EventType>()
+  private var personFilterArray = Array<PersonType>()
   
   /**
    Method of the MapFilterManager class.
@@ -63,19 +61,6 @@ final class FilterManager {
   
   /**
    Method of the MapFilterManager class.
-   Add a new Etablishment to parameters.
-   
-   @param The Etablishment you need to add.
-   
-   @return Nothing.
-   */
-  
-  func add(etablishmentType: Etablishment) {
-    self.etablishmentFilterArray.append(etablishmentType)
-  }
-  
-  /**
-   Method of the MapFilterManager class.
    Remove a groupType from parameters.
    
    @param The GroupType you need to remove.
@@ -83,7 +68,11 @@ final class FilterManager {
    @return Nothing.
    */
   
-  func remove(groupeType: GroupType) {}
+  func remove(groupeType: GroupType) {
+    if let idx = self.groupFilterArray.index(of: groupeType) {
+      groupFilterArray.remove(at: idx)
+    }
+  }
   
   /**
    Method of the MapFilterManager class.
@@ -94,7 +83,11 @@ final class FilterManager {
    @return Nothing.
    */
   
-  func remove(eventType: EventType) {}
+  func remove(eventType: EventType) {
+    if let idx = self.eventFilterArray.index(of: eventType) {
+      eventFilterArray.remove(at: idx)
+    }
+  }
   
   /**
    Method of the MapFilterManager class.
@@ -105,18 +98,32 @@ final class FilterManager {
    @return Nothing.
    */
   
-  func remove(personType: PersonType) {}
+  func remove(personType: PersonType) {
+    if let idx = self.personFilterArray.index(of: personType) {
+      personFilterArray.remove(at: idx)
+    }
+  }
   
-  /**
-   Method of the MapFilterManager class.
-   Remove an Etablishment from parameters.
-   
-   @param The Etablishment you need to remove.
-   
-   @return Nothing.
-   */
+  func isItemInArray(groupType: GroupType) -> Bool {
+    if self.groupFilterArray.index(of: groupType) != nil {
+      return true
+    }
+    return false
+  }
   
-  func remove(etablishmentType: Etablishment) {}
+  func isItemInArray(eventType: EventType) -> Bool {
+    if self.eventFilterArray.index(of: eventType) != nil {
+      return true
+    }
+    return false
+  }
+  
+  func isItemInArray(personType: PersonType) -> Bool {
+    if self.personFilterArray.index(of: personType) != nil {
+      return true
+    }
+    return false
+  }
   
   /**
    Method of the MapFilterManager class.
@@ -132,7 +139,6 @@ final class FilterManager {
     parameters["group"] = formatArrayToParametersString(array: self.groupFilterArray)
     parameters["event"] = formatArrayToParametersString(array: self.eventFilterArray)
     parameters["person"] = formatArrayToParametersString(array: self.personFilterArray)
-    parameters["etabl"] = formatArrayToParametersString(array: self.etablishmentFilterArray)
     return parameters
   }
   
@@ -188,27 +194,6 @@ final class FilterManager {
 
   
   private func formatArrayToParametersString(array: Array<PersonType>) -> String {
-    var value = ""
-    for item in array {
-      value += item.rawValue + "|"
-    }
-    if value.characters.count > 1 {
-      value.remove(at: value.index(before: value.endIndex))
-    }
-    return (value.isEmpty) ? "all" : value
-  }
-  
-  /**
-   Method of the MapFilterManager class.
-   Format the Array<Etablishment> values to specific string output.
-   
-   @param The array that needs to be formatted (Array<Etablishment>).
-   
-   @return Formatted String.
-   */
-
-  
-  private func formatArrayToParametersString(array: Array<Etablishment>) -> String {
     var value = ""
     for item in array {
       value += item.rawValue + "|"

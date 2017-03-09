@@ -137,7 +137,7 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
   }
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    var headerView = UIView()
+    let headerView = UIView()
     return headerView
   }
   
