@@ -37,6 +37,9 @@ enum PersonType: String {
   
   func getPersonTypeArray() -> [PersonType] {
     var types = Array<PersonType>()
+    types.append(.nobody)
+    types.append(.friend)
+    types.append(.friendLink)
     return types
   }
 }

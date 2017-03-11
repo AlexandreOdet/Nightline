@@ -159,7 +159,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     let grouplabel = UILabel()
     let eventLabel = UILabel()
     let personLabel = UILabel()
-    
+
     let groupGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentGroupFilter))
     groupGestureRecognizer.numberOfTapsRequired = 1
     
@@ -178,22 +178,26 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
       make.height.equalTo(50)
     }
     stackView.translatesAutoresizingMaskIntoConstraints = false
-    stackView.backgroundColor = UIColor.black
+    stackView.backgroundColor = UIColor.white
     
     grouplabel.text = "Groupes"
     grouplabel.isUserInteractionEnabled = true
     grouplabel.addGestureRecognizer(groupGestureRecognizer)
     grouplabel.textAlignment = .center
+    grouplabel.backgroundColor = .white
     
     eventLabel.text = "Évènements"
     eventLabel.isUserInteractionEnabled = true
     eventLabel.addGestureRecognizer(eventGestureRecognizer)
     eventLabel.textAlignment = .center
+    eventLabel.backgroundColor = .white
     
     personLabel.text = "Personnes"
     personLabel.isUserInteractionEnabled = true
     personLabel.addGestureRecognizer(personGestureRecognizer)
     personLabel.textAlignment = .center
+    personLabel.backgroundColor = .white
+    
     
     stackView.addArrangedSubview(grouplabel)
     stackView.addArrangedSubview(eventLabel)

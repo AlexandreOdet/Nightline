@@ -93,6 +93,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
 
   private func initForgotPasswordLabel() {
     self.view.addSubview(forgotPasswordLabel)
+    let forgotTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordAction))
+    forgotTapGestureRecognizer.numberOfTapsRequired = 1
+    
     forgotPasswordLabel.snp.makeConstraints { (make) -> Void in
       make.bottom.equalTo(signinButton.snp.top).offset(-15)
       make.centerX.equalTo(self.view)
@@ -101,6 +104,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     forgotPasswordLabel.text = R.string.localizable.passwd_forgot()
     forgotPasswordLabel.textColor = self.getAccentColor()
     forgotPasswordLabel.backgroundColor = UIColor.clear
+    forgotPasswordLabel.isUserInteractionEnabled = true
+    forgotPasswordLabel.addGestureRecognizer(forgotTapGestureRecognizer)
   }
 
   /*
@@ -224,4 +229,18 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     self.dismiss(animated: true, completion: nil)
   }
   
+  func forgotPasswordAction() {
+    var mailTextField = UITextField()
+    let alertController = UIAlertController(title: "", message: "Tapez l'email sur lequel vous souhaitez recevoir votre mot de passe", preferredStyle: .alert)
+    alertController.addTextField(configurationHandler: { (textField) in
+      mailTextField = textField
+      mailTextField.keyboardType = .emailAddress
+      mailTextField.placeholder = "E-mail"
+    })
+    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+      log.debug("OK mail tapé: \(mailTextField.text)")
+    }))
+    alertController.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
+    self.present(alertController, animated: true, completion: nil)
+  }
 }

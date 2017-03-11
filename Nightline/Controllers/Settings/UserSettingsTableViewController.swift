@@ -21,7 +21,7 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
   let reuseIdentifier = "SettingsCell"
   var tableView = UITableView()
   let infosArray = [R.string.localizable.thanks(), R.string.localizable.faq(), R.string.localizable.build()]
-  let sectionArray = ["Section 1", "Section 2", "Section 3", "Section 4"]
+  let sectionArray = ["Profil", "Préférences", "Informations", ""]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -134,11 +134,6 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return sectionArray[section]
-  }
-  
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let headerView = UIView()
-    return headerView
   }
   
   /*------------- UITableView Actions -------------*/
