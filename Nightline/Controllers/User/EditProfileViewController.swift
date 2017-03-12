@@ -10,9 +10,17 @@ import UIKit
 
 class EditProfileViewController: BaseViewController {
   
-  let tableView = UITableView()
-  let userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
+  // Global view
+  let containerView = UIView()
+  let scrollView = UIScrollView()
+  let contentView = UIView()
+  
+  // Header View
   let headerView = UIView()
+  let userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
+  
+  // Body View
+  let bodyView = UIView()
   let userInfoStackView = UIStackView()
   let userNameLabel = UILabel()
   let userLastNameLabel = UILabel()
@@ -31,35 +39,43 @@ class EditProfileViewController: BaseViewController {
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {
-      self.view.backgroundColor = UIColor.black
-      self.addComponentsToView()
+      self.initView()
     }
     
   }
   
-  private func addComponentsToView() {
+  private func initView() {
+    self.view.addSubview(containerView)
+    containerView.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(self.view).offset((self.navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height)
+      make.left.right.bottom.equalTo(self.view)
+    }
+    self.containerView.addSubview(scrollView)
+    scrollView.snp.makeConstraints { make in
+      make.edges.equalTo(containerView)
+    }
+    self.scrollView.addSubview(contentView)
+    contentView.snp.makeConstraints { make in
+      make.edges.equalTo(scrollView)
+    }
+    scrollView.alwaysBounceVertical = true
+    scrollView.translatesAutoresizingMaskIntoConstraints = false
+    scrollView.backgroundColor = self.getMidnightBlue()
+    
     initHeaderView()
-    addUserProfilePicture()
-    addUserNameLabels()
+    initBodyView()
   }
   
   private func initHeaderView() {
-    self.view.addSubview(headerView)
-    headerView.snp.makeConstraints { (make) -> Void in
-      make.top.equalTo(self.view).offset((self.navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height)
-      make.height.equalTo(UIScreen.main.bounds.width)
-      //            make.height.equalTo(UIScreen.main.bounds.width * (9/16))
-      make.width.equalTo(UIScreen.main.bounds.width)
+    self.contentView.addSubview(headerView)
+    headerView.snp.makeConstraints { make in
+      make.left.right.top.equalTo(contentView)
+      make.height.equalTo(self.containerView.snp.height).multipliedBy(0.3)
+      make.centerX.equalTo(containerView)
     }
-    headerView.translatesAutoresizingMaskIntoConstraints = false
-    headerView.backgroundColor = self.getMidnightBlue()
-  }
-  
-  private func addUserProfilePicture() {
     self.headerView.addSubview(userProfilePicture)
     userProfilePicture.snp.makeConstraints { (make) -> Void in
-      make.centerY.equalTo(self.headerView)
-      make.leading.equalTo(self.headerView).offset(15)
+      make.center.equalTo(self.headerView)
       make.size.equalTo(AppConstant.UI.Dimensions.thumbnailPictureSize)
     }
     userProfilePicture.translatesAutoresizingMaskIntoConstraints = false
@@ -67,12 +83,19 @@ class EditProfileViewController: BaseViewController {
     userProfilePicture.image = R.image.logo()
   }
   
-  private func addUserNameLabels() {
-    self.headerView.addSubview(userInfoStackView)
+  private func initBodyView() {
+      self.contentView.addSubview(bodyView)
+    bodyView.snp.makeConstraints { make in
+      make.top.equalTo(self.userProfilePicture.snp.bottom)
+      make.right.left.equalTo(contentView)
+      make.centerX.equalTo(containerView)
+      make.bottom.equalTo(scrollView)
+      make.height.greaterThanOrEqualTo(containerView).multipliedBy(0.7)
+      make.width.equalTo(containerView)
+    }
+    self.bodyView.addSubview(userInfoStackView)
     userInfoStackView.snp.makeConstraints { (make) -> Void in
-      make.leading.equalTo(self.headerView.snp.centerX)
-      make.trailing.equalTo(self.headerView).offset(-10)
-      make.centerY.equalTo(headerView)
+      make.center.equalTo(bodyView)
     }
     userInfoStackView.translatesAutoresizingMaskIntoConstraints = false
     userInfoStackView.axis = .vertical
@@ -90,10 +113,8 @@ class EditProfileViewController: BaseViewController {
     userCity.text = UserManager.instance.getUserCity()
     userNickName.text = UserManager.instance.getUserNickname()
     
-    userNameLabel.textColor = self.getAccentColor()
-    userNameLabel.textAlignment = .left
-    userName.textColor = self.getAccentColor()
-    userName.styleEditField()
+    styleLegend(label: userNameLabel)
+    styleEditField(field: userName)
     userLastNameLabel.textColor = self.getAccentColor()
     userLastNameLabel.textAlignment = .left
     userLastName.textColor = self.getAccentColor()
@@ -121,6 +142,20 @@ class EditProfileViewController: BaseViewController {
     userInfoStackView.addArrangedSubview(userAge)
     userInfoStackView.addArrangedSubview(cityLabel)
     userInfoStackView.addArrangedSubview(userCity)
+  }
+  
+
+  private func styleLegend(label: UILabel) {
+    userNameLabel.textColor = self.getAccentColor()
+    userNameLabel.textAlignment = .left
+  }
+  
+  private func styleEditField(field: UITextField) {
+    field.textColor = self.getAccentColor()
+    field.textAlignment = .center
+    field.backgroundColor = UIColor.gray
+    field.layer.cornerRadius = 5.0
+    field.textAlignment = .center
   }
   
   override func viewWillDisappear(_ animated: Bool) {
