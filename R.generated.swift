@@ -127,20 +127,12 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 0 storyboards.
   struct storyboard {
-    /// Storyboard `Main`.
-    static let main = _R.storyboard.main()
-    
-    /// `UIStoryboard(name: "Main", bundle: ...)`
-    static func main(_: Void = ()) -> UIStoryboard {
-      return UIStoryboard(resource: R.storyboard.main)
-    }
-    
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
     /// This `R.string.localizable` struct is generated, and contains static references to 34 localization keys.
     struct localizable {
@@ -522,11 +514,6 @@ struct R {
       fileprivate init() {}
     }
     
-    /// This `R.string.main` struct is generated, and contains static references to 0 localization keys.
-    struct main {
-      fileprivate init() {}
-    }
-    
     fileprivate init() {}
   }
   
@@ -542,13 +529,6 @@ struct _R {
   }
   
   struct storyboard {
-    struct main: StoryboardResourceType {
-      let bundle = _R.hostingBundle
-      let name = "Main"
-      
-      fileprivate init() {}
-    }
-    
     fileprivate init() {}
   }
   

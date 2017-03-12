@@ -58,7 +58,6 @@
 		FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8021E554EC0003AF68E /* Plist.swift */; };
 		FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */; };
 		FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8071E55539B003AF68E /* UserPreferences.swift */; };
-		FAFF372C1E03402F001B2A8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFF372A1E03402F001B2A8F /* Main.storyboard */; };
 		FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */; };
 		FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFF37301E03402F001B2A8F /* Assets.xcassets */; };
 		FAFF373F1E03402F001B2A8F /* NightlineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF373E1E03402F001B2A8F /* NightlineTests.swift */; };
@@ -105,7 +104,6 @@
 		82BFAD513DB6A99D8312DCE7 /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1DB89D1E03495E00C8E437 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ../R.generated.swift; sourceTree = "<group>"; };
 		FA1DB8A11E0349FE00C8E437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		FA1DB8A31E034C9300C8E437 /* fr */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		FA1DB8A61E034CEA00C8E437 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1DB8A81E034CEF00C8E437 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightline.entitlements; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 		FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelsProtocol.swift; path = Protocols/ModelsProtocol.swift; sourceTree = "<group>"; };
 		FAFBF8071E55539B003AF68E /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPreferences.swift; path = Models/User/UserPreferences.swift; sourceTree = "<group>"; };
 		FAFF37231E03402F001B2A8F /* Nightline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nightline.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAFF372B1E03402F001B2A8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAFF372E1E03402F001B2A8F /* Nightline.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nightline.xcdatamodel; sourceTree = "<group>"; };
 		FAFF37301E03402F001B2A8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAFF373A1E03402F001B2A8F /* NightlineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightlineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -487,7 +484,6 @@
 				FAFF37711E034211001B2A8F /* Database */,
 				FAFF375D1E0340B7001B2A8F /* Constants */,
 				FAFF37621E034137001B2A8F /* Controllers */,
-				FAFF372A1E03402F001B2A8F /* Main.storyboard */,
 				FAFF37761E034295001B2A8F /* Info.plist */,
 				FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */,
 			);
@@ -667,7 +663,7 @@
 				TargetAttributes = {
 					FAFF37221E03402F001B2A8F = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 97AYAAKHJ8;
+						DevelopmentTeam = D8PB95L4G8;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -720,7 +716,6 @@
 			files = (
 				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
 				FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */,
-				FAFF372C1E03402F001B2A8F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,15 +994,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		FAFF372A1E03402F001B2A8F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FAFF372B1E03402F001B2A8F /* Base */,
-				FA1DB8A31E034C9300C8E437 /* fr */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1114,7 +1100,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nightline/Nightline.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				DEVELOPMENT_TEAM = D8PB95L4G8;
 				INFOPLIST_FILE = Nightline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;
@@ -1132,7 +1118,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nightline/Nightline.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				DEVELOPMENT_TEAM = D8PB95L4G8;
 				INFOPLIST_FILE = Nightline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;
