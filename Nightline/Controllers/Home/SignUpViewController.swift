@@ -11,6 +11,11 @@ import SnapKit
 import RealmSwift
 import Rswift
 
+/*
+ Controllers: SignupViewController.
+ This controller is displayed when user tries to register into the app.
+ */
+
 final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   let signupButton = UIButton()
@@ -31,6 +36,13 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
       addBackButton()
     }
   }
+  
+  /*
+   initAllFields() func.
+   This func sets position and content of the UIStackView used into the view.
+   @param None
+   @return None
+   */
   
   private func initAllFields() {
     
@@ -82,6 +94,13 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     stackViewSignUp.addArrangedSubview(passwordTextField)
   }
   
+  /*
+   addBottomButton() func.
+   This functions sets position and content of the signupButton into self.view
+   @param None
+   @return None
+   */
+  
   private func addBottomButton() {
     self.view.addSubview(signupButton)
     signupButton.snp.makeConstraints { (make) -> Void in
@@ -94,6 +113,14 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     signupButton.setTitle(R.string.localizable.sign_up().uppercased(), for: .normal)
     signupButton.addTarget(self, action: #selector(showHomeScreen), for: .touchUpInside)
   }
+  
+  /*
+   showHomeScreen() func.
+   This function is called when user clicks on the signupButton.
+   If user filled all the fields that'll register the user in the app, and save the token received by server into keychain service.
+   @param None
+   @return None
+   */
   
   func showHomeScreen() {
     if !((emailTextField.text?.isEmpty)!) && !(passwordTextField.text?.isEmpty)! && !(nicknameTextField.text?.isEmpty)! {
@@ -129,6 +156,13 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     return true
   }
   
+   /*
+   addBackButton() func.
+   This function sets position and content of backButton into self.view
+   @param None
+   @return None
+   */
+  
   private func addBackButton() {
     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backButtonPressed))
     gestureRecognizer.numberOfTapsRequired = 1
@@ -145,6 +179,14 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     backButton.roundImage(withBorder: true, borderColor: .red, borderSize: 1.0)
     backButton.addGestureRecognizer(gestureRecognizer)
   }
+  
+  /*
+   backButtonPressed() func.
+   This function is called when user clicks on backButton.
+   That dismisses this controller.
+   @param None
+   @return None
+   */
   
   func backButtonPressed() {
     self.dismiss(animated: true, completion: nil)

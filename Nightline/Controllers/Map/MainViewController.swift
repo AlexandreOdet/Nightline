@@ -11,6 +11,12 @@ import UIKit
 import SnapKit
 import MapKit
 
+/*
+ Controllers: MainViewController
+ This controller is the main one, when user launches the app it starts here.
+ Containing the Map with all the pins around user location.
+ */
+
 final class MainViewController: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
   
   static let notificationIdentifier = "presentConnexionScreen"
@@ -44,11 +50,19 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         map.showsUserLocation = true
         map.isZoomEnabled = true
         map.delegate = self
+        addFiltersToMap()
       }
     }
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
     log.verbose("\(FilterManager.instance.toParameters())")
   }
+  
+  /*
+   requestLocationAccess() function
+   This function asks user's permission to access his location when he uses the app.
+   @param None
+   @return None
+   */
   
   func requestLocationAccess() {
     let status = CLLocationManager.authorizationStatus()
@@ -109,6 +123,13 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     self.addMarkerToMap()
   }
   
+  /*
+   addMarkerToMap() func.
+   This function will add all markers to the map.
+   @param None (soon will receive an array of Marker)
+   @return None
+   */
+  
   private func addMarkerToMap() {
     //let GML = CLLocationCoordinate2DMake(42.328994, -83.039708)
     let unionSquare = CLLocationCoordinate2DMake(37.78806, -122.4075)
@@ -119,8 +140,148 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     self.map.addAnnotation(marker)
   }
   
+  /*
+   callbackObserver() func
+   This function is called when the observer subscribed in the viewDidLoad() method is called.
+   It will present the HomeViewController().
+   @param None
+   @return None
+   */
+  
   func callbackObserver() {
     self.present(HomeViewController(), animated: true, completion: nil)
   }
   
+  private func addFiltersToMap() {
+    let stackView = UIStackView()
+    stackView.axis = .horizontal
+    stackView.spacing = 15
+    let grouplabel = UILabel()
+    let eventLabel = UILabel()
+    let personLabel = UILabel()
+
+    let groupGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentGroupFilter))
+    groupGestureRecognizer.numberOfTapsRequired = 1
+    
+    let eventGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentEventFilter))
+    eventGestureRecognizer.numberOfTapsRequired = 1
+    
+    let personGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentPersonFilter))
+    personGestureRecognizer.numberOfTapsRequired = 1
+    
+    personGestureRecognizer.numberOfTapsRequired = 1
+    
+    self.view.addSubview(stackView)
+    stackView.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(self.view).offset((self.navigationController?.navigationBar.frame.height)! + 5)
+      make.width.equalTo(self.view)
+      make.height.equalTo(50)
+    }
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.backgroundColor = UIColor.white
+    
+    grouplabel.text = "Groupes"
+    grouplabel.isUserInteractionEnabled = true
+    grouplabel.addGestureRecognizer(groupGestureRecognizer)
+    grouplabel.textAlignment = .center
+    grouplabel.backgroundColor = .white
+    
+    eventLabel.text = "Évènements"
+    eventLabel.isUserInteractionEnabled = true
+    eventLabel.addGestureRecognizer(eventGestureRecognizer)
+    eventLabel.textAlignment = .center
+    eventLabel.backgroundColor = .white
+    
+    personLabel.text = "Personnes"
+    personLabel.isUserInteractionEnabled = true
+    personLabel.addGestureRecognizer(personGestureRecognizer)
+    personLabel.textAlignment = .center
+    personLabel.backgroundColor = .white
+    
+    
+    stackView.addArrangedSubview(grouplabel)
+    stackView.addArrangedSubview(eventLabel)
+    stackView.addArrangedSubview(personLabel)
+  }
+  
+  func presentGroupFilter() {
+    let alertSheetController = UIAlertController(title: "Filtres de groupe", message: nil, preferredStyle: .actionSheet)
+    
+    alertSheetController.addAction(UIAlertAction(title: GroupType.friend.toString(), style: .default, handler: { action in
+      if FilterManager.instance.isItemInArray(groupType: GroupType.friend) {
+        FilterManager.instance.remove(groupeType: GroupType.friend)
+      } else {
+        FilterManager.instance.add(groupeType: GroupType.friend)
+      }
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: GroupType.brotherhood.toString(), style: .default, handler: { action in
+      if FilterManager.instance.isItemInArray(groupType: GroupType.brotherhood) {
+        FilterManager.instance.remove(groupeType: GroupType.brotherhood)
+      } else {
+        FilterManager.instance.add(groupeType: GroupType.brotherhood)
+      }
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: GroupType.sisterhood.toString(), style: .default, handler: { action in
+      if FilterManager.instance.isItemInArray(groupType: GroupType.sisterhood) {
+        FilterManager.instance.remove(groupeType: GroupType.sisterhood)
+      } else {
+        FilterManager.instance.add(groupeType: GroupType.sisterhood)
+      }
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
+    
+    self.present(alertSheetController, animated: true, completion: nil)
+  }
+  
+  func presentEventFilter() {
+    let alertSheetController = UIAlertController(title: "Filtres d'évènements", message: nil, preferredStyle: .actionSheet)
+    
+    alertSheetController.addAction(UIAlertAction(title: EventType.birthday.toString(), style: .default, handler: { action in
+      if FilterManager.instance.isItemInArray(eventType: EventType.birthday) {
+        FilterManager.instance.remove(eventType: EventType.birthday)
+      } else {
+        FilterManager.instance.add(eventType: EventType.birthday)
+      }
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: EventType.festival.toString(), style: .default, handler: { action in
+      if FilterManager.instance.isItemInArray(eventType: EventType.festival) {
+        FilterManager.instance.remove(eventType: EventType.festival)
+      } else {
+        FilterManager.instance.add(eventType: EventType.festival)
+      }
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
+    
+    self.present(alertSheetController, animated: true, completion: nil)
+    
+  }
+  
+  func presentPersonFilter() {
+    let alertSheetController = UIAlertController(title: "Filtres de personne", message: nil, preferredStyle: .actionSheet)
+    
+    alertSheetController.addAction(UIAlertAction(title: PersonType.friend.toString(), style: .default, handler: { action in
+      if FilterManager.instance.isItemInArray(personType: PersonType.friend) {
+        FilterManager.instance.remove(personType: PersonType.friend)
+      } else {
+        FilterManager.instance.add(personType: PersonType.friend)
+      }
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: PersonType.friendLink.toString(), style: .default, handler: { action in
+      if FilterManager.instance.isItemInArray(personType: PersonType.friendLink) {
+        FilterManager.instance.remove(personType: PersonType.friendLink)
+      } else {
+        FilterManager.instance.add(personType: PersonType.friendLink)
+      }
+    }))
+    
+    alertSheetController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
+    
+    self.present(alertSheetController, animated: true, completion: nil)
+  }
 }

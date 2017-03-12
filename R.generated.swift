@@ -142,7 +142,7 @@ struct R {
   
   /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 31 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 34 localization keys.
     struct localizable {
       /// fr translation: Bar
       /// 
@@ -204,6 +204,14 @@ struct R {
       /// 
       /// Locales: fr, en
       static let female = StringResource(key: "female", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Fratenité
+      /// 
+      /// Locales: fr, en
+      static let brotherhood = StringResource(key: "brotherhood", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Groupe d'ami
+      /// 
+      /// Locales: fr, en
+      static let friends = StringResource(key: "friends", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: Homme
       /// 
       /// Locales: fr, en
@@ -252,6 +260,10 @@ struct R {
       /// 
       /// Locales: fr, en
       static let logout = StringResource(key: "logout", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Sisterhood
+      /// 
+      /// Locales: fr, en
+      static let sisterhood = StringResource(key: "sisterhood", tableName: "Localizable", bundle: _R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: Version
       /// 
       /// Locales: fr, en
@@ -374,6 +386,20 @@ struct R {
         return NSLocalizedString("female", bundle: _R.hostingBundle, comment: "")
       }
       
+      /// fr translation: Fratenité
+      /// 
+      /// Locales: fr, en
+      static func brotherhood(_: Void = ()) -> String {
+        return NSLocalizedString("brotherhood", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Groupe d'ami
+      /// 
+      /// Locales: fr, en
+      static func friends(_: Void = ()) -> String {
+        return NSLocalizedString("friends", bundle: _R.hostingBundle, comment: "")
+      }
+      
       /// fr translation: Homme
       /// 
       /// Locales: fr, en
@@ -456,6 +482,13 @@ struct R {
       /// Locales: fr, en
       static func logout(_: Void = ()) -> String {
         return NSLocalizedString("logout", bundle: _R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Sisterhood
+      /// 
+      /// Locales: fr, en
+      static func sisterhood(_: Void = ()) -> String {
+        return NSLocalizedString("sisterhood", bundle: _R.hostingBundle, comment: "")
       }
       
       /// fr translation: Version

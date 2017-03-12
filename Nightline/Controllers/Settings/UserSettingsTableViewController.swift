@@ -11,18 +11,30 @@ import UIKit
 import SnapKit
 import Rswift
 
+/*
+ Controllers: UserSettingsTableViewController
+ This controller shows a UITableView containing all settings of the app.
+ */
+
 final class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   let reuseIdentifier = "SettingsCell"
   var tableView = UITableView()
   let infosArray = [R.string.localizable.thanks(), R.string.localizable.faq(), R.string.localizable.build()]
-  let sectionArray = ["Section 1", "Section 2", "Section 3", "Section 4"]
+  let sectionArray = ["Profil", "Préférences", "Informations", ""]
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = R.string.localizable.settings()
     addTableView()
   }
+  
+  /*
+   addTableView() function.
+   This function adds the UITableView and sets the constraints into the view.
+   @param None.
+   @return None.
+   */
   
   private func addTableView() {
     self.tableView = UITableView(frame: self.view.frame, style: .grouped)
@@ -124,19 +136,28 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
     return sectionArray[section]
   }
   
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    var headerView = UIView()
-    return headerView
-  }
-  
   /*------------- UITableView Actions -------------*/
+  
+  /*
+   performLogoutAction() function.
+   This function logout the user from the app.
+   @param None
+   @return None
+   */
   
   func performLogoutAction() {
     Utils.Network.logOutUser()
     let notificationName = Notification.Name(TabBarController.notificationIdentifier)
     NotificationCenter.default.post(name: notificationName, object: nil)
   }
-  
+
+  /*
+   goToEditProfilViewController() function.
+   This function goes to user profile on editing mode.
+   @param None
+   @return None
+   */
+
   func goToEditProfilViewController() {
     let nextViewController = EditProfileViewController()
     self.navigationController?.pushViewController(nextViewController, animated: true)

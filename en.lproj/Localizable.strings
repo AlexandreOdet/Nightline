@@ -37,3 +37,6 @@ thanks = "Remerciements";
 faq = "FAQ";
 build = "Version";
 error_loading_data = "Erreur au chargement des données";
+brotherhood = "Fratenité";
+sisterhood = "Sisterhood";
+friends = "Groupe d'ami";
