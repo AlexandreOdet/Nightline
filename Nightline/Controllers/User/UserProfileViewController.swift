@@ -40,28 +40,18 @@ final class UserProfileViewController: BaseViewController {
   let userAgeLabel = UILabel()
   let userCityLabel = UILabel()
   
-  //useless ?
-  let logoutButton = UIButton()
-  let editProfileButton = UIButton()
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {
-      self.view.backgroundColor = UIColor.black
-      self.addComponentsToView()
-      let rightBarButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goToEditProfilViewController))
-      self.navigationItem.rightBarButtonItem = rightBarButton
+      initProfileView()
+      initHeader()
+      initBody()
     }
   }
   
-  private func addComponentsToView() {
-    initProfileView()
-    initHeader()
-    initBody()
-  }
-  
+  // Global view
   private func initProfileView() {
     self.view.addSubview(profileView)
     profileView.snp.makeConstraints { (make) -> Void in
@@ -73,6 +63,7 @@ final class UserProfileViewController: BaseViewController {
     profileView.backgroundColor = self.getMidnightBlue()
   }
   
+  // Header view
   private func initHeader() {
     self.profileView.addSubview(headerLeft)
     headerLeft.snp.makeConstraints { (make) -> Void in
@@ -108,6 +99,7 @@ final class UserProfileViewController: BaseViewController {
     pseudoLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 22.0)
   }
   
+  // Body view
   private func initBody() {
     self.profileView.addSubview(bodyLeft)
     bodyLeft.snp.makeConstraints { make in
@@ -129,6 +121,7 @@ final class UserProfileViewController: BaseViewController {
     addUserInformations()
   }
   
+  // Body view left side
   private func addLegend() {
     self.bodyLeft.addSubview(legendStackView)
     legendStackView.snp.makeConstraints { (make) -> Void in
@@ -149,6 +142,7 @@ final class UserProfileViewController: BaseViewController {
     legendStackView.addArrangedSubview(city)
   }
   
+  // Body view right side
   private func addUserInformations() {
     self.bodyRight.addSubview(userInfoStackView)
     userInfoStackView.snp.makeConstraints { (make) -> Void in
@@ -172,22 +166,18 @@ final class UserProfileViewController: BaseViewController {
     userInfoStackView.addArrangedSubview(userCityLabel)
   }
   
-  
+  // Style right side
   private func styleUserInfo(label: UILabel) {
     label.font = UIFont(name:"HelveticaNeue-Medium", size: 18.0)
     label.textAlignment = .left
     label.textColor = self.getAccentColor()
   }
   
+  // Style left side
   private func styleLegend(label: UILabel) {
     label.font = UIFont(name:"HelveticaNeueLight", size: 18.0)
     label.textAlignment = .right
     label.textColor = self.getAccentColor()
-  }
-  
-  func goToEditProfilViewController() {
-    let nextViewController = EditProfileViewController()
-    self.navigationController?.pushViewController(nextViewController, animated: true)
   }
   
 }
