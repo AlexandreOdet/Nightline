@@ -22,6 +22,11 @@ final class HomeViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    let backgroundImage = UIImageView(image: R.image.background())
+    self.view.addSubview(backgroundImage)
+    backgroundImage.snp.makeConstraints { (make) -> Void in
+      make.edges.equalTo(self.view)
+    }
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {

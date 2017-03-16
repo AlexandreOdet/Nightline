@@ -21,8 +21,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()
   private let stackViewSignIn = UIStackView()
-  private let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 400, height: 20))
-  private let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 400, height: 20))
+  private let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 700, height: 20))
+  private let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 700, height: 20))
   let backButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
   let restApiUser = RAUser()
   
@@ -30,6 +30,12 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     super.viewDidLoad()
     self.hideKeyboardWhenTappedAround()
     self.title = R.string.localizable.sign_in()
+    let backgroundImage = UIImageView(image: R.image.background())
+    self.view.addSubview(backgroundImage)
+    backgroundImage.snp.makeConstraints { (make) -> Void in
+      make.edges.equalTo(self.view)
+    }
+    backgroundImage.alpha = 0.5
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {
@@ -53,6 +59,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     self.view.addSubview(stackViewSignIn)
     stackViewSignIn.snp.makeConstraints { (make) -> Void in
       make.center.equalTo(self.view)
+      make.leading.equalTo(self.view).offset(30)
+      make.trailing.equalTo(self.view).offset(-30)
     }
     stackViewSignIn.translatesAutoresizingMaskIntoConstraints = false
     stackViewSignIn.axis = .vertical
@@ -69,6 +77,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     nicknameTextField.delegate = self
     nicknameTextField.tag = 0
     nicknameTextField.becomeFirstResponder()
+    nicknameTextField.backgroundColor = .clear
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.password(),
@@ -80,6 +89,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     passwordTextField.returnKeyType = UIReturnKeyType.done
     passwordTextField.delegate = self
     passwordTextField.tag = 1
+    passwordTextField.backgroundColor = .clear
     
     stackViewSignIn.addArrangedSubview(nicknameTextField)
     stackViewSignIn.addArrangedSubview(passwordTextField)
@@ -158,11 +168,14 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
    */
   
   func showHomeScreen() {
+    Utils.Network.spinnerStart()
     restApiUser.loginUser(email: nicknameTextField.text ?? "", password: passwordTextField.text ?? "", callback: {
       token in
+      Utils.Network.spinnerStop()
       TokenWrapper().setToken(valueFor: token.value)
       self.dismiss(animated: true, completion: nil)
     }, callbackError: {
+      Utils.Network.spinnerStop()
       AlertUtils.networkErrorAlert(fromController: self)
     })
   }

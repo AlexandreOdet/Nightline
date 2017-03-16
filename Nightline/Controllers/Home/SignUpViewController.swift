@@ -28,6 +28,12 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     super.viewDidLoad()
     self.hideKeyboardWhenTappedAround()
     self.title = R.string.localizable.sign_up()
+    let backgroundImage = UIImageView(image: R.image.background())
+    self.view.addSubview(backgroundImage)
+    backgroundImage.snp.makeConstraints { (make) -> Void in
+      make.edges.equalTo(self.view)
+    }
+    backgroundImage.alpha = 0.5
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
     } else {
@@ -53,6 +59,8 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     self.view.addSubview(stackViewSignUp)
     stackViewSignUp.snp.makeConstraints { (make) -> Void in
       make.center.equalTo(self.view)
+      make.leading.equalTo(self.view).offset(30)
+      make.trailing.equalTo(self.view).offset(-30)
     }
     stackViewSignUp.translatesAutoresizingMaskIntoConstraints = false
     
@@ -67,6 +75,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     emailTextField.returnKeyType = .next
     emailTextField.tag = 0
     emailTextField.becomeFirstResponder()
+    emailTextField.backgroundColor = .clear
     
     nicknameTextField.backgroundColor = UIColor.black
     nicknameTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.nickname(),
@@ -77,6 +86,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     nicknameTextField.delegate = self
     nicknameTextField.returnKeyType = .next
     nicknameTextField.tag = 1
+    nicknameTextField.backgroundColor = .clear
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.password(),
@@ -88,6 +98,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     passwordTextField.returnKeyType = .done
     passwordTextField.tag = 2
     passwordTextField.delegate = self
+    passwordTextField.backgroundColor = .clear
     
     stackViewSignUp.addArrangedSubview(emailTextField)
     stackViewSignUp.addArrangedSubview(nicknameTextField)

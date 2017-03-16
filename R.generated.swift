@@ -22,12 +22,14 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 12 images.
+  /// This `R.image` struct is generated, and contains static references to 13 images.
   struct image {
     /// Image `avatar`.
     static let avatar = ImageResource(bundle: _R.hostingBundle, name: "avatar")
     /// Image `back_arrow`.
     static let back_arrow = ImageResource(bundle: _R.hostingBundle, name: "back_arrow")
+    /// Image `background`.
+    static let background = ImageResource(bundle: _R.hostingBundle, name: "background")
     /// Image `female`.
     static let female = ImageResource(bundle: _R.hostingBundle, name: "female")
     /// Image `interrogation`.
@@ -57,6 +59,11 @@ struct R {
     /// `UIImage(named: "back_arrow", bundle: ..., traitCollection: ...)`
     static func back_arrow(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.back_arrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "background", bundle: ..., traitCollection: ...)`
+    static func background(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.background, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "female", bundle: ..., traitCollection: ...)`
