@@ -24,17 +24,17 @@ class RAUser: RABase {
    @return None
    */
   func loginUser(email: String, password: String,
-                 callback: @escaping (User) -> (),
+                 callback: @escaping (Token) -> (),
                  callbackError: @escaping () -> ()) {
     
     let parameters = ["email":email, "password":password]
     let url = RoutesAPI.login.url
     self.request = Alamofire.request(url, method: .post, parameters: parameters)
-      .responseObject(completionHandler: { (response: DataResponse<User>) in
+      .responseObject(completionHandler: { (response: DataResponse<Token>) in
       switch response.result {
-      case .success(let user):
-        log.verbose("RestApiUser.login OK \(user)")
-        callback(user)
+      case .success(let token):
+        log.verbose("RestApiUser.login OK \(token)")
+        callback(token)
       case .failure(let error):
         callbackError()
         log.error("RestApiUser.login Fail : \(error)")

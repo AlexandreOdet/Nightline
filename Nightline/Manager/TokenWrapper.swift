@@ -16,7 +16,7 @@ import KeychainSwift
 
 class TokenWrapper {
   
-  let keychain = KeychainSwift()
+  static let keychain = KeychainSwift()
   
   /**
    Method of the TokenWrapper class.
@@ -28,7 +28,7 @@ class TokenWrapper {
   */
   
   func setToken(valueFor token: String) {
-    keychain.set(token, forKey: "token")
+    TokenWrapper.keychain.set(token, forKey: "token")
   }
   
   /**
@@ -42,7 +42,7 @@ class TokenWrapper {
    */
 
   func setToken(valueFor token: String, key: String) {
-    keychain.set(token, forKey: key)
+    TokenWrapper.keychain.set(token, forKey: key)
   }
   
   /**
@@ -55,7 +55,7 @@ class TokenWrapper {
    */
 
   func getToken() -> String? {
-    guard let token = keychain.get("token") else {
+    guard let token = TokenWrapper.keychain.get("token") else {
       return nil
     }
     return token
@@ -71,7 +71,7 @@ class TokenWrapper {
    */
   
   func getToken(for key: String) -> String? {
-    guard let token = keychain.get(key) else {
+    guard let token = TokenWrapper.keychain.get(key) else {
       return nil
     }
     return token
@@ -87,7 +87,7 @@ class TokenWrapper {
    */
 
   func deleteToken() {
-    keychain.delete("token")
+    TokenWrapper.keychain.delete("token")
   }
 
   /**
@@ -100,7 +100,7 @@ class TokenWrapper {
    */
   
   func deleteToken(for key: String) {
-    keychain.delete(key)
+    TokenWrapper.keychain.delete(key)
   }
   
 }

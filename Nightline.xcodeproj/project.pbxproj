@@ -34,6 +34,7 @@
 		FA3AA18C1E57720F002CF4FC /* TokenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */; };
 		FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18B1E57720F002CF4FC /* UserManager.swift */; };
 		FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */; };
+		FA46AB8D1E7A340100F3E733 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46AB8C1E7A340100F3E733 /* Token.swift */; };
 		FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */; };
 		FA5729831E5CFBE800B36784 /* RoutesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5729821E5CFBE800B36784 /* RoutesAPI.swift */; };
 		FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */; };
@@ -129,6 +130,7 @@
 		FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenWrapper.swift; path = Manager/TokenWrapper.swift; sourceTree = "<group>"; };
 		FA3AA18B1E57720F002CF4FC /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Manager/UserManager.swift; sourceTree = "<group>"; };
 		FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertUtils.swift; path = Utils/AlertUtils.swift; sourceTree = "<group>"; };
+		FA46AB8C1E7A340100F3E733 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Models/User/Token.swift; sourceTree = "<group>"; };
 		FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutableProtocol.swift; path = Protocols/RoutableProtocol.swift; sourceTree = "<group>"; };
 		FA5729821E5CFBE800B36784 /* RoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutesAPI.swift; path = Enums/Routes/RoutesAPI.swift; sourceTree = "<group>"; };
 		FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionRoutesAPI.swift; path = Extensions/Enums/ExtensionRoutesAPI.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			children = (
 				FA75ADAA1E4BBA2B0078FFE9 /* User.swift */,
 				FAFBF8071E55539B003AF68E /* UserPreferences.swift */,
+				FA46AB8C1E7A340100F3E733 /* Token.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -663,7 +666,7 @@
 				TargetAttributes = {
 					FAFF37221E03402F001B2A8F = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = D8PB95L4G8;
+						DevelopmentTeam = 97AYAAKHJ8;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -901,6 +904,7 @@
 				FA5C2A9E1E5A519700A0CB56 /* UIViewControllerExtension.swift in Sources */,
 				FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */,
 				FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */,
+				FA46AB8D1E7A340100F3E733 /* Token.swift in Sources */,
 				FA3AA1731E577106002CF4FC /* SignUpViewController.swift in Sources */,
 				FA3AA1761E577137002CF4FC /* MainViewController.swift in Sources */,
 				FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */,
@@ -1100,7 +1104,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nightline/Nightline.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = D8PB95L4G8;
+				DEVELOPMENT_TEAM = 97AYAAKHJ8;
 				INFOPLIST_FILE = Nightline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;
@@ -1118,7 +1122,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nightline/Nightline.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = D8PB95L4G8;
+				DEVELOPMENT_TEAM = 97AYAAKHJ8;
 				INFOPLIST_FILE = Nightline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;

@@ -24,7 +24,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   private let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 400, height: 20))
   private let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 400, height: 20))
   let backButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-
+  let restApiUser = RAUser()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.hideKeyboardWhenTappedAround()
@@ -157,28 +158,13 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
    */
   
   func showHomeScreen() {
-    let array = DatabaseHandler().getObjectArray(ofType: DbUser.self)
-    var isConnectionOk = false
-    for user in array {
-      isConnectionOk = user.areUserIdOk(nickname: self.nicknameTextField.text!, passwd: self.passwordTextField.text!)
-      if isConnectionOk == true {
-        log.info("Sign in OK")
-        if tokenWrapper.getToken() == nil {
-          let token = "AAAA"
-          tokenWrapper.setToken(valueFor: token)
-        }
-        let presentingViewController = self.presentingViewController
-        self.dismiss(animated: false, completion: {
-          presentingViewController!.dismiss(animated: true, completion: {})
-        })
-      }
-    }
-    if isConnectionOk == false {
-      log.error("Sign in fail")
-      let alert = UIAlertController(title: R.string.localizable.error(), message: R.string.localizable.connection_fail(), preferredStyle: UIAlertControllerStyle.alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-      self.present(alert, animated: true, completion: nil)
-    }
+    restApiUser.loginUser(email: nicknameTextField.text ?? "", password: passwordTextField.text ?? "", callback: {
+      token in
+      TokenWrapper().setToken(valueFor: token.value)
+      self.dismiss(animated: true, completion: nil)
+    }, callbackError: {
+      AlertUtils.networkErrorAlert(fromController: self)
+    })
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
