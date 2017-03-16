@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileViewController: BaseViewController {
+class EditProfileViewController: BaseViewController, UITextFieldDelegate {
   
   // Global view
   let containerView = UIView()
@@ -37,8 +37,17 @@ class EditProfileViewController: BaseViewController {
   let cityLabel = UILabel()
   let nickNameLabel = UILabel()
   
+  // Other
+  var kbHeight: CGFloat! = nil
+  var isKeyboardUp = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    userName.delegate = self
+    userLastName.delegate = self
+    userAge.delegate = self
+    userCity.delegate = self
+    userNickName.delegate = self
     self.hideKeyboardWhenTappedAround()
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
@@ -179,6 +188,7 @@ class EditProfileViewController: BaseViewController {
     UserManager.instance.updateUserAge(newValue: userAge.text!)
     UserManager.instance.updateUserCity(newValue: userCity.text!)
     UserManager.instance.updateUserNickName(newValue: userNickName.text!)
+    NotificationCenter.default.removeObserver(self)
   }
   
   // Go to previous view
@@ -187,5 +197,69 @@ class EditProfileViewController: BaseViewController {
     self.navigationController?.pushViewController(nextViewController, animated: true)
   }
   
+  /*
+   viewWillAppear() func.
+   This function set up Observer for keyboard appearing and disappearing.
+   @param animated: Bool
+   @return None
+   */
+  override func viewWillAppear(_ animated:Bool) {
+    super.viewWillAppear(animated)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+  
+  
+  /*
+   keyboardWillShow() func.
+   This function handle the keyboard appear notification, calculate the size of keyboard and call animateTextField().
+   @param notification
+   @return None
+   */
+  @objc func keyboardWillShow(notification: NSNotification) {
+    if let userInfo = notification.userInfo {
+      if let keyboardSize =  (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        kbHeight = keyboardSize.height
+        self.animateTextField(up: true)
+      }
+    }
+  }
+  
+  /*
+   keyboardWillHide() func.
+   This function handle the keyboard disappear notification.
+   @param notification
+   @return None
+   */
+  @objc func keyboardWillHide(notification: NSNotification) {
+    self.animateTextField(up: false)
+  }
+  
+  /*
+   animateTextField() func.
+   This function determine if the keyboard will hide the textfields.
+   @param up: keyboard will appear (true) or disappear (false)
+   @return None
+   */
+    func animateTextField(up: Bool) {
+    var movement = kbHeight
+    if (up == true && isKeyboardUp == true) {
+      movement = 0
+    } else if (up == true && isKeyboardUp == false) {
+      movement = -kbHeight
+      isKeyboardUp = true
+    } else {
+      movement = kbHeight
+      isKeyboardUp = false
+    }
+    UIView.animate(withDuration: 0.3, animations: {
+      self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement!)
+    })
+  }
   
 }
