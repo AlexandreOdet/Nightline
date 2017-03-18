@@ -29,4 +29,17 @@ final class Animation {
       sender.backgroundColor = .white
     }
   }
+  
+  func bounceEffect(sender: UIView) {
+    sender.transform = CGAffineTransform(scaleX: 0.70, y: 0.70)
+    UIView.animate(withDuration: 2.0,
+                               delay: 0,
+                               usingSpringWithDamping: CGFloat(0.10),
+                               initialSpringVelocity: CGFloat(20.0),
+                               options: UIViewAnimationOptions.allowUserInteraction,
+                               animations: {
+                                sender.transform = CGAffineTransform.identity
+    }, completion: { Void in() })
+  }
+  
 }

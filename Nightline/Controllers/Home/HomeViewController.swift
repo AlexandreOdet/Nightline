@@ -53,7 +53,17 @@ final class HomeViewController: BaseViewController {
     }
     imgNightline.translatesAutoresizingMaskIntoConstraints = false
     imgNightline.image = R.image.logo()
+    imgNightline.isUserInteractionEnabled = true
+    
+    let logoGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animateLogo))
+    logoGestureRecognizer.numberOfTapsRequired = 1
+    imgNightline.addGestureRecognizer(logoGestureRecognizer)
   }
+  
+  func animateLogo() {
+    Animation().bounceEffect(sender: imgNightline)
+  }
+  
   
   /*
    addButtonsToView() func.

@@ -17,7 +17,7 @@ import Rswift
  */
 
 final class SigninViewController: BaseViewController, UITextFieldDelegate {
-  
+  let nightlineLogo = UIImageView()
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()
   private let stackViewSignIn = UIStackView()
@@ -25,6 +25,10 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   private let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 700, height: 20))
   let backButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
   let restApiUser = RAUser()
+  
+  deinit {
+    restApiUser.cancelRequest()
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -147,7 +151,6 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
    */
   
   private func initNightlineLogo() {
-    let nightlineLogo = UIImageView()
     
     self.view.addSubview(nightlineLogo)
     nightlineLogo.snp.makeConstraints { (make) -> Void in
@@ -157,6 +160,15 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     }
     nightlineLogo.translatesAutoresizingMaskIntoConstraints = false
     nightlineLogo.image = R.image.logo()
+    nightlineLogo.isUserInteractionEnabled = true
+    
+    let logoGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animateLogo))
+    logoGestureRecognizer.numberOfTapsRequired = 1
+    nightlineLogo.addGestureRecognizer(logoGestureRecognizer)
+  }
+  
+  func animateLogo() {
+    Animation().bounceEffect(sender: nightlineLogo)
   }
   
   /*
@@ -173,7 +185,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
       token in
       Utils.Network.spinnerStop()
       TokenWrapper().setToken(valueFor: token.value)
-      self.dismiss(animated: true, completion: nil)
+      self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
     }, callbackError: {
       Utils.Network.spinnerStop()
       AlertUtils.networkErrorAlert(fromController: self)

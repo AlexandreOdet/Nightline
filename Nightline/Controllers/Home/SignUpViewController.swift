@@ -18,12 +18,17 @@ import Rswift
 
 final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
+  let restApiUser = RAUser()
   let signupButton = UIButton()
   let emailTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
   let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
   let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
   let backButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
 
+  deinit {
+    restApiUser.cancelRequest()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.hideKeyboardWhenTappedAround()
@@ -135,15 +140,17 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   func showHomeScreen() {
     if !((emailTextField.text?.isEmpty)!) && !(passwordTextField.text?.isEmpty)! && !(nicknameTextField.text?.isEmpty)! {
-      log.info("Sign up OK")
-      let token = "AAAA"
-      tokenWrapper.setToken(valueFor: token)
-      DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":emailTextField.text!,
-                                                                           "passwd":passwordTextField.text!,
-                                                                           "nickname":nicknameTextField.text!])
-      let presentingViewController = self.presentingViewController
-      self.dismiss(animated: false, completion: {
-        presentingViewController!.dismiss(animated: true, completion: {})
+      Utils.Network.spinnerStart()
+      restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!, callback: { token in
+        Utils.Network.spinnerStop()
+        TokenWrapper().setToken(valueFor: token.value)
+        DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":self.emailTextField.text!,
+                                                                             "passwd":self.passwordTextField.text!,
+                                                                             "nickname":self.nicknameTextField.text!])
+        self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
+      }, callbackError: {
+        Utils.Network.spinnerStop()
+        AlertUtils.networkErrorAlert(fromController: self)
       })
     }
     else {

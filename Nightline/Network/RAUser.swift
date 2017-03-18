@@ -50,18 +50,20 @@ class RAUser: RABase {
    */
   
   func signUpUser(email: String, nickname: String, password: String,
-                  callback: ()->(),
-                  callbackError: ()->()) {
-    let parameters = ["email":email, "pseudo":nickname, "password":password]
+                  callback: @escaping (Token)->(),
+                  callbackError: @escaping ()->()) {
+    let parameters = ["Email":email, "Pseudo":nickname, "Password":password]
     let url = RoutesAPI.signUp.url
     
     self.request = Alamofire.request(url, method: .post, parameters: parameters).responseObject(completionHandler: {
-      (response: DataResponse<User>) in
+      (response: DataResponse<Token>) in
       switch response.result {
-      case .success(let user):
-        log.verbose("RestApiUser.signUp OK \(user)")
+      case .success(let token):
+        log.verbose("RestApiUser.signUp OK \(token)")
+        callback(token)
       case .failure(let error):
         log.error("RestApiUser.signUp Fail : \(error)")
+        callbackError()
       }
     })
   }
