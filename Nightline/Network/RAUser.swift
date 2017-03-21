@@ -24,22 +24,24 @@ class RAUser: RABase {
    @return None
    */
   func loginUser(email: String, password: String,
-                 callback: @escaping (Token) -> (),
+                 callback: @escaping (User) -> (),
                  callbackError: @escaping () -> ()) {
     
-    let parameters = ["email":email, "password":password]
+    let headers = ["Content-Type":"application/json"]
+    let parameters = ["email":"test@test.com", "password":"test"]
     let url = RoutesAPI.login.url
-    self.request = Alamofire.request(url, method: .post, parameters: parameters)
-      .responseObject(completionHandler: { (response: DataResponse<Token>) in
-      switch response.result {
-      case .success(let token):
-        log.verbose("RestApiUser.login OK \(token)")
-        callback(token)
-      case .failure(let error):
-        callbackError()
-        log.error("RestApiUser.login Fail : \(error)")
-      }
-    })
+    print("URL = \(url)")
+    self.request = Alamofire.request(url, method: .post, parameters: parameters, headers: headers).response(completionHandler: {response in log.debug("\(response)")})
+//      .responseObject(completionHandler: { (response: DataResponse<User>) in
+//      switch response.result {
+//      case .success(let token):
+//        log.verbose("OK \(token)")
+//        callback(token)
+//      case .failure(let error):
+//        callbackError()
+//        log.error("Fail : \(error)")
+//      }
+//    })
   }
 
   /*
@@ -50,21 +52,24 @@ class RAUser: RABase {
    */
   
   func signUpUser(email: String, nickname: String, password: String,
-                  callback: @escaping (Token)->(),
+                  callback: @escaping (User)->(),
                   callbackError: @escaping ()->()) {
-    let parameters = ["Email":email, "Pseudo":nickname, "Password":password]
+    let parameters = ["email":"Lol", "pseudo":"Lol", "password":"lol"]
     let url = RoutesAPI.signUp.url
-    
-    self.request = Alamofire.request(url, method: .post, parameters: parameters).responseObject(completionHandler: {
-      (response: DataResponse<Token>) in
-      switch response.result {
-      case .success(let token):
-        log.verbose("RestApiUser.signUp OK \(token)")
-        callback(token)
-      case .failure(let error):
-        log.error("RestApiUser.signUp Fail : \(error)")
-        callbackError()
-      }
-    })
+    let headers = ["Content-Type":"application/json"]
+    self.request = Alamofire.request("https://api.nightline.fr/register", method: .post, parameters: parameters, headers: headers).response(completionHandler: {response in log.debug("\(response)")})
+
+//      .responseObject(completionHandler: {
+//      (response: DataResponse<User>) in
+//      log.warning("\(response.result)")
+//      switch response.result {
+//      case .success(let usr):
+//        log.verbose("RestApiUser.signUp OK \(usr)")
+//        callback(usr)
+//      case .failure(let error):
+//        log.error("RestApiUser.signUp Fail : \(error)")
+//        callbackError()
+//      }
+//    })
   }
 }

@@ -56,7 +56,7 @@ final class AppConstant {
    */
   
   final class Network {
-    static let baseUrl = "http://api.nightline.fr"
+    static let baseUrl = "https://api.nightline.fr"
     static let login = "/login"
     static let signup = "/register"
     static let etablishment = ""

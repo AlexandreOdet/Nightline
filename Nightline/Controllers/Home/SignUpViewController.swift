@@ -139,26 +139,26 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
    */
   
   func showHomeScreen() {
-    if !((emailTextField.text?.isEmpty)!) && !(passwordTextField.text?.isEmpty)! && !(nicknameTextField.text?.isEmpty)! {
-      Utils.Network.spinnerStart()
-      restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!, callback: { token in
-        Utils.Network.spinnerStop()
-        TokenWrapper().setToken(valueFor: token.value)
-        DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":self.emailTextField.text!,
-                                                                             "passwd":self.passwordTextField.text!,
-                                                                             "nickname":self.nicknameTextField.text!])
-        self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
-      }, callbackError: {
-        Utils.Network.spinnerStop()
-        AlertUtils.networkErrorAlert(fromController: self)
-      })
-    }
-    else {
-      log.error("Sign up fail")
-      let alert = UIAlertController(title: R.string.localizable.error(), message: R.string.localizable.connection_fail(), preferredStyle: UIAlertControllerStyle.alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-      self.present(alert, animated: true, completion: nil)
-    }
+    restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!, callback: { user in
+      Utils.Network.spinnerStop()
+      TokenWrapper().setToken(valueFor: user.token)
+      DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":self.emailTextField.text!,
+                                                                           "passwd":self.passwordTextField.text!,
+                                                                           "nickname":self.nicknameTextField.text!])
+      self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
+    }, callbackError: {
+      Utils.Network.spinnerStop()
+      AlertUtils.networkErrorAlert(fromController: self)
+    })
+//    if !((emailTextField.text?.isEmpty)!) && !(passwordTextField.text?.isEmpty)! && !(nicknameTextField.text?.isEmpty)! {
+//      Utils.Network.spinnerStart()
+//    }
+//    else {
+//      log.error("Sign up fail")
+//      let alert = UIAlertController(title: R.string.localizable.error(), message: R.string.localizable.connection_fail(), preferredStyle: UIAlertControllerStyle.alert)
+//      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//      self.present(alert, animated: true, completion: nil)
+//    }
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {

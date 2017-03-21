@@ -17,16 +17,17 @@ import ObjectMapper
 
 class User: Mappable {
   
-  var firstName = ""
-  var lastName = ""
+  var firstName = "FirstName Test"
+  var lastName = "LastName Test"
   var email = ""
   var nickname = ""
   var passwd = ""
   var city = ""
   var age = ""
-  var id = 0
+  var id = ""
   var preferences = UserPreferences()
   var gender = Gender.male
+  var token = ""
   
   required init() {
     
@@ -46,7 +47,6 @@ class User: Mappable {
     self.nickname = otherUser.nickname
     self.city = otherUser.city
     self.age = otherUser.age
-    self.id = otherUser.id
   }
   
   required init?(map: Map) {
@@ -54,7 +54,10 @@ class User: Mappable {
   }
   
   func mapping(map: Map) {
-    self.firstName <- map["firstName"]
+    self.id <- map["id"]
+    self.email <- map["email"]
+    self.passwd <- map["password"]
+    self.nickname <- map["pseudo"]
   }
   
 }

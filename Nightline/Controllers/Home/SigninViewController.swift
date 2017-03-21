@@ -182,9 +182,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   func showHomeScreen() {
     Utils.Network.spinnerStart()
     restApiUser.loginUser(email: nicknameTextField.text ?? "", password: passwordTextField.text ?? "", callback: {
-      token in
+      user in
       Utils.Network.spinnerStop()
-      TokenWrapper().setToken(valueFor: token.value)
+      TokenWrapper().setToken(valueFor: user.token)
       self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
     }, callbackError: {
       Utils.Network.spinnerStop()

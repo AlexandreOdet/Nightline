@@ -42,4 +42,11 @@ final class Animation {
     }, completion: { Void in() })
   }
   
+  func animateUpButton(sender: UIView) {
+    sender.center.y += 50
+    UIView.animate(withDuration: 3.0) {
+      sender.center.y -= 50
+    }
+  }
+  
 }
