@@ -44,6 +44,9 @@ class RAUser: RABase {
 //    })
 //  }
   
+  
+  // Fonction de test ( request a la mano )
+  
   func loginUser(email: String, password: String,
                  callback: @escaping (User) -> (),
                  callbackError: @escaping () -> ()) {
@@ -94,6 +97,11 @@ class RAUser: RABase {
           return
         }
         print("The token is: \(token)")
+        let user = User()
+        user.email = response["email"] as! String
+        user.passwd = response["password"] as! String
+        user.token = response["token"] as! String
+        callback(user)
         
       } catch  {
         print("error parsing response from POST on /todos")
