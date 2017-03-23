@@ -148,6 +148,8 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
                                                                            "passwd":self.passwordTextField.text!,
                                                                            "nickname":self.nicknameTextField.text!])
       self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
+      let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
+      NotificationCenter.default.post(name: notificationName, object: nil)
     }, callbackError: {
       Utils.Network.spinnerStop()
       AlertUtils.networkErrorAlert(fromController: self)

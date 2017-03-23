@@ -26,6 +26,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   let backButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
   let restApiUser = RAUser()
   
+  static let notificationIdentifier = "dismissHomeViewController"
+
+  
   deinit {
     restApiUser.cancelRequest()
   }
@@ -185,7 +188,10 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
       user in
       Utils.Network.spinnerStop()
       TokenWrapper().setToken(valueFor: user.token)
-      self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
+      self.dismiss(animated: true, completion: {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)})
+      let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
+      NotificationCenter.default.post(name: notificationName, object: nil)
     }, callbackError: {
       Utils.Network.spinnerStop()
       AlertUtils.networkErrorAlert(fromController: self)

@@ -54,6 +54,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
       }
     }
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(connexionOK), name: NSNotification.Name(rawValue: SigninViewController.notificationIdentifier), object: nil)
     log.verbose("\(FilterManager.instance.toParameters())")
   }
   
@@ -150,6 +151,10 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   
   func callbackObserver() {
     self.present(HomeViewController(), animated: true, completion: nil)
+  }
+  
+  func connexionOK() {
+    self.presentedViewController?.dismiss(animated: true, completion: nil)
   }
   
   private func addFiltersToMap() {
