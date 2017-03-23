@@ -19,10 +19,14 @@ import RealmSwift
 
 final class UserManager {
   static let instance = UserManager()
-  var localUser = DatabaseHandler().getObjectArray(ofType: DbUser.self)
+  var localUser: Array<DbUser>!
   var networkUser = User()
   
   private init() {
+    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":"test@test.com",
+                                                                         "passwd":"test",
+                                                                         "nickname":"Xploit"])
+    localUser = DatabaseHandler().getObjectArray(ofType: DbUser.self)
     self.initUsers()
   }
   

@@ -18,6 +18,7 @@
 		FA303F6C1E5D1F26008961EF /* ExtensionUserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F6B1E5D1F26008961EF /* ExtensionUserPreferences.swift */; };
 		FA303F6E1E5D23A1008961EF /* ExtensionGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F6D1E5D23A1008961EF /* ExtensionGender.swift */; };
 		FA33BF511E57ECFD0037FC88 /* PersonFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33BF501E57ECFD0037FC88 /* PersonFilter.swift */; };
+		FA3A6D2D1E833D97008489F2 /* EtablishementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6D2C1E833D97008489F2 /* EtablishementViewController.swift */; };
 		FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1691E576FCD002CF4FC /* Consommation.swift */; };
 		FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA16A1E576FCD002CF4FC /* Etablishments.swift */; };
 		FA3AA1711E577106002CF4FC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA16E1E577106002CF4FC /* HomeViewController.swift */; };
@@ -113,6 +114,7 @@
 		FA303F6B1E5D1F26008961EF /* ExtensionUserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionUserPreferences.swift; path = Extensions/Models/User/ExtensionUserPreferences.swift; sourceTree = "<group>"; };
 		FA303F6D1E5D23A1008961EF /* ExtensionGender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionGender.swift; path = Extensions/Enums/ExtensionGender.swift; sourceTree = "<group>"; };
 		FA33BF501E57ECFD0037FC88 /* PersonFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonFilter.swift; path = Enums/Parties/MapFilter/PersonFilter.swift; sourceTree = "<group>"; };
+		FA3A6D2C1E833D97008489F2 /* EtablishementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishementViewController.swift; path = Controllers/Parties/EtablishementViewController.swift; sourceTree = "<group>"; };
 		FA3AA1691E576FCD002CF4FC /* Consommation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Consommation.swift; path = Enums/Parties/UserPreferences/Consommation.swift; sourceTree = "<group>"; };
 		FA3AA16A1E576FCD002CF4FC /* Etablishments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Etablishments.swift; path = Enums/Parties/UserPreferences/Etablishments.swift; sourceTree = "<group>"; };
 		FA3AA16E1E577106002CF4FC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/Home/HomeViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,14 @@
 				FAFF4EA31E5E4827006582C7 /* ExtensionDBUser.swift */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		FA3A6D2B1E833D7E008489F2 /* Parties */ = {
+			isa = PBXGroup;
+			children = (
+				FA3A6D2C1E833D97008489F2 /* EtablishementViewController.swift */,
+			);
+			name = Parties;
 			sourceTree = "<group>";
 		};
 		FA3AA1671E576FAF002CF4FC /* UserPreferences */ = {
@@ -519,6 +529,7 @@
 		FAFF37621E034137001B2A8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA3A6D2B1E833D7E008489F2 /* Parties */,
 				FA3AA1841E57719B002CF4FC /* User */,
 				FA3AA1811E57717D002CF4FC /* TabBar */,
 				FA3AA1771E577140002CF4FC /* Settings */,
@@ -932,6 +943,7 @@
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */,
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
+				FA3A6D2D1E833D97008489F2 /* EtablishementViewController.swift in Sources */,
 				FA3AA17C1E577153002CF4FC /* EtablishmentTableViewController.swift in Sources */,
 				FA5C2AA81E5A5B3000A0CB56 /* GroupType.swift in Sources */,
 				FA3AA17D1E577153002CF4FC /* UserSettingsTableViewController.swift in Sources */,

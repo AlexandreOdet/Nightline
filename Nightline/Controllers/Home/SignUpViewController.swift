@@ -20,10 +20,12 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   let restApiUser = RAUser()
   let signupButton = UIButton()
-  let emailTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
-  let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
-  let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
+  let emailTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 700, height: 20))
+  let nicknameTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 700, height: 20))
+  let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 700, height: 20))
   let backButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+  let nightlineLogo = UIImageView()
+  let stackViewSignUp = UIStackView()
 
   deinit {
     restApiUser.cancelRequest()
@@ -45,6 +47,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
       addBottomButton()
       initAllFields()
       addBackButton()
+      initNightlineLogo()
     }
   }
   
@@ -57,7 +60,6 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   private func initAllFields() {
     
-    let stackViewSignUp = UIStackView()
     stackViewSignUp.axis = .vertical
     stackViewSignUp.spacing = AppConstant.UI.Dimensions.formElementsSpacing
     
@@ -208,6 +210,27 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   func backButtonPressed() {
     self.dismiss(animated: true, completion: nil)
+  }
+  
+  private func initNightlineLogo() {
+    
+    self.view.addSubview(nightlineLogo)
+    nightlineLogo.snp.makeConstraints { (make) -> Void in
+      make.bottom.equalTo(stackViewSignUp.snp.top).offset(-25)
+      make.centerX.equalTo(self.view)
+      make.size.equalTo(150)
+    }
+    nightlineLogo.translatesAutoresizingMaskIntoConstraints = false
+    nightlineLogo.image = R.image.logo()
+    nightlineLogo.isUserInteractionEnabled = true
+    
+    let logoGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animateLogo))
+    logoGestureRecognizer.numberOfTapsRequired = 1
+    nightlineLogo.addGestureRecognizer(logoGestureRecognizer)
+  }
+  
+  func animateLogo() {
+    Animation().bounceEffect(sender: nightlineLogo)
   }
   
 }

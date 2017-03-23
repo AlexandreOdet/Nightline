@@ -57,7 +57,7 @@ class RAUser: RABase {
     }
     var todosUrlRequest = URLRequest(url: todosURL)
     todosUrlRequest.httpMethod = "POST"
-    let parameters: [String: Any] = ["email": email, "password": password]
+    let parameters: [String: Any] = ["email": "test@test.com", "password": "test"]
     let jsonTodo: Data
     do {
       jsonTodo = try JSONSerialization.data(withJSONObject: parameters, options: [])
