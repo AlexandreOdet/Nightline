@@ -38,7 +38,7 @@ class EditProfileViewController: BaseViewController, UITextFieldDelegate {
   let nickNameLabel = UILabel()
   
   // Other
-  var kbHeight: CGFloat! = nil
+  var kbHeight: CGFloat! = CGFloat()
   var isKeyboardUp = false
   
   override func viewDidLoad() {
