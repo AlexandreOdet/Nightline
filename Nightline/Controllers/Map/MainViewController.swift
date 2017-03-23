@@ -113,6 +113,9 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
       return
     }
     let actionList = UIAlertController(title: "", message: "Comment souhaitez-vous vous y rendre?", preferredStyle: .actionSheet)
+    actionList.addAction(UIAlertAction(title: "Accéder à la fiche du bar", style: .default, handler: { action in
+      self.tabBarController?.navigationController?.pushViewController(EtablishmentViewController(), animated: true)
+    }))
     actionList.addAction(UIAlertAction(title: "Voitures", style: .default, handler: nil))
     actionList.addAction(UIAlertAction(title: "A Pied", style: .default, handler: nil))
     actionList.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
@@ -132,12 +135,12 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
    */
   
   private func addMarkerToMap() {
-    //let GML = CLLocationCoordinate2DMake(42.328994, -83.039708)
-    let unionSquare = CLLocationCoordinate2DMake(37.78806, -122.4075)
+    let GML = CLLocationCoordinate2DMake(42.328994, -83.039708)
+    //let unionSquare = CLLocationCoordinate2DMake(37.78806, -122.4075)
     let marker = Marker(title: "Union Square",
                         locationName: "San Francisco Union Square",
                         discipline: "",
-                        coordinate: unionSquare)
+                        coordinate: GML)
     self.map.addAnnotation(marker)
   }
   

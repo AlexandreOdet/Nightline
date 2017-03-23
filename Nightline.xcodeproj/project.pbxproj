@@ -55,6 +55,7 @@
 		FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */; };
 		FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */; };
 		FA78B71B1E56978600765056 /* RAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78B71A1E56978600765056 /* RAUser.swift */; };
+		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
 		FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8001E554C7B003AF68E /* Animation.swift */; };
 		FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8021E554EC0003AF68E /* Plist.swift */; };
 		FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */; };
@@ -151,6 +152,7 @@
 		FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Marker.swift; path = Models/Parties/Marker.swift; sourceTree = "<group>"; };
 		FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCell.swift; path = Enums/CustomCells/Settings/SettingsCell.swift; sourceTree = "<group>"; };
 		FA78B71A1E56978600765056 /* RAUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAUser.swift; path = Network/RAUser.swift; sourceTree = "<group>"; };
+		FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishmentMenuViewController.swift; path = Controllers/Parties/EtablishmentMenuViewController.swift; sourceTree = "<group>"; };
 		FAFBF8001E554C7B003AF68E /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Utils/Animation.swift; sourceTree = "<group>"; };
 		FAFBF8021E554EC0003AF68E /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Plist.swift; path = Utils/Plist.swift; sourceTree = "<group>"; };
 		FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelsProtocol.swift; path = Protocols/ModelsProtocol.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3A6D2C1E833D97008489F2 /* EtablishementViewController.swift */,
+				FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */,
 			);
 			name = Parties;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 				FA5C2A9B1E5A519700A0CB56 /* UIImageViewExtension.swift in Sources */,
 				FA5729831E5CFBE800B36784 /* RoutesAPI.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
+				FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */,
 				FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */,
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
 				FA3A6D2D1E833D97008489F2 /* EtablishementViewController.swift in Sources */,
