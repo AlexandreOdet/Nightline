@@ -122,7 +122,7 @@ class RAUser: RABase {
                   callback: @escaping (User)->(),
                   callbackError: @escaping ()->()) {
     let parameters = ["email":"Lol", "pseudo":"Lol", "password":"lol"]
-    let url = RoutesAPI.signUp.url
+    _ = RoutesAPI.signUp.url
     let headers = ["Content-Type":"application/json"]
     self.request = Alamofire.request("https://api.nightline.fr/register", method: .post, parameters: parameters, headers: headers).response(completionHandler: {response in log.debug("\(response)")})
 

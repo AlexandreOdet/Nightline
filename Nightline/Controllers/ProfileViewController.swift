@@ -23,13 +23,15 @@ class ProfileViewController: BaseViewController {
   var nameLabel = UILabel()
   var typeLabel = UILabel()
   var nicknameLabel = UILabel()
-  private var birthdayImage = UIImageView()
   var birthdayLabel = UILabel()
   var likeButton = UIImageView()
-  private var locationImage = UIImageView()
   var locationLabel = UILabel()
   var descriptionLabel = UILabel()
   
+  let friendsLabel = UILabel()
+  let pictureLabel = UILabel()
+  let trophyLabel = UILabel()
+
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.white
@@ -37,6 +39,9 @@ class ProfileViewController: BaseViewController {
     addProfilePicture()
     addInfoContainerView()
     fillInfoContainerView()
+    if isUser {
+      addUserNumbers()
+    }
   }
   
   private func addHeader() {
@@ -97,6 +102,7 @@ class ProfileViewController: BaseViewController {
     nameLabel.textColor = .darkGray
     
     if isUser {
+      let birthdayImage = UIImageView()
       self.view.addSubview(nicknameLabel)
       nicknameLabel.snp.makeConstraints { (make) -> Void in
         make.top.equalTo(nameLabel)
@@ -141,6 +147,7 @@ class ProfileViewController: BaseViewController {
   }
   
   private func addLocation() {
+    let locationImage = UIImageView()
     self.view.addSubview(locationLabel)
     if isUser {
       locationLabel.snp.makeConstraints { (make) -> Void in
@@ -178,4 +185,85 @@ class ProfileViewController: BaseViewController {
     descriptionLabel.textAlignment = .center
     descriptionLabel.font = descriptionLabel.font.withSize(descriptionLabel.font.pointSize - 2)
   }
+  
+  private func addUserNumbers() {
+    let sepators = [UIView]()
+    sepators.append(UIView())
+    sepators.append(UIView())
+    sepators.append(UIView())
+    
+    let numberStackView = UIStackView()
+    numberStackView.axis = .horizontal
+    numberStackView.distribution = .equalCentering
+    numberStackView.spacing = 1
+    
+    self.view.addSubview(numberStackView)
+    numberStackView.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(separatorView.snp.bottom)
+      make.leading.equalTo(self.view).offset(15)
+      make.trailing.equalTo(self.view).offset(-15)
+      make.height.equalTo(50)
+    }
+    numberStackView.translatesAutoresizingMaskIntoConstraints = false
+    
+    let friendsView = UIView()
+    let pictureView = UIView()
+    let trophyView = UIView()
+    
+    let friendsImage = UIImageView()
+    let pictureImage = UIImageView()
+    let trophyImage = UIImageView()
+    
+    friendsImage.image = R.image.friends()
+    pictureImage.image = R.image.picture()
+    trophyImage.image = R.image.trophy()
+    
+    friendsImage.snp.makeConstraints { (make) -> Void in
+      make.size.equalTo(20)
+    }
+    
+    pictureImage.snp.makeConstraints { (make) -> Void in
+      make.size.equalTo(20)
+    }
+    
+    trophyImage.snp.makeConstraints { (make) -> Void in
+      make.size.equalTo(20)
+    }
+    
+    numberStackView.addArrangedSubview(friendsView)
+    numberStackView.addArrangedSubview(pictureView)
+    numberStackView.addArrangedSubview(trophyView)
+
+    setUpContainerView(container: friendsView, img: friendsImage, label: friendsLabel)
+    setUpContainerView(container: pictureView, img: pictureImage, label: pictureLabel)
+    setUpContainerView(container: trophyView, img: trophyImage, label: trophyLabel)
+  }
+  
+  private func setUpContainerView(container: UIView, img: UIImageView, label: UILabel) {
+    let stackView = UIStackView()
+    stackView.axis = .horizontal
+    stackView.spacing = 3
+    stackView.alignment = .center
+    
+    container.addSubview(stackView)
+    stackView.snp.makeConstraints { (make) -> Void in
+      make.edges.equalTo(container)
+      make.center.equalTo(container)
+    }
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    
+    stackView.addArrangedSubview(img)
+    stackView.addArrangedSubview(label)
+  }
+  
+  private func initSeparators(array: [UIView]) {
+    for view in array {
+      if view == array.last!{
+        
+      } else {
+        
+      }
+    }
+  }
+  
 }

@@ -27,5 +27,8 @@ final class UserProfileViewController: ProfileViewController {
     self.birthdayLabel.text = "22 ans"
     self.locationLabel.text = "Pékin"
     self.descriptionLabel.text = "Epitech 4th year student in China, Beijing"
+    self.friendsLabel.text = "220"
+    self.pictureLabel.text = "55"
+    self.trophyLabel.text = "520"
   }
 }
