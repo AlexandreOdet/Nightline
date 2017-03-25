@@ -187,10 +187,12 @@ class ProfileViewController: BaseViewController {
   }
   
   private func addUserNumbers() {
-    let sepators = [UIView]()
+    var sepators = [UIView]()
     sepators.append(UIView())
     sepators.append(UIView())
     sepators.append(UIView())
+    
+    initSeparators(array: sepators)
     
     let numberStackView = UIStackView()
     numberStackView.axis = .horizontal
@@ -231,12 +233,22 @@ class ProfileViewController: BaseViewController {
     }
     
     numberStackView.addArrangedSubview(friendsView)
+    numberStackView.addArrangedSubview(sepators[0])
     numberStackView.addArrangedSubview(pictureView)
+    numberStackView.addArrangedSubview(sepators[1])
     numberStackView.addArrangedSubview(trophyView)
 
     setUpContainerView(container: friendsView, img: friendsImage, label: friendsLabel)
     setUpContainerView(container: pictureView, img: pictureImage, label: pictureLabel)
     setUpContainerView(container: trophyView, img: trophyImage, label: trophyLabel)
+    self.view.addSubview(sepators[2])
+    sepators[2].snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(numberStackView.snp.bottom)
+      make.width.equalTo(self.view)
+      make.height.equalTo(1)
+    }
+    sepators[2].translatesAutoresizingMaskIntoConstraints = false
+    sepators[2].backgroundColor = .lightGray
   }
   
   private func setUpContainerView(container: UIView, img: UIImageView, label: UILabel) {
@@ -244,6 +256,7 @@ class ProfileViewController: BaseViewController {
     stackView.axis = .horizontal
     stackView.spacing = 3
     stackView.alignment = .center
+    stackView.distribution = .equalCentering
     
     container.addSubview(stackView)
     stackView.snp.makeConstraints { (make) -> Void in
@@ -258,11 +271,14 @@ class ProfileViewController: BaseViewController {
   
   private func initSeparators(array: [UIView]) {
     for view in array {
-      if view == array.last!{
-        
-      } else {
-        
+      if view != array.last!{
+        view.snp.makeConstraints { (make) -> Void in
+          make.width.equalTo(1)
+          make.height.equalTo(50)
+        }
       }
+      view.translatesAutoresizingMaskIntoConstraints = false
+      view.backgroundColor = .lightGray
     }
   }
   
