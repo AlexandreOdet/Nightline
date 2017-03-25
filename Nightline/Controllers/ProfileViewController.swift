@@ -62,6 +62,7 @@ class ProfileViewController: BaseViewController {
       make.size.equalTo(AppConstant.UI.Dimensions.thumbnailPictureSize)
     }
     imgProfile.translatesAutoresizingMaskIntoConstraints = false
+    imgProfile.backgroundColor = .white
   }
   
   private func addInfoContainerView() {
@@ -100,24 +101,23 @@ class ProfileViewController: BaseViewController {
       nicknameLabel.snp.makeConstraints { (make) -> Void in
         make.top.equalTo(nameLabel)
         make.trailing.equalTo(infoContainerView).offset(-10)
-        make.leading.lessThanOrEqualTo(infoContainerView.snp.centerX).offset(3)
       }
       nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
       
       self.view.addSubview(birthdayImage)
       birthdayImage.image = R.image.birthday()
       birthdayImage.snp.makeConstraints { (make) -> Void in
-        make.top.equalTo(nameLabel.snp.bottom).offset(3)
+        make.top.equalTo(nameLabel.snp.bottom).offset(20)
         make.leading.equalTo(nameLabel)
-        make.size.equalTo(30)
+        make.size.equalTo(20)
       }
       birthdayImage.isUserInteractionEnabled = false
       birthdayImage.translatesAutoresizingMaskIntoConstraints = false
       
       self.view.addSubview(birthdayLabel)
       birthdayLabel.snp.makeConstraints { (make) -> Void in
-        make.centerY.equalTo(birthdayImage)
-        make.leading.equalTo(birthdayImage.snp.trailing)
+        make.bottom.equalTo(birthdayImage)
+        make.leading.equalTo(birthdayImage.snp.trailing).offset(2)
       }
       birthdayLabel.translatesAutoresizingMaskIntoConstraints = false
     } else {

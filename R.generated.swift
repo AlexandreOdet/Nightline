@@ -22,7 +22,7 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 20 images.
+  /// This `R.image` struct is generated, and contains static references to 21 images.
   struct image {
     /// Image `avatar`.
     static let avatar = ImageResource(bundle: _R.hostingBundle, name: "avatar")
@@ -56,6 +56,8 @@ struct R {
     static let placeholder_filled = ImageResource(bundle: _R.hostingBundle, name: "placeholder_filled")
     /// Image `placeholder`.
     static let placeholder = ImageResource(bundle: _R.hostingBundle, name: "placeholder")
+    /// Image `profile`.
+    static let profile = ImageResource(bundle: _R.hostingBundle, name: "profile")
     /// Image `settings_filled`.
     static let settings_filled = ImageResource(bundle: _R.hostingBundle, name: "settings_filled")
     /// Image `settings`.
@@ -143,6 +145,11 @@ struct R {
     /// `UIImage(named: "placeholder_filled", bundle: ..., traitCollection: ...)`
     static func placeholder_filled(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.placeholder_filled, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "profile", bundle: ..., traitCollection: ...)`
+    static func profile(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.profile, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "settings", bundle: ..., traitCollection: ...)`
