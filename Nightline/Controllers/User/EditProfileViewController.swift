@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileViewController: BaseViewController, UITextFieldDelegate {
+class EditProfileViewController: BaseViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   // Global view
   let containerView = UIView()
@@ -18,6 +18,7 @@ class EditProfileViewController: BaseViewController, UITextFieldDelegate {
   // Header View
   let headerView = UIView()
   let userProfilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: AppConstant.UI.Dimensions.thumbnailPictureSize, height: AppConstant.UI.Dimensions.thumbnailPictureSize))
+  let imagePicker = UIImagePickerController()
   
   // Body View
   let bodyView = UIView()
@@ -48,6 +49,7 @@ class EditProfileViewController: BaseViewController, UITextFieldDelegate {
     userAge.delegate = self
     userCity.delegate = self
     userNickName.delegate = self
+    imagePicker.delegate = self
     self.hideKeyboardWhenTappedAround()
     if Utils.Network.isInternetAvailable() == false {
       self.showNoConnectivityView()
@@ -96,6 +98,19 @@ class EditProfileViewController: BaseViewController, UITextFieldDelegate {
     userProfilePicture.translatesAutoresizingMaskIntoConstraints = false
     userProfilePicture.roundImage()
     userProfilePicture.image = R.image.logo()
+    userProfilePicture.isUserInteractionEnabled = true
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+    userProfilePicture.addGestureRecognizer(tapGestureRecognizer)
+    
+  }
+  
+  func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
+    if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+      imagePicker.allowsEditing = false
+      imagePicker.sourceType = .photoLibrary
+      imagePicker.delegate = self
+      present(imagePicker, animated: true, completion: nil)
+    }
   }
   
   // Body view
@@ -262,4 +277,18 @@ class EditProfileViewController: BaseViewController, UITextFieldDelegate {
     })
   }
   
+//  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//
+//  }
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+      userProfilePicture.image = selectedImage
+      userProfilePicture.contentMode = .scaleAspectFill
+      userProfilePicture.clipsToBounds = true
+    }
+    dismiss(animated: true, completion: nil)
+  }
+  
 }
+
