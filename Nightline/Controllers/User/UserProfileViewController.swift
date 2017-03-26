@@ -30,5 +30,15 @@ final class UserProfileViewController: ProfileViewController {
     self.friendsLabel.text = "220"
     self.pictureLabel.text = "55"
     self.trophyLabel.text = "520"
+    
+    let friendsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserFriendsList))
+    friendsGestureRecognizer.numberOfTapsRequired = 1
+    
+    self.friendsView.addGestureRecognizer(friendsGestureRecognizer)
+  }
+  
+  func showUserFriendsList() {
+    let nextViewController = UserFriendsListTableViewController()
+    tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
   }
 }

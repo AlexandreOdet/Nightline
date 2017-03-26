@@ -28,10 +28,14 @@ class ProfileViewController: BaseViewController {
   var locationLabel = UILabel()
   var descriptionLabel = UILabel()
   
+  let friendsView = UIView()
+  let pictureView = UIView()
+  let trophyView = UIView()
+  
   let friendsLabel = UILabel()
   let pictureLabel = UILabel()
   let trophyLabel = UILabel()
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.white
@@ -208,10 +212,6 @@ class ProfileViewController: BaseViewController {
     }
     numberStackView.translatesAutoresizingMaskIntoConstraints = false
     
-    let friendsView = UIView()
-    let pictureView = UIView()
-    let trophyView = UIView()
-    
     let friendsImage = UIImageView()
     let pictureImage = UIImageView()
     let trophyImage = UIImageView()
@@ -220,17 +220,9 @@ class ProfileViewController: BaseViewController {
     pictureImage.image = R.image.picture()
     trophyImage.image = R.image.trophy()
     
-    friendsImage.snp.makeConstraints { (make) -> Void in
-      make.size.equalTo(20)
-    }
-    
-    pictureImage.snp.makeConstraints { (make) -> Void in
-      make.size.equalTo(20)
-    }
-    
-    trophyImage.snp.makeConstraints { (make) -> Void in
-      make.size.equalTo(20)
-    }
+    setImageSize(img: friendsImage)
+    setImageSize(img: pictureImage)
+    setImageSize(img: trophyImage)
     
     numberStackView.addArrangedSubview(friendsView)
     numberStackView.addArrangedSubview(sepators[0])
@@ -251,6 +243,12 @@ class ProfileViewController: BaseViewController {
     sepators[2].backgroundColor = .lightGray
   }
   
+  private func setImageSize(img: UIImageView) {
+    img.snp.makeConstraints { (make) -> Void in
+      make.size.equalTo(20)
+    }
+  }
+  
   private func setUpContainerView(container: UIView, img: UIImageView, label: UILabel) {
     let stackView = UIStackView()
     stackView.axis = .horizontal
@@ -264,7 +262,6 @@ class ProfileViewController: BaseViewController {
       make.center.equalTo(container)
     }
     stackView.translatesAutoresizingMaskIntoConstraints = false
-    
     stackView.addArrangedSubview(img)
     stackView.addArrangedSubview(label)
   }

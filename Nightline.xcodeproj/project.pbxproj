@@ -58,6 +58,7 @@
 		FAAC43C81E85BA2100CEF9CA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C71E85BA2100CEF9CA /* ProfileViewController.swift */; };
 		FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
+		FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */; };
 		FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8001E554C7B003AF68E /* Animation.swift */; };
 		FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8021E554EC0003AF68E /* Plist.swift */; };
 		FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */; };
@@ -157,6 +158,7 @@
 		FAAC43C71E85BA2100CEF9CA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsListTableViewController.swift; path = Controllers/User/UserFriendsListTableViewController.swift; sourceTree = "<group>"; };
 		FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishmentMenuViewController.swift; path = Controllers/Parties/EtablishmentMenuViewController.swift; sourceTree = "<group>"; };
+		FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsListTableViewCell.swift; path = Controllers/User/CustomCells/UserFriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		FAFBF8001E554C7B003AF68E /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Utils/Animation.swift; sourceTree = "<group>"; };
 		FAFBF8021E554EC0003AF68E /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Plist.swift; path = Utils/Plist.swift; sourceTree = "<group>"; };
 		FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelsProtocol.swift; path = Protocols/ModelsProtocol.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 		FA3AA1841E57719B002CF4FC /* User */ = {
 			isa = PBXGroup;
 			children = (
+				FADF25C61E87367900E74439 /* CustomCell */,
 				FA3AA1851E5771A8002CF4FC /* EditProfileViewController.swift */,
 				FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */,
 				FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */,
@@ -450,6 +453,14 @@
 				FA3AA1671E576FAF002CF4FC /* UserPreferences */,
 			);
 			name = Parties;
+			sourceTree = "<group>";
+		};
+		FADF25C61E87367900E74439 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */,
+			);
+			name = CustomCell;
 			sourceTree = "<group>";
 		};
 		FAFBF8041E555117003AF68E /* Protocols */ = {
@@ -939,6 +950,7 @@
 				FA303F6C1E5D1F26008961EF /* ExtensionUserPreferences.swift in Sources */,
 				FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */,
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
+				FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */,
 				FAFF4EA21E5E4762006582C7 /* ExtensionString.swift in Sources */,
 				FA3AA1881E5771A8002CF4FC /* UserProfileViewController.swift in Sources */,
 				FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */,
