@@ -33,12 +33,20 @@ final class UserProfileViewController: ProfileViewController {
     
     let friendsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserFriendsList))
     friendsGestureRecognizer.numberOfTapsRequired = 1
-    
     self.friendsView.addGestureRecognizer(friendsGestureRecognizer)
+    
+    let achievementsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserAchievementsList))
+    achievementsGestureRecognizer.numberOfTapsRequired = 1
+    self.trophyView.addGestureRecognizer(achievementsGestureRecognizer)
   }
   
   func showUserFriendsList() {
     let nextViewController = UserFriendsListTableViewController()
+    tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
+  }
+  
+  func showUserAchievementsList() {
+    let nextViewController = UserAchievementsListCollectionViewController()
     tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
   }
 }

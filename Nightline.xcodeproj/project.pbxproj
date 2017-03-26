@@ -60,8 +60,10 @@
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
 		FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */; };
 		FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C91E8746EE00E74439 /* Achievments.swift */; };
-		FADF25CC1E874C1B00E74439 /* UserAchievementsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25CB1E874C1B00E74439 /* UserAchievementsListTableViewController.swift */; };
+		FADF25CC1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25CB1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift */; };
 		FADF25CE1E875A4800E74439 /* UserAchievementsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25CD1E875A4800E74439 /* UserAchievementsListTableViewCell.swift */; };
+		FADF25D01E8767F800E74439 /* AchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25CF1E8767F800E74439 /* AchievementManager.swift */; };
+		FAF0A6CA1E876F3E00C2ED18 /* ExtensionInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0A6C91E876F3E00C2ED18 /* ExtensionInt.swift */; };
 		FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8001E554C7B003AF68E /* Animation.swift */; };
 		FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8021E554EC0003AF68E /* Plist.swift */; };
 		FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */; };
@@ -163,8 +165,10 @@
 		FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishmentMenuViewController.swift; path = Controllers/Parties/EtablishmentMenuViewController.swift; sourceTree = "<group>"; };
 		FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsListTableViewCell.swift; path = Controllers/User/CustomCells/UserFriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		FADF25C91E8746EE00E74439 /* Achievments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Achievments.swift; path = Models/Parties/Achievments.swift; sourceTree = "<group>"; };
-		FADF25CB1E874C1B00E74439 /* UserAchievementsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAchievementsListTableViewController.swift; path = Controllers/User/UserAchievementsListTableViewController.swift; sourceTree = "<group>"; };
+		FADF25CB1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAchievementsListCollectionViewController.swift; path = Controllers/User/UserAchievementsListCollectionViewController.swift; sourceTree = "<group>"; };
 		FADF25CD1E875A4800E74439 /* UserAchievementsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAchievementsListTableViewCell.swift; path = Controllers/User/CustomCells/UserAchievementsListTableViewCell.swift; sourceTree = "<group>"; };
+		FADF25CF1E8767F800E74439 /* AchievementManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AchievementManager.swift; path = Manager/AchievementManager.swift; sourceTree = "<group>"; };
+		FAF0A6C91E876F3E00C2ED18 /* ExtensionInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionInt.swift; path = Extensions/Models/ExtensionInt.swift; sourceTree = "<group>"; };
 		FAFBF8001E554C7B003AF68E /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Utils/Animation.swift; sourceTree = "<group>"; };
 		FAFBF8021E554EC0003AF68E /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Plist.swift; path = Utils/Plist.swift; sourceTree = "<group>"; };
 		FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelsProtocol.swift; path = Protocols/ModelsProtocol.swift; sourceTree = "<group>"; };
@@ -342,7 +346,7 @@
 				FA3AA1851E5771A8002CF4FC /* EditProfileViewController.swift */,
 				FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */,
 				FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */,
-				FADF25CB1E874C1B00E74439 /* UserAchievementsListTableViewController.swift */,
+				FADF25CB1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -353,6 +357,7 @@
 				FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */,
 				FA3AA18B1E57720F002CF4FC /* UserManager.swift */,
 				FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */,
+				FADF25CF1E8767F800E74439 /* AchievementManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 			children = (
 				FA303F681E5D1E9A008961EF /* User */,
 				FA303F631E5D1C44008961EF /* Parties */,
+				FAF0A6C91E876F3E00C2ED18 /* ExtensionInt.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -936,8 +942,10 @@
 				FA303F6E1E5D23A1008961EF /* ExtensionGender.swift in Sources */,
 				FA3AA1711E577106002CF4FC /* HomeViewController.swift in Sources */,
 				FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */,
+				FAF0A6CA1E876F3E00C2ED18 /* ExtensionInt.swift in Sources */,
 				FA5C2AAA1E5A5B6F00A0CB56 /* ExtensionGroupType.swift in Sources */,
 				FA5C2A9C1E5A519700A0CB56 /* UITableViewCellExtension.swift in Sources */,
+				FADF25D01E8767F800E74439 /* AchievementManager.swift in Sources */,
 				FA5C2A9E1E5A519700A0CB56 /* UIViewControllerExtension.swift in Sources */,
 				FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */,
 				FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */,
@@ -971,7 +979,7 @@
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
 				FA5C2AA21E5A57FD00A0CB56 /* ExtensionPersonType.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
-				FADF25CC1E874C1B00E74439 /* UserAchievementsListTableViewController.swift in Sources */,
+				FADF25CC1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift in Sources */,
 				FA5C2A9B1E5A519700A0CB56 /* UIImageViewExtension.swift in Sources */,
 				FA5729831E5CFBE800B36784 /* RoutesAPI.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
