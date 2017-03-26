@@ -26,7 +26,7 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
   private func setUpCollectionView() {
     let collectionViewLayout = UICollectionViewFlowLayout()
     collectionViewLayout.scrollDirection = .horizontal
-    collectionViewLayout.itemSize = CGSize(width: self.width / 3, height: self.height / 4)
+    collectionViewLayout.itemSize = CGSize(width: self.width / 2, height: self.height / 4)
     collectionViewLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: -10)
 
     self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: collectionViewLayout)
@@ -34,7 +34,10 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
     
     self.view.addSubview(self.collectionView)
     self.collectionView.snp.makeConstraints { (make) -> Void in
-      make.edges.equalTo(self.view)
+      make.top.equalTo(self.view).offset(60)
+      make.trailing.equalTo(self.view)
+      make.leading.equalTo(self.view)
+      make.bottom.equalTo(self.view)
     }
     
     self.collectionView.dataSource = self
@@ -56,8 +59,12 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuseIdentifier, for: indexPath)
-    return cell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuseIdentifier, for: indexPath) as? AchievementCollectionViewCell
+    cell!.contentView.backgroundColor = .black
+    cell!.titleLabel.text = AchievementManager.instance.achievementArray[indexPath.row].title
+    cell!.img.image = AchievementManager.instance.achievementArray[indexPath.row].img.image
+    cell!.labelPoints.text = AchievementManager.instance.achievementArray[indexPath.row].points.toString() + " pts"
+    return cell!
   }
   
 }

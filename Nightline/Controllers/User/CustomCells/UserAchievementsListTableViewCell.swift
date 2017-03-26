@@ -44,7 +44,9 @@ class AchievementCollectionViewCell: UICollectionViewCell {
     
     self.contentView.addSubview(img)
     img.snp.makeConstraints { (make) -> Void in
-      make.center.equalTo(self.contentView)
+      make.centerX.equalTo(self.contentView)
+      make.centerY.equalTo(self.contentView).offset(-20)
+      make.size.equalTo(60)
     }
     img.translatesAutoresizingMaskIntoConstraints = false
     
