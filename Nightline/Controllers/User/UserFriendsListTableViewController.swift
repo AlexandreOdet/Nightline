@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class UserFriendsListTableViewController: UITableViewController {
+final class UserFriendsListTableViewController: UITableViewController {
   
   var array = Array<String>()
   private let anim = Animation()

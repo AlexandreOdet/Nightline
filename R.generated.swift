@@ -22,7 +22,7 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 24 images.
+  /// This `R.image` struct is generated, and contains static references to 30 images.
   struct image {
     /// Image `avatar`.
     static let avatar = ImageResource(bundle: _R.hostingBundle, name: "avatar")
@@ -32,8 +32,14 @@ struct R {
     static let background = ImageResource(bundle: _R.hostingBundle, name: "background")
     /// Image `bar`.
     static let bar = ImageResource(bundle: _R.hostingBundle, name: "bar")
+    /// Image `beer`.
+    static let beer = ImageResource(bundle: _R.hostingBundle, name: "beer")
     /// Image `birthday`.
     static let birthday = ImageResource(bundle: _R.hostingBundle, name: "birthday")
+    /// Image `champagne`.
+    static let champagne = ImageResource(bundle: _R.hostingBundle, name: "champagne")
+    /// Image `cocktail`.
+    static let cocktail = ImageResource(bundle: _R.hostingBundle, name: "cocktail")
     /// Image `female`.
     static let female = ImageResource(bundle: _R.hostingBundle, name: "female")
     /// Image `friends`.
@@ -44,12 +50,16 @@ struct R {
     static let heart = ImageResource(bundle: _R.hostingBundle, name: "heart")
     /// Image `interrogation`.
     static let interrogation = ImageResource(bundle: _R.hostingBundle, name: "interrogation")
+    /// Image `lemonade`.
+    static let lemonade = ImageResource(bundle: _R.hostingBundle, name: "lemonade")
     /// Image `location`.
     static let location = ImageResource(bundle: _R.hostingBundle, name: "location")
     /// Image `logo`.
     static let logo = ImageResource(bundle: _R.hostingBundle, name: "logo")
     /// Image `male`.
     static let male = ImageResource(bundle: _R.hostingBundle, name: "male")
+    /// Image `money-bag`.
+    static let moneyBag = ImageResource(bundle: _R.hostingBundle, name: "money-bag")
     /// Image `party`.
     static let party = ImageResource(bundle: _R.hostingBundle, name: "party")
     /// Image `picture`.
@@ -68,6 +78,8 @@ struct R {
     static let settings = ImageResource(bundle: _R.hostingBundle, name: "settings")
     /// Image `test_logo`.
     static let test_logo = ImageResource(bundle: _R.hostingBundle, name: "test_logo")
+    /// Image `toast`.
+    static let toast = ImageResource(bundle: _R.hostingBundle, name: "toast")
     /// Image `trophy`.
     static let trophy = ImageResource(bundle: _R.hostingBundle, name: "trophy")
     /// Image `user`.
@@ -93,9 +105,24 @@ struct R {
       return UIImage(resource: R.image.bar, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "beer", bundle: ..., traitCollection: ...)`
+    static func beer(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.beer, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "birthday", bundle: ..., traitCollection: ...)`
     static func birthday(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.birthday, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "champagne", bundle: ..., traitCollection: ...)`
+    static func champagne(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.champagne, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "cocktail", bundle: ..., traitCollection: ...)`
+    static func cocktail(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.cocktail, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "female", bundle: ..., traitCollection: ...)`
@@ -123,6 +150,11 @@ struct R {
       return UIImage(resource: R.image.interrogation, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "lemonade", bundle: ..., traitCollection: ...)`
+    static func lemonade(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.lemonade, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "location", bundle: ..., traitCollection: ...)`
     static func location(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.location, compatibleWith: traitCollection)
@@ -136,6 +168,11 @@ struct R {
     /// `UIImage(named: "male", bundle: ..., traitCollection: ...)`
     static func male(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.male, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "money-bag", bundle: ..., traitCollection: ...)`
+    static func moneyBag(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.moneyBag, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "party", bundle: ..., traitCollection: ...)`
@@ -181,6 +218,11 @@ struct R {
     /// `UIImage(named: "test_logo", bundle: ..., traitCollection: ...)`
     static func test_logo(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.test_logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "toast", bundle: ..., traitCollection: ...)`
+    static func toast(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.toast, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "trophy", bundle: ..., traitCollection: ...)`

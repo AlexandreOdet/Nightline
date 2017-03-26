@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class UserFriendsListTableViewCell: UITableViewCell {
+final class UserFriendsListTableViewCell: UITableViewCell {
   let profileImage = UIImageView(frame: CGRect(x: 0, y: 0,
                                                width: 50,
                                                height: 50))

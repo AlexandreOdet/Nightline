@@ -15,7 +15,7 @@ import SnapKit
  Custom Cell for the user's profile, subclass of UITableViewCell.
  */
 
-class UserProfileCell: UITableViewCell {
+final class UserProfileCell: UITableViewCell {
   
   var type: SettingsCell = .Profile
   var userPicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))

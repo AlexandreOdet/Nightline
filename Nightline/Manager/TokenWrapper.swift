@@ -14,7 +14,7 @@ import KeychainSwift
  Wrapper of the KeychainSwift pods, that allows developers to set, get, and delete Keychain data easily.
 */
 
-class TokenWrapper {
+final class TokenWrapper {
   
   static let keychain = KeychainSwift()
   
