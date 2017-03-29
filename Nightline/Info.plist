@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -30,7 +32,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Nightline a besoin d'accéder à votre localisation afin de vous proposer les soirées autour de vous.</string>
+	<string>Nightline a besoin d&apos;accéder à votre localisation afin de vous proposer les soirées autour de vous.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Edit profile picture</string>
 	<key>UILaunchStoryboardName</key>

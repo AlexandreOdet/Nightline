@@ -15,7 +15,7 @@ import AlamofireObjectMapper
  Here all the communications to the API related to the user.
  */
 
-class RAUser: RABase {
+final class RAUser: RABase {
   
   /*
    func loginUser of RAUser.
@@ -105,6 +105,7 @@ class RAUser: RABase {
         
       } catch  {
         print("error parsing response from POST on /todos")
+        callbackError()
         return
       }
     }

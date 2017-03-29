@@ -39,12 +39,14 @@ class ProfileViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.white
-    self.addHeader()
+    addHeader()
     addProfilePicture()
     addInfoContainerView()
     fillInfoContainerView()
     if isUser {
       addUserNumbers()
+    } else {
+      addEtablishmentMedia()
     }
   }
   
@@ -277,6 +279,10 @@ class ProfileViewController: BaseViewController {
       view.translatesAutoresizingMaskIntoConstraints = false
       view.backgroundColor = .lightGray
     }
+  }
+  
+  func addEtablishmentMedia() {
+    
   }
   
 }
