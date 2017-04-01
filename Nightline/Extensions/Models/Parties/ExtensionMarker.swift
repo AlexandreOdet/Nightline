@@ -22,7 +22,7 @@ import Foundation
 extension Marker: ModelsProtocol {  
   func toString() -> String {
     var ret = "Marker: \n"
-    ret += "Name: \(self.title)\n"
+    ret += "Name: \(String(describing: self.title))\n"
     ret += "Description: \(self.locationName)\n"
     ret += "Localisation =  latitude: \(self.coordinate.latitude) longitude: \(self.coordinate.longitude)\n"
     return ret

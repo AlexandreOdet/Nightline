@@ -34,11 +34,26 @@ class EtablishmentViewController: ProfileViewController {
     self.typeLabel.text = Etablishment.bar.toString()
     self.locationLabel.text = "Montpellier"
     self.descriptionLabel.text = "Des bonnes bières, des bons burgers, il ne manque que vous !"
+    
+    let imgMenu = R.image.menu()
+    img.snp.makeConstraints { (make) -> Void in
+      make.size.equalTo(10)
+    }
+    let button1 = UIBarButtonItem(image: imgMenu, style: .plain, target: self,
+                                  action: #selector(displayEtablishmentMenuViewController))
+    self.navigationItem.rightBarButtonItem  = button1
   }
   
   func likeButtonTarget() {
     self.isLiked = !self.isLiked
     self.likeButton.image = (!isLiked) ? R.image.heart() : R.image.heart_filled()
     animation.bounceEffect(sender: self.likeButton)
+  }
+  
+  func displayEtablishmentMenuViewController() {
+    if let nav = self.navigationController {
+      let nextViewController = EtablishmentMenuViewController()
+      nav.pushViewController(nextViewController, animated: true)
+    }
   }
 }

@@ -3,7 +3,8 @@
 //  R.swift.Library
 //
 //  Created by Tom Lokhorst on 2016-09-08.
-//  Copyright © 2016 Mathijs Kadijk. All rights reserved.
+//  From: https://github.com/mac-cain13/R.swift.Library
+//  License: MIT License
 //
 
 import UIKit
@@ -46,27 +47,12 @@ public extension UICollectionView {
 
 
   @available(*, unavailable, renamed: "register")
-  public func registerNibs<Resource: NibResourceType>(_ nibResources: [Resource])
-    where Resource: ReuseIdentifierType, Resource.ReusableType: UICollectionViewCell
-  {
-    fatalError()
-  }
-
-
-  @available(*, unavailable, renamed: "register")
   public func registerNib<Resource: NibResourceType>(_ nibResource: Resource)
     where Resource: ReuseIdentifierType, Resource.ReusableType: UICollectionViewCell
   {
     fatalError()
   }
 
-
-  @available(*, unavailable, renamed: "register")
-  public func registerNibs<Resource: NibResourceType>(_ nibResources: [Resource], forSupplementaryViewOfKind kind: String)
-    where Resource: ReuseIdentifierType, Resource.ReusableType: UICollectionReusableView
-  {
-    fatalError()
-  }
 
   @available(*, unavailable, renamed: "register")
   public func registerNib<Resource: NibResourceType>(_ nibResource: Resource, forSupplementaryViewOfKind kind: String)
@@ -98,13 +84,6 @@ public extension UITableView {
   @available(*, unavailable, renamed: "dequeueReusableHeaderFooterView(withIdentifier:)")
   public func dequeueReusableHeaderFooterViewWithIdentifier<Identifier: ReuseIdentifierType>(_ identifier: Identifier) -> Identifier.ReusableType?
     where Identifier.ReusableType: UITableViewHeaderFooterView
-  {
-    fatalError()
-  }
-
-
-  @available(*, unavailable, renamed: "register")
-  public func registerNibs<Resource: NibResourceType>(_ nibResources: [Resource]) where Resource: ReuseIdentifierType, Resource.ReusableType: UITableViewCell
   {
     fatalError()
   }

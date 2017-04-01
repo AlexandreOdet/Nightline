@@ -7,7 +7,7 @@
 [cocoadocs]: http://cocoadocs.org/docsets/KeychainSwift
 [carthage]: https://github.com/Carthage/Carthage
 
-**⚠️ Xcode 8 warning ⚠️**: Keychain currently does not work on iOS 10 / Xcode 8. To make it work please enable *Keychain Sharing* in *Capabilities* tab. See this [stackoverflow answer](http://stackoverflow.com/a/38543243/297131) for details.
+**⚠️ Xcode 8 warning ⚠️**: Keychain currently does not work on iOS 10 / Xcode 8 unless *Keychain Sharing* is enabled in *Capabilities* tab. See this [stackoverflow answer](http://stackoverflow.com/a/38543243/297131) for details.
 
 This is a collection of helper functions for saving text and data in the Keychain.
  As you probably noticed Apple's keychain API is a bit verbose. This library was designed to provide shorter syntax for accomplishing a simple task: reading/writing text values for specified keys:
@@ -40,7 +40,7 @@ Simply add [KeychainSwiftDistrib.swift](https://github.com/marketplacer/keychain
 
 #### Setup with Carthage (iOS 8+)
 
-Alternatively, add `github "marketplacer/keychain-swift" ~> 6.0` to your Cartfile and run `carthage update`.
+Alternatively, add `github "marketplacer/keychain-swift" ~> 7.0` to your Cartfile and run `carthage update`.
 
 #### Setup with CocoaPods (iOS 8+)
 
@@ -48,7 +48,24 @@ If you are using CocoaPods add this text to your Podfile and run `pod install`.
 
     use_frameworks!
     target 'Your target name'
-    pod 'KeychainSwift', '~> 6.0'
+    pod 'KeychainSwift', '~> 7.0'
+
+
+#### Setup with Swift Package Manager
+
+Add the following text to your Package.swift file and run `swift build`.
+
+```Swift
+import PackageDescription
+
+let package = Package(
+    name: "KeychainSwift",
+    dependencies: [
+        .Package(url: "https://github.com/marketplacer/keychain-swift.git",
+                 versions: Version(7,0,0)..<Version(8,0,0))
+    ]
+)
+```
 
 
 ## Legacy Swift versions
@@ -157,7 +174,7 @@ keychain.clear()
 
 ### Setting key prefix
 
-One can pass a `keyPrefix` argument when initializing a `KeychainSwift` object. The string passed in `keyPrefix` argument will be used as a prefix to **all the keys** used in `set`, `get`, `getData` and `delete` methods. I use the prefixed keychain in tests. This prevents the tests from changing the Keychain keys that are used when the app is launched manually.
+One can pass a `keyPrefix` argument when initializing a `KeychainSwift` object. The string passed in `keyPrefix` argument will be used as a prefix to **all the keys** used in `set`, `get`, `getData` and `delete` methods. Adding a prefix to the keychain keys can be useful in unit tests. This prevents the tests from changing the Keychain keys that are used when the app is launched manually.
 
 Note that `clear` method still clears everything from the Keychain regardless of the prefix used.
 
@@ -195,6 +212,16 @@ It [has been reported](https://github.com/marketplacer/keychain-swift/issues/15)
 
 <img src="https://raw.githubusercontent.com/marketplacer/keychain-swift/master/graphics/keychain-swift-demo-3.png" alt="Keychain Swift demo app" width="320">
 
+## Running Keychain unit tests
+
+Xcode 8 introduced additional hoops that one needs to jump through in order to run the unit test:
+
+1. Enable signing in both the demo app and the test target.
+1. Enable *Keychain Sharing* in the *Capabilities* tab of the demo app target.
+1. Select the demo app as *Host Application* in the test target.
+
+The process is shown in more details in [this article](http://evgenii.com/blog/testing-a-keychain-library-in-xcode/).
+
 ## Alternative solutions
 
 Here are some other Keychain libraries.
@@ -210,6 +237,7 @@ Here are some other Keychain libraries.
 ## Thanks 👍
 
 * The code is based on this example: [https://gist.github.com/s-aska/e7ad24175fb7b04f78e7](https://gist.github.com/s-aska/e7ad24175fb7b04f78e7)
+* Thanks to [diogoguimaraes](https://github.com/diogoguimaraes) for adding Swift Package Manager setup option.
 * Thanks to [glyuck](https://github.com/glyuck) for taming booleans.
 * Thanks to [pepibumur](https://github.com/pepibumur) for adding macOS, watchOS and tvOS support.
 * Thanks to [ezura](https://github.com/ezura) for iOS 7 support.

@@ -57,6 +57,8 @@ template <class>
 class SubQuery;
 struct LinkTargetInfo;
 
+struct SubTable {
+};
 struct Link {
 };
 typedef Link LinkList;
@@ -69,14 +71,6 @@ class TableFriend;
 class Replication;
 
 
-/// The Table class is non-polymorphic, that is, it has no virtual
-/// functions. This is important because it ensures that there is no run-time
-/// distinction between a Table instance and an instance of any variation of
-/// BasicTable<T>, and this, in turn, makes it valid to cast a pointer from
-/// Table to BasicTable<T> even when the instance is constructed as a Table. Of
-/// course, this also assumes that BasicTable<> is non-polymorphic, has no
-/// destructor, and adds no extra data members.
-///
 /// FIXME: Table assignment (from any group to any group) could be made aliasing
 /// safe as follows: Start by cloning source table into target allocator. On
 /// success, assign, and then deallocate any previous structure at the target.
@@ -398,7 +392,7 @@ public:
     /// \sa Table::set_int_unique()
     /// \sa Table::set_string_unique()
     /// \sa Table::set_null_unique()
-    void change_link_targets(size_t row_ndx, size_t new_row_ndx);
+    void merge_rows(size_t row_ndx, size_t new_row_ndx);
 
     // Get cell values. Will assert if the requested type does not match the column type
     int64_t get_int(size_t column_ndx, size_t row_ndx) const noexcept;
@@ -411,6 +405,12 @@ public:
     Mixed get_mixed(size_t column_ndx, size_t row_ndx) const noexcept;
     DataType get_mixed_type(size_t column_ndx, size_t row_ndx) const noexcept;
     Timestamp get_timestamp(size_t column_ndx, size_t row_ndx) const noexcept;
+
+    /// Return data from position 'pos' and onwards. If the blob is distributed
+    /// across multiple arrays, you will only get data from one array. 'pos'
+    /// will be updated to be an index to next available data. It will be 0
+    /// if no more data.
+    BinaryData get_binary_at(size_t col_ndx, size_t ndx, size_t& pos) const noexcept;
 
     template <class T>
     T get(size_t c, size_t r) const noexcept;
@@ -425,9 +425,6 @@ public:
 
     TableRef get_link_target(size_t column_ndx) noexcept;
     ConstTableRef get_link_target(size_t column_ndx) const noexcept;
-
-    template <class T>
-    typename T::RowAccessor get_link_accessor(size_t column_ndx, size_t row_ndx);
 
     //@{
 
@@ -448,7 +445,7 @@ public:
     /// are intended to be used in the implementation of primary key support. They
     /// check if the given column already contains one or more values that are
     /// equal to \a value, and if there are conflicts, it calls
-    /// Table::change_link_targets() for the row_ndx to be replaced by the
+    /// Table::merge_rows() for the row_ndx to be replaced by the
     /// existing row, followed by a Table::move_last_over() of row_ndx. The
     /// return value is always a row index of a row that contains \a value in
     /// the specified column, possibly different from \a row_ndx if a conflict
@@ -513,6 +510,11 @@ public:
     void nullify_link(size_t column_ndx, size_t row_ndx);
     void set_null(size_t column_ndx, size_t row_ndx, bool is_default = false);
     void set_null_unique(size_t col_ndx, size_t row_ndx);
+
+    // Sync needs to store blobs bigger than 16 M. This function can be used for that. Data should be read
+    // out again using the get_binary_at() function. Should not be used for user data as normal get_binary()
+    // will just return null if the data is bigger than the limit.
+    void set_binary_big(size_t column_ndx, size_t row_ndx, BinaryData value, bool is_default = false);
 
     void add_int(size_t column_ndx, size_t row_ndx, int_fast64_t value);
 
@@ -952,15 +954,15 @@ private:
     void do_remove(size_t row_ndx, bool broken_reciprocal_backlinks);
     void do_move_last_over(size_t row_ndx, bool broken_reciprocal_backlinks);
     void do_swap_rows(size_t row_ndx_1, size_t row_ndx_2);
-    void do_change_link_targets(size_t row_ndx, size_t new_row_ndx);
+    void do_merge_rows(size_t row_ndx, size_t new_row_ndx);
     void do_clear(bool broken_reciprocal_backlinks);
     size_t do_set_link(size_t col_ndx, size_t row_ndx, size_t target_row_ndx);
     template <class ColType, class T>
-    size_t do_find_unique(ColType& col, size_t ndx, T&& value);
+    size_t do_find_unique(ColType& col, size_t ndx, T&& value, bool& conflict);
     template <class ColType>
-    size_t do_set_unique_null(ColType& col, size_t ndx);
+    size_t do_set_unique_null(ColType& col, size_t ndx, bool& conflict);
     template <class ColType, class T>
-    size_t do_set_unique(ColType& column, size_t row_ndx, T&& value);
+    size_t do_set_unique(ColType& column, size_t row_ndx, T&& value, bool& conflict);
 
     void upgrade_file_format(size_t target_file_format_version);
 
@@ -995,7 +997,7 @@ private:
     /// assign() would not check for spec compatibility. This would
     /// make it ideal as a basis for implementing operator=() for
     /// typed tables.
-    Table& operator=(const Table&);
+    Table& operator=(const Table&) = delete;
 
     /// Used when constructing an accessor whose lifetime is going to be managed
     /// by reference counting. The lifetime of accessors of free-standing tables
@@ -1172,6 +1174,8 @@ private:
     const BacklinkColumn& get_column_backlink(size_t ndx) const noexcept;
     BacklinkColumn& get_column_backlink(size_t ndx);
 
+    void verify_column(size_t col_ndx, const ColumnBase* col) const;
+
     void instantiate_before_change();
     void validate_column_type(const ColumnBase& col, ColumnType expected_type, size_t ndx) const;
 
@@ -1321,7 +1325,7 @@ private:
     void adj_acc_insert_rows(size_t row_ndx, size_t num_rows) noexcept;
     void adj_acc_erase_row(size_t row_ndx) noexcept;
     void adj_acc_swap_rows(size_t row_ndx_1, size_t row_ndx_2) noexcept;
-    void adj_acc_subsume_row(size_t old_row_ndx, size_t new_row_ndx) noexcept;
+    void adj_acc_merge_rows(size_t old_row_ndx, size_t new_row_ndx) noexcept;
 
     /// Adjust this table accessor and its subordinates after move_last_over()
     /// (or its inverse).
@@ -1361,7 +1365,7 @@ private:
     void adj_row_acc_insert_rows(size_t row_ndx, size_t num_rows) noexcept;
     void adj_row_acc_erase_row(size_t row_ndx) noexcept;
     void adj_row_acc_swap_rows(size_t row_ndx_1, size_t row_ndx_2) noexcept;
-    void adj_row_acc_subsume_row(size_t old_row_ndx, size_t new_row_ndx) noexcept;
+    void adj_row_acc_merge_rows(size_t old_row_ndx, size_t new_row_ndx) noexcept;
 
     /// Called by adj_acc_move_over() to adjust row accessors.
     void adj_row_acc_move_over(size_t from_row_ndx, size_t to_row_ndx) noexcept;
@@ -1450,7 +1454,6 @@ private:
     friend class LinkView;
     friend class Group;
 };
-
 
 class Table::Parent : public ArrayParent {
 public:
@@ -1652,6 +1655,18 @@ inline bool Table::has_shared_type() const noexcept
     return !m_top.is_attached();
 }
 
+inline void Table::verify_column(size_t col_ndx, const ColumnBase* col) const
+{
+    // Check if the column exists at the expected location
+    if (REALM_LIKELY(col_ndx < m_cols.size() && m_cols[col_ndx] == col))
+        return;
+    // The column might be elsewhere in the list
+    for (auto c : m_cols) {
+        if (c == col)
+            return;
+    }
+    throw LogicError(LogicError::column_does_not_exist);
+}
 
 class Table::UnbindGuard {
 public:
@@ -1993,17 +2008,6 @@ inline size_t* Table::Parent::record_subtable_path(size_t* begin, size_t*) noexc
     return begin;
 }
 
-template <class T>
-typename T::RowAccessor Table::get_link_accessor(size_t column_ndx, size_t row_ndx)
-{
-    size_t row_pos_in_target = get_link(column_ndx, row_ndx);
-    TableRef target_table = get_link_target(column_ndx);
-
-    Table* table = &*target_table;
-    T* typed_table = reinterpret_cast<T*>(table);
-    return (*typed_table)[row_pos_in_target];
-}
-
 inline bool Table::is_marked() const noexcept
 {
     return m_mark;
@@ -2191,9 +2195,9 @@ public:
         table.do_swap_rows(row_ndx_1, row_ndx_2); // Throws
     }
 
-    static void do_change_link_targets(Table& table, size_t row_ndx, size_t new_row_ndx)
+    static void do_merge_rows(Table& table, size_t row_ndx, size_t new_row_ndx)
     {
-        table.do_change_link_targets(row_ndx, new_row_ndx); // Throws
+        table.do_merge_rows(row_ndx, new_row_ndx); // Throws
     }
 
     static void do_clear(Table& table)
@@ -2299,9 +2303,9 @@ public:
         table.adj_acc_swap_rows(row_ndx_1, row_ndx_2);
     }
 
-    static void adj_acc_subsume_row(Table& table, size_t row_ndx_1, size_t row_ndx_2) noexcept
+    static void adj_acc_merge_rows(Table& table, size_t row_ndx_1, size_t row_ndx_2) noexcept
     {
-        table.adj_acc_subsume_row(row_ndx_1, row_ndx_2);
+        table.adj_acc_merge_rows(row_ndx_1, row_ndx_2);
     }
 
     static void adj_acc_move_over(Table& table, size_t from_row_ndx, size_t to_row_ndx) noexcept

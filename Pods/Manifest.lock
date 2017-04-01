@@ -1,20 +1,20 @@
 PODS:
-  - Alamofire (4.0.1)
-  - AlamofireObjectMapper (4.0.0):
-    - Alamofire (~> 4.0)
+  - Alamofire (4.4.0)
+  - AlamofireObjectMapper (4.1.0):
+    - Alamofire (~> 4.1)
     - ObjectMapper (~> 2.0)
-  - KeychainSwift (6.0.2)
-  - ObjectMapper (2.0.0)
-  - R.swift (3.0.0):
-    - R.swift.Library (~> 3.0.0)
-  - R.swift.Library (3.0.1)
-  - Realm (2.0.1):
-    - Realm/Headers (= 2.0.1)
-  - Realm/Headers (2.0.1)
-  - RealmSwift (2.0.1):
-    - Realm (= 2.0.1)
-  - SnapKit (3.0.1)
-  - SwiftyBeaver (1.0.3)
+  - KeychainSwift (7.0.0)
+  - ObjectMapper (2.2.5)
+  - R.swift (3.2.0):
+    - R.swift.Library (~> 3.0.2)
+  - R.swift.Library (3.0.2)
+  - Realm (2.5.0):
+    - Realm/Headers (= 2.5.0)
+  - Realm/Headers (2.5.0)
+  - RealmSwift (2.5.0):
+    - Realm (= 2.5.0)
+  - SnapKit (3.2.0)
+  - SwiftyBeaver (1.1.4)
 
 DEPENDENCIES:
   - Alamofire
@@ -27,16 +27,16 @@ DEPENDENCIES:
   - SwiftyBeaver
 
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
-  KeychainSwift: a261364334000afa8fab0894390d5d00dd226d4c
-  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
-  R.swift: 5a8b4a4ea565b0f20c39d8ce1445f3d3a9064768
-  R.swift.Library: 0869d8d546517aa79db078fd8262724391a38db8
-  Realm: 0557ee0e4ab4f0936c90e370056d1ed6265f93d6
-  RealmSwift: 64e00af79bdcd7d2a7a23fdc1cb3faf22b80ae4c
-  SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
-  SwiftyBeaver: e42a664ffbdb5ec68ce968ffd3c54f619c92e0d7
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
+  KeychainSwift: b6947435dd78cc442c64a84ae648dd0e871cf448
+  ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
+  R.swift: 207a372a2b5977caef440c696a368009460641d1
+  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
+  Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
+  RealmSwift: 9f1a8f624f2f153410115c2cb7d486be9976565d
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
 
 PODFILE CHECKSUM: 5af8dfac1ecd3bf313ed09ae7cf8c2d1fcbf3b94
 

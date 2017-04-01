@@ -91,7 +91,7 @@ final class RAUser: RABase {
         }
         print("The todo is: " + response.description)
         print("Responses keys = \(response.keys)")
-        print("Token = \(response["token"])")
+        print("Token = \(String(describing: response["token"]))")
         guard let token = response["token"] else {
           print("Could not get token as string from JSON")
           return

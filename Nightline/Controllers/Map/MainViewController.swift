@@ -91,7 +91,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     let identifier = "pin"
-    log.debug("\(annotation.title)")
+    log.debug("\(String(describing: annotation.title))")
     if let annotation = annotation as? Marker {
       var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
       if pinView == nil {
@@ -135,12 +135,12 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
    */
   
   private func addMarkerToMap() {
-    let GML = CLLocationCoordinate2DMake(42.328994, -83.039708)
-    //let unionSquare = CLLocationCoordinate2DMake(37.78806, -122.4075)
+    //let GML = CLLocationCoordinate2DMake(42.328994, -83.039708)
+    let unionSquare = CLLocationCoordinate2DMake(37.78806, -122.4075)
     let marker = Marker(title: "Union Square",
                         locationName: "San Francisco Union Square",
                         discipline: "",
-                        coordinate: GML)
+                        coordinate: unionSquare)
     self.map.addAnnotation(marker)
   }
   

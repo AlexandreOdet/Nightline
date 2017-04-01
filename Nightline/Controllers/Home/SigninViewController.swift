@@ -187,7 +187,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     restApiUser.loginUser(email: nicknameTextField.text ?? "", password: passwordTextField.text ?? "", callback: {
       user in
       Utils.Network.spinnerStop()
-      TokenWrapper().setToken(valueFor: user.token)
+      tokenWrapper.setToken(valueFor: user.token)
       self.dismiss(animated: true, completion: {
         self.presentingViewController?.dismiss(animated: true, completion: nil)})
       let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
@@ -255,7 +255,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
       mailTextField.placeholder = "E-mail"
     })
     alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-      log.debug("OK mail tapé: \(mailTextField.text)")
+      log.debug("OK mail tapé: \(String(describing: mailTextField.text))")
     }))
     alertController.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
     self.present(alertController, animated: true, completion: nil)
