@@ -40,3 +40,5 @@ error_loading_data = "Erreur au chargement des données";
 brotherhood = "Fratenité";
 sisterhood = "Sisterhood";
 friends = "Groupe d'ami";
+type_mail = "Tapez l'email sur lequel vous souhaitez recevoir votre mot de passe";
+profile = "Profile";

@@ -248,16 +248,16 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   
   func forgotPasswordAction() {
     var mailTextField = UITextField()
-    let alertController = UIAlertController(title: "", message: "Tapez l'email sur lequel vous souhaitez recevoir votre mot de passe", preferredStyle: .alert)
+    let alertController = UIAlertController(title: "", message: R.string.localizable.type_mail(), preferredStyle: .alert)
     alertController.addTextField(configurationHandler: { (textField) in
       mailTextField = textField
       mailTextField.keyboardType = .emailAddress
-      mailTextField.placeholder = "E-mail"
+      mailTextField.placeholder = R.string.localizable.email()
     })
     alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
       log.debug("OK mail tapé: \(String(describing: mailTextField.text))")
     }))
-    alertController.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
+    alertController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
     self.present(alertController, animated: true, completion: nil)
   }
 }

@@ -23,6 +23,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     super.viewDidLoad()
     self.delegate = self
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: TabBarController.notificationIdentifier), object: nil)
+    self.tabBar.tintColor = UIColor.black
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -37,12 +38,12 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     // Create Tab two
     let tabTwo = UserProfileViewController()
-    let tabTwoBarItem2 = UITabBarItem(title: "Profil", image: R.image.avatar(), selectedImage: R.image.user())
+    let tabTwoBarItem2 = UITabBarItem(title: R.string.localizable.profile(), image: R.image.avatar(), selectedImage: R.image.user())
     
     tabTwo.tabBarItem = tabTwoBarItem2
     
     let tabThree = UserSettingsTableViewController()
-    let tabBarThreeItem = UITabBarItem(title: "Settings", image: R.image.settings(), selectedImage: R.image.settings_filled())
+    let tabBarThreeItem = UITabBarItem(title: R.string.localizable.settings(), image: R.image.settings(), selectedImage: R.image.settings_filled())
     tabThree.tabBarItem = tabBarThreeItem
     
     self.tabBar.barTintColor = UIColor.orange
