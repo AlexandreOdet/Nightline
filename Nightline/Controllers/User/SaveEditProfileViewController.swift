@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileViewController: BaseViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SaveEditProfileViewController: BaseViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   // Global view
   let containerView = UIView()

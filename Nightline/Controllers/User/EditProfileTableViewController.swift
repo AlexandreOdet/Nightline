@@ -1,40 +1,30 @@
 //
-//  UserSettingsTableViewController.swift
+//  EditProfileTableViewController.swift
 //  Nightline
 //
-//  Created by Odet Alexandre on 05/01/2017.
+//  Created by cedric moreaux on 03/04/2017.
 //  Copyright © 2017 Odet Alexandre. All rights reserved.
 //
 
-import Foundation
 import UIKit
-import SnapKit
-import Rswift
 
-/*
- Controllers: UserSettingsTableViewController
- This controller shows a UITableView containing all settings of the app.
- */
-
-final class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditProfileTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  let reuseIdentifier = "SettingsCell"
+  
   var tableView = UITableView()
-  let infosArray = [R.string.localizable.thanks(), R.string.localizable.faq(), R.string.localizable.build()]
-  let sectionArray = ["Profil", "Préférences", "Informations", ""]
+  var sectionArray = ["Picture", "Informations"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = R.string.localizable.settings()
+    self.title = "test tittle"
     addTableView()
+    // Uncomment the following line to preserve selection between presentations
+    // self.clearsSelectionOnViewWillAppear = false
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem()
   }
   
-  /*
-   addTableView() function.
-   This function adds the UITableView and sets the constraints into the view.
-   @param None.
-   @return None.
-   */
   
   private func addTableView() {
     self.tableView = UITableView(frame: self.view.frame, style: .grouped)
@@ -56,14 +46,8 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var count = 0
     switch section {
-    case SettingsCell.Profile.rawValue:
-      count = 1
-    case SettingsCell.Preference.rawValue:
-      count = 2
-    case SettingsCell.Info.rawValue:
-      count = 3
-    case SettingsCell.Logout.rawValue:
-      return 1
+    case 1:
+      count = 4
     default:
       count = 0
     }
@@ -72,34 +56,34 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     var cell: UITableViewCell!
-    if indexPath.section == SettingsCell.Profile.rawValue {
-      let profileCell = UserProfileCell()
-      profileCell.labelName.text = UserManager.instance.getUserNickname()//getUserCompleteName()
-      profileCell.isUserInteractionEnabled = true //soon édition du profil
-      
-      return profileCell
-    } else {
-      if indexPath.section == SettingsCell.Preference.rawValue {
-        cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
-        cell.textLabel?.text = (indexPath.row == 0) ? R.string.localizable.etabl() : R.string.localizable.drinks()
-        cell.accessoryType = .disclosureIndicator
-      } else if indexPath.section == SettingsCell.Info.rawValue {
-        cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
-        cell.textLabel?.text = infosArray[indexPath.row]
-        if indexPath.row == 2 {
-          cell = UITableViewCell(style: .value1, reuseIdentifier: self.reuseIdentifier)
-          cell.textLabel?.text = infosArray[indexPath.row]
-          cell.detailTextLabel?.text = Plist.Info.getBuildVersion()
-        }
-        cell.isUserInteractionEnabled = false
-      } else {
-        cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
-        cell.textLabel?.text = R.string.localizable.logout()
-        cell.textLabel?.textAlignment = .center
-        cell.textLabel?.textColor = .red
-      }
-    }
-    cell.selectionStyle = .none
+//    if indexPath.section == SettingsCell.Profile.rawValue {
+//      let profileCell = UserProfileCell()
+//      profileCell.labelName.text = UserManager.instance.getUserNickname()//getUserCompleteName()
+//      profileCell.isUserInteractionEnabled = true //soon édition du profil
+//      
+//      return profileCell
+//    } else {
+//      if indexPath.section == SettingsCell.Preference.rawValue {
+//        cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
+//        cell.textLabel?.text = (indexPath.row == 0) ? R.string.localizable.etabl() : R.string.localizable.drinks()
+//        cell.accessoryType = .disclosureIndicator
+//      } else if indexPath.section == SettingsCell.Info.rawValue {
+//        cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
+//        cell.textLabel?.text = infosArray[indexPath.row]
+//        if indexPath.row == 2 {
+//          cell = UITableViewCell(style: .value1, reuseIdentifier: self.reuseIdentifier)
+//          cell.textLabel?.text = infosArray[indexPath.row]
+//          cell.detailTextLabel?.text = Plist.Info.getBuildVersion()
+//        }
+//        cell.isUserInteractionEnabled = false
+//      } else {
+//        cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
+//        cell.textLabel?.text = R.string.localizable.logout()
+//        cell.textLabel?.textAlignment = .center
+//        cell.textLabel?.textColor = .red
+//      }
+//    }
+//    cell.selectionStyle = .none
     return cell
   }
   
@@ -133,7 +117,7 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return sectionArray[section]
+    return "test_section"
   }
   
   /*------------- UITableView Actions -------------*/
@@ -150,14 +134,14 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
     let notificationName = Notification.Name(TabBarController.notificationIdentifier)
     NotificationCenter.default.post(name: notificationName, object: nil)
   }
-
+  
   /*
    goToEditProfilViewController() function.
    This function goes to user profile on editing mode.
    @param None
    @return None
    */
-
+  
   func goToEditProfilViewController() {
     let nextViewController = EditProfileTableViewController()
     self.navigationController?.pushViewController(nextViewController, animated: true)
