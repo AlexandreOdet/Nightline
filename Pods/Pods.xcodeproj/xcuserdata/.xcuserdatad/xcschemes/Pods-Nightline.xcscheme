@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BB9C4E18B75149EE9F48ADF7E5A0383A'
+               BlueprintIdentifier = '2A52AAF1933E725C4EAE288538774823'
                BlueprintName = 'Pods-Nightline'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-Nightline.framework'>
