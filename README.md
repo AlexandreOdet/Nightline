@@ -13,3 +13,4 @@ Pods I use for helping me through the development:
  - SwiftyBeaver
  - RealmSwift
  - R.Swift
+ - PromiseKit
