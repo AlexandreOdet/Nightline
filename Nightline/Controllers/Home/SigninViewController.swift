@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 import Rswift
+import PromiseKit
 
 /*
  Controllers: SigninViewController.
@@ -27,7 +28,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   let restApiUser = RAUser()
   
   static let notificationIdentifier = "dismissHomeViewController"
-
+  
   
   deinit {
     restApiUser.cancelRequest()
@@ -108,7 +109,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
    @param None
    @return None
    */
-
+  
   private func initForgotPasswordLabel() {
     self.view.addSubview(forgotPasswordLabel)
     let forgotTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordAction))
@@ -125,7 +126,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     forgotPasswordLabel.isUserInteractionEnabled = true
     forgotPasswordLabel.addGestureRecognizer(forgotTapGestureRecognizer)
   }
-
+  
   /*
    initBottomButton() func.
    This func sets position and content of signinButton into self.view
@@ -184,18 +185,20 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   
   func showHomeScreen() {
     Utils.Network.spinnerStart()
-    restApiUser.loginUser(email: nicknameTextField.text ?? "", password: passwordTextField.text ?? "", callback: {
-      user in
-      Utils.Network.spinnerStop()
-      tokenWrapper.setToken(valueFor: user.token)
-      self.dismiss(animated: true, completion: {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)})
-      let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
-      NotificationCenter.default.post(name: notificationName, object: nil)
-    }, callbackError: {
-      Utils.Network.spinnerStop()
-      AlertUtils.networkErrorAlert(fromController: self)
-    })
+    firstly {
+      restApiUser.loginUser(email: nicknameTextField.text ?? "", password: passwordTextField.text ?? "")
+      }.then {
+        user -> Void in
+        tokenWrapper.setToken(valueFor: user.token)
+        self.dismiss(animated: true, completion: {
+          self.presentingViewController?.dismiss(animated: true, completion: nil)})
+        let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
+        NotificationCenter.default.post(name: notificationName, object: nil)
+      }.catch { _ in
+        AlertUtils.networkErrorAlert(fromController: self)
+      }.always {
+        Utils.Network.spinnerStop()
+    }
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -248,16 +251,16 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   
   func forgotPasswordAction() {
     var mailTextField = UITextField()
-    let alertController = UIAlertController(title: "", message: "Tapez l'email sur lequel vous souhaitez recevoir votre mot de passe", preferredStyle: .alert)
+    let alertController = UIAlertController(title: "", message: R.string.localizable.type_mail(), preferredStyle: .alert)
     alertController.addTextField(configurationHandler: { (textField) in
       mailTextField = textField
       mailTextField.keyboardType = .emailAddress
-      mailTextField.placeholder = "E-mail"
+      mailTextField.placeholder = R.string.localizable.email()
     })
     alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
       log.debug("OK mail tapé: \(String(describing: mailTextField.text))")
     }))
-    alertController.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
+    alertController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
     self.present(alertController, animated: true, completion: nil)
   }
 }

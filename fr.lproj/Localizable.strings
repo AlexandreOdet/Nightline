@@ -40,3 +40,6 @@ cancel = "Cancel";
 brotherhood = "Fratenité";
 sisterhood = "Sisterhood";
 friends = "Groupe d'ami";
+type_mail = "Tapez l'email sur lequel vous souhaitez recevoir votre mot de passe";
+profile = "Profil";
+

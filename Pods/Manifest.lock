@@ -5,6 +5,17 @@ PODS:
     - ObjectMapper (~> 2.0)
   - KeychainSwift (7.0.0)
   - ObjectMapper (2.2.5)
+  - PromiseKit (4.1.7):
+    - PromiseKit/Foundation (= 4.1.7)
+    - PromiseKit/QuartzCore (= 4.1.7)
+    - PromiseKit/UIKit (= 4.1.7)
+  - PromiseKit/CorePromise (4.1.7)
+  - PromiseKit/Foundation (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.1.7):
+    - PromiseKit/CorePromise
   - R.swift (3.2.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
@@ -21,6 +32,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper
   - KeychainSwift
   - ObjectMapper
+  - PromiseKit
   - R.swift
   - RealmSwift
   - SnapKit
@@ -31,6 +43,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
   KeychainSwift: b6947435dd78cc442c64a84ae648dd0e871cf448
   ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
+  PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
   R.swift: 207a372a2b5977caef440c696a368009460641d1
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
@@ -38,6 +51,6 @@ SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
 
-PODFILE CHECKSUM: 5af8dfac1ecd3bf313ed09ae7cf8c2d1fcbf3b94
+PODFILE CHECKSUM: 039e57526d9bf864f8c985ea0793064879f1b9ba
 
 COCOAPODS: 1.2.0

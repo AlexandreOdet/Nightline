@@ -12,6 +12,7 @@ target 'Nightline' do
   pod 'SwiftyBeaver'
   pod 'AlamofireObjectMapper'
   pod 'KeychainSwift'
+  pod 'PromiseKit'
   
   # Pods for Nightline
 

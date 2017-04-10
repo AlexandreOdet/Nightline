@@ -10,6 +10,7 @@ import Foundation
 import SnapKit
 import RealmSwift
 import Rswift
+import PromiseKit
 
 /*
  Controllers: SignupViewController.
@@ -141,8 +142,8 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
    */
   
   func showHomeScreen() {
-    restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!, callback: { user in
-      Utils.Network.spinnerStop()
+    Utils.Network.spinnerStart()
+    restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!).then{ user -> Void in
       tokenWrapper.setToken(valueFor: user.token)
       DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":self.emailTextField.text!,
                                                                            "passwd":self.passwordTextField.text!,
@@ -150,19 +151,11 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
       self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
       let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
       NotificationCenter.default.post(name: notificationName, object: nil)
-    }, callbackError: {
-      Utils.Network.spinnerStop()
+    }.catch { _ in
       AlertUtils.networkErrorAlert(fromController: self)
-    })
-//    if !((emailTextField.text?.isEmpty)!) && !(passwordTextField.text?.isEmpty)! && !(nicknameTextField.text?.isEmpty)! {
-//      Utils.Network.spinnerStart()
-//    }
-//    else {
-//      log.error("Sign up fail")
-//      let alert = UIAlertController(title: R.string.localizable.error(), message: R.string.localizable.connection_fail(), preferredStyle: UIAlertControllerStyle.alert)
-//      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//      self.present(alert, animated: true, completion: nil)
-//    }
+      }.always {
+        Utils.Network.spinnerStop()
+    }
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {

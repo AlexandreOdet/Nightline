@@ -276,7 +276,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 34 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 36 localization keys.
     struct localizable {
       /// fr translation: Bar
       /// 
@@ -362,6 +362,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: fr, en
       static let passwd_forgot = Rswift.StringResource(key: "passwd_forgot", tableName: "Localizable", bundle: R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Profil
+      /// 
+      /// Locales: fr, en
+      static let profile = Rswift.StringResource(key: "profile", tableName: "Localizable", bundle: R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: Pseudo
       /// 
       /// Locales: fr, en
@@ -398,6 +402,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: fr, en
       static let sisterhood = Rswift.StringResource(key: "sisterhood", tableName: "Localizable", bundle: R.hostingBundle, locales: ["fr", "en"], comment: nil)
+      /// fr translation: Tapez l'email sur lequel vous souhaitez recevoir votre mot de passe
+      /// 
+      /// Locales: fr, en
+      static let type_mail = Rswift.StringResource(key: "type_mail", tableName: "Localizable", bundle: R.hostingBundle, locales: ["fr", "en"], comment: nil)
       /// fr translation: Version
       /// 
       /// Locales: fr, en
@@ -562,6 +570,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("passwd_forgot", bundle: R.hostingBundle, comment: "")
       }
       
+      /// fr translation: Profil
+      /// 
+      /// Locales: fr, en
+      static func profile(_: Void = ()) -> String {
+        return NSLocalizedString("profile", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// fr translation: Pseudo
       /// 
       /// Locales: fr, en
@@ -623,6 +638,13 @@ struct R: Rswift.Validatable {
       /// Locales: fr, en
       static func sisterhood(_: Void = ()) -> String {
         return NSLocalizedString("sisterhood", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// fr translation: Tapez l'email sur lequel vous souhaitez recevoir votre mot de passe
+      /// 
+      /// Locales: fr, en
+      static func type_mail(_: Void = ()) -> String {
+        return NSLocalizedString("type_mail", bundle: R.hostingBundle, comment: "")
       }
       
       /// fr translation: Version
