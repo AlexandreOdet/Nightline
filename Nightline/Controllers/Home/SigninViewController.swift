@@ -11,6 +11,8 @@ import UIKit
 import SnapKit
 import Rswift
 import PromiseKit
+import Google
+import GoogleSignIn
 
 /*
  Controllers: SigninViewController.
@@ -54,6 +56,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
       initNightlineLogo()
       addBackButton()
     }
+    GIDSignIn.sharedInstance().uiDelegate = self
   }
   
   /*
@@ -262,5 +265,23 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     }))
     alertController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
     self.present(alertController, animated: true, completion: nil)
+  }
+}
+
+extension SigninViewController:GIDSignInUIDelegate {
+  func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+    Utils.Network.spinnerStop()
+  }
+  
+  // Present a view that prompts the user to sign in with Google
+  func sign(_ signIn: GIDSignIn!,
+            present viewController: UIViewController!) {
+    self.present(viewController, animated: true, completion: nil)
+  }
+  
+  // Dismiss the "Sign in with Google" view
+  func sign(_ signIn: GIDSignIn!,
+            dismiss viewController: UIViewController!) {
+    self.dismiss(animated: true, completion: nil)
   }
 }
