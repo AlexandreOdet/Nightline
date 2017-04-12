@@ -19,7 +19,7 @@ import GoogleSignIn
  This controllers is displayed when user tries to log into the app.
  */
 
-final class SigninViewController: BaseViewController, UITextFieldDelegate {
+final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSignInUIDelegate {
   let nightlineLogo = UIImageView()
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()
@@ -55,6 +55,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
       initStackView()
       initNightlineLogo()
       addBackButton()
+      addGoogleButton()
     }
     GIDSignIn.sharedInstance().uiDelegate = self
   }
@@ -252,6 +253,18 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     self.dismiss(animated: true, completion: nil)
   }
   
+  private func addGoogleButton() {
+    let googleButton = GIDSignInButton()
+    self.view.addSubview(googleButton)
+    googleButton.snp.makeConstraints { (make) -> Void in
+      make.bottom.equalTo(forgotPasswordLabel.snp.top).offset(-5)
+      make.leading.equalTo(self.view).offset(15)
+      make.trailing.equalTo(self.view).offset(-15)
+      make.height.equalTo(30)
+    }
+    googleButton.translatesAutoresizingMaskIntoConstraints = false
+  }
+  
   func forgotPasswordAction() {
     var mailTextField = UITextField()
     let alertController = UIAlertController(title: "", message: R.string.localizable.type_mail(), preferredStyle: .alert)
@@ -265,23 +278,5 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
     }))
     alertController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
     self.present(alertController, animated: true, completion: nil)
-  }
-}
-
-extension SigninViewController:GIDSignInUIDelegate {
-  func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
-    Utils.Network.spinnerStop()
-  }
-  
-  // Present a view that prompts the user to sign in with Google
-  func sign(_ signIn: GIDSignIn!,
-            present viewController: UIViewController!) {
-    self.present(viewController, animated: true, completion: nil)
-  }
-  
-  // Dismiss the "Sign in with Google" view
-  func sign(_ signIn: GIDSignIn!,
-            dismiss viewController: UIViewController!) {
-    self.dismiss(animated: true, completion: nil)
   }
 }

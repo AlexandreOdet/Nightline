@@ -59,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
   
   func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
               withError error: NSError!) {
+    log.debug("--------->signIn function<-------------")
     if (error == nil) {
       // Perform any operations on signed in user here.
       _ = user.userID                  // For client-side use only!
