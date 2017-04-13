@@ -21,11 +21,11 @@ final class UserProfileViewController: ProfileViewController {
   }
   
   private func setUpView() {
-    self.nameLabel.text = "Cédric M"
-    self.imgProfile.image = R.image.profile()
-    self.nicknameLabel.text = "Xploit"
-    self.birthdayLabel.text = "22 ans"
-    self.locationLabel.text = "Pékin"
+    self.nameLabel.text = UserManager.instance.getUserFirstName() + " " + (UserManager.instance.getUserLastName().characters.first?.description)!
+    self.imgProfile.image = UIImage(data: UserManager.instance.getUserPicture()! as Data)
+    self.nicknameLabel.text = UserManager.instance.getUserNickname()
+    self.birthdayLabel.text = UserManager.instance.getUserAge() + " ans"
+    self.locationLabel.text = UserManager.instance.getUserCity()
     self.descriptionLabel.text = "Epitech 4th year student in China, Beijing"
     self.friendsLabel.text = "220"
     self.pictureLabel.text = "55"
