@@ -11,13 +11,15 @@ import UIKit
 import SnapKit
 import Rswift
 import PromiseKit
+import Google
+import GoogleSignIn
 
 /*
  Controllers: SigninViewController.
  This controllers is displayed when user tries to log into the app.
  */
 
-final class SigninViewController: BaseViewController, UITextFieldDelegate {
+final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSignInUIDelegate {
   let nightlineLogo = UIImageView()
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()
@@ -53,7 +55,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
       initStackView()
       initNightlineLogo()
       addBackButton()
+      addGoogleButton()
     }
+    GIDSignIn.sharedInstance().uiDelegate = self
   }
   
   /*
@@ -247,6 +251,18 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   
   func backButtonPressed() {
     self.dismiss(animated: true, completion: nil)
+  }
+  
+  private func addGoogleButton() {
+    let googleButton = GIDSignInButton()
+    self.view.addSubview(googleButton)
+    googleButton.snp.makeConstraints { (make) -> Void in
+      make.bottom.equalTo(forgotPasswordLabel.snp.top).offset(-5)
+      make.leading.equalTo(self.view).offset(15)
+      make.trailing.equalTo(self.view).offset(-15)
+      make.height.equalTo(30)
+    }
+    googleButton.translatesAutoresizingMaskIntoConstraints = false
   }
   
   func forgotPasswordAction() {

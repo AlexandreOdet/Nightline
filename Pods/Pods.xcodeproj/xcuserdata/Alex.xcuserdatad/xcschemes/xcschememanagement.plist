@@ -18,6 +18,21 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>GTMOAuth2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>GTMSessionFetcher.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>KeychainSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -96,6 +111,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1910FFDDCFBC6C356AF07AACC4455CF2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1B25E231CB76C8A822F8D0F8703023A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>29282D7C8983967C42FD4536D040AC34</key>
 		<dict>
 			<key>primary</key>
@@ -106,12 +136,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2AF0A680C991417A3AD7FF0FE1281A8A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2F5622F3B18DF497981AB58C6D1FC72F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>38558EB0BBC1E023F9F86137463F068F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>38ACA430605AFB4229712A18BDDF5086</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5647F51D71FF0B7608BA257BFFEE35FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,6 +167,11 @@
 			<true/>
 		</dict>
 		<key>5ED1414D58EF06D7FC1864087A2020D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>681BE6E3D02A43F9BA63777AC435C8FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -171,6 +221,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BA5FAAB1E83874CD0DC9937D6483A1F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BB9C4E18B75149EE9F48ADF7E5A0383A</key>
 		<dict>
 			<key>primary</key>
@@ -187,6 +247,11 @@
 			<true/>
 		</dict>
 		<key>E63F85F4F25C19A79403B71A5F472D95</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F46F6C066A141EFE8A950E33B5B06FE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

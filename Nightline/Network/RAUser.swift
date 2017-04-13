@@ -24,82 +24,27 @@ final class RAUser: RABase {
    @param email: user's mail, password: user's password, callback: the closure called when the request succeed, callbackError: the closure called when the request fail.
    @return None
    */
-  //  func loginUser(email: String, password: String,
-  //                 callback: @escaping (User) -> (),
-  //                 callbackError: @escaping () -> ()) {
-  //
-  //    let headers = ["Content-Type":"application/json"]
-  //    let parameters = ["email":"test@test.com", "password":"test"]
-  //    let url = RoutesAPI.login.url
-  //    print("URL = \(url)")
-  //    self.request = Alamofire.request(url, method: .post, parameters: parameters, headers: headers).response(completionHandler: {response in log.debug("\(response)")})
-  //      .responseObject(completionHandler: { (response: DataResponse<User>) in
-  //      switch response.result {
-  //      case .success(let token):
-  //        log.verbose("OK \(token)")
-  //        callback(token)
-  //      case .failure(let error):
-  //        callbackError()
-  //        log.error("Fail : \(error)")
-  //      }
-  //    })
-  //  }
-  
-  
-  // Fonction de test ( request a la mano )
-  
   func loginUser(email: String, password: String) -> Promise<User> {
+    
+    let parameters = ["email":email, "password":password]
+    let url = RoutesAPI.login.url
     return Promise { (fulfill, reject) in
-      let todosEndpoint: String = "https://api.nightline.fr/login"
-      guard let todosURL = URL(string: todosEndpoint) else {
-        return
-      }
-      var todosUrlRequest = URLRequest(url: todosURL)
-      todosUrlRequest.httpMethod = "POST"
-      let parameters: [String: Any] = ["email": "test@test.com", "password": "test"]
-      let jsonTodo: Data
-      do {
-        jsonTodo = try JSONSerialization.data(withJSONObject: parameters, options: [])
-        todosUrlRequest.httpBody = jsonTodo
-      } catch {
-        reject(error)
-        return
-      }
-      
-      let session = URLSession.shared
-      
-      let task = session.dataTask(with: todosUrlRequest) {
-        (data, response, error) in
-        guard error == nil else {
-          reject(error!)
-          return
-        }
-        guard let responseData = data else {
-          reject(error!)
-          return
-        }
-        do {
-          guard let response = try JSONSerialization.jsonObject(with: responseData,
-                                                                options: []) as? [String: Any] else {
-                                                                  reject(error!)
-                                                                  return
+      self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        .responseObject(completionHandler: {
+          (response: DataResponse<User>) in
+          switch response.result {
+          case .success(let usr):
+            log.verbose("RestApiUser.signUp OK \(usr.toString())")
+            fulfill(usr)
+          case .failure(let error):
+            log.error("RestApiUser.signUp Fail : \(error)")
+            reject(error)
           }
-          guard let token = response["token"] as? String else {
-            reject(error!)
-            return
-          }
-          let user = User()
-          user.email = response["email"] as! String
-          user.passwd = response["password"] as! String
-          user.token = token
-          fulfill(user)
-        } catch  {
-          reject(error)
-        }
-      }
-      task.resume()
+        })
     }
   }
+  
+  
   
   /*
    func signUpUser of RAUser.
@@ -111,14 +56,13 @@ final class RAUser: RABase {
   func signUpUser(email: String, nickname: String, password: String) -> Promise<User> {
     let parameters = ["email":"Lol", "pseudo":"Lol", "password":"lol"]
     let url = RoutesAPI.signUp.url
-    let headers = ["Content-Type":"application/json"]
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .post, parameters: parameters, headers: headers)
+      self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
         .responseObject(completionHandler: {
           (response: DataResponse<User>) in
           switch response.result {
           case .success(let usr):
-            log.verbose("RestApiUser.signUp OK \(usr)")
+            log.verbose("RestApiUser.signUp OK \(usr.toString())")
             fulfill(usr)
           case .failure(let error):
             log.error("RestApiUser.signUp Fail : \(error)")
