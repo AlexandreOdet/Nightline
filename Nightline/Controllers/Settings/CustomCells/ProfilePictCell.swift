@@ -11,6 +11,7 @@ import UIKit
 class ProfilePictCell: UITableViewCell {
   
   var userPicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+  var label = UILabel()
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -35,12 +36,19 @@ class ProfilePictCell: UITableViewCell {
     self.contentView.addSubview(userPicture)
     userPicture.snp.makeConstraints { (make) -> Void in
       make.centerY.equalTo(self.contentView)
-      make.leading.equalTo(self.contentView).offset(15)
-      make.size.equalTo(60)
+      make.trailing.equalTo(self.contentView).offset(-15)
+      make.size.equalTo(80)
     }
     userPicture.translatesAutoresizingMaskIntoConstraints = false
     userPicture.roundImage(withBorder: true, borderColor: .black, borderSize: 1.0)
     userPicture.image = R.image.logo()
+    
+    self.contentView.addSubview(label)
+    label.snp.makeConstraints { (make) -> Void in
+      make.centerY.equalTo(self.contentView)
+      make.leading.equalTo(contentView).offset(15)
+    }
+    label.text = "Photo de profil"
     
   }
   
