@@ -86,7 +86,8 @@ class EditProfileTableViewController: UIViewController, UITableViewDelegate, UIT
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if (indexPath.section == 0) {
-      
+      let nextViewController = EditPictureViewController()
+      self.navigationController?.pushViewController(nextViewController, animated: true)
     } else if (indexPath.section == 1) {
       if (indexPath.row == 0) {
         let nextViewController = EditFirstNameViewController()

@@ -28,6 +28,7 @@ class User: Mappable {
   var preferences = UserPreferences()
   var gender = Gender.male
   var token = ""
+  var picture: NSData? = nil
   
   required init() {
     
@@ -47,6 +48,7 @@ class User: Mappable {
     self.nickname = otherUser.nickname
     self.city = otherUser.city
     self.age = otherUser.age
+    self.picture = otherUser.picture
   }
   
   required init?(map: Map) {
