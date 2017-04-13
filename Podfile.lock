@@ -3,13 +3,14 @@ PODS:
   - AlamofireObjectMapper (4.1.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 2.0)
-  - FirebaseAnalytics (3.7.0):
-    - FirebaseCore (~> 3.5)
+  - FirebaseAnalytics (3.8.0):
+    - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.5.2):
+  - FirebaseCore (3.6.0):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.9)
+  - FirebaseInstanceID (1.0.10):
+    - FirebaseCore (~> 3.6)
   - Google/Core (3.0.3):
     - FirebaseAnalytics (~> 3.2)
   - Google/SignIn (3.0.3):
@@ -37,7 +38,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.9)
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
-  - KeychainSwift (7.0.0)
+  - KeychainSwift (8.0.2)
   - ObjectMapper (2.2.5)
   - PromiseKit (4.1.7):
     - PromiseKit/Foundation (= 4.1.7)
@@ -53,13 +54,13 @@ PODS:
   - R.swift (3.2.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
-  - Realm (2.5.0):
-    - Realm/Headers (= 2.5.0)
-  - Realm/Headers (2.5.0)
-  - RealmSwift (2.5.0):
-    - Realm (= 2.5.0)
+  - Realm (2.5.1):
+    - Realm/Headers (= 2.5.1)
+  - Realm/Headers (2.5.1)
+  - RealmSwift (2.5.1):
+    - Realm (= 2.5.1)
   - SnapKit (3.2.0)
-  - SwiftyBeaver (1.1.4)
+  - SwiftyBeaver (1.2.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -76,24 +77,24 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
-  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
-  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
-  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
+  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
+  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
   GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
-  KeychainSwift: b6947435dd78cc442c64a84ae648dd0e871cf448
+  KeychainSwift: 213db04dfe7244988e61f77c72a2afb2f775954a
   ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
   PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
   R.swift: 207a372a2b5977caef440c696a368009460641d1
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
-  Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
-  RealmSwift: 9f1a8f624f2f153410115c2cb7d486be9976565d
+  Realm: 32f86104d37c8521f864d4274050b38ba6190733
+  RealmSwift: f719e7511c902b8908593e8f143f59e47931bdb6
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
+  SwiftyBeaver: ee865c50ec462ff142f232145057818491c2b344
 
 PODFILE CHECKSUM: 0d1c6c5f8bad68f4faefba545642a4ced4c54c1b
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
