@@ -15,16 +15,17 @@ import RealmSwift
  */
 
 class DbUser: Object {
-    dynamic var id = -1
-    dynamic var firstName = ""
-    dynamic var lastName = ""
-    dynamic var gender = ""
-    dynamic var email = ""
-    dynamic var passwd = ""
-    dynamic var nickname = ""
-    dynamic var age = ""
-    dynamic var city = ""
-    var preferences = UserPreferences()
+  dynamic var id = -1
+  dynamic var firstName = ""
+  dynamic var lastName = ""
+  dynamic var gender = ""
+  dynamic var email = ""
+  dynamic var passwd = ""
+  dynamic var nickname = ""
+  dynamic var age = ""
+  dynamic var city = ""
+  dynamic var picture: NSData? = UIImageJPEGRepresentation(R.image.logo()!, 0.1)! as NSData
+  var preferences = UserPreferences()
   
   /*
    primaryKey() function.

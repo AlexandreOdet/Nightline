@@ -232,6 +232,36 @@ final class UserManager {
   
   /**
    Method of the UserManager class.
+   Get the user's living city
+   
+   @param None.
+   
+   @return A String containing the user's living city.
+   */
+  
+  func getUserPicture() -> NSData? {
+    if networkUser.picture != nil {
+      return networkUser.picture
+    }
+    return localUser[0].picture
+  }
+  
+  /**
+   Method of the UserManager class.
+   Change the user's living city.
+   
+   @param String containing the new city.
+   
+   @return Nothing.
+   */
+  
+  func updateUserPicture(newValue: NSData) {
+    networkUser.picture = newValue
+    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["picture":newValue])
+  }
+  
+  /**
+   Method of the UserManager class.
    Get the gender of the user
    
    @param None.

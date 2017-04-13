@@ -21,3 +21,4 @@ extension String {
     return self.characters.count
   }
 }
+

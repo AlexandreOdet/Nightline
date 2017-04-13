@@ -31,7 +31,6 @@ class EditAgeViewController: BaseViewController, UIPickerViewDelegate, UIPickerV
       make.height.equalTo(30)
     }
     self.view.backgroundColor = self.getMidnightBlue()
-//    self.view.backgroundColor = UIColor.white
     editLabel.text = "Age :"
     editLabel.textColor = UIColor.orange
     self.contentView.addSubview(agePicker)
@@ -42,7 +41,7 @@ class EditAgeViewController: BaseViewController, UIPickerViewDelegate, UIPickerV
     }
     self.agePicker.delegate = self
     self.agePicker.dataSource = self
-    let myRow : Int = Int(UserManager.instance.getUserAge())!
+    let myRow : Int = Int(UserManager.instance.getUserAge()) ?? 0
     self.agePicker.selectRow(myRow, inComponent: 0, animated: true)
     self.agePicker.backgroundColor = self.getMidnightBlue()
   }
