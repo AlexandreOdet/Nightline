@@ -11,15 +11,14 @@ import UIKit
 import SnapKit
 import Rswift
 import PromiseKit
-import Google
-import GoogleSignIn
+import FBSDKLoginKit
 
 /*
  Controllers: SigninViewController.
  This controllers is displayed when user tries to log into the app.
  */
 
-final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSignInUIDelegate {
+final class SigninViewController: BaseViewController, UITextFieldDelegate {
   let nightlineLogo = UIImageView()
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()
@@ -55,9 +54,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSi
       initStackView()
       initNightlineLogo()
       addBackButton()
-      addGoogleButton()
+      addFacebookButton()
     }
-    GIDSignIn.sharedInstance().uiDelegate = self
   }
   
   /*
@@ -252,19 +250,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSi
   func backButtonPressed() {
     self.dismiss(animated: true, completion: nil)
   }
-  
-  private func addGoogleButton() {
-    let googleButton = GIDSignInButton()
-    self.view.addSubview(googleButton)
-    googleButton.snp.makeConstraints { (make) -> Void in
-      make.bottom.equalTo(forgotPasswordLabel.snp.top).offset(-5)
-      make.leading.equalTo(self.view).offset(15)
-      make.trailing.equalTo(self.view).offset(-15)
-      make.height.equalTo(30)
-    }
-    googleButton.translatesAutoresizingMaskIntoConstraints = false
-  }
-  
+
   func forgotPasswordAction() {
     var mailTextField = UITextField()
     let alertController = UIAlertController(title: "", message: R.string.localizable.type_mail(), preferredStyle: .alert)
@@ -279,4 +265,16 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSi
     alertController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
     self.present(alertController, animated: true, completion: nil)
   }
+  
+  private func addFacebookButton() {
+    let loginButton = FBSDKLoginButton()
+    self.view.addSubview(loginButton)
+    loginButton.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(stackViewSignIn.snp.bottom).offset(50)
+      make.leading.equalTo(self.view).offset(20)
+      make.trailing.equalTo(self.view).offset(-20)
+    }
+    loginButton.translatesAutoresizingMaskIntoConstraints = false
+  }
+  
 }

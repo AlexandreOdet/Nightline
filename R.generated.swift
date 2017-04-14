@@ -23,12 +23,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.file` struct is generated, and contains static references to 1 files.
   struct file {
-    /// Resource file `GoogleService-Info.plist`.
-    static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
+    /// Resource file `Default-568h@2x.png`.
+    static let default568h2xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "Default-568h@2x", pathExtension: "png")
     
-    /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
-    static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.googleServiceInfoPlist
+    /// `bundle.url(forResource: "Default-568h@2x", withExtension: "png")`
+    static func default568h2xPng(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.default568h2xPng
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -40,8 +40,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 31 images.
+  /// This `R.image` struct is generated, and contains static references to 32 images.
   struct image {
+    /// Image `Default-568h`.
+    static let default568h = Rswift.ImageResource(bundle: R.hostingBundle, name: "Default-568h")
     /// Image `avatar`.
     static let avatar = Rswift.ImageResource(bundle: R.hostingBundle, name: "avatar")
     /// Image `back_arrow`.
@@ -104,6 +106,11 @@ struct R: Rswift.Validatable {
     static let trophy = Rswift.ImageResource(bundle: R.hostingBundle, name: "trophy")
     /// Image `user`.
     static let user = Rswift.ImageResource(bundle: R.hostingBundle, name: "user")
+    
+    /// `UIImage(named: "Default-568h", bundle: ..., traitCollection: ...)`
+    static func default568h(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.default568h, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "avatar", bundle: ..., traitCollection: ...)`
     static func avatar(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {

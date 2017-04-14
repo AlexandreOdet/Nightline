@@ -54,7 +54,7 @@ final class RAUser: RABase {
    */
   
   func signUpUser(email: String, nickname: String, password: String) -> Promise<User> {
-    let parameters = ["email":"Lol", "pseudo":"Lol", "password":"lol"]
+    let parameters = ["email":email, "pseudo":nickname, "password":password]
     let url = RoutesAPI.signUp.url
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
