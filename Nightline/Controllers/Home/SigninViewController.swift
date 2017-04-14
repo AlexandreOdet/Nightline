@@ -18,7 +18,7 @@ import FBSDKLoginKit
  This controllers is displayed when user tries to log into the app.
  */
 
-final class SigninViewController: BaseViewController, UITextFieldDelegate {
+final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate {
   let nightlineLogo = UIImageView()
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()
@@ -27,6 +27,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   private let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 700, height: 20))
   let backButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
   let restApiUser = RAUser()
+  private let facebookReadPermissions = ["public_profile", "email", "user_friends"]
+  let loginButton = FBSDKLoginButton()
+
   
   static let notificationIdentifier = "dismissHomeViewController"
   
@@ -267,7 +270,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
   }
   
   private func addFacebookButton() {
-    let loginButton = FBSDKLoginButton()
+    loginButton.readPermissions = self.facebookReadPermissions
+    loginButton.delegate = self
     self.view.addSubview(loginButton)
     loginButton.snp.makeConstraints { (make) -> Void in
       make.top.equalTo(stackViewSignIn.snp.bottom).offset(50)
@@ -275,6 +279,23 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate {
       make.trailing.equalTo(self.view).offset(-20)
     }
     loginButton.translatesAutoresizingMaskIntoConstraints = false
+
   }
   
+  func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+    //logged in
+    if(error == nil)
+    {
+      print("------> login complete <--------")
+      print("\(result.token)")
+    }
+    else{
+      print(error.localizedDescription)
+    }
+    
+  }
+  func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+    //logout
+    print("logout")
+  }
 }

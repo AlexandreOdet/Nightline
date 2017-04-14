@@ -26,6 +26,8 @@ extension RoutesAPI: RoutableProtocol {
         return AppConstant.Network.login
       case .signUp:
         return AppConstant.Network.signup
+      case .oauth_login:
+        return AppConstant.Network.oauth_login
       }
     }()
     return (RoutesAPI.baseUrl.appending(path))
