@@ -54,7 +54,7 @@ final class RAUser: RABase {
    */
   
   func signUpUser(email: String, nickname: String, password: String) -> Promise<User> {
-    let parameters = ["email":"Lol", "pseudo":"Lol", "password":"lol"]
+    let parameters = ["email":email, "pseudo":nickname, "password":password]
     let url = RoutesAPI.signUp.url
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
@@ -66,6 +66,24 @@ final class RAUser: RABase {
             fulfill(usr)
           case .failure(let error):
             log.error("RestApiUser.signUp Fail : \(error)")
+            reject(error)
+          }
+        })
+    }
+  }
+  
+  func loginFB(accessToken: String, userID: String) -> Promise<User> {
+    let parameters = ["token": accessToken, "userID":userID]
+    let url = RoutesAPI.oauth_login.url
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        .responseObject(completionHandler: { (response: DataResponse<User>) in
+          switch response.result {
+          case .success(let usr):
+            log.verbose("\(usr.toString())")
+            fulfill(usr)
+          case .failure(let error):
+            log.error("\(error)")
             reject(error)
           }
         })

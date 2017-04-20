@@ -10,14 +10,13 @@ import UIKit
 import CoreData
 import SwiftyBeaver
 import KeychainSwift
-import GoogleSignIn
-import Google
+import FBSDKCoreKit
 
 let log = SwiftyBeaver.self
 let tokenWrapper = TokenWrapper()
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
@@ -35,51 +34,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     self.window!.rootViewController = nav1
     self.window?.makeKeyAndVisible()
     UIApplication.shared.statusBarStyle = .lightContent
-    var configureError: NSError?
-    GGLContext.sharedInstance().configureWithError(&configureError)
-    assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
     
-    GIDSignIn.sharedInstance().delegate = self
+    FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    
     return true
-  }
-  
-  func application(_ application: UIApplication,
-                   open url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
-    return GIDSignIn.sharedInstance().handle(url,
-                                             sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                             annotation: options[UIApplicationOpenURLOptionsKey.annotation] as? String)
-  }
-  
-  func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
-              withError error: Error!) {
-    // Perform any operations when the user disconnects from app here.
-    // ...
-  }
-  
-  
-  func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-              withError error: NSError!) {
-    log.debug("--------->signIn function<-------------")
-    if (error == nil) {
-      // Perform any operations on signed in user here.
-      _ = user.userID                  // For client-side use only!
-      _ = user.authentication.idToken // Safe to send to the server
-      _ = user.profile.name
-      _ = user.profile.givenName
-      _ = user.profile.familyName
-      _ = user.profile.email
-      // ...
-    } else {
-      print("\(error.localizedDescription)")
-    }
-  }
-  
-  func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-    
   }
   
   func customDesign() {
     
+  }
+  
+  @objc func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+    return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
   }
   
   func applicationWillResignActive(_ application: UIApplication) {
@@ -97,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
   }
   
   func applicationDidBecomeActive(_ application: UIApplication) {
+    FBSDKAppEvents.activateApp()
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
   }
   

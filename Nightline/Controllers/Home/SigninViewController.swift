@@ -11,15 +11,14 @@ import UIKit
 import SnapKit
 import Rswift
 import PromiseKit
-import Google
-import GoogleSignIn
+import FBSDKLoginKit
 
 /*
  Controllers: SigninViewController.
  This controllers is displayed when user tries to log into the app.
  */
 
-final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSignInUIDelegate {
+final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate {
   let nightlineLogo = UIImageView()
   private let signinButton = UIButton()
   private let forgotPasswordLabel = UILabel()
@@ -28,6 +27,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSi
   private let passwordTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 700, height: 20))
   let backButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
   let restApiUser = RAUser()
+  private let facebookReadPermissions = ["public_profile", "email", "user_friends"]
+  let loginButton = FBSDKLoginButton()
+
   
   static let notificationIdentifier = "dismissHomeViewController"
   
@@ -55,9 +57,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSi
       initStackView()
       initNightlineLogo()
       addBackButton()
-      addGoogleButton()
+      addFacebookButton()
     }
-    GIDSignIn.sharedInstance().uiDelegate = self
   }
   
   /*
@@ -252,19 +253,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSi
   func backButtonPressed() {
     self.dismiss(animated: true, completion: nil)
   }
-  
-  private func addGoogleButton() {
-    let googleButton = GIDSignInButton()
-    self.view.addSubview(googleButton)
-    googleButton.snp.makeConstraints { (make) -> Void in
-      make.bottom.equalTo(forgotPasswordLabel.snp.top).offset(-5)
-      make.leading.equalTo(self.view).offset(15)
-      make.trailing.equalTo(self.view).offset(-15)
-      make.height.equalTo(30)
-    }
-    googleButton.translatesAutoresizingMaskIntoConstraints = false
-  }
-  
+
   func forgotPasswordAction() {
     var mailTextField = UITextField()
     let alertController = UIAlertController(title: "", message: R.string.localizable.type_mail(), preferredStyle: .alert)
@@ -278,5 +267,35 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, GIDSi
     }))
     alertController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
     self.present(alertController, animated: true, completion: nil)
+  }
+  
+  private func addFacebookButton() {
+    loginButton.readPermissions = self.facebookReadPermissions
+    loginButton.delegate = self
+    self.view.addSubview(loginButton)
+    loginButton.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(stackViewSignIn.snp.bottom).offset(50)
+      make.leading.equalTo(self.view).offset(20)
+      make.trailing.equalTo(self.view).offset(-20)
+    }
+    loginButton.translatesAutoresizingMaskIntoConstraints = false
+
+  }
+  
+  func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+    //logged in
+    if(error == nil)
+    {
+      print("------> login complete <--------")
+      print("\(result.token)")
+    }
+    else{
+      print(error.localizedDescription)
+    }
+    
+  }
+  func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+    //logout
+    print("logout")
   }
 }

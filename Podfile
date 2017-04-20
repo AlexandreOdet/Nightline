@@ -13,7 +13,6 @@ target 'Nightline' do
   pod 'AlamofireObjectMapper'
   pod 'KeychainSwift'
   pod 'PromiseKit'
-  pod 'Google/SignIn'
   
   # Pods for Nightline
 
