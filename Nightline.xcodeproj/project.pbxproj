@@ -40,7 +40,6 @@
 		FA3AA17D1E577153002CF4FC /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA17A1E577153002CF4FC /* UserSettingsTableViewController.swift */; };
 		FA3AA1801E57716E002CF4FC /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA17F1E57716E002CF4FC /* UserProfileCell.swift */; };
 		FA3AA1831E57718B002CF4FC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1821E57718B002CF4FC /* TabBarController.swift */; };
-		FA3AA1871E5771A8002CF4FC /* SaveEditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1851E5771A8002CF4FC /* SaveEditProfileViewController.swift */; };
 		FA3AA1881E5771A8002CF4FC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */; };
 		FA3AA18C1E57720F002CF4FC /* TokenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */; };
 		FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18B1E57720F002CF4FC /* UserManager.swift */; };
@@ -155,7 +154,6 @@
 		FA3AA17A1E577153002CF4FC /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettingsTableViewController.swift; path = Controllers/Settings/UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		FA3AA17F1E57716E002CF4FC /* UserProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileCell.swift; path = Controllers/Settings/CustomCells/UserProfileCell.swift; sourceTree = "<group>"; };
 		FA3AA1821E57718B002CF4FC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBar/TabBarController.swift; sourceTree = "<group>"; };
-		FA3AA1851E5771A8002CF4FC /* SaveEditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveEditProfileViewController.swift; path = Controllers/User/SaveEditProfileViewController.swift; sourceTree = "<group>"; };
 		FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = Controllers/User/UserProfileViewController.swift; sourceTree = "<group>"; };
 		FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenWrapper.swift; path = Manager/TokenWrapper.swift; sourceTree = "<group>"; };
 		FA3AA18B1E57720F002CF4FC /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Manager/UserManager.swift; sourceTree = "<group>"; };
@@ -354,7 +352,6 @@
 				FA3AA1791E577153002CF4FC /* EtablishmentTableViewController.swift */,
 				FA3AA17A1E577153002CF4FC /* UserSettingsTableViewController.swift */,
 				7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */,
-				FA3AA1851E5771A8002CF4FC /* SaveEditProfileViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -993,7 +990,6 @@
 				FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */,
 				FA5C2AA01E5A51B300A0CB56 /* ExtensionConsommation.swift in Sources */,
 				FA5C2A9A1E5A519700A0CB56 /* UIColorExtension.swift in Sources */,
-				FA3AA1871E5771A8002CF4FC /* SaveEditProfileViewController.swift in Sources */,
 				FA5C2AA61E5A5AF800A0CB56 /* ExtensionEtablishments.swift in Sources */,
 				FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */,
 				FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */,

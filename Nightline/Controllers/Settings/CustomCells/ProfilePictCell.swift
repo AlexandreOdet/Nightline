@@ -37,7 +37,7 @@ class ProfilePictCell: UITableViewCell {
     userPicture.snp.makeConstraints { (make) -> Void in
       make.centerY.equalTo(self.contentView)
       make.trailing.equalTo(self.contentView).offset(-15)
-      make.size.equalTo(80)
+      make.size.equalTo(60)
     }
     userPicture.translatesAutoresizingMaskIntoConstraints = false
     userPicture.roundImage(withBorder: true, borderColor: .black, borderSize: 1.0)

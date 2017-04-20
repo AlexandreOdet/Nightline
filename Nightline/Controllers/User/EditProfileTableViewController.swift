@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import Rswift
 
-class EditProfileTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditProfileTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
   
   var sectionsArray : [[String]] = [["Photo"], ["Prénom", "Nom", "Pseudo"], ["Age", "Ville"]]
   var tableView = UITableView()
@@ -19,36 +19,23 @@ class EditProfileTableViewController: UIViewController, UITableViewDelegate, UIT
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Edition du profil"
-    //addTableView()
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    addTableView()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+  private func addTableView() {
     self.tableView = UITableView(frame: self.view.frame, style: .grouped)
-    tableView.dataSource = self
-    tableView.delegate = self
-    
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
     self.view.addSubview(tableView)
     tableView.snp.makeConstraints { (make) -> Void in
-      make.left.right.bottom.equalTo(self.view)
-      make.top.equalTo(self.view)
-      //.offset((self.navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height)
+      make.edges.equalTo(self.view)
     }
     tableView.translatesAutoresizingMaskIntoConstraints = false
+    tableView.delegate = self
+    tableView.dataSource = self
   }
   
   
   /*------------- UITableView Functions -------------*/
   
-  //  func numberOfSections(in tableView: UITableView) -> Int {
-  //    return 4
-  //  }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return sectionsArray[section].count
@@ -112,7 +99,7 @@ class EditProfileTableViewController: UIViewController, UITableViewDelegate, UIT
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     if indexPath.section == 0 {
-      return 100
+      return 90
     }
     return UITableViewAutomaticDimension
   }
@@ -125,32 +112,5 @@ class EditProfileTableViewController: UIViewController, UITableViewDelegate, UIT
     } else {
       return "Autres informations"
     }
-  }
-  
-  /*------------- UITableView Actions -------------*/
-  
-  /*
-   performLogoutAction() function.
-   This function logout the user from the app.
-   @param None
-   @return None
-   */
-  
-  func performLogoutAction() {
-    Utils.Network.logOutUser()
-    let notificationName = Notification.Name(TabBarController.notificationIdentifier)
-    NotificationCenter.default.post(name: notificationName, object: nil)
-  }
-  
-  /*
-   goToEditProfilViewController() function.
-   This function goes to user profile on editing mode.
-   @param None
-   @return None
-   */
-  
-  func goToEditProfilViewController() {
-    let nextViewController = EditProfileTableViewController()
-    self.navigationController?.pushViewController(nextViewController, animated: true)
   }
 }
