@@ -30,9 +30,9 @@ class EditLastNameViewController: BaseViewController {
       make.trailing.equalTo(contentView).offset(-15)
       make.height.equalTo(30)
     }
-    self.view.backgroundColor = self.getMidnightBlue()
+    self.view.backgroundColor = self.backgroundColor()
     editLabel.text = "Nom :"
-    editLabel.textColor = UIColor.orange
+    editLabel.textColor = self.labelTextColor()
     self.contentView.addSubview(editTextField)
     editTextField.snp.makeConstraints { make in
       make.top.equalTo(editLabel.snp.bottom).offset(20)
@@ -41,8 +41,8 @@ class EditLastNameViewController: BaseViewController {
     }
     editTextField.text = UserManager.instance.getUserLastName()
     editTextField.borderStyle = .roundedRect
-    editTextField.backgroundColor = UIColor.init(hex: 0x233157)
-    editTextField.textColor = UIColor.init(hex: 0xFF7F40)
+    editTextField.backgroundColor = self.textFieldBackgroundColor()
+    editTextField.textColor = self.textFieldTextColor()
   }
   
   override func viewDidLoad() {

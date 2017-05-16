@@ -13,6 +13,7 @@ import Rswift
 
 class EditProfileTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
   
+  
   var sectionsArray : [[String]] = [["Photo"], ["Prénom", "Nom", "Pseudo"], ["Age", "Ville"]]
   var tableView = UITableView()
   
@@ -20,17 +21,23 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
     super.viewDidLoad()
     self.title = "Edition du profil"
     addTableView()
+    self.tableView.reloadData()
   }
   
   private func addTableView() {
     self.tableView = UITableView(frame: self.view.frame, style: .grouped)
     self.view.addSubview(tableView)
     tableView.snp.makeConstraints { (make) -> Void in
-      make.edges.equalTo(self.view)
+      make.right.left.bottom.equalTo(self.view)
+      make.top.equalTo(self.view).offset((self.navigationController?.navigationBar.frame.height)!)
     }
     tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.delegate = self
     tableView.dataSource = self
+    //self.tableView.backgroundColor = UIColor.init(hex: 0xFECA8F)
+    self.tableView.backgroundColor = UIColor.init(hex: 0x2E1B0A)
+    self.tableView.separatorColor = UIColor.init(hex: 0x3D210A)
+//    self.tableView.
   }
   
   
@@ -49,6 +56,9 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
     let cell = DoubleLabelTableViewCell()
     if (indexPath.section == 0) {
       let pictureCell = ProfilePictCell()
+      pictureCell.backgroundColor = UIColor.init(hex: 0x331D0B)
+      pictureCell.label.textColor = UIColor.init(hex: 0x9C998C)
+      pictureCell.selectionStyle = UITableViewCellSelectionStyle.none
       return pictureCell
     } else if (indexPath.section == 1) {
       switch indexPath.row {
@@ -68,6 +78,10 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
       }
     }
     cell.labelRight.text = self.sectionsArray[indexPath.section][indexPath.row]
+    cell.backgroundColor = UIColor.init(hex: 0x331D0B)
+    cell.labelLeft.textColor = UIColor.init(hex: 0xF08329)
+    cell.labelRight.textColor = UIColor.init(hex: 0x9C998C)
+    cell.selectionStyle = UITableViewCellSelectionStyle.none
     return cell
   }
   

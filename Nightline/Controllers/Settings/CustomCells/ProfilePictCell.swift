@@ -40,7 +40,7 @@ class ProfilePictCell: UITableViewCell {
       make.size.equalTo(60)
     }
     userPicture.translatesAutoresizingMaskIntoConstraints = false
-    userPicture.roundImage(withBorder: true, borderColor: .black, borderSize: 1.0)
+    userPicture.roundImage(withBorder: true, borderColor: UIColor.init(hex: 0xF08329), borderSize: 1.0)
     userPicture.image = UIImage(data: UserManager.instance.getUserPicture()! as Data)
     
     self.contentView.addSubview(label)

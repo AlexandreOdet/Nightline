@@ -30,9 +30,9 @@ class EditAgeViewController: BaseViewController, UIPickerViewDelegate, UIPickerV
       make.trailing.equalTo(contentView).offset(-15)
       make.height.equalTo(30)
     }
-    self.view.backgroundColor = self.getMidnightBlue()
+    self.view.backgroundColor = self.backgroundColor()
     editLabel.text = "Age :"
-    editLabel.textColor = UIColor.orange
+    editLabel.textColor = self.labelTextColor()
     self.contentView.addSubview(agePicker)
     agePicker.snp.makeConstraints { make in
       make.top.equalTo(editLabel.snp.bottom).offset(20)
@@ -43,7 +43,7 @@ class EditAgeViewController: BaseViewController, UIPickerViewDelegate, UIPickerV
     self.agePicker.dataSource = self
     let myRow : Int = Int(UserManager.instance.getUserAge()) ?? 0
     self.agePicker.selectRow(myRow, inComponent: 0, animated: true)
-    self.agePicker.backgroundColor = self.getMidnightBlue()
+    self.agePicker.backgroundColor = self.backgroundColor()
   }
   
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
