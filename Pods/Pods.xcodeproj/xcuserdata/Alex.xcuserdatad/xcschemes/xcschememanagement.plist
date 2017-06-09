@@ -8,81 +8,118 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>AlamofireObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>GTMOAuth2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>KeychainSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>PageMenu.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
 		</dict>
 		<key>Pods-Nightline.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>Pods-NightlineTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 		<key>Pods-NightlineUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>PromiseKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>R.swift.Library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>12</integer>
 		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 		<key>RealmSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>14</integer>
 		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>15</integer>
 		</dict>
 		<key>SwiftyBeaver.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>16</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -98,6 +135,16 @@
 			<true/>
 		</dict>
 		<key>1B25E231CB76C8A822F8D0F8703023A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>25B34A16B633A61773B7433DB814305D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>26E0A534A16D52407F0C482C51AA0662</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,6 +189,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>66B99EDAE92EB28EC9FB50765CDAD5B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>681BE6E3D02A43F9BA63777AC435C8FD</key>
 		<dict>
 			<key>primary</key>
@@ -157,7 +209,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>921CEAB6B4C5B4D79D9B8227F6A471BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>926B32837FE5B13AC1F405E0CF0C3731</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9502FB01641FBABB78522037E882757B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>978A447F57E812AEE5D676FF361F1416</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9FF7A31C6D50C66D03338C491B5748A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -183,6 +255,11 @@
 			<true/>
 		</dict>
 		<key>BA5FAAB1E83874CD0DC9937D6483A1F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BCFE6C0DBEE91E9AC1B06F58A6E14879</key>
 		<dict>
 			<key>primary</key>
 			<true/>

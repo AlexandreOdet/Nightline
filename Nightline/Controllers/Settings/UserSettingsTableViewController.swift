@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 import Rswift
+import FBSDKLoginKit
 
 /*
  Controllers: UserSettingsTableViewController
@@ -149,6 +150,9 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
     Utils.Network.logOutUser()
     let notificationName = Notification.Name(TabBarController.notificationIdentifier)
     NotificationCenter.default.post(name: notificationName, object: nil)
+    if FBSDKAccessToken.current() != nil {
+      FBSDKLoginManager().logOut()
+    }
   }
 
   /*

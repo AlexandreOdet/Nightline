@@ -20,7 +20,7 @@ final class UserFriendsListTableViewCell: UITableViewCell {
     super.init(style: .default, reuseIdentifier: reuseIdentifier)
     setUpView()
     profileImage.roundImage(withBorder: true, borderColor: .black, borderSize: 1.0)
-    profileImage.image = R.image.profile()
+    profileImage.image = R.image.male()
     nameLabel.text = nameUser
   }
   
