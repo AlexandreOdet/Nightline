@@ -30,9 +30,9 @@ class EditFirstNameViewController: BaseViewController {
       make.trailing.equalTo(contentView).offset(-15)
       make.height.equalTo(30)
     }
-    self.view.backgroundColor = self.getMidnightBlue()
+    self.view.backgroundColor = self.backgroundColor()
     editLabel.text = "Prénom :"
-    editLabel.textColor = UIColor.orange
+    editLabel.textColor = self.labelTextColor()
     self.contentView.addSubview(editTextField)
     editTextField.snp.makeConstraints { make in
       make.top.equalTo(editLabel.snp.bottom).offset(20)
@@ -41,18 +41,13 @@ class EditFirstNameViewController: BaseViewController {
     }
     editTextField.text = UserManager.instance.getUserFirstName()
     editTextField.borderStyle = .roundedRect
-    editTextField.backgroundColor = UIColor.init(hex: 0x233157)
-    editTextField.textColor = UIColor.init(hex: 0xFF7F40)
+    editTextField.backgroundColor = self.textFieldBackgroundColor()
+    editTextField.textColor = self.textFieldTextColor()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setupView()
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
   override func viewWillDisappear(_ animated: Bool) {

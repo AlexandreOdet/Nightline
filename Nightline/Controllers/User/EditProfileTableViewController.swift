@@ -11,7 +11,8 @@ import UIKit
 import SnapKit
 import Rswift
 
-class EditProfileTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditProfileTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+  
   
   var sectionsArray : [[String]] = [["Photo"], ["Prénom", "Nom", "Pseudo"], ["Age", "Ville"]]
   var tableView = UITableView()
@@ -19,36 +20,29 @@ class EditProfileTableViewController: UIViewController, UITableViewDelegate, UIT
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Edition du profil"
-    //addTableView()
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    addTableView()
+    self.tableView.reloadData()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+  private func addTableView() {
     self.tableView = UITableView(frame: self.view.frame, style: .grouped)
-    tableView.dataSource = self
-    tableView.delegate = self
-    
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
     self.view.addSubview(tableView)
     tableView.snp.makeConstraints { (make) -> Void in
-      make.left.right.bottom.equalTo(self.view)
-      make.top.equalTo(self.view)
-      //.offset((self.navigationController?.navigationBar.frame.height)! + UIApplication.shared.statusBarFrame.height)
+      make.right.left.bottom.equalTo(self.view)
+      make.top.equalTo(self.view).offset((self.navigationController?.navigationBar.frame.height)!)
     }
     tableView.translatesAutoresizingMaskIntoConstraints = false
+    tableView.delegate = self
+    tableView.dataSource = self
+    //self.tableView.backgroundColor = UIColor.init(hex: 0xFECA8F)
+    self.tableView.backgroundColor = UIColor.init(hex: 0x2E1B0A)
+    self.tableView.separatorColor = UIColor.init(hex: 0x3D210A)
+//    self.tableView.
   }
   
   
   /*------------- UITableView Functions -------------*/
   
-  //  func numberOfSections(in tableView: UITableView) -> Int {
-  //    return 4
-  //  }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return sectionsArray[section].count
@@ -62,6 +56,9 @@ class EditProfileTableViewController: UIViewController, UITableViewDelegate, UIT
     let cell = DoubleLabelTableViewCell()
     if (indexPath.section == 0) {
       let pictureCell = ProfilePictCell()
+      pictureCell.backgroundColor = UIColor.init(hex: 0x331D0B)
+      pictureCell.label.textColor = UIColor.init(hex: 0x9C998C)
+      pictureCell.selectionStyle = UITableViewCellSelectionStyle.none
       return pictureCell
     } else if (indexPath.section == 1) {
       switch indexPath.row {
@@ -81,6 +78,10 @@ class EditProfileTableViewController: UIViewController, UITableViewDelegate, UIT
       }
     }
     cell.labelRight.text = self.sectionsArray[indexPath.section][indexPath.row]
+    cell.backgroundColor = UIColor.init(hex: 0x331D0B)
+    cell.labelLeft.textColor = UIColor.init(hex: 0xF08329)
+    cell.labelRight.textColor = UIColor.init(hex: 0x9C998C)
+    cell.selectionStyle = UITableViewCellSelectionStyle.none
     return cell
   }
   
@@ -112,7 +113,7 @@ class EditProfileTableViewController: UIViewController, UITableViewDelegate, UIT
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     if indexPath.section == 0 {
-      return 100
+      return 90
     }
     return UITableViewAutomaticDimension
   }
@@ -125,32 +126,5 @@ class EditProfileTableViewController: UIViewController, UITableViewDelegate, UIT
     } else {
       return "Autres informations"
     }
-  }
-  
-  /*------------- UITableView Actions -------------*/
-  
-  /*
-   performLogoutAction() function.
-   This function logout the user from the app.
-   @param None
-   @return None
-   */
-  
-  func performLogoutAction() {
-    Utils.Network.logOutUser()
-    let notificationName = Notification.Name(TabBarController.notificationIdentifier)
-    NotificationCenter.default.post(name: notificationName, object: nil)
-  }
-  
-  /*
-   goToEditProfilViewController() function.
-   This function goes to user profile on editing mode.
-   @param None
-   @return None
-   */
-  
-  func goToEditProfilViewController() {
-    let nextViewController = EditProfileTableViewController()
-    self.navigationController?.pushViewController(nextViewController, animated: true)
   }
 }

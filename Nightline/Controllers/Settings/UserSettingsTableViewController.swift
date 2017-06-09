@@ -75,9 +75,8 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
     var cell: UITableViewCell!
     if indexPath.section == SettingsCell.Profile.rawValue {
       let profileCell = UserProfileCell()
-      profileCell.labelName.text = UserManager.instance.getUserNickname()//getUserCompleteName()
-      profileCell.isUserInteractionEnabled = true //soon édition du profil
-      
+      profileCell.labelName.text = UserManager.instance.getUserNickname()
+      profileCell.isUserInteractionEnabled = true
       return profileCell
     } else {
       if indexPath.section == SettingsCell.Preference.rawValue {

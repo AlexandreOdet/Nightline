@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0850DD25C0BC86BCA0846D56 /* Pods_NightlineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605D44C08906764A0AB57BBF /* Pods_NightlineTests.framework */; };
 		5832BCC12EC17EBE0ECD16F8 /* Pods_Nightline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE0EC1A8B57CD4F2CCFB426 /* Pods_Nightline.framework */; };
+		7B15943F1ECB447800C80AB8 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B15943E1ECB447800C80AB8 /* UITableViewExtension.swift */; };
 		7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */; };
 		7B46AA601E9F557300529E64 /* EditFirstNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */; };
 		7B5A6ACE1E9FB36D00D902C5 /* EditLastNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A6ACD1E9FB36D00D902C5 /* EditLastNameViewController.swift */; };
@@ -40,7 +41,6 @@
 		FA3AA17D1E577153002CF4FC /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA17A1E577153002CF4FC /* UserSettingsTableViewController.swift */; };
 		FA3AA1801E57716E002CF4FC /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA17F1E57716E002CF4FC /* UserProfileCell.swift */; };
 		FA3AA1831E57718B002CF4FC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1821E57718B002CF4FC /* TabBarController.swift */; };
-		FA3AA1871E5771A8002CF4FC /* SaveEditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1851E5771A8002CF4FC /* SaveEditProfileViewController.swift */; };
 		FA3AA1881E5771A8002CF4FC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */; };
 		FA3AA18C1E57720F002CF4FC /* TokenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */; };
 		FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18B1E57720F002CF4FC /* UserManager.swift */; };
@@ -122,6 +122,7 @@
 		483359D5753ED4EE7A649862 /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		605D44C08906764A0AB57BBF /* Pods_NightlineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE0EC1A8B57CD4F2CCFB426 /* Pods_Nightline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nightline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B15943E1ECB447800C80AB8 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtension.swift; path = Extensions/UI/UITableViewExtension.swift; sourceTree = "<group>"; };
 		7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditPictureViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditPictureViewController.swift; sourceTree = "<group>"; };
 		7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditFirstNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditFirstNameViewController.swift; sourceTree = "<group>"; };
 		7B5A6ACD1E9FB36D00D902C5 /* EditLastNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditLastNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditLastNameViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +158,6 @@
 		FA3AA17A1E577153002CF4FC /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettingsTableViewController.swift; path = Controllers/Settings/UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		FA3AA17F1E57716E002CF4FC /* UserProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileCell.swift; path = Controllers/Settings/CustomCells/UserProfileCell.swift; sourceTree = "<group>"; };
 		FA3AA1821E57718B002CF4FC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBar/TabBarController.swift; sourceTree = "<group>"; };
-		FA3AA1851E5771A8002CF4FC /* SaveEditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveEditProfileViewController.swift; path = Controllers/User/SaveEditProfileViewController.swift; sourceTree = "<group>"; };
 		FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = Controllers/User/UserProfileViewController.swift; sourceTree = "<group>"; };
 		FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenWrapper.swift; path = Manager/TokenWrapper.swift; sourceTree = "<group>"; };
 		FA3AA18B1E57720F002CF4FC /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Manager/UserManager.swift; sourceTree = "<group>"; };
@@ -368,7 +368,6 @@
 				FA3AA1791E577153002CF4FC /* EtablishmentTableViewController.swift */,
 				FA3AA17A1E577153002CF4FC /* UserSettingsTableViewController.swift */,
 				7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */,
-				FA3AA1851E5771A8002CF4FC /* SaveEditProfileViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -447,6 +446,7 @@
 				FA5C2A951E5A519700A0CB56 /* UIColorExtension.swift */,
 				FA5C2A961E5A519700A0CB56 /* UIImageViewExtension.swift */,
 				FA5C2A971E5A519700A0CB56 /* UITableViewCellExtension.swift */,
+				7B15943E1ECB447800C80AB8 /* UITableViewExtension.swift */,
 				FA5C2A981E5A519700A0CB56 /* UITextFieldExtension.swift */,
 				FA5C2A991E5A519700A0CB56 /* UIViewControllerExtension.swift */,
 			);
@@ -472,7 +472,6 @@
 			children = (
 				FA303F681E5D1E9A008961EF /* User */,
 				FA303F631E5D1C44008961EF /* Parties */,
-				FAF0A6C91E876F3E00C2ED18 /* ExtensionInt.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -678,6 +677,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFF4EA11E5E4762006582C7 /* ExtensionString.swift */,
+				FAF0A6C91E876F3E00C2ED18 /* ExtensionInt.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1006,7 +1006,6 @@
 				FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */,
 				FA5C2AA01E5A51B300A0CB56 /* ExtensionConsommation.swift in Sources */,
 				FA5C2A9A1E5A519700A0CB56 /* UIColorExtension.swift in Sources */,
-				FA3AA1871E5771A8002CF4FC /* SaveEditProfileViewController.swift in Sources */,
 				FA5C2AA61E5A5AF800A0CB56 /* ExtensionEtablishments.swift in Sources */,
 				FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */,
 				FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */,
@@ -1016,6 +1015,7 @@
 				FAAC43C81E85BA2100CEF9CA /* ProfileViewController.swift in Sources */,
 				FA5C2A911E5A4FFC00A0CB56 /* EventType.swift in Sources */,
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
+				7B15943F1ECB447800C80AB8 /* UITableViewExtension.swift in Sources */,
 				FADF25CE1E875A4800E74439 /* UserAchievementsListTableViewCell.swift in Sources */,
 				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
 				7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */,

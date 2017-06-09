@@ -19,14 +19,21 @@ import UIKit
  @return Nothing.
  */
 
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
+extension BaseViewController {
+  func backgroundColor() -> UIColor {
+    return UIColor.init(hex: 0x2E1B0A)
+  }
+  
+  func textFieldBackgroundColor() -> UIColor {
+    return UIColor.init(hex: 0x331D0B)
+  }
+  
+  func textFieldTextColor() -> UIColor {
+    return UIColor.init(hex: 0xF08329)
+  }
+  
+  func labelTextColor() -> UIColor {
+    return UIColor.init(hex: 0x9C998C)
+  }
 }
 

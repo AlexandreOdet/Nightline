@@ -17,6 +17,7 @@ class EditPictureViewController: BaseViewController, UIImagePickerControllerDele
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.view.backgroundColor = self.backgroundColor()
     self.view.addSubview(contentView)
     contentView.snp.makeConstraints { make in
       make.edges.equalTo(self.view)
@@ -34,7 +35,7 @@ class EditPictureViewController: BaseViewController, UIImagePickerControllerDele
     imagePicker.delegate = self
     let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
     picture.addGestureRecognizer(tapGestureRecognizer)
-  }
+}
   
   func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
     if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -60,15 +61,4 @@ class EditPictureViewController: BaseViewController, UIImagePickerControllerDele
     }
     dismiss(animated: true, completion: nil)
   }
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
 }
