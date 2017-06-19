@@ -23,14 +23,38 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-  <key>CFBundleVersion</key>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb206316176526191</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
 	<string>1.12</string>
-  <key>LSApplicationCategoryType</key>
+	<key>FacebookAppID</key>
+	<string>206316176526191</string>
+	<key>FacebookDisplayName</key>
+	<string>Nightline</string>
+	<key>LSApplicationCategoryType</key>
 	<string></string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Take photos and videos</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Nightline a besoin d'accéder à votre localisation afin de vous proposer les soirées autour de vous.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To record Audio with Video</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Edit profile picture</string>
 	<key>UILaunchStoryboardName</key>
@@ -54,25 +78,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-  <key>CFBundleURLTypes</key>
-  <array>
-    <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb206316176526191</string>
-      </array>
-    </dict>
-  </array>
-  <key>FacebookAppID</key>
-  <string>206316176526191</string>
-  <key>FacebookDisplayName</key>
-  <string>Nightline</string>
-  <key>LSApplicationQueriesSchemes</key>
-  <array>
-    <string>fbapi</string>
-    <string>fb-messenger-api</string>
-    <string>fbauth2</string>
-    <string>fbshareextension</string>
-  </array>
 </dict>
 </plist>

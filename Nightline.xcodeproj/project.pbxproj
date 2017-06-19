@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0850DD25C0BC86BCA0846D56 /* Pods_NightlineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605D44C08906764A0AB57BBF /* Pods_NightlineTests.framework */; };
 		5832BCC12EC17EBE0ECD16F8 /* Pods_Nightline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE0EC1A8B57CD4F2CCFB426 /* Pods_Nightline.framework */; };
+		7B0A55021EF7E92E00BE08CD /* CamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A55011EF7E92E00BE08CD /* CamViewController.swift */; };
 		7B15943F1ECB447800C80AB8 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B15943E1ECB447800C80AB8 /* UITableViewExtension.swift */; };
 		7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */; };
 		7B46AA601E9F557300529E64 /* EditFirstNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */; };
@@ -123,6 +124,7 @@
 		483359D5753ED4EE7A649862 /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		605D44C08906764A0AB57BBF /* Pods_NightlineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE0EC1A8B57CD4F2CCFB426 /* Pods_Nightline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nightline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B0A55011EF7E92E00BE08CD /* CamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CamViewController.swift; path = Controllers/Parties/CamViewController.swift; sourceTree = "<group>"; };
 		7B15943E1ECB447800C80AB8 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtension.swift; path = Extensions/UI/UITableViewExtension.swift; sourceTree = "<group>"; };
 		7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditPictureViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditPictureViewController.swift; sourceTree = "<group>"; };
 		7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditFirstNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditFirstNameViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			children = (
 				FA3A6D2C1E833D97008489F2 /* EtablishementViewController.swift */,
 				FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */,
+				7B0A55011EF7E92E00BE08CD /* CamViewController.swift */,
 			);
 			name = Parties;
 			sourceTree = "<group>";
@@ -763,7 +766,7 @@
 				TargetAttributes = {
 					FAFF37221E03402F001B2A8F = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 97AYAAKHJ8;
+						DevelopmentTeam = 5A846ZDA27;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1045,6 +1048,7 @@
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */,
 				7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */,
+				7B0A55021EF7E92E00BE08CD /* CamViewController.swift in Sources */,
 				FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */,
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
 				FA3A6D2D1E833D97008489F2 /* EtablishementViewController.swift in Sources */,
@@ -1220,7 +1224,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nightline/Nightline.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				DEVELOPMENT_TEAM = 5A846ZDA27;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1243,7 +1247,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nightline/Nightline.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				DEVELOPMENT_TEAM = 5A846ZDA27;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

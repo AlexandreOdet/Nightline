@@ -142,6 +142,12 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                         discipline: "",
                         coordinate: unionSquare)
     self.map.addAnnotation(marker)
+    let myHome = CLLocationCoordinate2DMake(48.6570, 2.3239)
+    let cedMarker = Marker(title: "test",
+                        locationName: "San Francisco Union Square",
+                        discipline: "",
+                        coordinate: myHome)
+    self.map.addAnnotation(cedMarker)
   }
   
   /*

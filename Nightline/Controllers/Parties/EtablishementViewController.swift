@@ -13,11 +13,26 @@ import SnapKit
 class EtablishmentViewController: ProfileViewController {
   var isLiked = false
   private let animation = Animation()
+  let camButton = UIButton()
   
   override func viewDidLoad() {
     self.isUser = false
     super.viewDidLoad()
     setUpView()
+    self.view.addSubview(camButton)
+    camButton.snp.makeConstraints { (make) -> Void in
+      make.centerX.equalToSuperview()
+      make.bottom.equalToSuperview()
+      make.size.equalTo(70)
+    }
+    let buttonImage = UIImage(named: "cameraButton")
+    camButton.setImage(buttonImage, for: .normal)
+    camButton.addTarget(self, action: #selector(pushCamViewController), for: .touchUpInside)
+  }
+  
+  func pushCamViewController() {
+    let nextViewController = CamViewController()
+    self.navigationController?.present(nextViewController, animated: true, completion: nil)
   }
   
   private func setUpView() {
