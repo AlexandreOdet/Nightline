@@ -62,11 +62,11 @@
 		FA5C2AA81E5A5B3000A0CB56 /* GroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AA71E5A5B3000A0CB56 /* GroupType.swift */; };
 		FA5C2AAA1E5A5B6F00A0CB56 /* ExtensionGroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AA91E5A5B6F00A0CB56 /* ExtensionGroupType.swift */; };
 		FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */; };
-		FA6B714E1EA0837400C70AB2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6B714D1EA0837400C70AB2 /* Default-568h@2x.png */; };
 		FA75ADAB1E4BBA2B0078FFE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAA1E4BBA2B0078FFE9 /* User.swift */; };
 		FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */; };
 		FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */; };
 		FA78B71B1E56978600765056 /* RAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78B71A1E56978600765056 /* RAUser.swift */; };
+		FA7AFEA21EEB0F0200301941 /* ConsommationTypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AFEA11EEB0F0200301941 /* ConsommationTypeCollectionViewController.swift */; };
 		FAAC43C81E85BA2100CEF9CA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C71E85BA2100CEF9CA /* ProfileViewController.swift */; };
 		FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
@@ -181,11 +181,11 @@
 		FA5C2AA71E5A5B3000A0CB56 /* GroupType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupType.swift; path = Enums/Parties/MapFilter/GroupType.swift; sourceTree = "<group>"; };
 		FA5C2AA91E5A5B6F00A0CB56 /* ExtensionGroupType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionGroupType.swift; path = Extensions/Enums/ExtensionGroupType.swift; sourceTree = "<group>"; };
 		FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapFilterManager.swift; path = Manager/MapFilterManager.swift; sourceTree = "<group>"; };
-		FA6B714D1EA0837400C70AB2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA75ADAA1E4BBA2B0078FFE9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User/User.swift; sourceTree = "<group>"; };
 		FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Marker.swift; path = Models/Parties/Marker.swift; sourceTree = "<group>"; };
 		FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCell.swift; path = Enums/CustomCells/Settings/SettingsCell.swift; sourceTree = "<group>"; };
 		FA78B71A1E56978600765056 /* RAUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAUser.swift; path = Network/RAUser.swift; sourceTree = "<group>"; };
+		FA7AFEA11EEB0F0200301941 /* ConsommationTypeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsommationTypeCollectionViewController.swift; path = Controllers/Parties/ConsommationTypeCollectionViewController.swift; sourceTree = "<group>"; };
 		FAAC43C71E85BA2100CEF9CA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsListTableViewController.swift; path = Controllers/User/UserFriendsListTableViewController.swift; sourceTree = "<group>"; };
 		FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishmentMenuViewController.swift; path = Controllers/Parties/EtablishmentMenuViewController.swift; sourceTree = "<group>"; };
@@ -546,7 +546,6 @@
 		FAFF371A1E03402F001B2A8F = {
 			isa = PBXGroup;
 			children = (
-				FA6B714D1EA0837400C70AB2 /* Default-568h@2x.png */,
 				FAFF37251E03402F001B2A8F /* Nightline */,
 				FAFF373D1E03402F001B2A8F /* NightlineTests */,
 				FAFF37481E03402F001B2A8F /* NightlineUITests */,
@@ -819,7 +818,6 @@
 			files = (
 				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
 				FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */,
-				FA6B714E1EA0837400C70AB2 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,6 +1036,7 @@
 				FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */,
 				FA78B71B1E56978600765056 /* RAUser.swift in Sources */,
 				FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */,
+				FA7AFEA21EEB0F0200301941 /* ConsommationTypeCollectionViewController.swift in Sources */,
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
 				FA5C2AA21E5A57FD00A0CB56 /* ExtensionPersonType.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
