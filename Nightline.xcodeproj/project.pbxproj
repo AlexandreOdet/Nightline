@@ -23,6 +23,8 @@
 		FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB89D1E03495E00C8E437 /* R.generated.swift */; };
 		FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DB8A11E0349FE00C8E437 /* MapKit.framework */; };
 		FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB8A71E034CEA00C8E437 /* Localizable.strings */; };
+		FA23240D1EF92CFE00F6AF88 /* RAEtablissement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23240C1EF92CFE00F6AF88 /* RAEtablissement.swift */; };
+		FA23240F1EF92D0F00F6AF88 /* Etablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23240E1EF92D0F00F6AF88 /* Etablishment.swift */; };
 		FA303F651E5D1C75008961EF /* ExtensionMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F641E5D1C75008961EF /* ExtensionMarker.swift */; };
 		FA303F671E5D1D18008961EF /* ImageableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F661E5D1D18008961EF /* ImageableProtocol.swift */; };
 		FA303F6A1E5D1EAE008961EF /* ExtensionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F691E5D1EAE008961EF /* ExtensionUser.swift */; };
@@ -141,6 +143,8 @@
 		FA1DB8A61E034CEA00C8E437 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1DB8A81E034CEF00C8E437 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightline.entitlements; sourceTree = "<group>"; };
+		FA23240C1EF92CFE00F6AF88 /* RAEtablissement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAEtablissement.swift; path = Network/RAEtablissement.swift; sourceTree = "<group>"; };
+		FA23240E1EF92D0F00F6AF88 /* Etablishment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Etablishment.swift; path = Models/Parties/Etablishment.swift; sourceTree = "<group>"; };
 		FA303F641E5D1C75008961EF /* ExtensionMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionMarker.swift; path = Extensions/Models/Parties/ExtensionMarker.swift; sourceTree = "<group>"; };
 		FA303F661E5D1D18008961EF /* ImageableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageableProtocol.swift; path = Protocols/ImageableProtocol.swift; sourceTree = "<group>"; };
 		FA303F691E5D1EAE008961EF /* ExtensionUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionUser.swift; path = Extensions/Models/User/ExtensionUser.swift; sourceTree = "<group>"; };
@@ -493,6 +497,7 @@
 			children = (
 				FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */,
 				FADF25C91E8746EE00E74439 /* Achievments.swift */,
+				FA23240E1EF92D0F00F6AF88 /* Etablishment.swift */,
 			);
 			name = Parties;
 			sourceTree = "<group>";
@@ -653,6 +658,7 @@
 			children = (
 				FAFF37841E034678001B2A8F /* RABase.swift */,
 				FA78B71A1E56978600765056 /* RAUser.swift */,
+				FA23240C1EF92CFE00F6AF88 /* RAEtablissement.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -1020,6 +1026,7 @@
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
 				7B15943F1ECB447800C80AB8 /* UITableViewExtension.swift in Sources */,
 				FADF25CE1E875A4800E74439 /* UserAchievementsListTableViewCell.swift in Sources */,
+				FA23240F1EF92D0F00F6AF88 /* Etablishment.swift in Sources */,
 				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
 				7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */,
 				FA303F6C1E5D1F26008961EF /* ExtensionUserPreferences.swift in Sources */,
@@ -1053,6 +1060,7 @@
 				FA3AA17D1E577153002CF4FC /* UserSettingsTableViewController.swift in Sources */,
 				7B5A6ACE1E9FB36D00D902C5 /* EditLastNameViewController.swift in Sources */,
 				FA303F6A1E5D1EAE008961EF /* ExtensionUser.swift in Sources */,
+				FA23240D1EF92CFE00F6AF88 /* RAEtablissement.swift in Sources */,
 				FA3AA1831E57718B002CF4FC /* TabBarController.swift in Sources */,
 				FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */,
 				FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */,
