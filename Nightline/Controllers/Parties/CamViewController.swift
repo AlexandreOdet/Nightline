@@ -9,20 +9,26 @@
 import UIKit
 import SwiftyCam
 
-class CamViewController: SwiftyCamViewController {
+class CamViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegate {
   
   let captureButton = SwiftyCamButton()
   let returnButton = UIButton()
+  let recImage = UIImage(named: "rec")
+  let stopImage = UIImage(named: "stop")
+  let returnImage = UIImage(named: "back_arrow")
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    cameraDelegate = self
     captureButton.delegate = self
     self.view.addSubview(captureButton)
     captureButton.snp.makeConstraints { (make) in
       make.centerX.equalToSuperview()
-      make.bottom.equalToSuperview()
+      make.bottom.equalToSuperview().offset(-20)
+      make.size.equalTo(70)
     }
-    captureButton.backgroundColor = .red
+    captureButton.setImage(recImage, for: .normal)
+    captureButton.addTarget(self, action: #selector(takePhoto), for: .touchUpInside)
     
     self.view.addSubview(returnButton)
     returnButton.snp.makeConstraints { (make) in
@@ -30,7 +36,6 @@ class CamViewController: SwiftyCamViewController {
       make.top.equalToSuperview().offset(20)
       make.left.equalToSuperview()
     }
-    let returnImage = UIImage(named: "back_arrow")
     returnButton.setImage(returnImage, for: .normal)
     returnButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
   }
@@ -40,14 +45,8 @@ class CamViewController: SwiftyCamViewController {
   }
   
   
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
+    print("Hey you took a photo!")
+  }
   
 }

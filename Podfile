@@ -14,6 +14,7 @@ target 'Nightline' do
   pod 'KeychainSwift'
   pod 'PromiseKit'
   pod "SwiftyCam"
+  pod 'PageMenu'
   
   # Pods for Nightline
 

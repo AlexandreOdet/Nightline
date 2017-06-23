@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 33 images.
+  /// This `R.image` struct is generated, and contains static references to 34 images.
   struct image {
     /// Image `avatar`.
     static let avatar = Rswift.ImageResource(bundle: R.hostingBundle, name: "avatar")
@@ -85,10 +85,14 @@ struct R: Rswift.Validatable {
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
     /// Image `profile`.
     static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
+    /// Image `rec`.
+    static let rec = Rswift.ImageResource(bundle: R.hostingBundle, name: "rec")
     /// Image `settings_filled`.
     static let settings_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings_filled")
     /// Image `settings`.
     static let settings = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings")
+    /// Image `stop`.
+    static let stop = Rswift.ImageResource(bundle: R.hostingBundle, name: "stop")
     /// Image `test_logo`.
     static let test_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "test_logo")
     /// Image `toast`.
@@ -228,6 +232,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.profile, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "rec", bundle: ..., traitCollection: ...)`
+    static func rec(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rec, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "settings", bundle: ..., traitCollection: ...)`
     static func settings(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.settings, compatibleWith: traitCollection)
@@ -236,6 +245,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "settings_filled", bundle: ..., traitCollection: ...)`
     static func settings_filled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.settings_filled, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "stop", bundle: ..., traitCollection: ...)`
+    static func stop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.stop, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "test_logo", bundle: ..., traitCollection: ...)`
