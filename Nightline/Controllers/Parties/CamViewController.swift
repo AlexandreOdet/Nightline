@@ -15,7 +15,7 @@ class CamViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegat
   let returnButton = UIButton()
   let recImage = UIImage(named: "rec")
   let stopImage = UIImage(named: "stop")
-  let returnImage = UIImage(named: "back_arrow")
+  let returnImage = UIImage(named: "back_arrow_down")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,8 +33,8 @@ class CamViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegat
     self.view.addSubview(returnButton)
     returnButton.snp.makeConstraints { (make) in
       make.size.equalTo(70)
-      make.top.equalToSuperview().offset(20)
-      make.left.equalToSuperview()
+      make.bottom.equalToSuperview().offset(-20)
+      make.left.equalToSuperview().offset(20)
     }
     returnButton.setImage(returnImage, for: .normal)
     returnButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
@@ -44,9 +44,21 @@ class CamViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegat
     self.dismiss(animated: true, completion: nil)
   }
   
+  func saveImageDocumentDirectory(image: UIImage, title: String){
+    let fileManager = FileManager.default
+    let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(title).jpg")
+    print(paths)
+    let imageData = UIImageJPEGRepresentation(image, 0.5)
+    fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
+  }
   
   func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
     print("Hey you took a photo!")
+    let testImage = photo as! Cachable
+    let test = Cacher(destination: .atFolder("media"))
+//    test.persist(item: testImage, completion: { ("test") in
+//    })
+    
   }
   
 }

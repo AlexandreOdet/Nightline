@@ -11,6 +11,7 @@
 		5832BCC12EC17EBE0ECD16F8 /* Pods_Nightline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE0EC1A8B57CD4F2CCFB426 /* Pods_Nightline.framework */; };
 		7B0A55021EF7E92E00BE08CD /* CamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A55011EF7E92E00BE08CD /* CamViewController.swift */; };
 		7B0A55141EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A55131EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift */; };
+		7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */; };
 		7B15943F1ECB447800C80AB8 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B15943E1ECB447800C80AB8 /* UITableViewExtension.swift */; };
 		7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */; };
 		7B46AA601E9F557300529E64 /* EditFirstNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */; };
@@ -126,6 +127,7 @@
 		6DE0EC1A8B57CD4F2CCFB426 /* Pods_Nightline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nightline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0A55011EF7E92E00BE08CD /* CamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CamViewController.swift; path = Controllers/Parties/CamViewController.swift; sourceTree = "<group>"; };
 		7B0A55131EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsommationTypeCollectionViewController.swift; path = Controllers/Parties/ConsommationTypeCollectionViewController.swift; sourceTree = "<group>"; };
+		7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 		7B15943E1ECB447800C80AB8 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtension.swift; path = Extensions/UI/UITableViewExtension.swift; sourceTree = "<group>"; };
 		7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditPictureViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditPictureViewController.swift; sourceTree = "<group>"; };
 		7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditFirstNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditFirstNameViewController.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 				FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */,
 				FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */,
 				FA303F661E5D1D18008961EF /* ImageableProtocol.swift */,
+				7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -1000,6 +1003,7 @@
 				FA3AA1801E57716E002CF4FC /* UserProfileCell.swift in Sources */,
 				FA303F6E1E5D23A1008961EF /* ExtensionGender.swift in Sources */,
 				FA3AA1711E577106002CF4FC /* HomeViewController.swift in Sources */,
+				7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */,
 				FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */,
 				FAF0A6CA1E876F3E00C2ED18 /* ExtensionInt.swift in Sources */,
 				FA5C2AAA1E5A5B6F00A0CB56 /* ExtensionGroupType.swift in Sources */,
