@@ -31,10 +31,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 31 images.
+  /// This `R.image` struct is generated, and contains static references to 35 images.
   struct image {
     /// Image `avatar`.
     static let avatar = Rswift.ImageResource(bundle: R.hostingBundle, name: "avatar")
+    /// Image `back_arrow_down`.
+    static let back_arrow_down = Rswift.ImageResource(bundle: R.hostingBundle, name: "back_arrow_down")
     /// Image `back_arrow`.
     static let back_arrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "back_arrow")
     /// Image `background`.
@@ -45,6 +47,8 @@ struct R: Rswift.Validatable {
     static let beer = Rswift.ImageResource(bundle: R.hostingBundle, name: "beer")
     /// Image `birthday`.
     static let birthday = Rswift.ImageResource(bundle: R.hostingBundle, name: "birthday")
+    /// Image `cameraButton`.
+    static let cameraButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraButton")
     /// Image `champagne`.
     static let champagne = Rswift.ImageResource(bundle: R.hostingBundle, name: "champagne")
     /// Image `cocktail`.
@@ -83,10 +87,14 @@ struct R: Rswift.Validatable {
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
     /// Image `profile`.
     static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
+    /// Image `rec`.
+    static let rec = Rswift.ImageResource(bundle: R.hostingBundle, name: "rec")
     /// Image `settings_filled`.
     static let settings_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings_filled")
     /// Image `settings`.
     static let settings = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings")
+    /// Image `stop`.
+    static let stop = Rswift.ImageResource(bundle: R.hostingBundle, name: "stop")
     /// Image `test_logo`.
     static let test_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "test_logo")
     /// Image `toast`.
@@ -104,6 +112,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "back_arrow", bundle: ..., traitCollection: ...)`
     static func back_arrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.back_arrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "back_arrow_down", bundle: ..., traitCollection: ...)`
+    static func back_arrow_down(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.back_arrow_down, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "background", bundle: ..., traitCollection: ...)`
@@ -124,6 +137,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "birthday", bundle: ..., traitCollection: ...)`
     static func birthday(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.birthday, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "cameraButton", bundle: ..., traitCollection: ...)`
+    static func cameraButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cameraButton, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "champagne", bundle: ..., traitCollection: ...)`
@@ -221,6 +239,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.profile, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "rec", bundle: ..., traitCollection: ...)`
+    static func rec(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rec, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "settings", bundle: ..., traitCollection: ...)`
     static func settings(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.settings, compatibleWith: traitCollection)
@@ -229,6 +252,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "settings_filled", bundle: ..., traitCollection: ...)`
     static func settings_filled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.settings_filled, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "stop", bundle: ..., traitCollection: ...)`
+    static func stop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.stop, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "test_logo", bundle: ..., traitCollection: ...)`

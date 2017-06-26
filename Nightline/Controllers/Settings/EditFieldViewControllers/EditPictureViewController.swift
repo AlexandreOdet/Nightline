@@ -38,12 +38,38 @@ class EditPictureViewController: BaseViewController, UIImagePickerControllerDele
 }
   
   func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
+    let chooseSource = UIAlertController(title: "Choix de la source", message: "?", preferredStyle: .actionSheet)
+    let roll = UIAlertAction(title: "Bibliothèque", style: .default, handler: {
+      action in
+      self.photoFromLibrairy()
+    })
+    let camera = UIAlertAction(title: "Camera", style: .default, handler: {
+      action in
+      self.photoFromCamera()
+    })
+    chooseSource.addAction(roll)
+    chooseSource.addAction(camera)
+    present(chooseSource, animated: true, completion: nil)
+  }
+  
+  func photoFromLibrairy() {
     if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
       imagePicker.allowsEditing = false
       imagePicker.sourceType = .photoLibrary
       imagePicker.delegate = self
       present(imagePicker, animated: true, completion: nil)
+    } else {
+      let needAuthorization = UIAlertController(title: "Impossible", message: "Veuillez autoriser l'application a acceder a votre bibliotheque photo dans les reglages de l'appareil", preferredStyle: .alert)
+      present(needAuthorization, animated: true, completion: nil)
     }
+  }
+  
+  func photoFromCamera() {
+    imagePicker.allowsEditing = false
+    imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+    imagePicker.cameraCaptureMode = .photo
+    imagePicker.modalPresentationStyle = .fullScreen
+    present(imagePicker,animated: true,completion: nil)
   }
   
   override func didReceiveMemoryWarning() {

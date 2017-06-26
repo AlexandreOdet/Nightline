@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0850DD25C0BC86BCA0846D56 /* Pods_NightlineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605D44C08906764A0AB57BBF /* Pods_NightlineTests.framework */; };
 		5832BCC12EC17EBE0ECD16F8 /* Pods_Nightline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE0EC1A8B57CD4F2CCFB426 /* Pods_Nightline.framework */; };
+		7B0A55021EF7E92E00BE08CD /* CamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A55011EF7E92E00BE08CD /* CamViewController.swift */; };
+		7B0A55141EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A55131EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift */; };
+		7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */; };
 		7B15943F1ECB447800C80AB8 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B15943E1ECB447800C80AB8 /* UITableViewExtension.swift */; };
 		7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */; };
 		7B46AA601E9F557300529E64 /* EditFirstNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */; };
@@ -67,7 +70,6 @@
 		FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */; };
 		FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */; };
 		FA78B71B1E56978600765056 /* RAUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78B71A1E56978600765056 /* RAUser.swift */; };
-		FA7AFEA21EEB0F0200301941 /* ConsommationTypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AFEA11EEB0F0200301941 /* ConsommationTypeCollectionViewController.swift */; };
 		FAAC43C81E85BA2100CEF9CA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C71E85BA2100CEF9CA /* ProfileViewController.swift */; };
 		FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
@@ -125,6 +127,9 @@
 		483359D5753ED4EE7A649862 /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		605D44C08906764A0AB57BBF /* Pods_NightlineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE0EC1A8B57CD4F2CCFB426 /* Pods_Nightline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nightline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B0A55011EF7E92E00BE08CD /* CamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CamViewController.swift; path = Controllers/Parties/CamViewController.swift; sourceTree = "<group>"; };
+		7B0A55131EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsommationTypeCollectionViewController.swift; path = Controllers/Parties/ConsommationTypeCollectionViewController.swift; sourceTree = "<group>"; };
+		7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 		7B15943E1ECB447800C80AB8 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtension.swift; path = Extensions/UI/UITableViewExtension.swift; sourceTree = "<group>"; };
 		7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditPictureViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditPictureViewController.swift; sourceTree = "<group>"; };
 		7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditFirstNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditFirstNameViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +192,6 @@
 		FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Marker.swift; path = Models/Parties/Marker.swift; sourceTree = "<group>"; };
 		FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCell.swift; path = Enums/CustomCells/Settings/SettingsCell.swift; sourceTree = "<group>"; };
 		FA78B71A1E56978600765056 /* RAUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAUser.swift; path = Network/RAUser.swift; sourceTree = "<group>"; };
-		FA7AFEA11EEB0F0200301941 /* ConsommationTypeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsommationTypeCollectionViewController.swift; path = Controllers/Parties/ConsommationTypeCollectionViewController.swift; sourceTree = "<group>"; };
 		FAAC43C71E85BA2100CEF9CA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsListTableViewController.swift; path = Controllers/User/UserFriendsListTableViewController.swift; sourceTree = "<group>"; };
 		FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishmentMenuViewController.swift; path = Controllers/Parties/EtablishmentMenuViewController.swift; sourceTree = "<group>"; };
@@ -324,7 +328,8 @@
 			children = (
 				FA3A6D2C1E833D97008489F2 /* EtablishementViewController.swift */,
 				FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */,
-				FA7AFEA11EEB0F0200301941 /* ConsommationTypeCollectionViewController.swift */,
+				7B0A55011EF7E92E00BE08CD /* CamViewController.swift */,
+				7B0A55131EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift */,
 			);
 			name = Parties;
 			sourceTree = "<group>";
@@ -542,6 +547,7 @@
 				FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */,
 				FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */,
 				FA303F661E5D1D18008961EF /* ImageableProtocol.swift */,
+				7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -769,8 +775,8 @@
 				TargetAttributes = {
 					FAFF37221E03402F001B2A8F = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 97AYAAKHJ8;
-						LastSwiftMigration = 0820;
+						DevelopmentTeam = 5A846ZDA27;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -784,12 +790,14 @@
 					FAFF37391E03402F001B2A8F = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 97AYAAKHJ8;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = FAFF37221E03402F001B2A8F;
 					};
 					FAFF37441E03402F001B2A8F = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 97AYAAKHJ8;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = FAFF37221E03402F001B2A8F;
 					};
@@ -1001,6 +1009,7 @@
 				FA3AA1801E57716E002CF4FC /* UserProfileCell.swift in Sources */,
 				FA303F6E1E5D23A1008961EF /* ExtensionGender.swift in Sources */,
 				FA3AA1711E577106002CF4FC /* HomeViewController.swift in Sources */,
+				7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */,
 				FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */,
 				FAF0A6CA1E876F3E00C2ED18 /* ExtensionInt.swift in Sources */,
 				FA5C2AAA1E5A5B6F00A0CB56 /* ExtensionGroupType.swift in Sources */,
@@ -1010,6 +1019,7 @@
 				FA5C2A9E1E5A519700A0CB56 /* UIViewControllerExtension.swift in Sources */,
 				FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */,
 				FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */,
+				7B0A55141EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift in Sources */,
 				FA3AA1731E577106002CF4FC /* SignUpViewController.swift in Sources */,
 				FA3AA1761E577137002CF4FC /* MainViewController.swift in Sources */,
 				FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */,
@@ -1041,7 +1051,6 @@
 				FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */,
 				FA78B71B1E56978600765056 /* RAUser.swift in Sources */,
 				FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */,
-				FA7AFEA21EEB0F0200301941 /* ConsommationTypeCollectionViewController.swift in Sources */,
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
 				FA5C2AA21E5A57FD00A0CB56 /* ExtensionPersonType.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
@@ -1052,6 +1061,7 @@
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */,
 				7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */,
+				7B0A55021EF7E92E00BE08CD /* CamViewController.swift in Sources */,
 				FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */,
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
 				FA3A6D2D1E833D97008489F2 /* EtablishementViewController.swift in Sources */,
@@ -1228,7 +1238,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nightline/Nightline.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				DEVELOPMENT_TEAM = 5A846ZDA27;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1251,7 +1261,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Nightline/Nightline.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 97AYAAKHJ8;
+				DEVELOPMENT_TEAM = 5A846ZDA27;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
