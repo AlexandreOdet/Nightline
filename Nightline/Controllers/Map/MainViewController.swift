@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 import MapKit
+import PromiseKit
 
 /*
  Controllers: MainViewController
@@ -24,9 +25,11 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   var map = MKMapView()
   let locationManager = CLLocationManager()
   var restApiUser = RAUser()
+  var restApiEtablishment = RAEtablissement()
   
   deinit {
     restApiUser.cancelRequest()
+    restApiEtablishment.cancelRequest()
   }
   
   override func viewDidLoad() {
@@ -51,6 +54,15 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         map.isZoomEnabled = true
         map.delegate = self
         addFiltersToMap()
+        firstly {
+          restApiEtablishment.getEtablishmentList()
+          }.then { array -> Void in
+            for item in array {
+              print("name: \(item.name)", "Latitude: \(item.latitude)", "Longitude: \(item.longitude)")
+            }
+          }.catch { error in
+            print("Error = ", error)
+        }
       }
     }
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)

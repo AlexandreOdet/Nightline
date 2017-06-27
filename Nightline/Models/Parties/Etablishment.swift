@@ -10,9 +10,18 @@ import Foundation
 import ObjectMapper
 
 class Etablissement: Mappable {
+  
+  var id = ""
+  var name = ""
+  var latitude: Float = 0
+  var longitude: Float = 0
+  
   required init?(map: Map) {}
   
   func mapping(map: Map) {
-    
+    self.id <- map["id"]
+    self.name <- map["name"]
+    self.latitude <- map["lat"]
+    self.longitude <- map["long"]
   }
 }

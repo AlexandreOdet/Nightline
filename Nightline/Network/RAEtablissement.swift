@@ -15,7 +15,7 @@ class RAEtablissement: RABase {
   
   func getEtablishmentList() -> Promise<[Etablissement]> {
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(RoutesAPI.etablissement.url).responseArray(completionHandler: {
+      self.request = Alamofire.request(RoutesAPI.etablishment.url).responseArray(completionHandler: {
         (response: DataResponse<[Etablissement]>) in
         switch response.result {
         case .success(let array):
@@ -30,7 +30,7 @@ class RAEtablissement: RABase {
   
   func getEtablishmentProfile(idEtablishment: String) -> Promise<Etablissement> {
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(RoutesAPI.etablissement.url.appending(idEtablishment)).responseObject(completionHandler: {
+      self.request = Alamofire.request(RoutesAPI.etablishment.url.appending(idEtablishment)).responseObject(completionHandler: {
         (response: DataResponse<Etablissement>) in
         switch response.result {
         case .success(let etablishment):

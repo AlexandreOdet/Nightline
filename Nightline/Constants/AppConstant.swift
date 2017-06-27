@@ -60,7 +60,7 @@ final class AppConstant {
     static let login = "/login"
     static let signup = "/register"
     static let oauth_login = "/oauth_login"
-    static let etablishment = ""
+    static let etablishment = "/etablissements"
     static let drinks = ""
   }
 }

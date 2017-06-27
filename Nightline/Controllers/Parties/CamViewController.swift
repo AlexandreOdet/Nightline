@@ -54,8 +54,8 @@ class CamViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegat
   
   func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
     print("Hey you took a photo!")
-    let testImage = photo as! Cachable
-    let test = Cacher(destination: .atFolder("media"))
+    _ = photo as! Cachable
+    _ = Cacher(destination: .atFolder("media"))
 //    test.persist(item: testImage, completion: { ("test") in
 //    })
     
