@@ -54,15 +54,6 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         map.isZoomEnabled = true
         map.delegate = self
         addFiltersToMap()
-        firstly {
-          restApiEtablishment.getEtablishmentList()
-          }.then { array -> Void in
-            for item in array {
-              print("name: \(item.name)", "Latitude: \(item.latitude)", "Longitude: \(item.longitude)")
-            }
-          }.catch { error in
-            print("Error = ", error)
-        }
       }
     }
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
@@ -136,30 +127,25 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.addMarkerToMap()
-  }
-  
-  /*
-   addMarkerToMap() func.
-   This function will add all markers to the map.
-   @param None (soon will receive an array of Marker)
-   @return None
-   */
-  
-  private func addMarkerToMap() {
-    //let GML = CLLocationCoordinate2DMake(42.328994, -83.039708)
-    let unionSquare = CLLocationCoordinate2DMake(37.78806, -122.4075)
-    let marker = Marker(title: "Union Square",
-                        locationName: "San Francisco Union Square",
-                        discipline: "",
-                        coordinate: unionSquare)
-    self.map.addAnnotation(marker)
-    let myHome = CLLocationCoordinate2DMake(48.6570, 2.3239)
-    let cedMarker = Marker(title: "test",
-                        locationName: "San Francisco Union Square",
-                        discipline: "",
-                        coordinate: myHome)
-    self.map.addAnnotation(cedMarker)
+    firstly {
+      restApiEtablishment.getEtablishmentList()
+      }.then { array -> Void in
+        for item in array {
+          print("name: \(item.name)", "Latitude: \(item.latitude)", "Longitude: \(item.longitude)")
+          
+        }
+        for item in array {
+          let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(item.latitude),
+                                                       CLLocationDegrees(item.longitude)) // ou (item.long, item.lat)
+          let marker = Marker(title: item.name,
+                              locationName: "",
+                              discipline: "",
+                              coordinate: coordinates)
+          self.map.addAnnotation(marker)
+        }
+      }.catch { error in
+        print("Error = ", error)
+    }
   }
   
   /*

@@ -72,6 +72,7 @@ final class RAUser: RABase {
     }
   }
   
+  
   func loginFB(accessToken: String, userID: String) -> Promise<User> {
     let parameters = ["token": accessToken, "userID":userID]
     let url = RoutesAPI.oauth_login.url
@@ -88,5 +89,9 @@ final class RAUser: RABase {
           }
         })
     }
+  }
+  
+  func updateUser() {
+    
   }
 }

@@ -13,8 +13,8 @@ class Etablissement: Mappable {
   
   var id = ""
   var name = ""
-  var latitude: Float = 0
-  var longitude: Float = 0
+  var latitude: Double = 0
+  var longitude: Double = 0
   
   required init?(map: Map) {}
   
