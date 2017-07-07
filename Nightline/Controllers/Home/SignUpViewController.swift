@@ -34,6 +34,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.hideKeyboardWhenTappedAround()
     self.title = R.string.localizable.sign_up()
     let backgroundImage = UIImageView(image: R.image.background())
     self.view.addSubview(backgroundImage)

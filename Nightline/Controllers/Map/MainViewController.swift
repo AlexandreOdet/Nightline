@@ -84,9 +84,12 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   }
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    let location = locations.last! as CLLocation
     
-    let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    // Enlevé pour centrer la carte pour la beta
+//    let location = locations.last! as CLLocation
+    
+//    let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    let center = CLLocationCoordinate2D(latitude: 48.8517, longitude: 2.3477)
     let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     
     self.map.setRegion(region, animated: true)

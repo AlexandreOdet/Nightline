@@ -27,7 +27,11 @@ final class UserProfileViewController: ProfileViewController {
     } else {
       self.imgProfile.image = R.image.male()
     }
-    self.nameLabel.text = UserManager.instance.getUserFirstName() + " " + (UserManager.instance.getUserLastName().characters.first?.description)!
+    if  UserManager.instance.getUserFirstName() != "", UserManager.instance.getUserLastName() != ""{
+      self.nameLabel.text = UserManager.instance.getUserFirstName() + " " + (UserManager.instance.getUserLastName().characters.first?.description)!
+    } else {
+      self.nameLabel.text = ""
+    }
     self.nicknameLabel.text = UserManager.instance.getUserNickname()
     self.birthdayLabel.text = UserManager.instance.getUserAge() + " ans"
     self.locationLabel.text = UserManager.instance.getUserCity()

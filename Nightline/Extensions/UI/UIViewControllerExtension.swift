@@ -35,5 +35,15 @@ extension BaseViewController {
   func labelTextColor() -> UIColor {
     return UIColor.init(hex: 0x9C998C)
   }
+  
+  func hideKeyboardWhenTappedAround() {
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BaseViewController.dismissKeyboard))
+    tap.cancelsTouchesInView = false
+    view.addGestureRecognizer(tap)
+  }
+  
+  func dismissKeyboard() {
+    view.endEditing(true)
+  }
 }
 
