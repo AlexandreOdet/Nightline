@@ -36,9 +36,9 @@ final class UserProfileViewController: ProfileViewController {
     self.birthdayLabel.text = UserManager.instance.getUserAge() + " ans"
     self.locationLabel.text = UserManager.instance.getUserCity()
     self.descriptionLabel.text = "Epitech 4th year student in China, Beijing"
-    self.friendsLabel.text = "220"
-    self.pictureLabel.text = "55"
-    self.trophyLabel.text = "520"
+    self.friendsLabel.text = "0"
+    self.pictureLabel.text = "0"
+    self.trophyLabel.text = UserManager.instance.getUserAchievementPoints()
     
     let friendsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserFriendsList))
     friendsGestureRecognizer.numberOfTapsRequired = 1

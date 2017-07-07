@@ -14,6 +14,7 @@ class Achievement {
   var title = ""
   var points = -1
   var description = ""
+  var status = false
   
   init(image: UIImageView, title: String,
        points: Int, description: String) {
@@ -21,5 +22,6 @@ class Achievement {
     self.title = title
     self.points = points
     self.description = description
+    self.status = false
   }
 }

@@ -58,12 +58,12 @@ final class UserManager {
    
    @return Nothing.
    */
-
+  
   func updateUserFirstName(newValue: String) {
     networkUser.firstName = newValue
     DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["firstName":newValue])
   }
-
+  
   /**
    Method of the UserManager class.
    Get the last name of the user
@@ -127,13 +127,13 @@ final class UserManager {
   }
   
   /**
-  Method of the UserManager class.
-  Change the user's Email.
-  
-  @param String containing the new Email.
-  
-  @return Nothing.
-  */
+   Method of the UserManager class.
+   Change the user's Email.
+   
+   @param String containing the new Email.
+   
+   @return Nothing.
+   */
   
   func updateUserEmail(newValue: String) {
     networkUser.email = newValue
@@ -164,7 +164,7 @@ final class UserManager {
    
    @return A String contain the nickname of the user.
    */
-
+  
   func getUserNickname() -> String {
     if !networkUser.nickname.isEmpty {
       return networkUser.nickname
@@ -173,14 +173,14 @@ final class UserManager {
   }
   
   /**
-  Method of the UserManager class.
-  Change the user's nickname.
+   Method of the UserManager class.
+   Change the user's nickname.
+   
+   @param String containing the new nickname.
+   
+   @return Nothing.
+   */
   
-  @param String containing the new nickname.
-  
-  @return Nothing.
-  */
-
   func updateUserNickName(newValue: String) {
     networkUser.nickname = newValue
     DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["nickName":newValue])
@@ -208,7 +208,7 @@ final class UserManager {
    
    @return A String containing the user's living city.
    */
-
+  
   func getUserCity() -> String {
     if !networkUser.city.isEmpty {
       return networkUser.city
@@ -268,11 +268,11 @@ final class UserManager {
    
    @return A Gender value containing the gender of the user.
    */
-
+  
   func getUserGender() -> Gender {
     return networkUser.gender
   }
-
+  
   /**
    Method of the UserManager class.
    Get the user consommation preferences of the user
@@ -281,7 +281,7 @@ final class UserManager {
    
    @return An array of string containing the consommations preferences of the user.
    */
-
+  
   func getUserConsommationPreferences() -> Array<String> {
     if networkUser.preferences.consoLiked.isEmpty == false {
       return networkUser.preferences.consoLiked
@@ -384,4 +384,35 @@ final class UserManager {
     log.debug(localUser[0].toString())
   }
   
+  func addAchievement(newAchievement: Achievement) {
+    for elem in networkUser.achievements {
+      if elem.title == newAchievement.title {
+        return
+      }
+    }
+    networkUser.achievements.append(newAchievement)
+  }
+  
+  func getAchievementStatus(_ achievement: String) -> Bool{
+    for elem in networkUser.achievements {
+      if elem.title == achievement {
+        return elem.status
+      }
+    }
+    return false
+  }
+  
+  func validateAchievement(achievement: String) {
+    for elem in networkUser.achievements {
+      if elem.title == achievement {
+        elem.status = true
+        networkUser.achievementPoints = networkUser.achievementPoints + elem.points
+        print("L'achievement : \(achievement) a bien été validé")
+      }
+    }
+  }
+  
+  func getUserAchievementPoints() -> String {
+    return String(networkUser.achievementPoints)
+  }
 }

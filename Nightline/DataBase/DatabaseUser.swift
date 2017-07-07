@@ -24,6 +24,8 @@ class DbUser: Object {
   dynamic var nickname = ""
   dynamic var age = ""
   dynamic var city = ""
+  dynamic var achievementPoints = 0
+  var achievements : [Achievement] = []
   dynamic var picture: NSData? = UIImageJPEGRepresentation(R.image.logo()!, 0.1)! as NSData
   var preferences = UserPreferences()
   

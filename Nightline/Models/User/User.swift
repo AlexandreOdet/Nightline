@@ -25,6 +25,8 @@ class User: Mappable {
   var city = ""
   var age = ""
   var id = ""
+  var achievements : [Achievement] = []
+  var achievementPoints = 0
   var preferences = UserPreferences()
   var gender = Gender.male
   var token = ""
@@ -53,6 +55,8 @@ class User: Mappable {
     self.city = otherUser.city
     self.age = otherUser.age
     self.picture = otherUser.picture
+    self.achievements = otherUser.achievements
+    self.achievementPoints = otherUser.achievementPoints
   }
   
   required init?(map: Map) {

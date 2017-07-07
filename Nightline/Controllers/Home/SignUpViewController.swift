@@ -151,6 +151,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
       self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
       let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
       NotificationCenter.default.post(name: notificationName, object: nil)
+      AchievementManager.instance.initUserAchievementArray()
     }.catch { _ in
       AlertUtils.networkErrorAlert(fromController: self)
       }.always {

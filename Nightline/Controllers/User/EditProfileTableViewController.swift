@@ -133,7 +133,10 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
   }
   
   func testProfileFullyFilled() {
-    if UserManager.instance.getUserFirstName() != "", UserManager.instance.getUserLastName() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserAge() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserCity() != "" {
+    if UserManager.instance.getAchievementStatus("ProfileFullyFilled") {
+      return
+    } else if UserManager.instance.getUserFirstName() != "", UserManager.instance.getUserLastName() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserAge() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserCity() != "" {
+      UserManager.instance.validateAchievement(achievement: "ProfileFullyFilled")
       successProfileFullAchieved()
     }
   }

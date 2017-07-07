@@ -62,6 +62,9 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuseIdentifier, for: indexPath) as? AchievementCollectionViewCell
     cell!.contentView.backgroundColor = .black
     cell!.titleLabel.text = AchievementManager.instance.achievementArray[indexPath.row].title
+    if UserManager.instance.getAchievementStatus(cell!.titleLabel.text!) == true {
+      cell!.titleLabel.textColor = UIColor.green
+    }
     cell!.img.image = AchievementManager.instance.achievementArray[indexPath.row].img.image
     cell!.labelPoints.text = AchievementManager.instance.achievementArray[indexPath.row].points.toString() + " pts"
     return cell!

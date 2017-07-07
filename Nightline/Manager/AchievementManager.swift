@@ -15,7 +15,7 @@ class AchievementManager {
   
   private init() {
     let image1 = UIImageView(image: R.image.toast())
-    let subscribeAchievement = Achievement(image: image1, title: "Félicitations !", points: 100, description: "Félicitations ! Vous venez de vous inscrire sur Nightline, voici vos 100 premiers points CADEAUX !")
+    let subscribeAchievement = Achievement(image: image1, title: "ProfileFullyFilled", points: 100, description: "Félicitations ! Vous venez de vous inscrire sur Nightline, voici vos 100 premiers points CADEAUX !")
     achievementArray.append(subscribeAchievement)
     
     let img2 = UIImageView(image: R.image.moneyBag())
@@ -25,5 +25,12 @@ class AchievementManager {
     let img3 = UIImageView(image: R.image.lemonade())
     let softAch = Achievement(image: img3, title: "100 Softs Drinks", points: 25, description: "Tu viens de commander ta 100ème boisson non-alcoolisée... Passe aux choses sérieuses un peu ;)")
     achievementArray.append(softAch)
+  }
+  
+  func initUserAchievementArray() {
+    for elem in achievementArray {
+      UserManager.instance.addAchievement(newAchievement: elem)
+      print("add new achievement to user : \(elem.title)")
+    }
   }
 }
