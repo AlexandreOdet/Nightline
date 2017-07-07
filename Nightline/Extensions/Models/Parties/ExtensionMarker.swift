@@ -25,6 +25,7 @@ extension Marker: ModelsProtocol {
     ret += "Name: \(String(describing: self.title))\n"
     ret += "Description: \(self.locationName)\n"
     ret += "Localisation =  latitude: \(self.coordinate.latitude) longitude: \(self.coordinate.longitude)\n"
+    ret += "Id = \(self.id)"
     return ret
   }
  

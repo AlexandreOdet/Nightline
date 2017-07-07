@@ -11,34 +11,65 @@ import UIKit
 import SnapKit
 import PageMenu
 
+
 class EtablishmentMenuViewController: BaseViewController {
   
-  var consommableCollectionView: UICollectionView!
-  var arrayItem = Array<String>()
-  var pageMenu: CAPSPageMenu?
+  var tableView: UITableView!
+  var array = [Consommable]()
+  
+  let reuseIdentifer = "ConsommableCell"
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setUpPageView()
+    setUpConsommableArray()
+    
+    tableView = UITableView(frame: self.view.frame, style: .grouped)
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifer)
+    tableView.delegate = self
+    tableView.dataSource = self
+    
+    view.addSubview(tableView)
+    tableView.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(view).offset(UIApplication.shared.statusBarFrame.height + (self.navigationController?.navigationBar.frame.height)!)
+      make.bottom.equalTo(view)
+      make.width.equalTo(view)
+    }
+    tableView.translatesAutoresizingMaskIntoConstraints = false
+    tableView.reloadData()
   }
   
-  private func setUpPageView() {
-    var controllers = [UIViewController]()
-    let consos = Consommation.unknown.getAllConsommationTypes()
-    
-    for conso in consos {
-      if conso != .unknown {
-        let controller = ConsommationTypeCollectionViewController()
-        controller.title = conso.toString()
-        controllers.append(controller)
-      }
+  private func setUpConsommableArray() {
+    for i in 0...15 {
+      let consommable = Consommable()
+      consommable.name = "Consommable \(i)"
+      consommable.price = Float(Double(arc4random_uniform(30)) + 0.99)
+      array.append(consommable)
     }
-    let parameters: [CAPSPageMenuOption] = [
-      .useMenuLikeSegmentedControl(true),
-      .menuItemSeparatorPercentageHeight(0.1)
-    ]
-    pageMenu = CAPSPageMenu(viewControllers: controllers, frame: CGRect(x: 0.0,y: 60,width: self.view.frame.width * 2, height: self.view.frame.height), pageMenuOptions: parameters)
-    self.view.addSubview((pageMenu?.view)!)
-    log.debug("OK")
+  }
+}
+
+extension EtablishmentMenuViewController: UITableViewDelegate, UITableViewDataSource {
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return array.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = UITableViewCell(style: .value1, reuseIdentifier: reuseIdentifer)
+    cell.textLabel?.text = array[indexPath.row].name!
+    let price = String(format: "%.02f €", array[indexPath.row].price!)
+    if array[indexPath.row].price! > 12 {
+      cell.detailTextLabel?.textColor = .red
+    }
+    cell.detailTextLabel?.text = price
+    cell.selectionStyle = .none
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    return
   }
 }

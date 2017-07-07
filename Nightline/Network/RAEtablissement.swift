@@ -28,9 +28,10 @@ class RAEtablissement: RABase {
     }
   }
   
-  func getEtablishmentProfile(idEtablishment: String) -> Promise<Etablissement> {
+  func getEtablishmentProfile(idEtablishment: Int) -> Promise<Etablissement> {
+    let url = RoutesAPI.etablishment.url.appending("/" + String(idEtablishment))
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(RoutesAPI.etablishment.url.appending(idEtablishment)).responseObject(completionHandler: {
+      self.request = Alamofire.request(url).responseObject(completionHandler: {
         (response: DataResponse<Etablissement>) in
         switch response.result {
         case .success(let etablishment):
