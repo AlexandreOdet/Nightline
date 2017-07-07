@@ -11,7 +11,7 @@ import ObjectMapper
 
 class Etablissement: Mappable {
   
-  var id = ""
+  var id = 0
   var name = ""
   var latitude: Double = 0
   var longitude: Double = 0

@@ -9,11 +9,18 @@
 import Foundation
 import UIKit
 import SnapKit
+import PromiseKit
 
 class EtablishmentViewController: ProfileViewController {
   var isLiked = false
   private let animation = Animation()
   let camButton = UIButton()
+  var idBar: Int!
+  var restApiEtablissements = RAEtablissement()
+  
+  deinit {
+    restApiEtablissements.cancelRequest()
+  }
   
   override func viewDidLoad() {
     self.isUser = false
@@ -28,6 +35,7 @@ class EtablishmentViewController: ProfileViewController {
     let buttonImage = UIImage(named: "cameraButton")
     camButton.setImage(buttonImage, for: .normal)
     camButton.addTarget(self, action: #selector(pushCamViewController), for: .touchUpInside)
+    fetchData()
   }
   
   func pushCamViewController() {
@@ -38,7 +46,6 @@ class EtablishmentViewController: ProfileViewController {
   private func setUpView() {
     self.imgHeader.image = R.image.bar()
     self.imgProfile.image = R.image.test_logo()
-    self.nameLabel.text = "Big Mama".uppercased()
     self.likeButton.image = (!isLiked) ? R.image.heart() : R.image.heart_filled()
     self.likeButton.isUserInteractionEnabled = true
     
@@ -69,6 +76,16 @@ class EtablishmentViewController: ProfileViewController {
     if let nav = self.navigationController {
       let nextViewController = EtablishmentMenuViewController()
       nav.pushViewController(nextViewController, animated: true)
+    }
+  }
+  
+  func fetchData() {
+    firstly {
+      restApiEtablissements.getEtablishmentProfile(idEtablishment: self.idBar)
+      }.then { etabl -> Void in
+        self.nameLabel.text = etabl.name.uppercased()
+      }.catch { _ in
+        AlertUtils.networkErrorAlert(fromController: self)
     }
   }
 }

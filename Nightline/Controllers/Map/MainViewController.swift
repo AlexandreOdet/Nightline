@@ -53,12 +53,11 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         map.showsUserLocation = true
         map.isZoomEnabled = true
         map.delegate = self
-        addFiltersToMap()
+        //addFiltersToMap()
       }
     }
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(connexionOK), name: NSNotification.Name(rawValue: SigninViewController.notificationIdentifier), object: nil)
-    log.verbose("\(FilterManager.instance.toParameters())")
   }
   
   /*
@@ -86,9 +85,9 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     
     // Enlevé pour centrer la carte pour la beta
-//    let location = locations.last! as CLLocation
+    //    let location = locations.last! as CLLocation
     
-//    let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    //    let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     let center = CLLocationCoordinate2D(latitude: 48.8517, longitude: 2.3477)
     let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     
@@ -97,7 +96,6 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     let identifier = "pin"
-    log.debug("\(String(describing: annotation.title))")
     if let annotation = annotation as? Marker {
       var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
       if pinView == nil {
@@ -114,18 +112,27 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     return nil
   }
   
-  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-    guard view.tag == 1 else {
-      return
-    }
+  func didTapCalloutButton(sender: UITapGestureRecognizer) {
+    guard let annotation = (sender.view as? MKAnnotationView)?.annotation as? Marker else { return }
+
     let actionList = UIAlertController(title: "", message: "Comment souhaitez-vous vous y rendre?", preferredStyle: .actionSheet)
     actionList.addAction(UIAlertAction(title: "Accéder à la fiche du bar", style: .default, handler: { action in
-      self.tabBarController?.navigationController?.pushViewController(EtablishmentViewController(), animated: true)
+      let nextViewController = EtablishmentViewController()
+      nextViewController.idBar = annotation.id
+      self.tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
     }))
     actionList.addAction(UIAlertAction(title: "Voitures", style: .default, handler: nil))
     actionList.addAction(UIAlertAction(title: "A Pied", style: .default, handler: nil))
     actionList.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
     self.present(actionList, animated: true, completion: nil)
+  }
+  
+  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    guard view.tag == 1 else {
+      return
+    }
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCalloutButton(sender:)))
+    view.addGestureRecognizer(tapGestureRecognizer)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -134,16 +141,12 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
       restApiEtablishment.getEtablishmentList()
       }.then { array -> Void in
         for item in array {
-          print("name: \(item.name)", "Latitude: \(item.latitude)", "Longitude: \(item.longitude)")
-          
-        }
-        for item in array {
           let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(item.latitude),
                                                        CLLocationDegrees(item.longitude)) // ou (item.long, item.lat)
           let marker = Marker(title: item.name,
-                              locationName: "",
+                              locationName: item.name,
                               discipline: "",
-                              coordinate: coordinates)
+                              coordinate: coordinates, id: item.id)
           self.map.addAnnotation(marker)
         }
       }.catch { error in
@@ -174,7 +177,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     let grouplabel = UILabel()
     let eventLabel = UILabel()
     let personLabel = UILabel()
-
+    
     let groupGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentGroupFilter))
     groupGestureRecognizer.numberOfTapsRequired = 1
     
