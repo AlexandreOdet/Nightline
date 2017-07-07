@@ -40,6 +40,10 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
 //    self.tableView.
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    self.tableView.reloadData()
+    testProfileFullyFilled()
+  }
   
   /*------------- UITableView Functions -------------*/
   
@@ -126,5 +130,21 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
     } else {
       return "Autres informations"
     }
+  }
+  
+  func testProfileFullyFilled() {
+    if UserManager.instance.getUserFirstName() != "", UserManager.instance.getUserLastName() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserAge() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserCity() != "" {
+      successProfileFullAchieved()
+    }
+  }
+  
+  func successProfileFullAchieved() {
+    let achievementPopUp = UIAlertController(title: "Achievement completed!", message: "By fully filling your profile you realized your first Nightline's achievement.\n Go to your profile to see your achievements.", preferredStyle: .alert)
+    present(achievementPopUp, animated: true, completion: nil)
+    let dismissPopUpAction = UIAlertAction(title: "Ok", style: .default) {
+      action in
+      achievementPopUp.dismiss(animated: true, completion: nil)
+    }
+    achievementPopUp.addAction(dismissPopUpAction)
   }
 }
