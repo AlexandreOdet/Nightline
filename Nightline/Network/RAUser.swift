@@ -60,6 +60,7 @@ final class RAUser: RABase {
       self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
         .responseObject(completionHandler: {
           (response: DataResponse<User>) in
+          print("Response = ", response)
           switch response.result {
           case .success(let usr):
             log.verbose("RestApiUser.signUp OK \(usr.toString())")

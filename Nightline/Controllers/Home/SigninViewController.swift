@@ -29,6 +29,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
   let restApiUser = RAUser()
   private let facebookReadPermissions = ["public_profile", "email", "user_friends"]
   let loginButton = FBSDKLoginButton()
+  let loginManager = FBSDKLoginManager()
 
   
   static let notificationIdentifier = "dismissHomeViewController"
@@ -252,7 +253,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
   func backButtonPressed() {
     self.dismiss(animated: true, completion: nil)
   }
-
+  
   func forgotPasswordAction() {
     var mailTextField = UITextField()
     let alertController = UIAlertController(title: "", message: R.string.localizable.type_mail(), preferredStyle: .alert)
@@ -278,15 +279,47 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
       make.trailing.equalTo(self.view).offset(-20)
     }
     loginButton.translatesAutoresizingMaskIntoConstraints = false
-
+    
   }
   
   func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-    //logged in
     if(error == nil)
     {
-      print("------> login complete <--------")
-      print("\(result.token)")
+
+      FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email"]).start(completionHandler: { (connection, result, error) -> Void in
+        if (error == nil){
+          let fbDetails = result as! Dictionary<String, Any>
+          print(fbDetails)
+          firstly {
+            self.restApiUser.signUpUser(email: fbDetails["email"] as! String,
+                                   nickname: fbDetails["name"] as! String,
+                                   password: "abcdef")
+            }.then { user -> Void in
+              tokenWrapper.setToken(valueFor: user.token)
+              self.dismiss(animated: true, completion: {
+                self.presentingViewController?.dismiss(animated: true, completion: nil)})
+              let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
+              NotificationCenter.default.post(name: notificationName, object: nil)
+
+            }.catch { _ in
+              firstly {
+                self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "abcdef")
+                }.then {
+                  user -> Void in
+                  tokenWrapper.setToken(valueFor: user.token)
+                  self.dismiss(animated: true, completion: {
+                    self.presentingViewController?.dismiss(animated: true, completion: nil)})
+                  let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
+                  NotificationCenter.default.post(name: notificationName, object: nil)
+                }.catch { _ in
+                  self.loginManager.logOut()
+                  AlertUtils.networkErrorAlert(fromController: self)
+              }
+          }
+        } else {
+          print((error?.localizedDescription)!)
+        }
+      })
     }
     else{
       print(error.localizedDescription)

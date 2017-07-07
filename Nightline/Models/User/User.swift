@@ -29,6 +29,10 @@ class User: Mappable {
   var gender = Gender.male
   var token = ""
   var picture: NSData? = nil
+  var number = ""
+  var urlImage = ""
+  var success = 0
+  var friends = [User]()
   
   required init() {
     
@@ -60,6 +64,13 @@ class User: Mappable {
     self.email <- map["email"]
     self.passwd <- map["password"]
     self.nickname <- map["pseudo"]
+    self.token <- map["token"]
+    self.firstName <- map["firstname"]
+    self.nickname <- map["surname"]
+    self.number <- map["number"]
+    self.urlImage <- map["image"]
+    self.success <- map["success_points"]
+    self.friends <- map["connected_to"]
   }
   
 }
