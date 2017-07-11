@@ -42,7 +42,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
       if CLLocationManager.locationServicesEnabled() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.startUpdatingLocation()
+        //locationManager.startUpdatingLocation()
       }
       if Utils.Network.isInternetAvailable() == false {
         self.showNoConnectivityView()
@@ -116,14 +116,15 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
   func didTapCalloutButton(sender: UITapGestureRecognizer) {
     guard let annotation = (sender.view as? MKAnnotationView)?.annotation as? Marker else { return }
 
-    let actionList = UIAlertController(title: "", message: "Comment souhaitez-vous vous y rendre?", preferredStyle: .actionSheet)
+//    let actionList = UIAlertController(title: "", message: "Comment souhaitez-vous vous y rendre?", preferredStyle: .actionSheet)
+    let actionList = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
     actionList.addAction(UIAlertAction(title: "Accéder à la fiche du bar", style: .default, handler: { action in
       let nextViewController = EtablishmentViewController()
       nextViewController.idBar = annotation.id
       self.tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
     }))
-    actionList.addAction(UIAlertAction(title: "Voitures", style: .default, handler: nil))
-    actionList.addAction(UIAlertAction(title: "A Pied", style: .default, handler: nil))
+    //actionList.addAction(UIAlertAction(title: "Voitures", style: .default, handler: nil))
+    //actionList.addAction(UIAlertAction(title: "A Pied", style: .default, handler: nil))
     actionList.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
     self.present(actionList, animated: true, completion: nil)
   }

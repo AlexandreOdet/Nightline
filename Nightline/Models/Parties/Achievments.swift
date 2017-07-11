@@ -10,18 +10,45 @@ import Foundation
 import UIKit
 
 class Achievement {
+  
+  
+  
   var img = UIImageView()
+  var name = ""
   var title = ""
   var points = -1
   var description = ""
-  var status = false
+  var status : AchievementStatus = .lock
   
   init(image: UIImageView, title: String,
-       points: Int, description: String) {
+       points: Int, name: String, description: String) {
+    self.name = name
     self.img = image
     self.title = title
     self.points = points
     self.description = description
-    self.status = false
+    self.status = .lock
+  }
+  
+  init(other: Achievement) {
+    self.name = other.name
+    self.img = other.img
+    self.title = other.title
+    self.points = other.points
+    self.description = other.description
+    self.status = other.status
+  }
+}
+
+enum AchievementStatus {
+  case lock
+  case unlock
+  var value: Bool {
+    switch self {
+    case .lock:
+      return false
+    default:
+      return true
+    }
   }
 }

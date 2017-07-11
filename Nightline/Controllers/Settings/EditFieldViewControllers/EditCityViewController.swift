@@ -43,6 +43,7 @@ class EditCityViewController: BaseViewController {
     editTextField.borderStyle = .roundedRect
     editTextField.backgroundColor = self.textFieldBackgroundColor()
     editTextField.textColor = self.textFieldTextColor()
+    editTextField.becomeFirstResponder()
   }
   
   override func viewDidLoad() {

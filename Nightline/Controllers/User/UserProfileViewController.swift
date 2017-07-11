@@ -33,7 +33,11 @@ final class UserProfileViewController: ProfileViewController {
       self.nameLabel.text = ""
     }
     self.nicknameLabel.text = UserManager.instance.getUserNickname()
-    self.birthdayLabel.text = UserManager.instance.getUserAge() + " ans"
+    if UserManager.instance.getUserAge() == "" {
+      self.birthdayLabel.text = ""
+    } else {
+      self.birthdayLabel.text = UserManager.instance.getUserAge() + " ans"
+    }
     self.locationLabel.text = UserManager.instance.getUserCity()
     self.descriptionLabel.text = "Epitech 4th year student in China, Beijing"
     self.friendsLabel.text = "0"
@@ -43,6 +47,10 @@ final class UserProfileViewController: ProfileViewController {
     let friendsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserFriendsList))
     friendsGestureRecognizer.numberOfTapsRequired = 1
     self.friendsView.addGestureRecognizer(friendsGestureRecognizer)
+    
+    let mediaGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserMediaList))
+    friendsGestureRecognizer.numberOfTapsRequired = 1
+    self.pictureView.addGestureRecognizer(mediaGestureRecognizer)
     
     let achievementsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserAchievementsList))
     achievementsGestureRecognizer.numberOfTapsRequired = 1
@@ -54,8 +62,15 @@ final class UserProfileViewController: ProfileViewController {
     tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
   }
   
+  func showUserMediaList() {
+    let nextViewController = UserMediaTableViewController()
+    tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
+  }
+  
   func showUserAchievementsList() {
     let nextViewController = UserAchievementsListCollectionViewController()
     tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
   }
+  
+  
 }

@@ -15,16 +15,27 @@ class AchievementManager {
   
   private init() {
     let image1 = UIImageView(image: R.image.toast())
-    let subscribeAchievement = Achievement(image: image1, title: "ProfileFullyFilled", points: 100, description: "Félicitations ! Vous venez de vous inscrire sur Nightline, voici vos 100 premiers points CADEAUX !")
+    let subscribeAchievement = Achievement(image: image1, title: "Profil complété", points: 50, name: "ProfileFullyFilled", description: "Profil rempli à 100%")
     achievementArray.append(subscribeAchievement)
     
     let img2 = UIImageView(image: R.image.moneyBag())
-    let orderAch = Achievement(image: img2, title: "1ère commande !", points: 50, description: "Tu viens de passer ta première commande avec l'application !")
+    let orderAch = Achievement(image: img2, title: "Première commande", points: 50, name: "firstCommand", description: "Première commande")
     achievementArray.append(orderAch)
     
     let img3 = UIImageView(image: R.image.lemonade())
-    let softAch = Achievement(image: img3, title: "100 Softs Drinks", points: 25, description: "Tu viens de commander ta 100ème boisson non-alcoolisée... Passe aux choses sérieuses un peu ;)")
+    let softAch = Achievement(image: img3, title: "100 soft drink", points: 100, name: "softDrink100", description: "Commander 100 soft drink")
     achievementArray.append(softAch)
+  }
+  
+  func validateAchievement(_ name: String, _ controller: BaseViewController) {
+    if let achievement = UserManager.instance.validateAchievement(achievementName: name) {
+      let achievementCompletedAlert = UIAlertController(title: achievement.title, message: achievement.description, preferredStyle: .alert)
+      achievementCompletedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {
+        action in
+        print("Hello")
+      }))
+      controller.present(achievementCompletedAlert, animated: true, completion: nil)
+    }
   }
   
   func initUserAchievementArray() {

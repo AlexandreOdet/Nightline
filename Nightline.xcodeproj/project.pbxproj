@@ -19,6 +19,8 @@
 		7B5A6AD01E9FB4C200D902C5 /* EditNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A6ACF1E9FB4C200D902C5 /* EditNickNameViewController.swift */; };
 		7B5A6AD21E9FB5AB00D902C5 /* EditCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A6AD11E9FB5AB00D902C5 /* EditCityViewController.swift */; };
 		7B5A6AD41E9FB81700D902C5 /* EditAgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A6AD31E9FB81700D902C5 /* EditAgeViewController.swift */; };
+		7B6068691F0FE964000F1755 /* UserMediaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6068681F0FE964000F1755 /* UserMediaTableViewController.swift */; };
+		7B60686B1F0FF293000F1755 /* UserMediaCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60686A1F0FF293000F1755 /* UserMediaCustomViewCell.swift */; };
 		7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */; };
 		7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */; };
 		7BD406E61E9A5204003C09AC /* ProfilePictCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */; };
@@ -138,6 +140,8 @@
 		7B5A6ACF1E9FB4C200D902C5 /* EditNickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditNickNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditNickNameViewController.swift; sourceTree = "<group>"; };
 		7B5A6AD11E9FB5AB00D902C5 /* EditCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditCityViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditCityViewController.swift; sourceTree = "<group>"; };
 		7B5A6AD31E9FB81700D902C5 /* EditAgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditAgeViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditAgeViewController.swift; sourceTree = "<group>"; };
+		7B6068681F0FE964000F1755 /* UserMediaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserMediaTableViewController.swift; path = Controllers/User/UserMediaTableViewController.swift; sourceTree = "<group>"; };
+		7B60686A1F0FF293000F1755 /* UserMediaCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMediaCustomViewCell.swift; sourceTree = "<group>"; };
 		7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewController.swift; path = Controllers/User/EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleLabelTableViewCell.swift; path = Controllers/Settings/CustomCells/DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePictCell.swift; path = Controllers/Settings/CustomCells/ProfilePictCell.swift; sourceTree = "<group>"; };
@@ -410,6 +414,7 @@
 				FADF25C61E87367900E74439 /* CustomCell */,
 				FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */,
 				FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */,
+				7B6068681F0FE964000F1755 /* UserMediaTableViewController.swift */,
 				FADF25CB1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift */,
 			);
 			name = User;
@@ -539,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */,
+				7B60686A1F0FF293000F1755 /* UserMediaCustomViewCell.swift */,
 				FADF25CD1E875A4800E74439 /* UserAchievementsListTableViewCell.swift */,
 			);
 			name = CustomCell;
@@ -1010,6 +1016,7 @@
 			files = (
 				FA5C2AA41E5A5ACE00A0CB56 /* ExtensionEventType.swift in Sources */,
 				FA3AA1801E57716E002CF4FC /* UserProfileCell.swift in Sources */,
+				7B60686B1F0FF293000F1755 /* UserMediaCustomViewCell.swift in Sources */,
 				FA303F6E1E5D23A1008961EF /* ExtensionGender.swift in Sources */,
 				FA3AA1711E577106002CF4FC /* HomeViewController.swift in Sources */,
 				7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */,
@@ -1031,6 +1038,7 @@
 				FA5C2AA61E5A5AF800A0CB56 /* ExtensionEtablishments.swift in Sources */,
 				FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */,
 				FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */,
+				7B6068691F0FE964000F1755 /* UserMediaTableViewController.swift in Sources */,
 				FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */,
 				7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */,
 				FAFF4EA41E5E4827006582C7 /* ExtensionDBUser.swift in Sources */,

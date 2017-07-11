@@ -26,7 +26,7 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
   private func setUpCollectionView() {
     let collectionViewLayout = UICollectionViewFlowLayout()
     collectionViewLayout.scrollDirection = .horizontal
-    collectionViewLayout.itemSize = CGSize(width: self.width / 2, height: self.height / 4)
+    collectionViewLayout.itemSize = CGSize(width: self.width * 19/20, height: self.height / 4)
     collectionViewLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: -10)
 
     self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: collectionViewLayout)
@@ -43,7 +43,7 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
     self.collectionView.dataSource = self
     self.collectionView.delegate = self
     self.collectionView.reloadData()
-    collectionView.backgroundColor = .red
+    collectionView.backgroundColor = UIColor.init(hex: 0x331D0B)
   }
 
   func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -61,8 +61,8 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuseIdentifier, for: indexPath) as? AchievementCollectionViewCell
     cell!.contentView.backgroundColor = .black
-    cell!.titleLabel.text = AchievementManager.instance.achievementArray[indexPath.row].title
-    if UserManager.instance.getAchievementStatus(cell!.titleLabel.text!) == true {
+    cell!.titleLabel.text = AchievementManager.instance.achievementArray[indexPath.row].description
+    if UserManager.instance.getAchievementStatus(AchievementManager.instance.achievementArray[indexPath.row].name) == true {
       cell!.titleLabel.textColor = UIColor.green
     }
     cell!.img.image = AchievementManager.instance.achievementArray[indexPath.row].img.image

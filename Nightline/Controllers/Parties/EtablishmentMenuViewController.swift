@@ -15,13 +15,29 @@ import PageMenu
 class EtablishmentMenuViewController: BaseViewController {
   
   var tableView: UITableView!
-  var array = [Consommable]()
+  //var array = [Consommable]()
+  var array = [
+    Consommable(name: "Leff pression (25cl)", price: 3.5),
+    Consommable(name: "Leff pression (50cl)", price: 6.5),
+    Consommable(name: "1664 pression (25cl)", price: 3),
+    Consommable(name: "1664 pression (50cl)", price: 5.5),
+    Consommable(name: "Guiness pression (25cl)", price: 4),
+    Consommable(name: "Guiness pression (50cl)", price: 7),
+    Consommable(name: "Whisky (4cl)", price: 8),
+    Consommable(name: "Mojito (petit)", price: 5),
+    Consommable(name: "Mojito (grand)", price: 7),
+    Consommable(name: "Margarita (25cl)", price: 5),
+    Consommable(name: "Margarita (1L)", price: 16),
+    Consommable(name: "Cola", price: 3.5),
+    Consommable(name: "Tea glacé", price: 3),
+    Consommable(name: "Limonade", price: 3)
+  ]
   
   let reuseIdentifer = "ConsommableCell"
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setUpConsommableArray()
+    //setUpConsommableArray()
     
     tableView = UITableView(frame: self.view.frame, style: .grouped)
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifer)
@@ -38,14 +54,14 @@ class EtablishmentMenuViewController: BaseViewController {
     tableView.reloadData()
   }
   
-  private func setUpConsommableArray() {
-    for i in 0...15 {
-      let consommable = Consommable()
-      consommable.name = "Consommable \(i)"
-      consommable.price = Float(Double(arc4random_uniform(30)) + 0.99)
-      array.append(consommable)
-    }
-  }
+//  private func setUpConsommableArray() {
+//    for i in 0...15 {
+//      let consommable = Consommable()
+//      consommable.name = "Consommable \(i)"
+//      consommable.price = Float(Double(arc4random_uniform(30)) + 0.99)
+//      array.append(consommable)
+//    }
+//  }
 }
 
 extension EtablishmentMenuViewController: UITableViewDelegate, UITableViewDataSource {

@@ -54,8 +54,8 @@ class EtablishmentViewController: ProfileViewController {
     self.likeButton.addGestureRecognizer(likeTapGestureRecognizer)
     
     self.typeLabel.text = Etablishment.bar.toString()
-    self.locationLabel.text = "Montpellier"
-    self.descriptionLabel.text = "Des bonnes bières, des bons burgers, il ne manque que vous !"
+    self.locationLabel.text = "Paris"
+    self.descriptionLabel.text = ""
     
     let imgMenu = R.image.menu()
     img.snp.makeConstraints { (make) -> Void in

@@ -23,9 +23,9 @@ final class UserManager {
   var networkUser = User()
   
   private init() {
-    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":"test@test.com",
+    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":"",
                                                                          "passwd":"test",
-                                                                         "nickname":"Xploit"])
+                                                                         "nickname":""])
     localUser = DatabaseHandler().getObjectArray(ofType: DbUser.self)
     self.initUsers()
   }
@@ -384,6 +384,15 @@ final class UserManager {
     log.debug(localUser[0].toString())
   }
   
+  /**
+   Method of the UserManager class.
+   Add an achievement in the user's achievement array if it doesn't exist yet.
+   
+   @param The achievement to add.
+   
+   @return Nothing.
+   */
+  
   func addAchievement(newAchievement: Achievement) {
     for elem in networkUser.achievements {
       if elem.title == newAchievement.title {
@@ -393,24 +402,53 @@ final class UserManager {
     networkUser.achievements.append(newAchievement)
   }
   
+  /**
+   Method of the UserManager class.
+   Used to know if the user already unlocked an achievement or not.
+   
+   @param The achievement's name.
+   
+   @return true if the achievement is already unlocked or false in the oposite case.
+   */
+  
   func getAchievementStatus(_ achievement: String) -> Bool{
     for elem in networkUser.achievements {
-      if elem.title == achievement {
-        return elem.status
+      if elem.name == achievement {
+        return elem.status.value
       }
     }
     return false
   }
   
-  func validateAchievement(achievement: String) {
+  /**
+   Method of the UserManager class.
+   Change the status of an achievement to unlock.
+   
+   @param Achievement's name.
+   
+   @return An Achievement Object or nil.
+   */
+  
+  func validateAchievement<T: Achievement>(achievementName: String) -> T? {
     for elem in networkUser.achievements {
-      if elem.title == achievement {
-        elem.status = true
+      if elem.name == achievementName && elem.status == .lock {
+        elem.status = .unlock
         networkUser.achievementPoints = networkUser.achievementPoints + elem.points
-        print("L'achievement : \(achievement) a bien été validé")
+        print("L'achievement : \(achievementName) a bien été validé")
+        return (elem as! T)
       }
     }
+    return nil
   }
+  
+  /**
+   Method of the UserManager class.
+   Get the achievement score of the user.
+   
+   @param None.
+   
+   @return the Achievement score.
+   */
   
   func getUserAchievementPoints() -> String {
     return String(networkUser.achievementPoints)
