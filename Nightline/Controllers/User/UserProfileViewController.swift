@@ -11,6 +11,7 @@ import Foundation
 import UIKit
 import SnapKit
 import Rswift
+import Lightbox
 
 final class UserProfileViewController: ProfileViewController {
   
@@ -41,7 +42,7 @@ final class UserProfileViewController: ProfileViewController {
     self.locationLabel.text = UserManager.instance.getUserCity()
     self.descriptionLabel.text = "Epitech 4th year student in China, Beijing"
     self.friendsLabel.text = "0"
-    self.pictureLabel.text = "0"
+    self.pictureLabel.text = String(MediaManager.instance.getAllImages().count)
     self.trophyLabel.text = UserManager.instance.getUserAchievementPoints()
     
     let friendsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserFriendsList))
@@ -63,8 +64,13 @@ final class UserProfileViewController: ProfileViewController {
   }
   
   func showUserMediaList() {
-    let nextViewController = UserMediaTableViewController()
-    tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
+    let images = MediaManager.instance.getAllImages()
+    if images.count > 0 {
+      let lightboxImages = images.map {LightboxImage(image: $0)}
+      let showMediaController = LightboxController(images: lightboxImages)
+      showMediaController.dynamicBackground = true
+      present(showMediaController, animated: true, completion: nil)
+    }
   }
   
   func showUserAchievementsList() {

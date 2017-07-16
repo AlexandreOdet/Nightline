@@ -24,6 +24,7 @@
 		7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */; };
 		7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */; };
 		7BD406E61E9A5204003C09AC /* ProfilePictCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */; };
+		7BD6F25A1F1525E3001D88F6 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD6F2591F1525E3001D88F6 /* MediaManager.swift */; };
 		CD13ED000E0BA0DAEAF115F0 /* Pods_NightlineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483359D5753ED4EE7A649862 /* Pods_NightlineUITests.framework */; };
 		FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB89D1E03495E00C8E437 /* R.generated.swift */; };
 		FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DB8A11E0349FE00C8E437 /* MapKit.framework */; };
@@ -145,6 +146,7 @@
 		7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewController.swift; path = Controllers/User/EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleLabelTableViewCell.swift; path = Controllers/Settings/CustomCells/DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePictCell.swift; path = Controllers/Settings/CustomCells/ProfilePictCell.swift; sourceTree = "<group>"; };
+		7BD6F2591F1525E3001D88F6 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = Manager/MediaManager.swift; sourceTree = "<group>"; };
 		8D016FDC7E6EDE1609CDE1C7 /* Pods-Nightline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nightline.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nightline/Pods-Nightline.release.xcconfig"; sourceTree = "<group>"; };
 		DC71C367325EED05550E57CA /* Pods-NightlineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E7C40BAE93063CF448FFE2AE /* Pods-Nightline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nightline.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nightline/Pods-Nightline.debug.xcconfig"; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */,
 				FA3AA18B1E57720F002CF4FC /* UserManager.swift */,
 				FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */,
+				7BD6F2591F1525E3001D88F6 /* MediaManager.swift */,
 				FADF25CF1E8767F800E74439 /* AchievementManager.swift */,
 			);
 			name = Manager;
@@ -1020,6 +1023,7 @@
 				FA303F6E1E5D23A1008961EF /* ExtensionGender.swift in Sources */,
 				FA3AA1711E577106002CF4FC /* HomeViewController.swift in Sources */,
 				7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */,
+				7BD6F25A1F1525E3001D88F6 /* MediaManager.swift in Sources */,
 				FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */,
 				FAF0A6CA1E876F3E00C2ED18 /* ExtensionInt.swift in Sources */,
 				FA5C2AAA1E5A5B6F00A0CB56 /* ExtensionGroupType.swift in Sources */,

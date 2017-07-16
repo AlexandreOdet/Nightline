@@ -3,7 +3,10 @@ PODS:
   - AlamofireObjectMapper (4.1.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 2.0)
+  - Hue (2.0.1)
   - KeychainSwift (8.0.2)
+  - Lightbox (1.0.0):
+    - Hue
   - ObjectMapper (2.2.7)
   - PageMenu (2.0.0)
   - PromiseKit (4.2.2):
@@ -33,6 +36,7 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireObjectMapper
   - KeychainSwift
+  - Lightbox
   - ObjectMapper
   - PageMenu
   - PromiseKit
@@ -45,7 +49,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
+  Hue: 354caec055fdc9d38b5ef33ca2e7224721843baf
   KeychainSwift: 213db04dfe7244988e61f77c72a2afb2f775954a
+  Lightbox: 13f55a0a840f7945dc5ac87931564e7fe569fca9
   ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
   PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
   PromiseKit: 00e8886881f151c7e573d06b437915b0bb2970ec
@@ -57,6 +63,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: d4b551ba34b4206c52cc4684ae90444b8aaa5afd
   SwiftyCam: cb83b9a8e181f70fb741d30cea724c6b045a4549
 
-PODFILE CHECKSUM: 5b06605df38e877f78b73c6a60b0653c42ea3c66
+PODFILE CHECKSUM: 14f31e33ccc8f9a92704cc1972f569b7dd1d4a3f
 
 COCOAPODS: 1.2.1

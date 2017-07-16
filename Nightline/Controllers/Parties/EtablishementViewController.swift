@@ -40,6 +40,7 @@ class EtablishmentViewController: ProfileViewController {
   
   func pushCamViewController() {
     let nextViewController = CamViewController()
+    nextViewController.bar_id = String(idBar)
     self.navigationController?.present(nextViewController, animated: true, completion: nil)
   }
   

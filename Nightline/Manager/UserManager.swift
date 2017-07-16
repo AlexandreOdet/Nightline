@@ -429,13 +429,25 @@ final class UserManager {
    @return An Achievement Object or nil.
    */
   
-  func validateAchievement<T: Achievement>(achievementName: String) -> T? {
+//  func validateAchievement<T: Achievement>(achievementName: String) -> T? {
+//    for elem in networkUser.achievements {
+//      if elem.name == achievementName && elem.status == .lock {
+//        elem.status = .unlock
+//        networkUser.achievementPoints = networkUser.achievementPoints + elem.points
+//        print("L'achievement : \(achievementName) a bien été validé")
+//        return (elem as! T)
+//      }
+//    }
+//    return nil
+//  }
+  
+  func validateAchievement(achievementName: String) -> Achievement? {
     for elem in networkUser.achievements {
       if elem.name == achievementName && elem.status == .lock {
         elem.status = .unlock
         networkUser.achievementPoints = networkUser.achievementPoints + elem.points
         print("L'achievement : \(achievementName) a bien été validé")
-        return (elem as! T)
+        return (elem)
       }
     }
     return nil
