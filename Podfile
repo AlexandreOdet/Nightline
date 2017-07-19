@@ -16,6 +16,7 @@ target 'Nightline' do
   pod "SwiftyCam"
   pod 'PageMenu'
   pod 'Lightbox'
+  pod 'Reveal-SDK'
   
   # Pods for Nightline
 
