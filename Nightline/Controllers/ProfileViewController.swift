@@ -18,8 +18,8 @@ class ProfileViewController: BaseViewController {
                                              width: AppConstant.UI.Dimensions.thumbnailPictureSize,
                                              height: AppConstant.UI.Dimensions.thumbnailPictureSize))
   
-  private var separatorView = UIView()
-  private var infoContainerView = UIView()
+  var separatorView = UIView()
+  var infoContainerView = UIView()
   var nameLabel = UILabel()
   var typeLabel = UILabel()
   var nicknameLabel = UILabel()

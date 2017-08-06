@@ -151,6 +151,13 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
       }.catch { error in
         print("Error = ", error)
     }
+    let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(48.5271),
+                                                 CLLocationDegrees(0.3036)) // ou (item.long, item.lat)
+    let marker = Marker(title: "ced's bar",
+                        locationName: "In the cambrousse",
+                        discipline: "",
+                        coordinate: coordinates, id: 404)
+    self.map.addAnnotation(marker)
   }
   
   /*
