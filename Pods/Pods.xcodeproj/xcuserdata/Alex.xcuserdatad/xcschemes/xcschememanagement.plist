@@ -14,7 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Hue.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KeychainSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Lightbox.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,22 +92,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00B704E6B57B6BE92C9479798FE60FED</key>
+		<key>04A5A7984B1ACD89C9F8A8CED7272E22</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>01583B18C4BE364041A876B0868EE6F8</key>
+		<key>28542F6A7B08D5C0FC8A0FA1B2938F90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>170BE879F6CBA4E22036F45C44EAB17E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>225A3C542C806021A2D99842C17CE153</key>
+		<key>2E5CF315CC17E7744024E62D3BC3B4C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,12 +112,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>360950C6C29C65C1C73796F0B304499D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37B66AF5870FA3E1022722ECFA09EB7C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>38ACA430605AFB4229712A18BDDF5086</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58D12AAEE165824C13FA970B6364038E</key>
+		<key>4724F464C51F40180AF61B8131EB967C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +137,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>644EC22A528A4E2CF574BFC7D2214F0B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7DAC50642EF558C30BA174F35AC1604A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8053504C8FA1564B7F380785FB27A804</key>
+		<key>6FC78AE42EF37F0DEEF8C674F52D80DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -153,6 +158,21 @@
 			<true/>
 		</dict>
 		<key>A114CDF6C040E3B05B56F53B50075C42</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2542602E50EDF091ADB18B4688DF34F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4E5EAF46734F27BBE04F7951CEE60D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D8333DE3D091DED2293F2180DE685D32</key>
 		<dict>
 			<key>primary</key>
 			<true/>

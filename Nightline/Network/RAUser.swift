@@ -24,18 +24,20 @@ final class RAUser: RABase {
    @param email: user's mail, password: user's password, callback: the closure called when the request succeed, callbackError: the closure called when the request fail.
    @return None
    */
-  func loginUser(email: String, password: String) -> Promise<User> {
-    
-    let parameters = ["email":email, "password":password]
+  func loginUser(email: String, password: String) -> Promise<LoginSignUpUserResponse> {
+    let user = User()
+    user.email = email
+    user.passwd = password
+    let parameters = ["user":user.toJSONString()!]
     let url = RoutesAPI.login.url
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
         .responseObject(completionHandler: {
-          (response: DataResponse<User>) in
+          (response: DataResponse<LoginSignUpUserResponse>) in
           switch response.result {
-          case .success(let usr):
-            log.verbose("RestApiUser.signUp OK \(usr.toString())")
-            fulfill(usr)
+          case .success(let resp):
+            print("RAUser.loginUser ->", resp.user?.toJSONString(prettyPrint: true) ?? "nil", resp.token ?? "nil")
+            fulfill(resp)
           case .failure(let error):
             log.error("RestApiUser.signUp Fail : \(error)")
             reject(error)
@@ -53,18 +55,21 @@ final class RAUser: RABase {
    @return None
    */
   
-  func signUpUser(email: String, nickname: String, password: String) -> Promise<User> {
-    let parameters = ["email":email, "pseudo":nickname, "password":password]
+  func signUpUser(email: String, nickname: String, password: String) -> Promise<LoginSignUpUserResponse> {
+    let user = User()
+    user.email = email
+    user.passwd = password
+    let parameters = ["user":user.toJSONString()!]
     let url = RoutesAPI.signUp.url
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
         .responseObject(completionHandler: {
-          (response: DataResponse<User>) in
+          (response: DataResponse<LoginSignUpUserResponse>) in
           print("Response = ", response)
           switch response.result {
-          case .success(let usr):
-            log.verbose("RestApiUser.signUp OK \(usr.toString())")
-            fulfill(usr)
+          case .success(let resp):
+            log.verbose("RestApiUser.signUp OK \(resp)")
+            fulfill(resp)
           case .failure(let error):
             log.error("RestApiUser.signUp Fail : \(error)")
             reject(error)
@@ -74,16 +79,15 @@ final class RAUser: RABase {
   }
   
   
-  func loginFB(accessToken: String, userID: String) -> Promise<User> {
+  func loginFB(accessToken: String, userID: String) -> Promise<LoginSignUpUserResponse> {
     let parameters = ["token": accessToken, "userID":userID]
     let url = RoutesAPI.oauth_login.url
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
-        .responseObject(completionHandler: { (response: DataResponse<User>) in
+        .responseObject(completionHandler: { (response: DataResponse<LoginSignUpUserResponse>) in
           switch response.result {
-          case .success(let usr):
-            log.verbose("\(usr.toString())")
-            fulfill(usr)
+          case .success(let resp):
+            fulfill(resp)
           case .failure(let error):
             log.error("\(error)")
             reject(error)
@@ -92,7 +96,124 @@ final class RAUser: RABase {
     }
   }
   
-  func updateUser() {
-    
+  func updateUserInfos(id: String) -> Promise<User> {
+    let parameters = ["UserID":id]
+    let url = RoutesAPI.user.url.appending("/\(id)")
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
+        .responseObject(completionHandler: { (response: DataResponse<User>) in
+          switch response.result {
+          case .success(let user):
+            fulfill(user)
+          case .failure(let error):
+            log.error("\(error)")
+            reject(error)
+          }
+        })
+    }
+  }
+  
+  func getUserInfos(id: String) -> Promise<User> {
+    let parameters = ["UserID":id]
+    let url = RoutesAPI.user.url.appending("/\(id)")
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+        .responseObject(completionHandler: { (response: DataResponse<User>) in
+          switch response.result {
+          case .success(let user):
+            fulfill(user)
+          case .failure(let error):
+            log.error("\(error)")
+            reject(error)
+          }
+        })
+    }
+  }
+  
+  func getUserAchievementsList(id: String) -> Promise<[Success]> {
+    let parameters = ["UserID":id]
+    let url = RoutesAPI.user.url.appending("/\(id)/success")
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+        .responseArray(completionHandler: { (response: DataResponse<[Success]>) in
+          switch response.result {
+          case .success(let array):
+            fulfill(array)
+          case .failure(let err):
+            log.error("\(err)")
+            reject(err)
+          }
+        })
+    }
+  }
+  
+  func addAchievementToList(idUser: String, success: Success) -> Promise<[Success]> {
+    var parameters = ["UserID":idUser]
+    parameters["Success"] = success.toJSONString()
+    let url = RoutesAPI.user.url.appending("/\(idUser)/success")
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        .responseArray(completionHandler: { (response: DataResponse<[Success]>) in
+          switch response.result {
+          case .success(let array):
+            fulfill(array)
+          case .failure(let err):
+            log.error("\(err)")
+            reject(err)
+          }
+        })
+    }
+  }
+  
+  func getUserPreferences(id: String) -> Promise<[Preferences]> {
+    let parameters = ["UserID":id]
+    let url = RoutesAPI.user.url.appending("/\(id)/preferences")
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+        .responseArray(completionHandler: { (response: DataResponse<[Preferences]>) in
+          switch response.result {
+          case .success(let prefs):
+            fulfill(prefs)
+          case .failure(let err):
+            log.error("\(err)")
+            reject(err)
+          }
+        })
+    }
+  }
+  
+  func addPreferencesToList(idUser: String, preference: Preferences) -> Promise<[Preferences]> {
+    var parameters = ["UserID":idUser]
+    parameters["preference"] = preference.toJSONString()
+    let url = RoutesAPI.user.url.appending("/\(idUser)/preferences")
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        .responseArray(completionHandler: { (response: DataResponse<[Preferences]>) in
+          switch response.result {
+          case .success(let prefs):
+            fulfill(prefs)
+          case .failure(let err):
+            log.error("\(err)")
+            reject(err)
+          }
+        })
+    }
+  }
+  
+  func searchUser(query: String) -> Promise<SearchResult> {
+    var parameters = ["q": query]
+    let url = RoutesAPI.user.url.appending("/search")
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+        .responseObject(completionHandler: { (response: DataResponse<SearchResult>) in
+          switch response.result {
+          case .success(let results):
+            fulfill(results)
+          case .failure(let err):
+            log.error("\(err)")
+            reject(err)
+          }
+        })
+    }
   }
 }

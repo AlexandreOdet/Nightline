@@ -194,8 +194,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
     firstly {
       restApiUser.loginUser(email: nicknameTextField.text ?? "", password: passwordTextField.text ?? "")
       }.then {
-        user -> Void in
-        tokenWrapper.setToken(valueFor: user.token)
+        resp -> Void in
+        print(resp.user?.toJSONString(prettyPrint: true) ?? "No user", resp.token ?? "No token")
+        tokenWrapper.setToken(valueFor: resp.token!)
         self.dismiss(animated: true, completion: {
           self.presentingViewController?.dismiss(animated: true, completion: nil)})
         let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
@@ -295,8 +296,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
             self.restApiUser.signUpUser(email: fbDetails["email"] as! String,
                                    nickname: fbDetails["name"] as! String,
                                    password: "abcdef")
-            }.then { user -> Void in
-              tokenWrapper.setToken(valueFor: user.token)
+            }.then { resp -> Void in
+              tokenWrapper.setToken(valueFor: resp.token!)
               self.dismiss(animated: true, completion: {
                 self.presentingViewController?.dismiss(animated: true, completion: nil)})
               let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
@@ -306,8 +307,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
               firstly {
                 self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "abcdef")
                 }.then {
-                  user -> Void in
-                  tokenWrapper.setToken(valueFor: user.token)
+                  resp -> Void in
+                  tokenWrapper.setToken(valueFor: resp.token!)
                   self.dismiss(animated: true, completion: {
                     self.presentingViewController?.dismiss(animated: true, completion: nil)})
                   let notificationName = Notification.Name(SigninViewController.notificationIdentifier)

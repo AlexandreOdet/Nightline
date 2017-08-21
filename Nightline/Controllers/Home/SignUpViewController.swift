@@ -143,8 +143,9 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   func showHomeScreen() {
     Utils.Network.spinnerStart()
-    restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!).then{ user -> Void in
-      tokenWrapper.setToken(valueFor: user.token)
+    restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!).then{ resp -> Void in
+      print(resp)
+      tokenWrapper.setToken(valueFor: resp.token!)
       DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":self.emailTextField.text!,
                                                                            "passwd":self.passwordTextField.text!,
                                                                            "nickname":self.nicknameTextField.text!])

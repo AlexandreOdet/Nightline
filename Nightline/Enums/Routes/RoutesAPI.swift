@@ -22,4 +22,5 @@ enum RoutesAPI {
   case signUp
   case oauth_login
   case etablishment
+  case user
 }
