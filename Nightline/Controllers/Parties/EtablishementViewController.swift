@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 import PromiseKit
+import Lightbox
 
 class EtablishmentViewController: ProfileViewController {
   var isLiked = false
@@ -23,8 +24,11 @@ class EtablishmentViewController: ProfileViewController {
     layout.scrollDirection = .horizontal
     layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    cv.showsHorizontalScrollIndicator = false
     return cv
   }()
+    let imagePicker = UIImagePickerController()
+
   
   let cellId = "ImageCell"
   
@@ -56,9 +60,10 @@ class EtablishmentViewController: ProfileViewController {
     mediaBook.backgroundColor = .white
     self.view.addSubview(mediaBook)
     mediaBook.snp.makeConstraints { (make) in
-      make.bottom.equalTo(self.camButton.snp.top).offset(-30)
+//      make.bottom.equalTo(self.camButton.snp.top).offset(-30)
+      make.top.equalTo(self.separatorView).offset(20)
       make.left.right.equalToSuperview()
-      make.height.equalTo(200)
+      make.height.equalTo(150)
     }
     mediaBook.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
     mediaBook.dataSource = self
@@ -134,23 +139,59 @@ class EtablishmentViewController: ProfileViewController {
 extension EtablishmentViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-    cell.backgroundColor = .white
-    let test = UIImageView()
-    test.image = images[indexPath.row]
-    cell.addSubview(test)
-    test.snp.makeConstraints { (make) in
-      make.edges.equalToSuperview()
+    switch indexPath.section {
+    case 0:
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        cell.backgroundColor = UIColor.clear
+        cell.layer.cornerRadius = 12
+        cell.clipsToBounds = true
+        let img = UIImageView()
+        img.image = UIImage(named: "newPhotoIconWp")
+        cell.addSubview(img)
+        img.snp.makeConstraints({ (make) in
+            make.edges.equalToSuperview()
+        })
+        return cell
+    default:
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        cell.layer.cornerRadius = 12
+        cell.clipsToBounds = true
+        cell.backgroundColor = .clear
+        let img = UIImageView()
+        img.image = images[indexPath.row]
+        img.contentMode = .scaleAspectFill
+        cell.addSubview(img)
+        img.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        return cell
     }
-    return cell
+
   }
-  
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            takePicture()
+        default:
+            let diapo = images.map {LightboxImage(image: $0)}
+            let diapoController = LightboxController(images: diapo, startIndex: indexPath.row)
+            diapoController.dynamicBackground = true
+            present(diapoController, animated: true, completion: nil)
+        }
+    }
+
   func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
+    return 2
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return images.count
+    switch section {
+    case 0:
+        return 1
+    default:
+        return images.count
+    }
   }
 }
 
@@ -159,3 +200,57 @@ extension EtablishmentViewController: UICollectionViewDelegateFlowLayout {
     return CGSize(width: self.mediaBook.frame.height, height: self.mediaBook.frame.height)
   }
 }
+
+extension EtablishmentViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func photoFromLibrairy() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.delegate = self
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            let needAuthorization = UIAlertController(title: "Impossible", message: "Veuillez autoriser l'application a acceder a votre bibliotheque photo dans les reglages de l'appareil", preferredStyle: .alert)
+            present(needAuthorization, animated: true, completion: nil)
+        }
+    }
+
+    func photoFromCamera() {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        imagePicker.cameraCaptureMode = .photo
+        imagePicker.modalPresentationStyle = .fullScreen
+        present(imagePicker,animated: true,completion: nil)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            MediaManager.instance.saveImage(bar_id: String(idBar), image: selectedImage)
+        }
+        self.mediaBook.reloadData()
+        dismiss(animated: true, completion: nil)
+    }
+
+    func takePicture() {
+        let chooseSource = UIAlertController(title: "Choix de la source", message: "?", preferredStyle: .actionSheet)
+        let roll = UIAlertAction(title: "Bibliothèque", style: .default, handler: {
+            action in
+            self.photoFromLibrairy()
+        })
+        let camera = UIAlertAction(title: "Camera", style: .default, handler: {
+            action in
+            self.photoFromCamera()
+        })
+        chooseSource.addAction(roll)
+        chooseSource.addAction(camera)
+        present(chooseSource, animated: true, completion: nil)
+    }
+}
+
+
+
+
+
+
+
+
+

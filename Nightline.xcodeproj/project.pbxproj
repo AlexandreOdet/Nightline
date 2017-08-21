@@ -22,6 +22,7 @@
 		7B6068691F0FE964000F1755 /* UserMediaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6068681F0FE964000F1755 /* UserMediaTableViewController.swift */; };
 		7B60686B1F0FF293000F1755 /* UserMediaCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60686A1F0FF293000F1755 /* UserMediaCustomViewCell.swift */; };
 		7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */; };
+		7B9F41F11F2508FB0033385E /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9F41F01F2508FB0033385E /* DetailMediaViewController.swift */; };
 		7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */; };
 		7BD406E61E9A5204003C09AC /* ProfilePictCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */; };
 		7BD6F25A1F1525E3001D88F6 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD6F2591F1525E3001D88F6 /* MediaManager.swift */; };
@@ -146,6 +147,7 @@
 		7B6068681F0FE964000F1755 /* UserMediaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserMediaTableViewController.swift; path = Controllers/User/UserMediaTableViewController.swift; sourceTree = "<group>"; };
 		7B60686A1F0FF293000F1755 /* UserMediaCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMediaCustomViewCell.swift; sourceTree = "<group>"; };
 		7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewController.swift; path = Controllers/User/EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		7B9F41F01F2508FB0033385E /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
 		7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleLabelTableViewCell.swift; path = Controllers/Settings/CustomCells/DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePictCell.swift; path = Controllers/Settings/CustomCells/ProfilePictCell.swift; sourceTree = "<group>"; };
 		7BD6F2591F1525E3001D88F6 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = Manager/MediaManager.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3A6D2C1E833D97008489F2 /* EtablishementViewController.swift */,
+				7B9F41F01F2508FB0033385E /* DetailMediaViewController.swift */,
 				FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */,
 				7B0A55011EF7E92E00BE08CD /* CamViewController.swift */,
 				7B0A55131EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift */,
@@ -928,13 +931,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NightlineTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+<<<<<<< HEAD
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests-frameworks.sh\"\n";
+=======
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+>>>>>>> 983d92b404ba999bd7ef1dc578023ddb02726352
 			showEnvVarsInLog = 0;
 		};
 		907B38D02E1629B11CB95766 /* [CP] Check Pods Manifest.lock */ = {
@@ -943,9 +953,40 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Nightline/Pods-Nightline-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PageMenu/PageMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-9/iOS/RevealServer.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyCam/SwiftyCam.framework",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyCam.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -958,13 +999,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NightlineUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+<<<<<<< HEAD
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests-resources.sh\"\n";
+=======
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+>>>>>>> 983d92b404ba999bd7ef1dc578023ddb02726352
 			showEnvVarsInLog = 0;
 		};
 		B8F17891B8836DB90A543B28 /* [CP] Check Pods Manifest.lock */ = {
@@ -988,13 +1036,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nightline-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+<<<<<<< HEAD
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests-frameworks.sh\"\n";
+=======
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+>>>>>>> 983d92b404ba999bd7ef1dc578023ddb02726352
 			showEnvVarsInLog = 0;
 		};
 		FA1DB89C1E03484100C8E437 /* ShellScript */ = {
@@ -1073,6 +1128,7 @@
 				7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */,
 				FA303F6C1E5D1F26008961EF /* ExtensionUserPreferences.swift in Sources */,
 				FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */,
+				7B9F41F11F2508FB0033385E /* DetailMediaViewController.swift in Sources */,
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
 				FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */,
 				7B5A6AD21E9FB5AB00D902C5 /* EditCityViewController.swift in Sources */,
