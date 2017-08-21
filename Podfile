@@ -13,7 +13,7 @@ target 'Nightline' do
   pod 'AlamofireObjectMapper'
   pod 'KeychainSwift'
   pod 'PromiseKit'
-  pod "SwiftyCam"
+  pod 'SwiftyCam'
   pod 'PageMenu'
   pod 'Lightbox'
   pod 'Reveal-SDK'
