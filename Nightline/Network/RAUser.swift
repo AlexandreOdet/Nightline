@@ -201,7 +201,7 @@ final class RAUser: RABase {
   }
   
   func searchUser(query: String) -> Promise<SearchResult> {
-    var parameters = ["q": query]
+    let parameters = ["q": query]
     let url = RoutesAPI.user.url.appending("/search")
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
