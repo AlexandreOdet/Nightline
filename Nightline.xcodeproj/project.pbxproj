@@ -86,6 +86,8 @@
 		FAC3804E1EA08A0800F62FEC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */; };
 		FAC380501EA08A2200F62FEC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804F1EA08A2200F62FEC /* FBSDKLoginKit.framework */; };
 		FAC380521EA08A2A00F62FEC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC380511EA08A2A00F62FEC /* FBSDKShareKit.framework */; };
+		FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E41F4CD4C9002060A1 /* Menu.swift */; };
+		FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E61F4CD8AD002060A1 /* Party.swift */; };
 		FADAF4E71F2BAB7200C779A2 /* LoginSignUpUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADAF4E61F2BAB7200C779A2 /* LoginSignUpUserResponse.swift */; };
 		FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */; };
 		FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C91E8746EE00E74439 /* Achievments.swift */; };
@@ -215,6 +217,8 @@
 		FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FAC3804F1EA08A2200F62FEC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FAC380511EA08A2A00F62FEC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		FAD506E41F4CD4C9002060A1 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Models/Parties/Menu.swift; sourceTree = "<group>"; };
+		FAD506E61F4CD8AD002060A1 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Party.swift; path = Models/Parties/Party.swift; sourceTree = "<group>"; };
 		FADAF4E61F2BAB7200C779A2 /* LoginSignUpUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginSignUpUserResponse.swift; path = Models/User/LoginSignUpUserResponse.swift; sourceTree = "<group>"; };
 		FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsListTableViewCell.swift; path = Controllers/User/CustomCells/UserFriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		FADF25C91E8746EE00E74439 /* Achievments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Achievments.swift; path = Models/Parties/Achievments.swift; sourceTree = "<group>"; };
@@ -532,6 +536,8 @@
 				FADF25C91E8746EE00E74439 /* Achievments.swift */,
 				FA23240E1EF92D0F00F6AF88 /* Etablishment.swift */,
 				FA4548A21F0FD12B0064A1BE /* Consommable.swift */,
+				FAD506E41F4CD4C9002060A1 /* Menu.swift */,
+				FAD506E61F4CD8AD002060A1 /* Party.swift */,
 			);
 			name = Parties;
 			sourceTree = "<group>";
@@ -1115,6 +1121,7 @@
 				7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */,
 				FAFF4EA41E5E4827006582C7 /* ExtensionDBUser.swift in Sources */,
 				FAAC43C81E85BA2100CEF9CA /* ProfileViewController.swift in Sources */,
+				FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */,
 				FA5C2A911E5A4FFC00A0CB56 /* EventType.swift in Sources */,
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
 				7B15943F1ECB447800C80AB8 /* UITableViewExtension.swift in Sources */,
@@ -1143,6 +1150,7 @@
 				FA5C2A9B1E5A519700A0CB56 /* UIImageViewExtension.swift in Sources */,
 				FA5729831E5CFBE800B36784 /* RoutesAPI.swift in Sources */,
 				7B5A6AD41E9FB81700D902C5 /* EditAgeViewController.swift in Sources */,
+				FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */,
 				7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */,
