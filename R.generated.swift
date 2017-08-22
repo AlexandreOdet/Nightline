@@ -282,8 +282,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 0 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
   struct nib {
+    /// Nib `SearchUserViewController`.
+    static let searchUserViewController = _R.nib._SearchUserViewController()
+    
+    /// `UINib(name: "SearchUserViewController", in: bundle)`
+    static func searchUserViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.searchUserViewController)
+    }
+    
     fileprivate init() {}
   }
   
@@ -724,6 +732,17 @@ struct R: Rswift.Validatable {
 
 struct _R {
   struct nib {
+    struct _SearchUserViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SearchUserViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   

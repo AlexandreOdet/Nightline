@@ -59,8 +59,10 @@ final class UserProfileViewController: ProfileViewController {
   }
   
   func showUserFriendsList() {
-    let nextViewController = UserFriendsListTableViewController()
-    tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
+//    let nextViewController = UserFriendsListTableViewController()
+//    tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
+    let vc = SearchUserViewController()
+    tabBarController?.navigationController?.pushViewController(vc, animated: true)
   }
   
   func showUserMediaList() {
