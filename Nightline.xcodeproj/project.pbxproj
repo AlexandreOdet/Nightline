@@ -21,6 +21,8 @@
 		7B5A6AD41E9FB81700D902C5 /* EditAgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A6AD31E9FB81700D902C5 /* EditAgeViewController.swift */; };
 		7B6068691F0FE964000F1755 /* UserMediaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6068681F0FE964000F1755 /* UserMediaTableViewController.swift */; };
 		7B60686B1F0FF293000F1755 /* UserMediaCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60686A1F0FF293000F1755 /* UserMediaCustomViewCell.swift */; };
+		7B6074D81F4CD4B400CA7E23 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6074D61F4CD4B400CA7E23 /* SearchUserViewController.swift */; };
+		7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */; };
 		7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */; };
 		7B9F41F11F2508FB0033385E /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9F41F01F2508FB0033385E /* DetailMediaViewController.swift */; };
 		7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */; };
@@ -146,6 +148,8 @@
 		7B5A6AD31E9FB81700D902C5 /* EditAgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditAgeViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditAgeViewController.swift; sourceTree = "<group>"; };
 		7B6068681F0FE964000F1755 /* UserMediaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserMediaTableViewController.swift; path = Controllers/User/UserMediaTableViewController.swift; sourceTree = "<group>"; };
 		7B60686A1F0FF293000F1755 /* UserMediaCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMediaCustomViewCell.swift; sourceTree = "<group>"; };
+		7B6074D61F4CD4B400CA7E23 /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserViewController.swift; path = Controllers/User/SearchUserViewController.swift; sourceTree = "<group>"; };
+		7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchUserViewController.xib; path = Controllers/User/SearchUserViewController.xib; sourceTree = "<group>"; };
 		7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewController.swift; path = Controllers/User/EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		7B9F41F01F2508FB0033385E /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
 		7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleLabelTableViewCell.swift; path = Controllers/Settings/CustomCells/DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
@@ -428,6 +432,8 @@
 			children = (
 				FADF25C61E87367900E74439 /* CustomCell */,
 				FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */,
+				7B6074D61F4CD4B400CA7E23 /* SearchUserViewController.swift */,
+				7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */,
 				FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */,
 				7B6068681F0FE964000F1755 /* UserMediaTableViewController.swift */,
 				FADF25CB1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift */,
@@ -858,6 +864,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */,
 				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
 				FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */,
 			);
@@ -1102,6 +1109,7 @@
 				FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */,
 				7B0A55141EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift in Sources */,
 				FA3AA1731E577106002CF4FC /* SignUpViewController.swift in Sources */,
+				7B6074D81F4CD4B400CA7E23 /* SearchUserViewController.swift in Sources */,
 				FA3AA1761E577137002CF4FC /* MainViewController.swift in Sources */,
 				FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */,
 				FA5C2AA01E5A51B300A0CB56 /* ExtensionConsommation.swift in Sources */,
