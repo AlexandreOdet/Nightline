@@ -88,6 +88,7 @@
 		FAC380521EA08A2A00F62FEC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC380511EA08A2A00F62FEC /* FBSDKShareKit.framework */; };
 		FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E41F4CD4C9002060A1 /* Menu.swift */; };
 		FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E61F4CD8AD002060A1 /* Party.swift */; };
+		FAD506E91F4CDBA4002060A1 /* RAParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E81F4CDBA4002060A1 /* RAParty.swift */; };
 		FADAF4E71F2BAB7200C779A2 /* LoginSignUpUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADAF4E61F2BAB7200C779A2 /* LoginSignUpUserResponse.swift */; };
 		FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */; };
 		FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C91E8746EE00E74439 /* Achievments.swift */; };
@@ -219,6 +220,7 @@
 		FAC380511EA08A2A00F62FEC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		FAD506E41F4CD4C9002060A1 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Models/Parties/Menu.swift; sourceTree = "<group>"; };
 		FAD506E61F4CD8AD002060A1 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Party.swift; path = Models/Parties/Party.swift; sourceTree = "<group>"; };
+		FAD506E81F4CDBA4002060A1 /* RAParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAParty.swift; path = Network/RAParty.swift; sourceTree = "<group>"; };
 		FADAF4E61F2BAB7200C779A2 /* LoginSignUpUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginSignUpUserResponse.swift; path = Models/User/LoginSignUpUserResponse.swift; sourceTree = "<group>"; };
 		FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsListTableViewCell.swift; path = Controllers/User/CustomCells/UserFriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		FADF25C91E8746EE00E74439 /* Achievments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Achievments.swift; path = Models/Parties/Achievments.swift; sourceTree = "<group>"; };
@@ -701,6 +703,7 @@
 				FAFF37841E034678001B2A8F /* RABase.swift */,
 				FA78B71A1E56978600765056 /* RAUser.swift */,
 				FA23240C1EF92CFE00F6AF88 /* RAEtablissement.swift */,
+				FAD506E81F4CDBA4002060A1 /* RAParty.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -1129,6 +1132,7 @@
 				FA23240F1EF92D0F00F6AF88 /* Etablishment.swift in Sources */,
 				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
 				7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */,
+				FAD506E91F4CDBA4002060A1 /* RAParty.swift in Sources */,
 				FA303F6C1E5D1F26008961EF /* ExtensionUserPreferences.swift in Sources */,
 				FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */,
 				7B9F41F11F2508FB0033385E /* DetailMediaViewController.swift in Sources */,
