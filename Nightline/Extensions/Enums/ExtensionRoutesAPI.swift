@@ -32,6 +32,8 @@ extension RoutesAPI: RoutableProtocol {
         return AppConstant.Network.etablishment
       case .user:
         return AppConstant.Network.user
+      case .party:
+        return AppConstant.Network.party
       }
     }()
     return (RoutesAPI.baseUrl.appending(path))

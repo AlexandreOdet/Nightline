@@ -91,6 +91,9 @@
 		FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E41F4CD4C9002060A1 /* Menu.swift */; };
 		FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E61F4CD8AD002060A1 /* Party.swift */; };
 		FAD506E91F4CDBA4002060A1 /* RAParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E81F4CDBA4002060A1 /* RAParty.swift */; };
+		FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506EA1F4D6E67002060A1 /* PartyPreview.swift */; };
+		FAD506ED1F4D7371002060A1 /* OrderParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506EC1F4D7371002060A1 /* OrderParty.swift */; };
+		FAD506EF1F4D777C002060A1 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506EE1F4D777C002060A1 /* Order.swift */; };
 		FADAF4E71F2BAB7200C779A2 /* LoginSignUpUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADAF4E61F2BAB7200C779A2 /* LoginSignUpUserResponse.swift */; };
 		FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */; };
 		FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C91E8746EE00E74439 /* Achievments.swift */; };
@@ -225,6 +228,9 @@
 		FAD506E41F4CD4C9002060A1 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Models/Parties/Menu.swift; sourceTree = "<group>"; };
 		FAD506E61F4CD8AD002060A1 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Party.swift; path = Models/Parties/Party.swift; sourceTree = "<group>"; };
 		FAD506E81F4CDBA4002060A1 /* RAParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAParty.swift; path = Network/RAParty.swift; sourceTree = "<group>"; };
+		FAD506EA1F4D6E67002060A1 /* PartyPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyPreview.swift; path = Models/Parties/PartyPreview.swift; sourceTree = "<group>"; };
+		FAD506EC1F4D7371002060A1 /* OrderParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderParty.swift; path = Models/Parties/OrderParty.swift; sourceTree = "<group>"; };
+		FAD506EE1F4D777C002060A1 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = Models/Parties/Order.swift; sourceTree = "<group>"; };
 		FADAF4E61F2BAB7200C779A2 /* LoginSignUpUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginSignUpUserResponse.swift; path = Models/User/LoginSignUpUserResponse.swift; sourceTree = "<group>"; };
 		FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsListTableViewCell.swift; path = Controllers/User/CustomCells/UserFriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		FADF25C91E8746EE00E74439 /* Achievments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Achievments.swift; path = Models/Parties/Achievments.swift; sourceTree = "<group>"; };
@@ -546,6 +552,9 @@
 				FA4548A21F0FD12B0064A1BE /* Consommable.swift */,
 				FAD506E41F4CD4C9002060A1 /* Menu.swift */,
 				FAD506E61F4CD8AD002060A1 /* Party.swift */,
+				FAD506EA1F4D6E67002060A1 /* PartyPreview.swift */,
+				FAD506EC1F4D7371002060A1 /* OrderParty.swift */,
+				FAD506EE1F4D777C002060A1 /* Order.swift */,
 			);
 			name = Parties;
 			sourceTree = "<group>";
@@ -1147,6 +1156,7 @@
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
 				FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */,
 				7B5A6AD21E9FB5AB00D902C5 /* EditCityViewController.swift in Sources */,
+				FAD506EF1F4D777C002060A1 /* Order.swift in Sources */,
 				FADAF4E71F2BAB7200C779A2 /* LoginSignUpUserResponse.swift in Sources */,
 				FAFF4EA21E5E4762006582C7 /* ExtensionString.swift in Sources */,
 				FA3AA1881E5771A8002CF4FC /* UserProfileViewController.swift in Sources */,
@@ -1156,6 +1166,7 @@
 				FA78B71B1E56978600765056 /* RAUser.swift in Sources */,
 				FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */,
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
+				FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */,
 				FA5C2AA21E5A57FD00A0CB56 /* ExtensionPersonType.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
 				FADF25CC1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift in Sources */,
@@ -1183,6 +1194,7 @@
 				FA4548A31F0FD12B0064A1BE /* Consommable.swift in Sources */,
 				FA303F651E5D1C75008961EF /* ExtensionMarker.swift in Sources */,
 				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,
+				FAD506ED1F4D7371002060A1 /* OrderParty.swift in Sources */,
 				FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */,
 				FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */,
 				FA33BF511E57ECFD0037FC88 /* PersonFilter.swift in Sources */,

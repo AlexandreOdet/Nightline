@@ -63,5 +63,6 @@ final class AppConstant {
     static let etablishment = "/establishments"
     static let drinks = ""
     static let user = "/users"
+    static let party = "/soiree"
   }
 }
