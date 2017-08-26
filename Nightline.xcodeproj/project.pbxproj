@@ -34,6 +34,7 @@
 		FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB8A71E034CEA00C8E437 /* Localizable.strings */; };
 		FA23240D1EF92CFE00F6AF88 /* RAEtablissement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23240C1EF92CFE00F6AF88 /* RAEtablissement.swift */; };
 		FA23240F1EF92D0F00F6AF88 /* Etablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23240E1EF92D0F00F6AF88 /* Etablishment.swift */; };
+		FA2DFCA71F4E0EB100C70C1B /* UserLoginObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DFCA61F4E0EB100C70C1B /* UserLoginObject.swift */; };
 		FA303F651E5D1C75008961EF /* ExtensionMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F641E5D1C75008961EF /* ExtensionMarker.swift */; };
 		FA303F671E5D1D18008961EF /* ImageableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F661E5D1D18008961EF /* ImageableProtocol.swift */; };
 		FA303F6A1E5D1EAE008961EF /* ExtensionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA303F691E5D1EAE008961EF /* ExtensionUser.swift */; };
@@ -171,6 +172,7 @@
 		FA1DB8A91E03534A00C8E437 /* Nightline.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nightline.entitlements; sourceTree = "<group>"; };
 		FA23240C1EF92CFE00F6AF88 /* RAEtablissement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAEtablissement.swift; path = Network/RAEtablissement.swift; sourceTree = "<group>"; };
 		FA23240E1EF92D0F00F6AF88 /* Etablishment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Etablishment.swift; path = Models/Parties/Etablishment.swift; sourceTree = "<group>"; };
+		FA2DFCA61F4E0EB100C70C1B /* UserLoginObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserLoginObject.swift; path = Models/User/UserLoginObject.swift; sourceTree = "<group>"; };
 		FA303F641E5D1C75008961EF /* ExtensionMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionMarker.swift; path = Extensions/Models/Parties/ExtensionMarker.swift; sourceTree = "<group>"; };
 		FA303F661E5D1D18008961EF /* ImageableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageableProtocol.swift; path = Protocols/ImageableProtocol.swift; sourceTree = "<group>"; };
 		FA303F691E5D1EAE008961EF /* ExtensionUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionUser.swift; path = Extensions/Models/User/ExtensionUser.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 				FA8851911F4B7D0900647A1F /* Preferences.swift */,
 				FA8851931F4B810900647A1F /* SearchResult.swift */,
 				FA8851951F4B81A900647A1F /* UserPreview.swift */,
+				FA2DFCA61F4E0EB100C70C1B /* UserLoginObject.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -1167,6 +1170,7 @@
 				FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */,
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
 				FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */,
+				FA2DFCA71F4E0EB100C70C1B /* UserLoginObject.swift in Sources */,
 				FA5C2AA21E5A57FD00A0CB56 /* ExtensionPersonType.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
 				FADF25CC1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift in Sources */,

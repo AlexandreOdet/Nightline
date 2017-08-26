@@ -24,7 +24,7 @@ class User: Mappable {
   var passwd = ""
   var city = ""
   var age = ""
-  var id = ""
+  var id = 0
   var achievements : [Achievement] = []
   var achievementPoints = 0
   var preferences = UserPreferences()

@@ -28,15 +28,17 @@ final class RAUser: RABase {
     let user = User()
     user.email = email
     user.passwd = password
-    let parameters = ["user":user.toJSONString()!]
+    var parameters = ["user": user.toJSON()]
     let url = RoutesAPI.login.url
+    print("URL = \(url)", "\nparameters: \(parameters)")
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
         .responseObject(completionHandler: {
           (response: DataResponse<LoginSignUpUserResponse>) in
+          print(response.result.isSuccess)
           switch response.result {
           case .success(let resp):
-            print("RAUser.loginUser ->", resp.user?.toJSONString(prettyPrint: true) ?? "nil", resp.token ?? "nil")
+            print("RAUser.loginUser ->", resp.toJSONString())
             fulfill(resp)
           case .failure(let error):
             log.error("RestApiUser.signUp Fail : \(error)")
@@ -59,7 +61,7 @@ final class RAUser: RABase {
     let user = User()
     user.email = email
     user.passwd = password
-    let parameters = ["user":user.toJSONString()!]
+    var parameters = ["user":user.toJSON()]
     let url = RoutesAPI.signUp.url
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
@@ -68,7 +70,7 @@ final class RAUser: RABase {
           print("Response = ", response)
           switch response.result {
           case .success(let resp):
-            log.verbose("RestApiUser.signUp OK \(resp)")
+            log.verbose("RestApiUser.signUp OK \(resp.toJSONString())")
             fulfill(resp)
           case .failure(let error):
             log.error("RestApiUser.signUp Fail : \(error)")

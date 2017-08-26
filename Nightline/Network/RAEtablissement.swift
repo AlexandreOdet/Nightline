@@ -23,6 +23,7 @@ class RAEtablissement: RABase {
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(RoutesAPI.etablishment.url, headers: headers).responseArray(completionHandler: {
         (response: DataResponse<[Etablissement]>) in
+        print("\(response.result)")
         switch response.result {
         case .success(let array):
           fulfill(array)
