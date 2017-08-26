@@ -138,8 +138,8 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     super.viewWillAppear(animated)
     firstly {
       restApiEtablishment.getEtablishmentList()
-      }.then { array -> Void in
-        for item in array {
+      }.then { response -> Void in
+        for item in response.array {
           let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(item.latitude),
                                                        CLLocationDegrees(item.longitude)) // ou (item.long, item.lat)
           let marker = Marker(title: item.name,
@@ -149,7 +149,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
           self.map.addAnnotation(marker)
         }
       }.catch { error in
-        print("Error = ", error)
+        print("Error = ", error.localizedDescription)
     }
     let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(48.5271),
                                                  CLLocationDegrees(0.3036)) // ou (item.long, item.lat)

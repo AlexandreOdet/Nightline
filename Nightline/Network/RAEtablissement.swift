@@ -15,15 +15,17 @@ class RAEtablissement: RABase {
   
   var headers = ["":""]
   
-  func getEtablishmentList() -> Promise<[Etablissement]> {
-    if let token = TokenWrapper().getToken() {
+  func getEtablishmentList() -> Promise<EstablishmentList> {
+        if let token = TokenWrapper().getToken() {
       headers["Authorization"] = token
     }
-    print("Token -> ", TokenWrapper().getToken() ?? "empty Token")
+    print(RoutesAPI.etablishment.url)
+    //https://api.nightline.fr/establishments
+    
+    //https://api.nightline.fr/establishments
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(RoutesAPI.etablishment.url, headers: headers).responseArray(completionHandler: {
-        (response: DataResponse<[Etablissement]>) in
-        print("\(response.result)")
+      self.request = Alamofire.request(RoutesAPI.etablishment.url, method: .get).responseObject(completionHandler: {
+        (response: DataResponse<EstablishmentList>) in
         switch response.result {
         case .success(let array):
           fulfill(array)
