@@ -16,13 +16,6 @@ class RAEtablissement: RABase {
   var headers = ["":""]
   
   func getEtablishmentList() -> Promise<EstablishmentList> {
-        if let token = TokenWrapper().getToken() {
-      headers["Authorization"] = token
-    }
-    print(RoutesAPI.etablishment.url)
-    //https://api.nightline.fr/establishments
-    
-    //https://api.nightline.fr/establishments
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(RoutesAPI.etablishment.url, method: .get).responseObject(completionHandler: {
         (response: DataResponse<EstablishmentList>) in
@@ -57,9 +50,9 @@ class RAEtablissement: RABase {
   
   func searchEstablishment(query: String) -> Promise<SearchResult> {
     let parameters = ["q":query]
-    let url = RoutesAPI.etablishment.url.appending("/search")
+    let url = RoutesAPI.baseUrl.appending("/search/establishments")
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+      self.request = Alamofire.request(url, method: .get, parameters: parameters)
         .responseObject(completionHandler: { (response: DataResponse<SearchResult>) in
           switch response.result {
           case .success(let results):
