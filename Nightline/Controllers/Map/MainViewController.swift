@@ -151,7 +151,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     func didTapCalloutButton(sender: UITapGestureRecognizer) {
         guard let annotation = (sender.view as? MKAnnotationView)?.annotation as? Marker else { return }
 
-        let actionList = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let actionList = UIAlertController(title: annotation.name, message: "", preferredStyle: .actionSheet)
         actionList.addAction(UIAlertAction(title: "Accéder à la fiche du bar", style: .default, handler: { action in
             let nextViewController = EtablishmentViewController()
             nextViewController.idBar = annotation.id

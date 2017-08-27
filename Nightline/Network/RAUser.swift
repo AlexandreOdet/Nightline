@@ -201,10 +201,11 @@ final class RAUser: RABase {
   }
   
   func searchUser(query: String) -> Promise<SearchResult> {
-    let parameters = ["q": query]
-    let url = RoutesAPI.user.url.appending("/search")
+//    let parameters = ["q": query]
+//    let url = RoutesAPI.user.url.appending("/search")
+    let url = "https://api.nightline.fr/search/users?q=\(query)"
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+      self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
         .responseObject(completionHandler: { (response: DataResponse<SearchResult>) in
           switch response.result {
           case .success(let results):

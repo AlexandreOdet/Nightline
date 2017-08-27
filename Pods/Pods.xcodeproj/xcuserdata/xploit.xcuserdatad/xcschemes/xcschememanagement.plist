@@ -8,145 +8,101 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 		<key>AlamofireObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
+		</dict>
+		<key>Cloudinary.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Hue.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>KeychainSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Lightbox.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>PageMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>Pods-Nightline.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>Pods-NightlineTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>Pods-NightlineUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
 		</dict>
 		<key>PromiseKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 		<key>R.swift.Library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
 		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>12</integer>
 		</dict>
 		<key>RealmSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>13</integer>
 		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>14</integer>
 		</dict>
 		<key>SwiftyBeaver.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>15</integer>
 		</dict>
 		<key>SwiftyCam.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>16</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04A5A7984B1ACD89C9F8A8CED7272E22</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>28542F6A7B08D5C0FC8A0FA1B2938F90</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2E5CF315CC17E7744024E62D3BC3B4C9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>2F5622F3B18DF497981AB58C6D1FC72F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>360950C6C29C65C1C73796F0B304499D</key>
+		<key>3379C3DA101F641D519594910B7957F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -161,7 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4724F464C51F40180AF61B8131EB967C</key>
+		<key>41836B387BAFF3979ABD56CEC4BEDBC0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>50266D04CBAB68EC9AA156175133FA2A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57639F24E33E95935B8C11E514EA2436</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -171,12 +137,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6FC78AE42EF37F0DEEF8C674F52D80DE</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<key>897F87A4A0388BD12C3C381F9D52ECED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9356EC2B259EDE21140AED53E360C09D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94E6FF8B85696B5523478CB2E86DA28A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -201,12 +177,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B4E5EAF46734F27BBE04F7951CEE60D7</key>
+		<key>E3C3602DB3239CA5A69E73995BEF8EC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8333DE3D091DED2293F2180DE685D32</key>
+		<key>FFFED388D9C025CFD5109FE96B50532E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

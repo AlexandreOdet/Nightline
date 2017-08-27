@@ -11,6 +11,7 @@ import CoreData
 import SwiftyBeaver
 import KeychainSwift
 import FBSDKCoreKit
+import Cloudinary
 
 let log = SwiftyBeaver.self
 let tokenWrapper = TokenWrapper()

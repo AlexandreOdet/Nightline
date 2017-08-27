@@ -35,26 +35,30 @@ class SearchUserViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func searchFriendAction(_ sender: Any) {
-        let query = searchField.text
-        switch searchOption.selectedSegmentIndex {
-        case 0:
-            firstly {
-                user.searchUser(query: query!)
-                }.then { result -> Void in
-                    self.userArray.append(contentsOf: result.result)
-                    self.tableView.reloadData()
-                }.catch { error -> Void in
-                    let alert = UIAlertController(title: "MonTitre", message: "Mon message", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-            }
-        case 1:
-            break
+        if let query = searchField.text {
+            switch searchOption.selectedSegmentIndex {
+            case 0:
+                firstly {
+                    user.searchUser(query: query)
+                    }.then { result -> Void in
+                        if result.result != nil {
+                            self.userArray.append(contentsOf: result.result)
+                            self.tableView.reloadData()
+                            for elem in self.userArray {
+                                print(elem.name)
+                            }
+                        }
+                    }.catch { error -> Void in
+                        print("Error : \(error)")
+                }
+            case 1:
+                break
             // TODO search event query
-        default:
-            break
+            default:
+                break
+            }
         }
     }
 }
