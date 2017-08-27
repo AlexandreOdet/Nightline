@@ -225,6 +225,7 @@ extension EtablishmentViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             MediaManager.instance.saveImage(bar_id: String(idBar), image: selectedImage)
+            mediaBook.reloadData()
         }
         self.mediaBook.reloadData()
         dismiss(animated: true, completion: nil)
