@@ -18,8 +18,7 @@ class UserPreview: Mappable {
   required init?(map: Map) {}
   
   func mapping(map: Map) {
-    id <- map["ID"]
-    name <- map["Name"]
-    icon <- map["Icon"]
+    id <- map["id"]
+    name <- map["name"]
   }
 }

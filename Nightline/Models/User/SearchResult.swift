@@ -11,13 +11,11 @@ import ObjectMapper
 
 class SearchResult: Mappable {
   
-  var count: Int!
   var result: [UserPreview]!
   
   required init?(map: Map) {}
   
   func mapping(map: Map) {
-    count <- map["Count"]
-    result <- map["Results"]
+    result <- map["Users"]
   }
 }
