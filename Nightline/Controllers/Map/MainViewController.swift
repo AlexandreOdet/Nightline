@@ -117,35 +117,26 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
             self.locationManager.requestWhenInUseAuthorization()
         }
     }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-        // Enlevé pour centrer la carte pour la beta
-        //    let location = locations.last! as CLLocation
-
-        //    let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let center = CLLocationCoordinate2D(latitude: 48.8517, longitude: 2.3477)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-
-        self.map.setRegion(region, animated: true)
-    }
-
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let identifier = "pin"
-        if let annotation = annotation as? Marker {
-            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-            if pinView == nil {
-                pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                pinView!.canShowCallout = true
-                pinView?.image = R.image.pin()
-                pinView?.tag = 1
-            }
-            else {
-                pinView?.annotation = annotation
-            }
-            return pinView
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCalloutButton(sender:)))
+    view.addGestureRecognizer(tapGestureRecognizer)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    firstly {
+      restApiEtablishment.getEtablishmentList()
+      }.then { response -> Void in
+        for item in response.array {
+          let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(item.latitude),
+                                                       CLLocationDegrees(item.longitude)) // ou (item.long, item.lat)
+          let marker = Marker(title: item.name,
+                              locationName: item.name,
+                              discipline: "",
+                              coordinate: coordinates, id: item.id)
+          self.map.addAnnotation(marker)
         }
-        return nil
+      }.catch { error in
+        print("Error = ", error.localizedDescription)
     }
 
     func didTapCalloutButton(sender: UITapGestureRecognizer) {
