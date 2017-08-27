@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 38 images.
+  /// This `R.image` struct is generated, and contains static references to 35 images.
   struct image {
     /// Image `avatar`.
     static let avatar = Rswift.ImageResource(bundle: R.hostingBundle, name: "avatar")
@@ -49,8 +49,6 @@ struct R: Rswift.Validatable {
     static let birthday = Rswift.ImageResource(bundle: R.hostingBundle, name: "birthday")
     /// Image `cameraButton`.
     static let cameraButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraButton")
-    /// Image `cameraWhiteButton`.
-    static let cameraWhiteButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraWhiteButton")
     /// Image `champagne`.
     static let champagne = Rswift.ImageResource(bundle: R.hostingBundle, name: "champagne")
     /// Image `cocktail`.
@@ -77,8 +75,6 @@ struct R: Rswift.Validatable {
     static let menu = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu")
     /// Image `money-bag`.
     static let moneyBag = Rswift.ImageResource(bundle: R.hostingBundle, name: "money-bag")
-    /// Image `newPhotoIconWp`.
-    static let newPhotoIconWp = Rswift.ImageResource(bundle: R.hostingBundle, name: "newPhotoIconWp")
     /// Image `party`.
     static let party = Rswift.ImageResource(bundle: R.hostingBundle, name: "party")
     /// Image `picture`.
@@ -93,8 +89,6 @@ struct R: Rswift.Validatable {
     static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
     /// Image `rec`.
     static let rec = Rswift.ImageResource(bundle: R.hostingBundle, name: "rec")
-    /// Image `search_icon`.
-    static let search_icon = Rswift.ImageResource(bundle: R.hostingBundle, name: "search_icon")
     /// Image `settings_filled`.
     static let settings_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings_filled")
     /// Image `settings`.
@@ -148,11 +142,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "cameraButton", bundle: ..., traitCollection: ...)`
     static func cameraButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.cameraButton, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "cameraWhiteButton", bundle: ..., traitCollection: ...)`
-    static func cameraWhiteButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.cameraWhiteButton, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "champagne", bundle: ..., traitCollection: ...)`
@@ -220,11 +209,6 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.moneyBag, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "newPhotoIconWp", bundle: ..., traitCollection: ...)`
-    static func newPhotoIconWp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.newPhotoIconWp, compatibleWith: traitCollection)
-    }
-    
     /// `UIImage(named: "party", bundle: ..., traitCollection: ...)`
     static func party(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.party, compatibleWith: traitCollection)
@@ -258,11 +242,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "rec", bundle: ..., traitCollection: ...)`
     static func rec(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.rec, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "search_icon", bundle: ..., traitCollection: ...)`
-    static func search_icon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.search_icon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "settings", bundle: ..., traitCollection: ...)`
