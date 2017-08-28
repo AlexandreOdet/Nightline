@@ -78,24 +78,6 @@ final class RAUser: RABase {
     }
   }
   
-  
-  func loginFB(accessToken: String, userID: String) -> Promise<LoginSignUpUserResponse> {
-    let parameters = ["token": accessToken, "userID":userID]
-    let url = RoutesAPI.oauth_login.url
-    return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
-        .responseObject(completionHandler: { (response: DataResponse<LoginSignUpUserResponse>) in
-          switch response.result {
-          case .success(let resp):
-            fulfill(resp)
-          case .failure(let error):
-            log.error("\(error)")
-            reject(error)
-          }
-        })
-    }
-  }
-  
   func updateUserInfos(id: String) -> Promise<User> {
     let parameters = ["UserID":id]
     let url = RoutesAPI.user.url.appending("/\(id)")
