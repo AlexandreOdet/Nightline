@@ -13,14 +13,14 @@ class Menu: Mappable {
   var id: Int!
   var description: String!
   var name: String!
-  var conso: [Consommable]!
+  var conso: [Consommable]?
   
   required init?(map: Map) {}
   
   func mapping(map: Map) {
-    id <- map["ID"]
-    description <- map["Desc"]
-    name <- map["Name"]
-    conso <- map["Conso"]
+    id <- map["id"]
+    description <- map["desc"]
+    name <- map["name"]
+    conso <- map["consos"]
   }
 }

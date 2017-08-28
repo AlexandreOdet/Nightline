@@ -84,5 +84,15 @@ class User: Mappable {
     self.friends <- map["connected_to"]
   }
   
+  /*
+   id":89,
+   "email":"maxime.guittet@epitech.eu",
+   "pseudo":"Emixam23",
+   "firstname":"Max",
+   "surname":"Guitto",
+   "number":"0672887116",
+   "image":"https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/20264966_1478159712231945_5607515030047449810_n.jpg?oh=11497f8779f16d018066188a635259a2\u0026oe=5A20CEA6"
+   */
+  
 }
 

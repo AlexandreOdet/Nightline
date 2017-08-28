@@ -26,7 +26,7 @@ class MediaManager {
             try! fileManager.createDirectory(at: baseUrl, withIntermediateDirectories: true, attributes: nil)
         }
 
-        cloudinary = CLDCloudinary(configuration: config!)
+        cloudinary = CLDCloudinary(configuration: self.config!)
         params = CLDUploadRequestParams()
     }
 

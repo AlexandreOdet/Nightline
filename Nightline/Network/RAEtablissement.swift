@@ -65,12 +65,12 @@ class RAEtablissement: RABase {
     }
   }
   
-  func getEstablishmentMenus(idEstablishment: String) -> Promise<[Menu]> {
+  func getEstablishmentMenus(idEstablishment: String) -> Promise<MenuList> {
     let parameters = ["EstabID":idEstablishment]
     let url = RoutesAPI.etablishment.url.appending("/\(idEstablishment)/menu")
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
-        .responseArray(completionHandler: { (response: DataResponse<[Menu]>) in
+        .responseObject(completionHandler: { (response: DataResponse<MenuList>) in
           switch response.result {
           case .success(let menus):
             fulfill(menus)
