@@ -114,10 +114,9 @@ final class RAUser: RABase {
   }
   
   func getUserInfos(id: String) -> Promise<User> {
-    let parameters = ["UserID":id]
     let url = RoutesAPI.user.url.appending("/\(id)")
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+      self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
         .responseObject(completionHandler: { (response: DataResponse<User>) in
           switch response.result {
           case .success(let user):
