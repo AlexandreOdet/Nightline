@@ -15,19 +15,22 @@ class MediaManager {
 
     let fileManager = FileManager.default
     let baseUrl : URL
-//    let config = CLDConfiguration(cloudName: "nightline", apiKey: "781695568757174", apiSecret: nil)
-    let config = CLDConfiguration(cloudinaryUrl: "cloudinary://<781695568757174>:<gasFxenV90DIsNUH__7ELxgvbnk>@<nightline>")
-    let cloudinary: CLDCloudinary?
-    let params: CLDUploadRequestParams?
+//    let config: CLDConfiguration? = nil
+//    let cloudinary: CLDCloudinary?
 
     init() {
         self.baseUrl = URL(fileURLWithPath: (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("media"))
         if !fileManager.fileExists(atPath: baseUrl.path) {
             try! fileManager.createDirectory(at: baseUrl, withIntermediateDirectories: true, attributes: nil)
         }
-
-        cloudinary = CLDCloudinary(configuration: config!)
-        params = CLDUploadRequestParams()
+//        if let config = CLDConfiguration(cloudinaryUrl: "cloudinary://<781695568757174>:<gasFxenV90DIsNUH__7ELxgvbnk>@<nightline>") {
+//        if let config = CLDConfiguration(cloudName: "nightline") {
+//            cloudinary = CLDCloudinary(configuration: config)
+//         } else {
+//            print("Error during Cloudinary initialization")
+//            cloudinary = nil
+//        }
+//        cloudinary = CLDCloudinary(url: "cloudinary://<781695568757174>:<gasFxenV90DIsNUH__7ELxgvbnk>@<nightline>")
     }
 
     func saveImage(bar_id: String, image: UIImage) {
@@ -41,13 +44,17 @@ class MediaManager {
         let imageData = UIImageJPEGRepresentation(image, 0.5)
         fileManager.createFile(atPath: completeFileName.path, contents: imageData, attributes: nil)
 
-        let params = CLDUploadRequestParams()
-        params.setPublicId("/media/\(bar_id)/\(Date().timestamp)")
-//        if let url = URL(string: completeFileName.path) {
-//            let request = cloudinary.createUploader().upload(file: url, params: params, progress: { (bytes, totalBytes, totalBytesExpected) in
-//                // Handle progress
-//            }) { (response, error) in
+
+//        if cloudinary != nil, let url = URL(string: completeFileName.path) {
+//            let params = CLDUploadRequestParams()
+//            params.setPublicId("/media/\(bar_id)/\(Date().timestamp)")
+//            let uploader = cloudinary?.createUploader()
+//            uploader.upload(file: url, params: params) { (response, error) in
 //                // Handle response
+//            }
+//            uploader?.upload(data: fileManager.contents(atPath: String(describing: url))!, uploadPreset: "presetname") { result, error in
+//                print(result ?? "Result looks nil")
+//                print(error ?? "Error looks nil")
 //            }
 //        }
     }

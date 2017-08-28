@@ -92,8 +92,6 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
         firstly {
             userInstance.getUserInfos(id: String(userArray[indexPath.row].id))
             }.then { result -> Void in
-//                self.user = result
-
                 DispatchQueue.main.async {
                     self.presentUserDetails(user: result)
                 }
@@ -107,7 +105,6 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
     func presentUserDetails(user: User) {
         let nextVC = DetailUserViewController()
         nextVC.user = user
-//        present(nextVC, animated: true, completion: nil)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
