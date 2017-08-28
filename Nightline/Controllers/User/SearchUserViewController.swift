@@ -23,6 +23,8 @@ class SearchUserViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.edgesForExtendedLayout = []
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
 
     override func viewDidLoad() {
@@ -43,12 +45,14 @@ class SearchUserViewController: UIViewController {
                 firstly {
                     user.searchUser(query: query)
                     }.then { result -> Void in
+                        self.userArray = []
                         if result.result != nil {
                             self.userArray.append(contentsOf: result.result)
                             self.tableView.reloadData()
                             for elem in self.userArray {
                                 print(elem.name)
                             }
+                            self.tableView.reloadData()
                         }
                     }.catch { error -> Void in
                         print("Error : \(error)")
@@ -60,6 +64,7 @@ class SearchUserViewController: UIViewController {
                 break
             }
         }
+        self.tableView.reloadData()
     }
 }
 
@@ -74,7 +79,24 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        let label = UILabel()
+        cell.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        label.text = userArray[indexPath.row].name
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        firstly {
+            userInstance.getUserInfos(id: String(userArray[indexPath.row].id))
+            }.then { result -> Void in
+                print(result.firstName)
+            }.catch { error -> Void in
+                print(error)
+        }
+
     }
 
 
