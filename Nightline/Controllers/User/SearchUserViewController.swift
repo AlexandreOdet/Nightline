@@ -18,7 +18,7 @@ class SearchUserViewController: UIViewController {
     let userInstance = RAUser()
     var searchResult: SearchResult?
     var userArray: [UserPreview] = []
-    let user = RAUser()
+    var user: User? = nil
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,7 +43,7 @@ class SearchUserViewController: UIViewController {
             switch searchOption.selectedSegmentIndex {
             case 0:
                 firstly {
-                    user.searchUser(query: query)
+                    userInstance.searchUser(query: query)
                     }.then { result -> Void in
                         self.userArray = []
                         if result.result != nil {
@@ -92,11 +92,23 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
         firstly {
             userInstance.getUserInfos(id: String(userArray[indexPath.row].id))
             }.then { result -> Void in
-                print(result.firstName)
+//                self.user = result
+
+                DispatchQueue.main.async {
+                    self.presentUserDetails(user: result)
+                }
             }.catch { error -> Void in
                 print(error)
+                self.user = nil
         }
 
+    }
+
+    func presentUserDetails(user: User) {
+        let nextVC = DetailUserViewController()
+        nextVC.user = user
+//        present(nextVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
 

@@ -22,7 +22,6 @@ final class UserProfileViewController: ProfileViewController {
   }
   
   private func setUpView() {
-    
     if let profileImage = UIImage(data: UserManager.instance.getUserPicture()! as Data) {
       self.imgProfile.image = profileImage
     } else {
@@ -59,8 +58,6 @@ final class UserProfileViewController: ProfileViewController {
   }
   
   func showUserFriendsList() {
-//    let nextViewController = UserFriendsListTableViewController()
-//    tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
     let vc = SearchUserViewController()
     tabBarController?.navigationController?.pushViewController(vc, animated: true)
   }
@@ -79,6 +76,4 @@ final class UserProfileViewController: ProfileViewController {
     let nextViewController = UserAchievementsListCollectionViewController()
     tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
   }
-  
-  
 }
