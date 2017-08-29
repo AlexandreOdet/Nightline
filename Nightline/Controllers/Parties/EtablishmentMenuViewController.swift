@@ -18,7 +18,7 @@ class EtablishmentMenuViewController: BaseViewController {
     var tableView: UITableView!
     var bar_id: String = ""
     let establishmentInstance = RAEtablissement()
-    var menus: [Menu]?
+    var menuList: MenuList? = nil
 
     //var array = [Consommable]()
     var array = [
@@ -74,7 +74,10 @@ class EtablishmentMenuViewController: BaseViewController {
 
 extension EtablishmentMenuViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return menus?.count ?? 1
+        if menuList != nil {
+            return menuList!.menus.count
+        }
+        return 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,13 +89,17 @@ extension EtablishmentMenuViewController: UITableViewDelegate, UITableViewDataSo
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: reuseIdentifer)
-        cell.textLabel?.text = array[indexPath.row].name!
-        let price = String(format: "%.02f €", array[indexPath.row].price!)
-        if array[indexPath.row].price! > 12 {
-            cell.detailTextLabel?.textColor = .red
-        }
-        cell.detailTextLabel?.text = price
-        cell.selectionStyle = .none
+//        cell.textLabel?.text = array[indexPath.row].name!
+//        let price = String(format: "%.02f €", array[indexPath.row].price!)
+//        if array[indexPath.row].price! > 12 {
+//            cell.detailTextLabel?.textColor = .red
+//        }
+//        cell.detailTextLabel?.text = price
+//        cell.selectionStyle = .none
+        print("Conso section \(indexPath.section), row \(indexPath.row)")
+        print("\(menuList!.menus[indexPath.section].conso?[indexPath.row].name)")
+        print("\(menuList!.menus[indexPath.section].conso?[indexPath.row].price)")
+
         return cell
     }
     

@@ -78,21 +78,22 @@ final class RAUser: RABase {
     }
   }
   
-  func updateUserInfos(id: String) -> Promise<User> {
-    let parameters = ["UserID":id]
-    let url = RoutesAPI.user.url.appending("/\(id)")
-    return Promise { (fulfill, reject) in
+    func updateUserInfos(user: User) { // -> Promise<User> {
+    let parameters = ["user": user.toJSON()]
+    let url = RoutesAPI.user.url.appending("/\(user.id)")
+//    return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
-        .responseObject(completionHandler: { (response: DataResponse<User>) in
-          switch response.result {
-          case .success(let user):
-            fulfill(user)
-          case .failure(let error):
-            log.error("\(error)")
-            reject(error)
-          }
-        })
-    }
+//        .responseObject(completionHandler: { (response: DataResponse<UserResponse>) in
+//          switch response.result {
+//          case .success(let userResponse):
+//            print(userResponse)
+//            fulfill(userResponse.user)
+//          case .failure(let error):
+//            log.error("\(error)")
+//            reject(error)
+//          }
+//        })
+//    }
   }
   
   func getUserInfos(id: String) -> Promise<User> {
@@ -182,8 +183,6 @@ final class RAUser: RABase {
   }
   
   func searchUser(query: String) -> Promise<SearchResult> {
-//    let parameters = ["q": query]
-//    let url = RoutesAPI.user.url.appending("/search")
     let url = "https://api.nightline.fr/search/users?q=\(query)"
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)

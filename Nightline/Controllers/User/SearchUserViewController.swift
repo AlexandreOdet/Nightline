@@ -15,9 +15,16 @@ class SearchUserViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchOption: UISegmentedControl!
 
+    @IBAction func changeSearchCat(_ sender: Any) {
+        self.tableView.reloadData()
+    }
+
+
     let userInstance = RAUser()
+    let estabInstance = RAEtablissement()
     var searchResult: SearchResult?
     var userArray: [UserPreview] = []
+    var estabArray: [UserPreview] = []
     var user: User? = nil
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,9 +53,8 @@ class SearchUserViewController: UIViewController {
                     userInstance.searchUser(query: query)
                     }.then { result -> Void in
                         self.userArray = []
-                        if result.result != nil {
-                            self.userArray.append(contentsOf: result.result)
-                            self.tableView.reloadData()
+                        if result.resultUser != nil {
+                            self.userArray.append(contentsOf: result.resultUser)
                             for elem in self.userArray {
                                 print(elem.name)
                             }
@@ -58,8 +64,20 @@ class SearchUserViewController: UIViewController {
                         print("Error : \(error)")
                 }
             case 1:
-                break
-            // TODO search event query
+                firstly {
+                    estabInstance.searchEstablishment(query: query)
+                    }.then { result -> Void in
+                        self.estabArray = []
+                        if result.resultEstab != nil {
+                            self.estabArray.append(contentsOf: result.resultEstab)
+                            for elem in self.estabArray {
+                                print(elem.name)
+                            }
+                            self.tableView.reloadData()
+                        }
+                    }.catch { error -> Void in
+                        print("Error : \(error)")
+                    }
             default:
                 break
             }
@@ -74,7 +92,12 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userArray.count
+        switch searchOption.selectedSegmentIndex {
+        case 0:
+            return userArray.count
+        default:
+            return estabArray.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,22 +107,40 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
         label.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        label.text = userArray[indexPath.row].name
+        switch searchOption.selectedSegmentIndex {
+        case 0:
+            label.text = userArray[indexPath.row].name
+        default:
+            label.text = estabArray[indexPath.row].name
+        }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        firstly {
-            userInstance.getUserInfos(id: String(userArray[indexPath.row].id))
-            }.then { result -> Void in
-                DispatchQueue.main.async {
-                    self.presentUserDetails(user: result)
-                }
-            }.catch { error -> Void in
-                print(error)
-                self.user = nil
+        switch searchOption.selectedSegmentIndex {
+        case 0:
+            firstly {
+                userInstance.getUserInfos(id: String(userArray[indexPath.row].id))
+                }.then { result -> Void in
+                    DispatchQueue.main.async {
+                        self.presentUserDetails(user: result)
+                    }
+                }.catch { error -> Void in
+                    print(error)
+                    self.user = nil
+            }
+        default:
+            firstly {
+                estabInstance.getEtablishmentProfile(idEtablishment: estabArray[indexPath.row].id)
+                }.then { result -> Void in
+                    DispatchQueue.main.async {
+                        self.presentEstabDetails(estab: result)
+                    }
+                }.catch { error -> Void in
+                    print(error)
+                    self.user = nil
+            }
         }
-
     }
 
     func presentUserDetails(user: User) {
@@ -108,5 +149,9 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
-
+    func presentEstabDetails(estab: Etablissement) {
+        let nextVC = EtablishmentViewController()
+        nextVC.idBar = estab.id
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
