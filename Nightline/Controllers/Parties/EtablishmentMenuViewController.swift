@@ -64,7 +64,7 @@ class EtablishmentMenuViewController: BaseViewController {
         firstly {
             establishmentInstance.getEstablishmentMenus(idEstablishment: bar_id)
             }.then { result -> Void in
-                self.menus = result.menus
+                self.menuList = result
                 print(result)
             }.catch { error -> Void in
                 print(error)
