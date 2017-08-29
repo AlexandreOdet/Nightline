@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class MenuList: Mappable {
-  var menus: [Menu]!
+  var menus: [Menu] = []
   
   required init?(map: Map) {}
   

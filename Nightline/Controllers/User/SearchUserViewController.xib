@@ -54,8 +54,11 @@
                     </constraints>
                     <segments>
                         <segment title="User"/>
-                        <segment title="Event"/>
+                        <segment title="Place"/>
                     </segments>
+                    <connections>
+                        <action selector="changeSearchCat:" destination="-1" eventType="valueChanged" id="otu-hR-hGZ"/>
+                    </connections>
                 </segmentedControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

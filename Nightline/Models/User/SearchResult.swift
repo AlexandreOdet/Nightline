@@ -10,12 +10,14 @@ import Foundation
 import ObjectMapper
 
 class SearchResult: Mappable {
-  
-  var result: [UserPreview]!
-  
-  required init?(map: Map) {}
-  
-  func mapping(map: Map) {
-    result <- map["Users"]
-  }
+
+    var resultUser: [UserPreview]!
+    var resultEstab: [UserPreview]!
+
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        resultUser <- map["Users"]
+        resultEstab <- map["establishments"]
+    }
 }
