@@ -58,6 +58,11 @@
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
+		<key>PagingMenuController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
 		<key>Pods-Nightline.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -136,6 +141,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0F77CEE46EAD3EDA425FBF2DB1D0623E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>28542F6A7B08D5C0FC8A0FA1B2938F90</key>
 		<dict>
 			<key>primary</key>
@@ -196,7 +206,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>637A87662036EB0115E763BC2A9EE130</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6ADB3656BDFD85FB77E0CAB44BFF61E6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6FC78AE42EF37F0DEEF8C674F52D80DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7988B1290023AAE1E88FCD907CA328D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -206,7 +231,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>894A0DAD440058E7A4D4BC1BE0D304B6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>897F87A4A0388BD12C3C381F9D52ECED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DA08D4813992F4741BF5A2CE9A0B1F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -246,12 +281,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C4487C6BC8BE19DB26EB4C151799DD88</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C86EBFA3404439783D80A0617A7F1390</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D8333DE3D091DED2293F2180DE685D32</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E3C3602DB3239CA5A69E73995BEF8EC4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD306802CA45079307D44F5C81073E39</key>
 		<dict>
 			<key>primary</key>
 			<true/>

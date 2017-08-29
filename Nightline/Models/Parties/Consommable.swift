@@ -13,7 +13,7 @@ class Consommable: Mappable {
   var id: Int!
   var name: String!
   var price: Float?
-  var img: String!
+  var desc: String!
   
   init(name: String, price: Float) {
     self.name = name
@@ -22,9 +22,9 @@ class Consommable: Mappable {
   required init?(map: Map) {}
   
   func mapping(map: Map) {
-    id <- map["ID"]
-    name <- map["Name"]
-    price <- map["Price"]
-    img <- map["Picture"]
+    id <- map["id"]
+    name <- map["name"]
+    price <- map["price"]
+    desc <- map["description"]
   }
 }

@@ -30,14 +30,11 @@ class RAEtablissement: RABase {
     }
   }
   
-  func getEtablishmentProfile(idEtablishment: Int) -> Promise<Etablissement> {
+  func getEtablishmentProfile(idEtablishment: Int) -> Promise<EstablishmentResponse> {
     let url = RoutesAPI.etablishment.url.appending("/" + String(idEtablishment))
-    if let token = TokenWrapper().getToken() {
-      headers["Authorization"] = token
-    }
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, headers: headers).responseObject(completionHandler: {
-        (response: DataResponse<Etablissement>) in
+      self.request = Alamofire.request(url).responseObject(completionHandler: {
+        (response: DataResponse<EstablishmentResponse>) in
         switch response.result {
         case .success(let etablishment):
           fulfill(etablishment)
@@ -74,24 +71,6 @@ class RAEtablissement: RABase {
           switch response.result {
           case .success(let menus):
             fulfill(menus)
-          case .failure(let error):
-            log.error("\(error)")
-            reject(error)
-          }
-        })
-    }
-  }
-  
-  func getEstablishmentMenu(idEstablishment: String, idMenu: String) -> Promise<Menu> {
-    var parameters = ["EstabID": idEstablishment]
-    parameters["MenuID"] = idMenu
-    let url = RoutesAPI.etablishment.url.appending("/\(idEstablishment)/menu/\(idMenu)")
-    return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
-        .responseObject(completionHandler: { (response: DataResponse<Menu>) in
-          switch response.result {
-          case .success(let menu):
-            fulfill(menu)
           case .failure(let error):
             log.error("\(error)")
             reject(error)

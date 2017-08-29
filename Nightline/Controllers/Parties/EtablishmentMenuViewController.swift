@@ -64,7 +64,7 @@ class EtablishmentMenuViewController: BaseViewController {
         firstly {
             establishmentInstance.getEstablishmentMenus(idEstablishment: bar_id)
             }.then { result -> Void in
-                self.menus = result
+                self.menus = result.menus
                 print(result)
             }.catch { error -> Void in
                 print(error)
@@ -79,7 +79,7 @@ extension EtablishmentMenuViewController: UITableViewDelegate, UITableViewDataSo
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let liste = menus {
-            return liste[section].conso.count
+            return liste[section].conso!.count
         }
         return 1
     }

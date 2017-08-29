@@ -79,6 +79,7 @@
 		FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */; };
 		FA6B01901F54744D00F360B5 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B018F1F54744D00F360B5 /* MenuList.swift */; };
 		FA6B01921F54756800F360B5 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B01911F54756800F360B5 /* UserResponse.swift */; };
+		FA6B019C1F56222900F360B5 /* EstablishmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B019B1F56222900F360B5 /* EstablishmentResponse.swift */; };
 		FA75ADAB1E4BBA2B0078FFE9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAA1E4BBA2B0078FFE9 /* User.swift */; };
 		FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */; };
 		FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */; };
@@ -222,6 +223,7 @@
 		FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapFilterManager.swift; path = Manager/MapFilterManager.swift; sourceTree = "<group>"; };
 		FA6B018F1F54744D00F360B5 /* MenuList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuList.swift; path = Models/Parties/MenuList.swift; sourceTree = "<group>"; };
 		FA6B01911F54756800F360B5 /* UserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserResponse.swift; path = Models/User/UserResponse.swift; sourceTree = "<group>"; };
+		FA6B019B1F56222900F360B5 /* EstablishmentResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EstablishmentResponse.swift; path = Models/Parties/EstablishmentResponse.swift; sourceTree = "<group>"; };
 		FA75ADAA1E4BBA2B0078FFE9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User/User.swift; sourceTree = "<group>"; };
 		FA75ADAC1E4BBBA80078FFE9 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Marker.swift; path = Models/Parties/Marker.swift; sourceTree = "<group>"; };
 		FA75ADB01E4CE42B0078FFE9 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsCell.swift; path = Enums/CustomCells/Settings/SettingsCell.swift; sourceTree = "<group>"; };
@@ -581,6 +583,7 @@
 				FA2DFCB21F522DEE00C70C1B /* Owner.swift */,
 				FA2DFCB41F52312F00C70C1B /* EstablishmentList.swift */,
 				FA6B018F1F54744D00F360B5 /* MenuList.swift */,
+				FA6B019B1F56222900F360B5 /* EstablishmentResponse.swift */,
 			);
 			name = Parties;
 			sourceTree = "<group>";
@@ -1214,6 +1217,7 @@
 				7B0A55021EF7E92E00BE08CD /* CamViewController.swift in Sources */,
 				FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */,
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
+				FA6B019C1F56222900F360B5 /* EstablishmentResponse.swift in Sources */,
 				FA3A6D2D1E833D97008489F2 /* EtablishementViewController.swift in Sources */,
 				FA3AA17C1E577153002CF4FC /* EtablishmentTableViewController.swift in Sources */,
 				FA5C2AA81E5A5B3000A0CB56 /* GroupType.swift in Sources */,
