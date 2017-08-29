@@ -81,7 +81,7 @@ extension EtablishmentMenuViewController: UITableViewDelegate, UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let liste = menus {
+        if let liste = menuList?.menus {
             return liste[section].conso!.count
         }
         return 1
