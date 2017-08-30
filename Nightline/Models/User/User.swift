@@ -17,8 +17,8 @@ import ObjectMapper
 
 class User: Mappable {
   
-  var firstName = "FirstName Test"
-  var lastName = "LastName Test"
+  var firstName = ""
+  var lastName = ""
   var email = ""
   var nickname = ""
   var passwd = ""

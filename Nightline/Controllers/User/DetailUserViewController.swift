@@ -25,8 +25,10 @@ class DetailUserViewController: ProfileViewController {
 
     private func setUpView() {
         self.imgProfile.image = R.image.male()
-        if  user.firstName != "", user.lastName != ""{
+        if  user.firstName != "", user.lastName != "" {
             self.nameLabel.text = user.firstName + " " + (user.lastName.characters.first?.description)!
+        } else if user.firstName != "" {
+            self.nameLabel.text = user.firstName
         } else {
             self.nameLabel.text = ""
         }

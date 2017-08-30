@@ -66,6 +66,9 @@ class EtablishmentMenuViewController: BaseViewController {
             }.then { result -> Void in
                 self.menuList = result
                 print(result)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }.catch { error -> Void in
                 print(error)
         }
@@ -82,20 +85,24 @@ extension EtablishmentMenuViewController: UITableViewDelegate, UITableViewDataSo
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let liste = menuList?.menus {
-            return liste[section].conso!.count
+            return liste[section].conso?.count ?? 0
         }
         return 1
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+         return menuList!.menus[section].name
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: reuseIdentifer)
-//        cell.textLabel?.text = array[indexPath.row].name!
-//        let price = String(format: "%.02f €", array[indexPath.row].price!)
-//        if array[indexPath.row].price! > 12 {
-//            cell.detailTextLabel?.textColor = .red
-//        }
-//        cell.detailTextLabel?.text = price
-//        cell.selectionStyle = .none
+        cell.textLabel?.text = menuList!.menus[indexPath.section].conso?[indexPath.row].name
+        let price = String(format: "%.02f €", (menuList!.menus[indexPath.section].conso?[indexPath.row].price)!)
+        if array[indexPath.row].price! > 12 {
+            cell.detailTextLabel?.textColor = .red
+        }
+        cell.detailTextLabel?.text = price
+        cell.selectionStyle = .none
         print("Conso section \(indexPath.section), row \(indexPath.row)")
         print("\(menuList!.menus[indexPath.section].conso?[indexPath.row].name)")
         print("\(menuList!.menus[indexPath.section].conso?[indexPath.row].price)")
