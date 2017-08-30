@@ -123,7 +123,7 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
                 userInstance.getUserInfos(id: String(userArray[indexPath.row].id))
                 }.then { result -> Void in
                     DispatchQueue.main.async {
-                        self.presentUserDetails(user: result)
+                        self.presentUserDetails(user: result.user)
                     }
                 }.catch { error -> Void in
                     print(error)
