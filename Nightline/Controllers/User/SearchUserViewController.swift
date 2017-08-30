@@ -134,7 +134,7 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
                 estabInstance.getEtablishmentProfile(idEtablishment: estabArray[indexPath.row].id)
                 }.then { result -> Void in
                     DispatchQueue.main.async {
-                        self.presentEstabDetails(estab: result)
+                        self.presentEstabDetails(estab: result.establishment)
                     }
                 }.catch { error -> Void in
                     print(error)

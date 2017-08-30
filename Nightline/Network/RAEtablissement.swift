@@ -95,4 +95,21 @@ class RAEtablissement: RABase {
         })
     }
   }
+
+    func searchEstablishment(query: String) -> Promise<SearchResult> {
+        let parameters = ["q":query]
+        let url = RoutesAPI.baseUrl.appending("/search/establishments")
+        return Promise { (fulfill, reject) in
+            self.request = Alamofire.request(url, method: .get, parameters: parameters)
+                .responseObject(completionHandler: { (response: DataResponse<SearchResult>) in
+                    switch response.result {
+                    case .success(let results):
+                        fulfill(results)
+                    case .failure(let error):
+                        log.error("\(error)")
+                        reject(error) 
+                    } 
+                })
+        }
+    }
 }
