@@ -26,7 +26,6 @@ class RAEtablissement: RABase {
           reject(err)
         }
       })
-      
     }
   }
   
