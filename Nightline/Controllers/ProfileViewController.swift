@@ -31,6 +31,7 @@ class ProfileViewController: BaseViewController {
     let friendsView = UIView()
     let pictureView = UIView()
     let trophyView = UIView()
+    var pictureImage = UIImageView()
 
     let friendsLabel = UILabel()
     let pictureLabel = UILabel()
@@ -215,7 +216,6 @@ class ProfileViewController: BaseViewController {
         numberStackView.translatesAutoresizingMaskIntoConstraints = false
 
         let friendsImage = UIImageView()
-        let pictureImage = UIImageView()
         let trophyImage = UIImageView()
 
         friendsImage.image = R.image.friends()

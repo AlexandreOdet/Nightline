@@ -31,8 +31,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 37 images.
+  /// This `R.image` struct is generated, and contains static references to 41 images.
   struct image {
+    /// Image `addFriend`.
+    static let addFriend = Rswift.ImageResource(bundle: R.hostingBundle, name: "addFriend")
     /// Image `avatar`.
     static let avatar = Rswift.ImageResource(bundle: R.hostingBundle, name: "avatar")
     /// Image `back_arrow_down`.
@@ -55,6 +57,8 @@ struct R: Rswift.Validatable {
     static let cocktail = Rswift.ImageResource(bundle: R.hostingBundle, name: "cocktail")
     /// Image `female`.
     static let female = Rswift.ImageResource(bundle: R.hostingBundle, name: "female")
+    /// Image `friend`.
+    static let friend = Rswift.ImageResource(bundle: R.hostingBundle, name: "friend")
     /// Image `friends`.
     static let friends = Rswift.ImageResource(bundle: R.hostingBundle, name: "friends")
     /// Image `heart_filled`.
@@ -79,6 +83,8 @@ struct R: Rswift.Validatable {
     static let newPhotoIconWp = Rswift.ImageResource(bundle: R.hostingBundle, name: "newPhotoIconWp")
     /// Image `party`.
     static let party = Rswift.ImageResource(bundle: R.hostingBundle, name: "party")
+    /// Image `pending`.
+    static let pending = Rswift.ImageResource(bundle: R.hostingBundle, name: "pending")
     /// Image `picture`.
     static let picture = Rswift.ImageResource(bundle: R.hostingBundle, name: "picture")
     /// Image `pin`.
@@ -107,6 +113,11 @@ struct R: Rswift.Validatable {
     static let trophy = Rswift.ImageResource(bundle: R.hostingBundle, name: "trophy")
     /// Image `user`.
     static let user = Rswift.ImageResource(bundle: R.hostingBundle, name: "user")
+    
+    /// `UIImage(named: "addFriend", bundle: ..., traitCollection: ...)`
+    static func addFriend(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.addFriend, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "avatar", bundle: ..., traitCollection: ...)`
     static func avatar(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -161,6 +172,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "female", bundle: ..., traitCollection: ...)`
     static func female(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.female, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "friend", bundle: ..., traitCollection: ...)`
+    static func friend(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.friend, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "friends", bundle: ..., traitCollection: ...)`
@@ -221,6 +237,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "party", bundle: ..., traitCollection: ...)`
     static func party(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.party, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "pending", bundle: ..., traitCollection: ...)`
+    static func pending(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pending, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "picture", bundle: ..., traitCollection: ...)`

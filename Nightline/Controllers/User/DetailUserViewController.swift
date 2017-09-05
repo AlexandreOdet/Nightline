@@ -11,15 +11,33 @@ import UIKit
 class DetailUserViewController: ProfileViewController {
 
     var user : User!
+    var friendship = FriendStatus.notFriend
+
+    enum FriendStatus: String {
+        case notFriend = ""
+        case pending = "Pending"
+        case friend = "Friend"
+
+        var text: String {
+            return self.rawValue
+        }
+
+        var image: UIImage {
+            switch self {
+            case .notFriend:
+                return UIImage(named: "addFriend")!
+            case .pending:
+                return UIImage(named: "pending")!
+            default:
+                return UIImage(named: "friend")!
+            }
+        }
+    }
 
     override func viewDidLoad() {
         self.isUser = true
         super.viewDidLoad()
-//        if self.user == nil {
-//            print("Error when initializing userDetailviewController, user was nil")
-//            dismiss(animated: true, completion: nil)
-//        }
-
+        // TODO: Verify friendship status
         setUpView()
     }
 
@@ -41,39 +59,28 @@ class DetailUserViewController: ProfileViewController {
         self.locationLabel.text = user.city
         self.descriptionLabel.text = "Epitech 4th year student in China, Beijing"
         self.friendsLabel.text = String(describing: user.friends.count)
-        self.pictureLabel.text = "" //String(MediaManager.instance.getAllImages().count)
-        self.trophyLabel.text = UserManager.instance.getUserAchievementPoints()
-
-//        let friendsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserFriendsList))
-//        friendsGestureRecognizer.numberOfTapsRequired = 1
-//        self.friendsView.addGestureRecognizer(friendsGestureRecognizer)
-
-//        let mediaGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserMediaList))
-//        friendsGestureRecognizer.numberOfTapsRequired = 1
-//        self.pictureView.addGestureRecognizer(mediaGestureRecognizer)
-
-//        let achievementsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserAchievementsList))
-//        achievementsGestureRecognizer.numberOfTapsRequired = 1
-//        self.trophyView.addGestureRecognizer(achievementsGestureRecognizer)
+        self.pictureLabel.text = ""
+        self.trophyLabel.text = String(user.achievementPoints)
+        self.pictureImage.image = self.friendship.image
+        let friendTapAction = UITapGestureRecognizer(target: self, action: #selector(addFriendAction))
+        self.pictureView.addGestureRecognizer(friendTapAction)
+        self.pictureLabel.text = friendship.text
     }
 
-//    func showUserFriendsList() {
-//        let vc = SearchUserViewController()
-//        tabBarController?.navigationController?.pushViewController(vc, animated: true)
-//    }
-//
-//    func showUserMediaList() {
-//        let images = MediaManager.instance.getAllImages()
-//        if images.count > 0 {
-//            let lightboxImages = images.map {LightboxImage(image: $0)}
-//            let showMediaController = LightboxController(images: lightboxImages)
-//            showMediaController.dynamicBackground = true
-//            present(showMediaController, animated: true, completion: nil)
-//        }
-//    }
-//    
-//    func showUserAchievementsList() {
-//        let nextViewController = UserAchievementsListCollectionViewController()
-//        tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
-//    }
+    func addFriendAction() {
+        switch friendship {
+        case .notFriend:
+            addFriend()
+        default:
+            return
+        }
+        self.pictureLabel.text = friendship.text
+        self.pictureImage.image = friendship.image
+    }
+
+    func addFriend() {
+        friendship = .pending
+        // TODO
+    }
+
 }
