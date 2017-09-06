@@ -87,6 +87,7 @@ final class Utils {
     
     static func logOutUser() {
       tokenWrapper.deleteToken()
+      tokenWrapper.deleteToken(for: "userId")
     }
   }
 }

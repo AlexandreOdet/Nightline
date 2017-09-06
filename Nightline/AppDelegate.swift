@@ -12,6 +12,7 @@ import SwiftyBeaver
 import KeychainSwift
 import FBSDKCoreKit
 import Cloudinary
+import PromiseKit
 
 let log = SwiftyBeaver.self
 let tokenWrapper = TokenWrapper()
@@ -35,9 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window!.rootViewController = nav1
     self.window?.makeKeyAndVisible()
     UIApplication.shared.statusBarStyle = .lightContent
-    
+    let idUser = UserManager.instance.retrieveUserId()
+    if idUser > -1 {
+      firstly {
+        RAUser().getUserInfos(id: String(idUser))
+        }.then { user -> Void in
+          UserManager.instance.initDbUser(userFromApi: user.user)
+        }.catch { _ in
+          return
+      }
+    }
     FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-    
     return true
   }
   

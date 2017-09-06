@@ -30,12 +30,10 @@ final class RAUser: RABase {
     user.passwd = password
     let parameters = ["user": user.toJSON()]
     let url = RoutesAPI.login.url
-    print("URL = \(url)", "\nparameters: \(parameters)")
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
         .responseObject(completionHandler: {
           (response: DataResponse<LoginSignUpUserResponse>) in
-          print(response.result.isSuccess)
           switch response.result {
           case .success(let resp):
             fulfill(resp)
@@ -66,7 +64,6 @@ final class RAUser: RABase {
       self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
         .responseObject(completionHandler: {
           (response: DataResponse<LoginSignUpUserResponse>) in
-          print("Response = ", response)
           switch response.result {
           case .success(let resp):
             fulfill(resp)
@@ -78,22 +75,10 @@ final class RAUser: RABase {
     }
   }
   
-    func updateUserInfos(user: User) { // -> Promise<User> {
+    func updateUserInfos(user: User) {
     let parameters = ["user": user.toJSON()]
     let url = RoutesAPI.user.url.appending("/\(user.id)")
-//    return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
-//        .responseObject(completionHandler: { (response: DataResponse<UserResponse>) in
-//          switch response.result {
-//          case .success(let userResponse):
-//            print(userResponse)
-//            fulfill(userResponse.user)
-//          case .failure(let error):
-//            log.error("\(error)")
-//            reject(error)
-//          }
-//        })
-//    }
+    request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
   }
   
   func getUserInfos(id: String) -> Promise<UserResponse> {

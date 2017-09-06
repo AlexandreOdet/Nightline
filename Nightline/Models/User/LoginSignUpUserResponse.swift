@@ -14,13 +14,11 @@ class LoginSignUpUserResponse: Mappable {
   var user: UserLoginObject?
   
   required init?(map: Map) {
-    print(map.JSON)
     self.user <- map["user"]
     self.token <- map["token"]
   }
   
   func mapping(map: Map) {
-    print(map.JSON)
     self.user <- map["user"]
     self.token <- map["token"]
   }

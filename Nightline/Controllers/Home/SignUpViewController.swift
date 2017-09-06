@@ -84,6 +84,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     emailTextField.tag = 0
     emailTextField.becomeFirstResponder()
     emailTextField.backgroundColor = .clear
+    emailTextField.autocapitalizationType = .none
     
     nicknameTextField.backgroundColor = UIColor.black
     nicknameTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.nickname(),
@@ -144,10 +145,13 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   func showHomeScreen() {
     Utils.Network.spinnerStart()
     restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!).then{ resp -> Void in
-      tokenWrapper.setToken(valueFor: resp.token!)
-      DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":self.emailTextField.text!,
-                                                                           "passwd":self.passwordTextField.text!,
-                                                                           "nickname":self.nicknameTextField.text!])
+      if let token = resp.token, let user = resp.user {
+        tokenWrapper.setToken(valueFor: token)
+        UserManager.instance.initDbUser(userFromApi: user)
+        tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
+      } else { AlertUtils.networkErrorAlert(fromController: self)
+        return
+      }
       self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
       let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
       NotificationCenter.default.post(name: notificationName, object: nil)

@@ -15,7 +15,7 @@ import RealmSwift
  */
 
 class DbUser: Object {
-  dynamic var id = -1
+  var id: Int = 0
   dynamic var firstName = ""
   dynamic var lastName = ""
   dynamic var gender = ""
@@ -24,6 +24,7 @@ class DbUser: Object {
   dynamic var nickname = ""
   dynamic var age = ""
   dynamic var city = ""
+  var userId: Int = 0
   dynamic var achievementPoints = 0
   var achievements : [Achievement] = []
   dynamic var picture: NSData? = UIImageJPEGRepresentation(R.image.logo()!, 0.1)! as NSData
@@ -39,16 +40,5 @@ class DbUser: Object {
   
   override static func primaryKey() -> String? {
     return "id"
-  }
-  
-  /*
-   func areUserIdOk().
-   This function is temporary to simulate a connection.
-   @param: nickname: user's nickname, passwd: user's password.
-   @return True if it's OK, False otherwise
-   */
-  
-  func areUserIdOk(nickname: String, passwd: String) -> Bool {
-    return nickname == self.nickname && passwd == self.passwd
   }
 }
