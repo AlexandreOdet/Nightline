@@ -65,7 +65,7 @@ class RAFriends: RABase {
       case .success(_):
         return
       case .failure(_):
-        return
+        callbackError()
       }
     })
   }
@@ -78,7 +78,7 @@ class RAFriends: RABase {
       case .success(_):
         return
       case .failure(_):
-        return
+        callbackError()
       }
     })
   }

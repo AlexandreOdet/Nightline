@@ -104,8 +104,8 @@ extension EtablishmentMenuViewController: UITableViewDelegate, UITableViewDataSo
         cell.detailTextLabel?.text = price
         cell.selectionStyle = .none
         print("Conso section \(indexPath.section), row \(indexPath.row)")
-        print("\(menuList!.menus[indexPath.section].conso?[indexPath.row].name)")
-        print("\(menuList!.menus[indexPath.section].conso?[indexPath.row].price)")
+        print("\(String(describing: menuList!.menus[indexPath.section].conso?[indexPath.row].name))")
+        print("\(String(describing: menuList!.menus[indexPath.section].conso?[indexPath.row].price))")
 
         return cell
     }
