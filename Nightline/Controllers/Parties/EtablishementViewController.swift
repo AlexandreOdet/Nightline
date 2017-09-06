@@ -50,10 +50,10 @@ class EtablishmentViewController: ProfileViewController {
     self.mediaBook.reloadData()
   }
   
-  func pushCamViewController() {
-    let nextViewController = CamViewController()
-    nextViewController.bar_id = String(idBar)
-    self.navigationController?.present(nextViewController, animated: true, completion: nil)
+  func showParty() {
+    let nextVC = DetailPartyViewController()
+    nextVC.bar_id = String(idBar)
+    self.navigationController?.pushViewController(nextVC, animated: true)
   }
   
   func setupMediaBook() {
@@ -107,9 +107,9 @@ class EtablishmentViewController: ProfileViewController {
       make.bottom.equalToSuperview()
       make.size.equalTo(70)
     }
-    let buttonImage = UIImage(named: "cameraButton")
+    let buttonImage = UIImage(named: "partyIcon")
     camButton.setImage(buttonImage, for: .normal)
-    camButton.addTarget(self, action: #selector(pushCamViewController), for: .touchUpInside)
+    camButton.addTarget(self, action: #selector(showParty), for: .touchUpInside)
   }
   
   func likeButtonTarget() {

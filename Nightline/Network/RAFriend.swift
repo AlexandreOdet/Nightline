@@ -57,28 +57,28 @@ class RAFriends: RABase {
     }
   }
   
-  func acceptInvitation(userId: String, invitationId: String, callbackError: @escaping () -> ()) {
+  func acceptInvitation(userId: String, invitationId: String) -> Void {
     let url = RoutesAPI.user.url.appending("/\(userId)/invitations/\(invitationId)/accept")
     request = Alamofire.request(url).responseJSON(completionHandler: {
-      (response: DataResponse<Any>) in
+      (response: DataResponse<Any>) -> Void in
       switch response.result {
       case .success(_):
         return
-      case .failure(let erorr):
-        callbackError()
+      case .failure(_):
+        return
       }
     })
   }
   
-  func declineInvitation(userId: String, invitationId: String, callbackError: @escaping () -> ()) {
+  func declineInvitation(userId: String, invitationId: String) -> Void {
     let url = RoutesAPI.user.url.appending("/\(userId)/invitations/\(invitationId)/decline")
     request = Alamofire.request(url).responseJSON(completionHandler: {
-      (response: DataResponse<Any>) in
+      (response: DataResponse<Any>) -> Void in
       switch response.result {
       case .success(_):
         return
-      case .failure(let erorr):
-        callbackError()
+      case .failure(_):
+        return
       }
     })
   }

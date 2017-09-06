@@ -474,4 +474,8 @@ final class UserManager {
             userInstance.updateUserInfos(user: user)
         }
     }
+
+    func getUserId() -> Int {
+        return localUser[0].id
+    }
 }

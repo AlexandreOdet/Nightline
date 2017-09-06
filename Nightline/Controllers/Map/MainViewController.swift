@@ -174,14 +174,18 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         firstly {
             restApiEtablishment.getEtablishmentList()
             }.then { response -> Void in
-                for item in response.array {
-                    let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(item.latitude),
-                                                                 CLLocationDegrees(item.longitude)) // ou (item.long, item.lat)
-                    let marker = Marker(title: item.name,
-                                        locationName: item.name,
-                                        discipline: "",
-                                        coordinate: coordinates, id: item.id)
-                    self.map.addAnnotation(marker)
+                if let tab = response.array {
+                    for item in tab {
+                        let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(item.latitude),
+                                                                     CLLocationDegrees(item.longitude)) // ou (item.long, item.lat)
+                        let marker = Marker(title: item.name,
+                                            locationName: item.name,
+                                            discipline: "",
+                                            coordinate: coordinates, id: item.id)
+                        self.map.addAnnotation(marker)
+                    }
+                } else {
+                    print("=== Error, the array of establishments is empty ===")
                 }
             }.catch { error in
                 print("Error = ", error.localizedDescription)

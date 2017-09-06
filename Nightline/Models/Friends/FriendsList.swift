@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class FriendsList: Mappable {
-  var friends: [User]?
+  var friends: [User] = []
   
   required init?(map: Map) {}
   

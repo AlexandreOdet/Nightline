@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class InvitationsList: Mappable {
-  var invitations: [Invitation]?
+  var invitations: [Invitation] = []
   
   required init?(map: Map) {}
   
