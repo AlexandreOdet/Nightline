@@ -65,7 +65,7 @@ final class UserProfileCell: UITableViewCell {
       make.trailing.equalTo(self.contentView).offset(-15)
     }
     labelEmail.translatesAutoresizingMaskIntoConstraints = false
-    labelEmail.text = "test@test.com"
+    labelEmail.text = UserManager.instance.getUserEmail()
     labelEmail.textColor = UIColor.lightGray
   }
 }

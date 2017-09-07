@@ -41,7 +41,7 @@ class ProfilePictCell: UITableViewCell {
     }
     userPicture.translatesAutoresizingMaskIntoConstraints = false
     userPicture.roundImage(withBorder: true, borderColor: UIColor.init(hex: 0xF08329), borderSize: 1.0)
-    if let img = UIImage(data: UserManager.instance.getUserPicture()! as Data) {
+    if let data = UserManager.instance.getUserPicture(), let img = UIImage(data: data as Data) {
         userPicture.image = img
     }
     
