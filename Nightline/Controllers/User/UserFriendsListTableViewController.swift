@@ -37,7 +37,7 @@ final class UserFriendsListTableViewController: UITableViewController {
 
     func getFriends() {
             firstly {
-                friendsInstance.getUserFriendsList(userId: String(UserManager.instance.getUserId()))
+                friendsInstance.getUserFriendsList(userId: String(UserManager.instance.retrieveUserId()))
                 }.then { result -> Void in
                     self.friendList = result
                     DispatchQueue.main.async {
@@ -50,7 +50,7 @@ final class UserFriendsListTableViewController: UITableViewController {
 
     func getInvits() {
         firstly {
-            friendsInstance.getUserInvitationList(userId: String(UserManager.instance.getUserId()))
+            friendsInstance.getUserInvitationList(userId: String(UserManager.instance.retrieveUserId()))
             }.then { result -> Void in
                 self.pendingList = result
                 DispatchQueue.main.async {

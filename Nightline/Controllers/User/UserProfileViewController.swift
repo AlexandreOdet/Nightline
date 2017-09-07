@@ -22,7 +22,7 @@ final class UserProfileViewController: ProfileViewController {
   }
   
   private func setUpView() {
-    if let profileImage = UIImage(data: UserManager.instance.getUserPicture()! as Data) {
+    if let imgdt = UserManager.instance.getUserPicture(), let profileImage = UIImage(data: (imgdt as Data)) {
       self.imgProfile.image = profileImage
     } else {
       self.imgProfile.image = R.image.male()
