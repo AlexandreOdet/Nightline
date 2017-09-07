@@ -19,10 +19,20 @@ class Party: Mappable {
   required init?(map: Map) {}
   
   func mapping(map: Map) {
-    id <- map["ID"]
-    description <- map["Desc"]
-    begin <- map["Begin"]
-    end <- map["End"]
-    menu <- map["Menu"]
+    id <- map["id"]
+    description <- map["desc"]
+    begin <- map["begin"]
+    end <- map["end"]
+    menu <- map["menu"]
   }
+}
+
+class PartyResult: Mappable {
+    var party: Party!
+
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        party <- map["soiree"]
+    }
 }

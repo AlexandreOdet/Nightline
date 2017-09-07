@@ -78,15 +78,14 @@ class RAEtablissement: RABase {
     }
   }
   
-  func getEstablishmentParties(idEstablishment: String) -> Promise<[Party]> {
-    let parameters = ["EstabID":idEstablishment]
-    let url = RoutesAPI.etablishment.url.appending("/\(idEstablishment)/soirees")
+  func getEstablishmentParties(idEstablishment: String) -> Promise<PartyResult> {
+    let url = RoutesAPI.etablishment.url.appending("/\(idEstablishment)/soiree")
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
-        .responseArray(completionHandler: { (response: DataResponse<[Party]>) in
+        .responseObject(completionHandler: { (response: DataResponse<PartyResult>) in
           switch response.result {
-          case .success(let parties):
-            fulfill(parties)
+          case .success(let party):
+            fulfill(party)
           case .failure(let error):
             log.error("\(error)")
             reject(error)

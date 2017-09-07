@@ -12,7 +12,14 @@ import PromiseKit
 class DetailPartyViewController: UIViewController {
     var bar_id = ""
     let estabInstance = RAEtablissement()
-    var parties: [Party] = []
+    var party: Party?
+    var menu: Menu?
+
+    @IBOutlet weak var partyView: UIView!
+    @IBOutlet weak var noParty: UIView!
+    @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var startLabel: UILabel!
+    @IBOutlet weak var endLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +27,29 @@ class DetailPartyViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func setView() {
+        if party != nil {
+            noParty.isHidden = true
+            partyView.isHidden = false
+            descLabel.text = party?.description
+            startLabel.text = party?.begin
+            endLabel.text = party?.end
+            menu = party?.menu
+        } else {
+            noParty.isHidden = false
+            partyView.isHidden = true
+        }
+    }
+
     func getPartyInfos() {
         firstly {
             estabInstance.getEstablishmentParties(idEstablishment: bar_id)
             }.then { result -> Void in
-                self.parties = result
-                print(self.parties)
+                self.party = result.party
+                DispatchQueue.main.async {
+                    self.setView()
+                }
+                print(self.party)
             }.catch { error -> Void in
                 print(error)
         }
