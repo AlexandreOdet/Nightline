@@ -25,6 +25,7 @@ final class UserManager {
   
   private init() {
     localUser = DatabaseHandler().getObjectArray(ofType: DbUser.self)
+    print(localUser)
   }
   
   func initDbUser(userFromApi: User) {
@@ -82,8 +83,10 @@ final class UserManager {
       return networkUser.firstName
     }
     if let users = localUser {
-      let dbUser = users[0]
-      return (dbUser.firstName.isEmpty) ? "": dbUser.firstName
+      if !users.isEmpty {
+        let dbUser = users[0]
+        return (dbUser.firstName.isEmpty) ? "": dbUser.firstName
+      }
     }
     return ""
   }
@@ -115,8 +118,11 @@ final class UserManager {
     if !networkUser.lastName.isEmpty {
       return networkUser.lastName
     }
-    if let dbUser = localUser?[0] {
-      return (dbUser.lastName.isEmpty) ? "" : dbUser.lastName
+    if let users = localUser {
+      if !users.isEmpty {
+        let dbUser = users[0]
+        return (dbUser.lastName.isEmpty) ? "" : dbUser.lastName
+      }
     }
     return ""
   }
@@ -144,21 +150,16 @@ final class UserManager {
    @return A String contain the last name and the first name of the user.
    */
   
-  func retrieveIdFromDbUser() -> Int? {
-    let array = DatabaseHandler().getObjectArray(ofType: DbUser.self)
-    if array.isEmpty {
-      return nil
-    } else {
-      return array[0].id
-    }
-  }
   
   func getUserCompleteName() -> String {
     if !networkUser.lastName.isEmpty && !networkUser.firstName.isEmpty {
       return networkUser.firstName + " " + networkUser.lastName
     }
-    if let dbUser = localUser?[0] {
-      return dbUser.firstName + " " + dbUser.lastName
+    if let users = localUser {
+      if !users.isEmpty {
+        let dbUser = users[0]
+        return dbUser.firstName + " " + dbUser.lastName
+      }
     }
     return ""
   }
@@ -176,8 +177,11 @@ final class UserManager {
     if !networkUser.email.isEmpty {
       return networkUser.email
     }
-    if let dbUser = localUser?[0] {
-      return (dbUser.email.isEmpty) ? "" : dbUser.email
+    if let users = localUser {
+      if !users.isEmpty {
+        let dbUser = users[0]
+        return (dbUser.email.isEmpty) ? "" : dbUser.email
+      }
     }
     return ""
   }
@@ -209,8 +213,11 @@ final class UserManager {
     if !networkUser.age.isEmpty {
       return networkUser.age
     }
-    if let dbUser = localUser?[0] {
-      return dbUser.age
+    if let users = localUser {
+      if !users.isEmpty {
+        let dbUser = users[0]
+        return dbUser.age
+      }
     }
     return ""
   }
@@ -278,8 +285,11 @@ final class UserManager {
     if !networkUser.city.isEmpty {
       return networkUser.city
     }
-    if let dbUser = localUser?[0] {
-      return dbUser.city
+    if let users = localUser {
+      if !users.isEmpty {
+        let dbUser = users[0]
+        return dbUser.city
+      }
     }
     return ""
   }
@@ -360,8 +370,11 @@ final class UserManager {
     if networkUser.preferences.consoLiked.isEmpty == false {
       return networkUser.preferences.consoLiked
     }
-    if let dbUser = localUser?[0] {
-      return dbUser.preferences.consoLiked
+    if let users = localUser {
+      if !users.isEmpty {
+      let dbUser = users[0]
+        return dbUser.preferences.consoLiked
+      }
     }
     return []
   }
@@ -379,9 +392,13 @@ final class UserManager {
     if networkUser.preferences.etablishmentLiked.isEmpty == false {
       return networkUser.preferences.etablishmentLiked
     }
-    if let dbUser = localUser?[0] {
-      return dbUser.preferences.etablishmentLiked
+    if let users = localUser {
+      if !users.isEmpty {
+        let dbUser = users[0]
+        return dbUser.preferences.etablishmentLiked
+      }
     }
+
     return []
   }
   
