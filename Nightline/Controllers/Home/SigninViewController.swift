@@ -305,7 +305,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
           firstly {
             self.restApiUser.signUpUser(email: fbDetails["email"] as! String,
                                         nickname: fbDetails["name"] as! String,
-                                        password: "abcdef")
+                                        password: "test")
             }.then { resp -> Void in
               if let token = resp.token, let user = resp.user {
                 tokenWrapper.setToken(valueFor: token)
@@ -315,16 +315,21 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                   self.presentingViewController?.dismiss(animated: true, completion: nil)})
                 let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
                 NotificationCenter.default.post(name: notificationName, object: nil)
+              } else {
+                print("FB Connection Fail")
               }
             }.catch { _ in
               firstly {
-                self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "abcdef")
+                self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "test")
                 }.then {
                   resp -> Void in
                   if let token = resp.token, let user = resp.user {
                   tokenWrapper.setToken(valueFor: token)
                     UserManager.instance.initDbUser(userFromApi: user)
                     tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
+                  } else {
+                    AlertUtils.networkErrorAlert(fromController: self)
+                    self.loginManager.logOut()
                   }
                   self.dismiss(animated: true, completion: {
                     self.presentingViewController?.dismiss(animated: true, completion: nil)})
