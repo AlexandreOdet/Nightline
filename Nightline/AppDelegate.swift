@@ -40,8 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if idUser > -1 {
       firstly {
         RAUser().getUserInfos(id: String(idUser))
-        }.then { user -> Void in
-          UserManager.instance.initDbUser(userFromApi: user.user)
+        }.then { response -> Void in
+          if let user = response.user {
+            UserManager.instance.initDbUser(userFromApi: user)
+          }
         }.catch { _ in
           return
       }
