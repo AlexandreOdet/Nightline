@@ -25,7 +25,6 @@ final class UserManager {
   
   private init() {
     localUser = DatabaseHandler().getObjectArray(ofType: DbUser.self)
-    print(localUser)
   }
   
   func initDbUser(userFromApi: User) {
