@@ -27,6 +27,11 @@ class SearchUserViewController: UIViewController {
     var estabArray: [UserPreview] = []
     var user: User? = nil
 
+  deinit {
+    userInstance.cancelRequest()
+    estabInstance.cancelRequest()
+  }
+  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.edgesForExtendedLayout = []
