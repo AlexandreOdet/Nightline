@@ -13,4 +13,20 @@ import AlamofireObjectMapper
 
 class RAPayment: RABase {
   
+  func sendCardInfos(creditCardToken: String, user: User,
+                     callbackError: @escaping () -> ()) {
+    let url = RoutesAPI.payment.url
+    var parameters: [String:Any] = ["token":creditCardToken]
+    parameters["user"] = user.toJSON()
+    request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+      .responseJSON(completionHandler: { (response) in
+        switch response.result {
+        case .success(_):
+          return
+        case .failure(_):
+          callbackError()
+        }
+    })
+  }
+  
 }

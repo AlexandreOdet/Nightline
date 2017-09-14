@@ -114,6 +114,7 @@
 		FADF25CE1E875A4800E74439 /* UserAchievementsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25CD1E875A4800E74439 /* UserAchievementsListTableViewCell.swift */; };
 		FADF25D01E8767F800E74439 /* AchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25CF1E8767F800E74439 /* AchievementManager.swift */; };
 		FADF8F7E1F6B01FC00688366 /* RAPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF8F7D1F6B01FC00688366 /* RAPayment.swift */; };
+		FADF8F811F6B089A00688366 /* AddUserCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF8F801F6B089A00688366 /* AddUserCreditCardViewController.swift */; };
 		FAF0A6CA1E876F3E00C2ED18 /* ExtensionInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0A6C91E876F3E00C2ED18 /* ExtensionInt.swift */; };
 		FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8001E554C7B003AF68E /* Animation.swift */; };
 		FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8021E554EC0003AF68E /* Plist.swift */; };
@@ -267,6 +268,7 @@
 		FADF25CD1E875A4800E74439 /* UserAchievementsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAchievementsListTableViewCell.swift; path = Controllers/User/CustomCells/UserAchievementsListTableViewCell.swift; sourceTree = "<group>"; };
 		FADF25CF1E8767F800E74439 /* AchievementManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AchievementManager.swift; path = Manager/AchievementManager.swift; sourceTree = "<group>"; };
 		FADF8F7D1F6B01FC00688366 /* RAPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAPayment.swift; path = Network/RAPayment.swift; sourceTree = "<group>"; };
+		FADF8F801F6B089A00688366 /* AddUserCreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddUserCreditCardViewController.swift; path = Controllers/User/Payment/AddUserCreditCardViewController.swift; sourceTree = "<group>"; };
 		FAF0A6C91E876F3E00C2ED18 /* ExtensionInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionInt.swift; path = Extensions/Models/ExtensionInt.swift; sourceTree = "<group>"; };
 		FAFBF8001E554C7B003AF68E /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Utils/Animation.swift; sourceTree = "<group>"; };
 		FAFBF8021E554EC0003AF68E /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Plist.swift; path = Utils/Plist.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 		FA3AA1841E57719B002CF4FC /* User */ = {
 			isa = PBXGroup;
 			children = (
+				FADF8F7F1F6B085800688366 /* Payment */,
 				FADF25C61E87367900E74439 /* CustomCell */,
 				FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */,
 				7B40503F1F5451DB00A2B0A9 /* SearchView */,
@@ -648,6 +651,14 @@
 				FADF25CD1E875A4800E74439 /* UserAchievementsListTableViewCell.swift */,
 			);
 			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		FADF8F7F1F6B085800688366 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				FADF8F801F6B089A00688366 /* AddUserCreditCardViewController.swift */,
+			);
+			name = Payment;
 			sourceTree = "<group>";
 		};
 		FAFBF8041E555117003AF68E /* Protocols */ = {
@@ -1191,6 +1202,7 @@
 				FA5C2AA01E5A51B300A0CB56 /* ExtensionConsommation.swift in Sources */,
 				FA8851961F4B81A900647A1F /* UserPreview.swift in Sources */,
 				FA5C2A9A1E5A519700A0CB56 /* UIColorExtension.swift in Sources */,
+				FADF8F811F6B089A00688366 /* AddUserCreditCardViewController.swift in Sources */,
 				FA5C2AA61E5A5AF800A0CB56 /* ExtensionEtablishments.swift in Sources */,
 				FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */,
 				FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */,
