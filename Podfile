@@ -19,6 +19,7 @@ target 'Nightline' do
   pod 'Reveal-SDK'
   pod 'Cloudinary', '~> 2.0'
   pod 'PagingMenuController'
+  pod 'Stripe'
   
   # Pods for Nightline
 

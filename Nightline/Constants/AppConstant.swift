@@ -64,5 +64,10 @@ final class AppConstant {
     static let drinks = ""
     static let user = "/users"
     static let party = "/soiree"
+    static let payment = "/update_stripe_user"
+  }
+  
+  final class StripeToken {
+    static let publishableKey = "pk_test_kdowSzKoGipTvU32aHZtryoq"
   }
 }

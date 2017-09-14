@@ -49,7 +49,6 @@ class DetailPartyViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.setView()
                 }
-                print(self.party)
             }.catch { error -> Void in
                 print(error)
         }

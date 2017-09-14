@@ -13,6 +13,7 @@ import KeychainSwift
 import FBSDKCoreKit
 import Cloudinary
 import PromiseKit
+import Stripe
 
 let log = SwiftyBeaver.self
 let tokenWrapper = TokenWrapper()
@@ -49,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     }
     FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    STPPaymentConfiguration.shared().publishableKey = AppConstant.StripeToken.publishableKey
     return true
   }
   
