@@ -1,6 +1,0 @@
-framework module Pods_Nightline {
-  umbrella header "Pods-Nightline-umbrella.h"
-
-  export *
-  module * { export * }
-}
