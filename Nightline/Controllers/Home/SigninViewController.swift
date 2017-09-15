@@ -205,8 +205,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                 } else { AlertUtils.networkErrorAlert(fromController: self)
                     return
                 }
-                self.dismiss(animated: true, completion: {
-                    self.presentingViewController?.dismiss(animated: true, completion: nil)})
+                self.dismiss(animated: false, completion: {
+                    self.presentingViewController?.dismiss(animated: false, completion: nil)})
                 let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
                 NotificationCenter.default.post(name: notificationName, object: nil)
             }.catch { _ in
@@ -308,8 +308,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                 tokenWrapper.setToken(valueFor: token)
                                 UserManager.instance.initDbUser(userFromApi: user)
                                 TokenWrapper().setToken(valueFor: String(user.id), key: "userId")
-                                self.dismiss(animated: true, completion: {
-                                    self.presentingViewController?.dismiss(animated: true, completion: nil)})
+                                self.dismiss(animated: false, completion: {
+                                    self.presentingViewController?.dismiss(animated: false, completion: nil)})
                                 let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
                                 NotificationCenter.default.post(name: notificationName, object: nil)
                             } else {
@@ -325,8 +325,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                             AlertUtils.networkErrorAlert(fromController: self)
                                             self.loginManager.logOut()
                                         }
-                                        self.dismiss(animated: true, completion: {
-                                            self.presentingViewController?.dismiss(animated: true, completion: nil)})
+                                        self.dismiss(animated: false, completion: {
+                                            self.presentingViewController?.dismiss(animated: false, completion: nil)})
                                         let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
                                         NotificationCenter.default.post(name: notificationName, object: nil)
                                     }.catch { _ in
@@ -347,8 +347,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                         AlertUtils.networkErrorAlert(fromController: self)
                                         self.loginManager.logOut()
                                     }
-                                    self.dismiss(animated: true, completion: {
-                                        self.presentingViewController?.dismiss(animated: true, completion: nil)})
+                                    self.dismiss(animated: false, completion: {
+                                        self.presentingViewController?.dismiss(animated: false, completion: nil)})
                                     let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
                                     NotificationCenter.default.post(name: notificationName, object: nil)
                                 }.catch { _ in

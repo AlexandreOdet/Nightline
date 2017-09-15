@@ -60,11 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     STPPaymentConfiguration.shared().publishableKey = AppConstant.StripeToken.publishableKey
     return true
   }
-  
-  func customDesign() {
-    
-  }
-  
+
   @objc func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
   }
