@@ -49,6 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           return
       }
     }
+    let userDefaults = UserDefaults.standard
+    
+    if userDefaults.bool(forKey: "hasRunBefore") == false {
+      tokenWrapper.deleteToken()
+      userDefaults.set(true, forKey: "hasRunBefore")
+      userDefaults.synchronize() // Forces the app to update UserDefaults
+    }
     FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     STPPaymentConfiguration.shared().publishableKey = AppConstant.StripeToken.publishableKey
     return true
