@@ -196,13 +196,11 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
         Utils.Network.spinnerStart()
         firstly {
             restApiUser.loginUser(email: nicknameTextField.text ?? "", password: passwordTextField.text ?? "")
-            }.then {
+            }.then { [unowned self]
                 resp -> Void in
                 if let token = resp.token, let user = resp.user {
                     tokenWrapper.setToken(valueFor: token)
                     UserManager.instance.initDbUser(userFromApi: user)
-                    print(user.id)
-                    print(String(user.id))
                     tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
                 } else { AlertUtils.networkErrorAlert(fromController: self)
                     return
@@ -297,16 +295,15 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if(error == nil)
         {
-
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email"]).start(completionHandler: { (connection, result, error) -> Void in
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email"]).start(completionHandler: { [unowned self]
+              (connection, result, error) -> Void in
                 if (error == nil){
                     let fbDetails = result as! Dictionary<String, Any>
-                    print(fbDetails)
                     firstly {
                         self.restApiUser.signUpUser(email: fbDetails["email"] as! String,
                                                     nickname: fbDetails["name"] as! String,
                                                     password: "test")
-                        }.then { resp -> Void in
+                        }.then { [unowned self] resp -> Void in
                             if let token = resp.token, let user = resp.user {
                                 tokenWrapper.setToken(valueFor: token)
                                 UserManager.instance.initDbUser(userFromApi: user)
@@ -318,7 +315,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                             } else {
                                 firstly {
                                     self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "test")
-                                    }.then {
+                                    }.then { [unowned self]
                                         resp -> Void in
                                         if let token = resp.token, let user = resp.user {
                                             tokenWrapper.setToken(valueFor: token)
@@ -340,7 +337,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                         }.catch { _ in
                             firstly {
                                 self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "test")
-                                }.then {
+                                }.then { [unowned self]
                                     resp -> Void in
                                     if let token = resp.token, let user = resp.user {
                                         tokenWrapper.setToken(valueFor: token)

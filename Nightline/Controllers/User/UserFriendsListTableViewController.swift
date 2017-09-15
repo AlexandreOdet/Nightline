@@ -20,7 +20,10 @@ final class UserFriendsListTableViewController: UITableViewController {
     let friendsInstance = RAFriends()
     var friendList: FriendsList?
     var pendingList: InvitationsList?
-
+  
+  deinit {
+    friendsInstance.cancelRequest()
+  }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +41,11 @@ final class UserFriendsListTableViewController: UITableViewController {
     func getFriends() {
             firstly {
                 friendsInstance.getUserFriendsList(userId: String(UserManager.instance.retrieveUserId()))
-                }.then { result -> Void in
-                    self.friendList = result
+                }.then { [weak self] result -> Void in
+                  guard let strongSelf = self else { return }
+                    strongSelf.friendList = result
                     DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                        strongSelf.tableView.reloadData()
                     }
                 }.catch { error -> Void in
                     // Handle error?
@@ -51,10 +55,11 @@ final class UserFriendsListTableViewController: UITableViewController {
     func getInvits() {
         firstly {
             friendsInstance.getUserInvitationList(userId: String(UserManager.instance.retrieveUserId()))
-            }.then { result -> Void in
-                self.pendingList = result
+            }.then { [weak self] result -> Void in
+              guard let strongSelf = self else { return }
+                strongSelf.pendingList = result
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    strongSelf.tableView.reloadData()
                 }
             }.catch { error -> Void in
                 // Handle error?

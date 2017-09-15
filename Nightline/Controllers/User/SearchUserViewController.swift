@@ -56,14 +56,15 @@ class SearchUserViewController: UIViewController {
             case 0:
                 firstly {
                     userInstance.searchUser(query: query)
-                    }.then { result -> Void in
-                        self.userArray = []
+                    }.then { [weak self] result -> Void in
+                      guard let strongSelf = self else { return }
+                        strongSelf.userArray = []
                         if result.resultUser != nil {
-                            self.userArray.append(contentsOf: result.resultUser)
-                            for elem in self.userArray {
+                            strongSelf.userArray.append(contentsOf: result.resultUser)
+                            for elem in strongSelf.userArray {
                                 print(elem.name)
                             }
-                            self.tableView.reloadData()
+                            strongSelf.tableView.reloadData()
                         }
                     }.catch { error -> Void in
                         print("Error : \(error)")
@@ -71,14 +72,15 @@ class SearchUserViewController: UIViewController {
             case 1:
                 firstly {
                     estabInstance.searchEstablishment(query: query)
-                    }.then { result -> Void in
-                        self.estabArray = []
+                    }.then { [weak self] result -> Void in
+                      guard let strongSelf = self else { return }
+                        strongSelf.estabArray = []
                         if result.resultEstab != nil {
-                            self.estabArray.append(contentsOf: result.resultEstab)
-                            for elem in self.estabArray {
+                            strongSelf.estabArray.append(contentsOf: result.resultEstab)
+                            for elem in strongSelf.estabArray {
                                 print(elem.name)
                             }
-                            self.tableView.reloadData()
+                            strongSelf.tableView.reloadData()
                         }
                     }.catch { error -> Void in
                         print("Error : \(error)")

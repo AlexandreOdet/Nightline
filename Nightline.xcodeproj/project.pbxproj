@@ -78,7 +78,6 @@
 		FA5C2AA61E5A5AF800A0CB56 /* ExtensionEtablishments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AA51E5A5AF800A0CB56 /* ExtensionEtablishments.swift */; };
 		FA5C2AA81E5A5B3000A0CB56 /* GroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AA71E5A5B3000A0CB56 /* GroupType.swift */; };
 		FA5C2AAA1E5A5B6F00A0CB56 /* ExtensionGroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AA91E5A5B6F00A0CB56 /* ExtensionGroupType.swift */; };
-		FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */; };
 		FA6B01901F54744D00F360B5 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B018F1F54744D00F360B5 /* MenuList.swift */; };
 		FA6B01921F54756800F360B5 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B01911F54756800F360B5 /* UserResponse.swift */; };
 		FA6B019C1F56222900F360B5 /* EstablishmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B019B1F56222900F360B5 /* EstablishmentResponse.swift */; };
@@ -232,7 +231,6 @@
 		FA5C2AA51E5A5AF800A0CB56 /* ExtensionEtablishments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionEtablishments.swift; path = Extensions/Enums/ExtensionEtablishments.swift; sourceTree = "<group>"; };
 		FA5C2AA71E5A5B3000A0CB56 /* GroupType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupType.swift; path = Enums/Parties/MapFilter/GroupType.swift; sourceTree = "<group>"; };
 		FA5C2AA91E5A5B6F00A0CB56 /* ExtensionGroupType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionGroupType.swift; path = Extensions/Enums/ExtensionGroupType.swift; sourceTree = "<group>"; };
-		FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapFilterManager.swift; path = Manager/MapFilterManager.swift; sourceTree = "<group>"; };
 		FA6B018F1F54744D00F360B5 /* MenuList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuList.swift; path = Models/Parties/MenuList.swift; sourceTree = "<group>"; };
 		FA6B01911F54756800F360B5 /* UserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserResponse.swift; path = Models/User/UserResponse.swift; sourceTree = "<group>"; };
 		FA6B019B1F56222900F360B5 /* EstablishmentResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EstablishmentResponse.swift; path = Models/Parties/EstablishmentResponse.swift; sourceTree = "<group>"; };
@@ -500,7 +498,6 @@
 			children = (
 				FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */,
 				FA3AA18B1E57720F002CF4FC /* UserManager.swift */,
-				FA5C2AAB1E5A5D0E00A0CB56 /* MapFilterManager.swift */,
 				7BD6F2591F1525E3001D88F6 /* MediaManager.swift */,
 				FADF25CF1E8767F800E74439 /* AchievementManager.swift */,
 			);
@@ -1204,7 +1201,6 @@
 				FA5C2A9A1E5A519700A0CB56 /* UIColorExtension.swift in Sources */,
 				FADF8F811F6B089A00688366 /* AddUserCreditCardViewController.swift in Sources */,
 				FA5C2AA61E5A5AF800A0CB56 /* ExtensionEtablishments.swift in Sources */,
-				FA5C2AAC1E5A5D0E00A0CB56 /* MapFilterManager.swift in Sources */,
 				FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */,
 				7B6068691F0FE964000F1755 /* UserMediaTableViewController.swift in Sources */,
 				FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */,
