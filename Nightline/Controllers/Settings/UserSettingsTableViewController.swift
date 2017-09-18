@@ -97,7 +97,7 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
         cell.isUserInteractionEnabled = false
       } else if indexPath.section == SettingsCell.Payment.rawValue {
         cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
-        cell.textLabel?.text = infosArray[indexPath.row]
+        cell.textLabel?.text = "Ajouter une carte"
       } else {
         cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
         cell.textLabel?.text = R.string.localizable.logout()
