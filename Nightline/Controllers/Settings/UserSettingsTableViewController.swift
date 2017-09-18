@@ -11,6 +11,7 @@ import UIKit
 import SnapKit
 import Rswift
 import FBSDKLoginKit
+import Stripe
 
 /*
  Controllers: UserSettingsTableViewController
@@ -22,7 +23,7 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
   let reuseIdentifier = "SettingsCell"
   var tableView = UITableView()
   let infosArray = [R.string.localizable.thanks(), R.string.localizable.faq(), R.string.localizable.build()]
-  let sectionArray = ["Profil", "Préférences", "Informations", ""]
+  let sectionArray = ["Profil", "Paiement", "Préférences", "Informations", ""]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -65,6 +66,8 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
       count = 3
     case SettingsCell.Logout.rawValue:
       return 1
+    case SettingsCell.Payment.rawValue:
+        return 1
     default:
       count = 0
     }
@@ -92,6 +95,9 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
           cell.detailTextLabel?.text = Plist.Info.getBuildVersion()
         }
         cell.isUserInteractionEnabled = false
+      } else if indexPath.section == SettingsCell.Payment.rawValue {
+        cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
+        cell.textLabel?.text = infosArray[indexPath.row]
       } else {
         cell = UITableViewCell(style: .default, reuseIdentifier: self.reuseIdentifier)
         cell.textLabel?.text = R.string.localizable.logout()
@@ -122,6 +128,16 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
       let cell = tableView.cellForRow(at: indexPath)
       cell?.onClick()
       self.goToEditProfilViewController()
+    } else if indexPath.section == SettingsCell.Payment.rawValue {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.onClick()
+        let nextVC = STPAddCardViewController()
+        nextVC.delegate = self
+        let navControler = UINavigationController(rootViewController: nextVC)
+        self.transitionDirection(from: .right)
+//        present(navControler, animated: true, completion: nil)
+//        present(nextVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
   }
   
@@ -165,4 +181,16 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
     let nextViewController = EditProfileTableViewController()
     self.navigationController?.pushViewController(nextViewController, animated: true)
   }
+}
+
+extension UserSettingsTableViewController: STPAddCardViewControllerDelegate {
+    func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
+        // TODO
+    }
+
+
 }
