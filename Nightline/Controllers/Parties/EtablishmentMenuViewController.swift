@@ -39,7 +39,11 @@ class EtablishmentMenuViewController: BaseViewController {
     ]
 
     let reuseIdentifer = "ConsommableCell"
-
+  
+  deinit {
+    establishmentInstance.cancelRequest()
+  }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         //setUpConsommableArray()
@@ -63,11 +67,12 @@ class EtablishmentMenuViewController: BaseViewController {
     func getMenu() {
         firstly {
             establishmentInstance.getEstablishmentMenus(idEstablishment: bar_id)
-            }.then { result -> Void in
-                self.menuList = result
+            }.then { [weak self] result -> Void in
+              guard let strongSelf = self else { return }
+                strongSelf.menuList = result
                 print(result)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    strongSelf.tableView.reloadData()
                 }
             }.catch { error -> Void in
                 print(error)

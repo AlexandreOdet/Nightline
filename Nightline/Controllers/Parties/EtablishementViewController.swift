@@ -129,9 +129,9 @@ class EtablishmentViewController: ProfileViewController {
     func fetchData() {
         firstly {
             restApiEtablissements.getEtablishmentProfile(idEtablishment: self.idBar)
-            }.then { resp -> Void in
-                if let etabl = resp.establishment {
-                    self.nameLabel.text = etabl.name.uppercased()
+            }.then { [weak self] resp -> Void in
+              if let etabl = resp.establishment, let strongSelf = self {
+                    strongSelf.nameLabel.text = etabl.name.uppercased()
                 }
             }.catch { _ in
                 AlertUtils.networkErrorAlert(fromController: self)

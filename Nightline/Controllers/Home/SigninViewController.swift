@@ -196,19 +196,17 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
         Utils.Network.spinnerStart()
         firstly {
             restApiUser.loginUser(email: nicknameTextField.text ?? "", password: passwordTextField.text ?? "")
-            }.then {
+            }.then { [unowned self]
                 resp -> Void in
                 if let token = resp.token, let user = resp.user {
                     tokenWrapper.setToken(valueFor: token)
                     UserManager.instance.initDbUser(userFromApi: user)
-                    print(user.id)
-                    print(String(user.id))
                     tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
                 } else { AlertUtils.networkErrorAlert(fromController: self)
                     return
                 }
-                self.dismiss(animated: true, completion: {
-                    self.presentingViewController?.dismiss(animated: true, completion: nil)})
+                self.dismiss(animated: false, completion: {
+                    self.presentingViewController?.dismiss(animated: false, completion: nil)})
                 let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
                 NotificationCenter.default.post(name: notificationName, object: nil)
             }.catch { _ in
@@ -297,28 +295,27 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if(error == nil)
         {
-
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email"]).start(completionHandler: { (connection, result, error) -> Void in
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email"]).start(completionHandler: { [unowned self]
+              (connection, result, error) -> Void in
                 if (error == nil){
                     let fbDetails = result as! Dictionary<String, Any>
-                    print(fbDetails)
                     firstly {
                         self.restApiUser.signUpUser(email: fbDetails["email"] as! String,
                                                     nickname: fbDetails["name"] as! String,
                                                     password: "test")
-                        }.then { resp -> Void in
+                        }.then { [unowned self] resp -> Void in
                             if let token = resp.token, let user = resp.user {
                                 tokenWrapper.setToken(valueFor: token)
                                 UserManager.instance.initDbUser(userFromApi: user)
                                 TokenWrapper().setToken(valueFor: String(user.id), key: "userId")
-                                self.dismiss(animated: true, completion: {
-                                    self.presentingViewController?.dismiss(animated: true, completion: nil)})
+                                self.dismiss(animated: false, completion: {
+                                    self.presentingViewController?.dismiss(animated: false, completion: nil)})
                                 let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
                                 NotificationCenter.default.post(name: notificationName, object: nil)
                             } else {
                                 firstly {
                                     self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "test")
-                                    }.then {
+                                    }.then { [unowned self]
                                         resp -> Void in
                                         if let token = resp.token, let user = resp.user {
                                             tokenWrapper.setToken(valueFor: token)
@@ -328,8 +325,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                             AlertUtils.networkErrorAlert(fromController: self)
                                             self.loginManager.logOut()
                                         }
-                                        self.dismiss(animated: true, completion: {
-                                            self.presentingViewController?.dismiss(animated: true, completion: nil)})
+                                        self.dismiss(animated: false, completion: {
+                                            self.presentingViewController?.dismiss(animated: false, completion: nil)})
                                         let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
                                         NotificationCenter.default.post(name: notificationName, object: nil)
                                     }.catch { _ in
@@ -340,7 +337,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                         }.catch { _ in
                             firstly {
                                 self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "test")
-                                }.then {
+                                }.then { [unowned self]
                                     resp -> Void in
                                     if let token = resp.token, let user = resp.user {
                                         tokenWrapper.setToken(valueFor: token)
@@ -350,8 +347,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                         AlertUtils.networkErrorAlert(fromController: self)
                                         self.loginManager.logOut()
                                     }
-                                    self.dismiss(animated: true, completion: {
-                                        self.presentingViewController?.dismiss(animated: true, completion: nil)})
+                                    self.dismiss(animated: false, completion: {
+                                        self.presentingViewController?.dismiss(animated: false, completion: nil)})
                                     let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
                                     NotificationCenter.default.post(name: notificationName, object: nil)
                                 }.catch { _ in

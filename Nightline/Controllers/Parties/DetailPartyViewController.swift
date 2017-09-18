@@ -21,6 +21,10 @@ class DetailPartyViewController: UIViewController {
     @IBOutlet weak var startLabel: UILabel!
     @IBOutlet weak var endLabel: UILabel!
 
+  deinit {
+    estabInstance.cancelRequest()
+  }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         getPartyInfos()
@@ -44,10 +48,11 @@ class DetailPartyViewController: UIViewController {
     func getPartyInfos() {
         firstly {
             estabInstance.getEstablishmentParties(idEstablishment: bar_id)
-            }.then { result -> Void in
-                self.party = result.party
+            }.then { [weak self] result -> Void in
+              guard let strongSelf = self else { return }
+                strongSelf.party = result.party
                 DispatchQueue.main.async {
-                    self.setView()
+                    strongSelf.setView()
                 }
             }.catch { error -> Void in
                 print(error)

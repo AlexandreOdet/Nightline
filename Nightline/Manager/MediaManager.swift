@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import Cloudinary
+//import Cloudinary
 
 class MediaManager {
     static let instance = MediaManager()

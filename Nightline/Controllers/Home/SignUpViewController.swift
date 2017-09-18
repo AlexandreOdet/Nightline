@@ -27,7 +27,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   let backButton = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
   let nightlineLogo = UIImageView()
   let stackViewSignUp = UIStackView()
-
+  
   deinit {
     restApiUser.cancelRequest()
   }
@@ -144,20 +144,22 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   func showHomeScreen() {
     Utils.Network.spinnerStart()
-    restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!).then{ resp -> Void in
-      if let token = resp.token, let user = resp.user {
-        tokenWrapper.setToken(valueFor: token)
-        UserManager.instance.initDbUser(userFromApi: user)
-        tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
-      } else { AlertUtils.networkErrorAlert(fromController: self)
-        return
-      }
-      self.dismiss(animated: true, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
-      let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
-      NotificationCenter.default.post(name: notificationName, object: nil)
-      AchievementManager.instance.initUserAchievementArray()
-    }.catch { _ in
-      AlertUtils.networkErrorAlert(fromController: self)
+    firstly {
+      restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!)
+      }.then{ [unowned self] resp -> Void in
+        if let token = resp.token, let user = resp.user {
+          tokenWrapper.setToken(valueFor: token)
+          UserManager.instance.initDbUser(userFromApi: user)
+          tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
+        } else { AlertUtils.networkErrorAlert(fromController: self)
+          return
+        }
+        self.dismiss(animated: false, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
+        let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
+        NotificationCenter.default.post(name: notificationName, object: nil)
+        AchievementManager.instance.initUserAchievementArray()
+      }.catch { _ in
+        AlertUtils.networkErrorAlert(fromController: self)
       }.always {
         Utils.Network.spinnerStop()
     }
@@ -176,7 +178,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     return true
   }
   
-   /*
+  /*
    addBackButton() func.
    This function sets position and content of backButton into self.view
    @param None

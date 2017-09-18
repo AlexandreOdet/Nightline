@@ -11,7 +11,7 @@ import CoreData
 import SwiftyBeaver
 import KeychainSwift
 import FBSDKCoreKit
-import Cloudinary
+//import Cloudinary
 import PromiseKit
 import Stripe
 
@@ -49,15 +49,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           return
       }
     }
+    let userDefaults = UserDefaults.standard
+    
+    if userDefaults.bool(forKey: "hasRunBefore") == false {
+      tokenWrapper.deleteToken()
+      userDefaults.set(true, forKey: "hasRunBefore")
+      userDefaults.synchronize() // Forces the app to update UserDefaults
+    }
     FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     STPPaymentConfiguration.shared().publishableKey = AppConstant.StripeToken.publishableKey
     return true
   }
-  
-  func customDesign() {
-    
-  }
-  
+
   @objc func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
   }

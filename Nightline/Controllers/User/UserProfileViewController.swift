@@ -16,45 +16,45 @@ import Lightbox
 final class UserProfileViewController: ProfileViewController {
   
   override func viewDidLoad() {
-    self.isUser = true
+    isUser = true
     super.viewDidLoad()
     setUpView()
   }
   
   private func setUpView() {
     if let imgdt = UserManager.instance.getUserPicture(), let profileImage = UIImage(data: (imgdt as Data)) {
-      self.imgProfile.image = profileImage
+      imgProfile.image = profileImage
     } else {
-      self.imgProfile.image = R.image.male()
+      imgProfile.image = R.image.male()
     }
-    if  UserManager.instance.getUserFirstName() != "", UserManager.instance.getUserLastName() != ""{
-      self.nameLabel.text = UserManager.instance.getUserFirstName() + " " + (UserManager.instance.getUserLastName().characters.first?.description)!
+    if  !UserManager.instance.getUserFirstName().isEmpty, !UserManager.instance.getUserLastName().isEmpty {
+      nameLabel.text = UserManager.instance.getUserFirstName() + " " + (UserManager.instance.getUserLastName().characters.first?.description)!
     } else {
-      self.nameLabel.text = ""
+      nameLabel.text = ""
     }
-    self.nicknameLabel.text = UserManager.instance.getUserNickname()
-    if UserManager.instance.getUserAge() == "" {
-      self.birthdayLabel.text = ""
+    nicknameLabel.text = UserManager.instance.getUserNickname()
+    if UserManager.instance.getUserAge().isEmpty {
+      birthdayLabel.text = ""
     } else {
-      self.birthdayLabel.text = UserManager.instance.getUserAge() + " ans"
+      birthdayLabel.text = UserManager.instance.getUserAge() + " ans"
     }
-    self.locationLabel.text = UserManager.instance.getUserCity()
-    self.descriptionLabel.text = "Epitech 4th year student in China, Beijing"
-    self.friendsLabel.text = "0"
-    self.pictureLabel.text = String(MediaManager.instance.getAllImages().count)
-    self.trophyLabel.text = UserManager.instance.getUserAchievementPoints()
+    locationLabel.text = UserManager.instance.getUserCity()
+    descriptionLabel.text = "Epitech 4th year student in China, Beijing"
+    friendsLabel.text = "0"
+    pictureLabel.text = String(MediaManager.instance.getAllImages().count)
+    trophyLabel.text = UserManager.instance.getUserAchievementPoints()
     
     let friendsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserFriendsList))
     friendsGestureRecognizer.numberOfTapsRequired = 1
-    self.friendsView.addGestureRecognizer(friendsGestureRecognizer)
+    friendsView.addGestureRecognizer(friendsGestureRecognizer)
     
     let mediaGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserMediaList))
     friendsGestureRecognizer.numberOfTapsRequired = 1
-    self.pictureView.addGestureRecognizer(mediaGestureRecognizer)
+    pictureView.addGestureRecognizer(mediaGestureRecognizer)
     
     let achievementsGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showUserAchievementsList))
     achievementsGestureRecognizer.numberOfTapsRequired = 1
-    self.trophyView.addGestureRecognizer(achievementsGestureRecognizer)
+    trophyView.addGestureRecognizer(achievementsGestureRecognizer)
   }
   
   func showUserFriendsList() {
