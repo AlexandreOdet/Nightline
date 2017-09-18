@@ -57,6 +57,10 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                 map.showsUserLocation = true
                 map.isZoomEnabled = true
                 map.delegate = self
+                if let location = locationManager.location {
+                    let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+
+                    self.map.setRegion(region, animated: true)                }
                 //addFiltersToMap()
             }
         }
@@ -124,10 +128,6 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         //    let location = locations.last! as CLLocation
 
         //    let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let center = CLLocationCoordinate2D(latitude: 48.8517, longitude: 2.3477)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-
-        self.map.setRegion(region, animated: true)
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

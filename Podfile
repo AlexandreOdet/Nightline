@@ -17,7 +17,6 @@ target 'Nightline' do
   pod 'PageMenu'
   pod 'Lightbox'
   pod 'Reveal-SDK'
-  pod 'Cloudinary', '~> 2.0'
   pod 'PagingMenuController'
   pod 'Stripe'
   

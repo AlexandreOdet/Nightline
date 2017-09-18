@@ -46,9 +46,16 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-        print("view will disappear - start")
-        UserManager.instance.pushUserUpdate()
-        print("view will disappear - stop")
+        //        print("view will disappear - start")
+        //        UserManager.instance.pushUserUpdate()
+        //        print("view will disappear - stop")
+    }
+
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        if parent == nil {
+            UserManager.instance.pushUserUpdate()
+        }
     }
 
     /*------------- UITableView Functions -------------*/
@@ -145,7 +152,7 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
             AchievementManager.instance.validateAchievement("ProfileFullyFilled", self)
         }
     }
-    
+
     func successProfileFullAchieved() {
         let achievementPopUp = UIAlertController(title: "Achievement completed!", message: "By fully filling your profile you realized your first Nightline's achievement.\n Go to your profile to see your achievements.", preferredStyle: .alert)
         present(achievementPopUp, animated: true, completion: nil)

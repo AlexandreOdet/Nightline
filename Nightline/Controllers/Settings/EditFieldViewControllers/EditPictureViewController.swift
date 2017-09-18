@@ -30,7 +30,9 @@ class EditPictureViewController: BaseViewController, UIImagePickerControllerDele
     }
     picture.translatesAutoresizingMaskIntoConstraints = false
 //    picture.roundImage()
-    picture.image = UIImage(data: UserManager.instance.getUserPicture()! as Data)
+    if let data = UserManager.instance.getUserPicture(), let img = UIImage(data: data as Data) {
+        picture.image = img
+    }
     picture.isUserInteractionEnabled = true
     imagePicker.delegate = self
     let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
