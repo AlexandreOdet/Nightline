@@ -41,7 +41,11 @@ class SearchUserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.backgroundColor = UIColor(hex: 0x0e1728)
+        self.tableView.separatorColor = UIColor(hex: 0x0e1728)
+        self.searchField.backgroundColor = UIColor(hex: 0x363D4C)
+        self.searchField.layer.cornerRadius = self.searchField.frame.size.height / 2
+        self.searchField.setLeftPaddingPoints(15)
         // Do any additional setup after loading the view.
     }
 
@@ -51,6 +55,7 @@ class SearchUserViewController: UIViewController {
     }
 
     @IBAction func searchFriendAction(_ sender: Any) {
+        self.searchField.resignFirstResponder()
         if let query = searchField.text {
             switch searchOption.selectedSegmentIndex {
             case 0:
@@ -107,13 +112,28 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let label = UILabel()
-        cell.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        let bg = UIView()
+        cell.addSubview(bg)
+        bg.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(5)
         }
+        bg.clipsToBounds = true
+        bg.layer.cornerRadius = (cell.frame.size.height - 5) / 2
+        bg.backgroundColor = UIColor(hex : 0x363D4C)
+        let label = UILabel()
+        bg.addSubview(label)
+        cell.backgroundColor = UIColor(hex: 0x0e1728)
+        label.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.right.left.equalToSuperview().inset(15)
+        }
+        label.textColor = UIColor(hex: 0xE88B26)
         switch searchOption.selectedSegmentIndex {
         case 0:
             label.text = userArray[indexPath.row].name
@@ -124,6 +144,7 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.cellForRow(at: indexPath)?.isSelected = false
         switch searchOption.selectedSegmentIndex {
         case 0:
             firstly {

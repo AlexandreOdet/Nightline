@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A352a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,13 +28,14 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="oy4-Dl-x98"/>
                     </constraints>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.91730970144271851" green="0.54727464914321899" blue="0.050949640572071075" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uGH-Mq-1cm">
                     <rect key="frame" x="10" y="100" width="355" height="547"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" red="0.054901960784313725" green="0.090196078431372548" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbN-wW-CiB">
                     <rect key="frame" x="305" y="10" width="60" height="40"/>
@@ -42,6 +43,7 @@
                         <constraint firstAttribute="height" constant="40" id="0n1-Xw-Wsc"/>
                         <constraint firstAttribute="width" constant="60" id="PvE-Vw-oBH"/>
                     </constraints>
+                    <color key="tintColor" red="0.91730970144271851" green="0.54727464914321899" blue="0.050949640572071075" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Search"/>
                     <connections>
                         <action selector="searchFriendAction:" destination="-1" eventType="touchUpInside" id="xf5-8r-H1o"/>
@@ -56,12 +58,13 @@
                         <segment title="User"/>
                         <segment title="Place"/>
                     </segments>
+                    <color key="tintColor" red="0.91730970144271851" green="0.54727464914321899" blue="0.050949640572071075" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="changeSearchCat:" destination="-1" eventType="valueChanged" id="otu-hR-hGZ"/>
                     </connections>
                 </segmentedControl>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.054901960784313725" green="0.090196078431372548" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <accessibility key="accessibilityConfiguration">
                 <accessibilityTraits key="traits" adjustable="YES"/>
             </accessibility>
