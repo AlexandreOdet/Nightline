@@ -65,6 +65,7 @@ final class AppConstant {
     static let user = "/users"
     static let party = "/soiree"
     static let payment = "/update_stripe_user"
+    static let groups = "/groups"
   }
   
   final class StripeToken {

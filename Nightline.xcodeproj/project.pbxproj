@@ -95,6 +95,8 @@
 		FA8851961F4B81A900647A1F /* UserPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8851951F4B81A900647A1F /* UserPreview.swift */; };
 		FAAC43C81E85BA2100CEF9CA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C71E85BA2100CEF9CA /* ProfileViewController.swift */; };
 		FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */; };
+		FAAEF1AE1F74309E00BB0916 /* RAGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AD1F74309E00BB0916 /* RAGroup.swift */; };
+		FAAEF1B01F74347200BB0916 /* RAInvitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
 		FAC3804C1EA089FC00F62FEC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804B1EA089FC00F62FEC /* Bolts.framework */; };
 		FAC3804E1EA08A0800F62FEC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */; };
@@ -218,7 +220,7 @@
 		FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertUtils.swift; path = Utils/AlertUtils.swift; sourceTree = "<group>"; };
 		FA4548A21F0FD12B0064A1BE /* Consommable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Consommable.swift; path = Models/Parties/Consommable.swift; sourceTree = "<group>"; };
 		FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutableProtocol.swift; path = Protocols/RoutableProtocol.swift; sourceTree = "<group>"; };
-		FA5729821E5CFBE800B36784 /* RoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutesAPI.swift; path = Enums/Routes/RoutesAPI.swift; sourceTree = "<group>"; };
+		FA5729821E5CFBE800B36784 /* RoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; name = RoutesAPI.swift; path = Enums/Routes/RoutesAPI.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionRoutesAPI.swift; path = Extensions/Enums/ExtensionRoutesAPI.swift; sourceTree = "<group>"; };
 		FA5C2A901E5A4FFC00A0CB56 /* EventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventType.swift; path = Enums/Parties/MapFilter/EventType.swift; sourceTree = "<group>"; };
 		FA5C2A951E5A519700A0CB56 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Extensions/UI/UIColorExtension.swift; sourceTree = "<group>"; };
@@ -249,6 +251,8 @@
 		FA8851951F4B81A900647A1F /* UserPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPreview.swift; path = Models/User/UserPreview.swift; sourceTree = "<group>"; };
 		FAAC43C71E85BA2100CEF9CA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsListTableViewController.swift; path = Controllers/User/UserFriendsListTableViewController.swift; sourceTree = "<group>"; };
+		FAAEF1AD1F74309E00BB0916 /* RAGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RAGroup.swift; path = Network/RAGroup.swift; sourceTree = "<group>"; };
+		FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RAInvitations.swift; path = Network/RAInvitations.swift; sourceTree = "<group>"; };
 		FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishmentMenuViewController.swift; path = Controllers/Parties/EtablishmentMenuViewController.swift; sourceTree = "<group>"; };
 		FAC3804B1EA089FC00F62FEC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -785,6 +789,8 @@
 				FAD506E81F4CDBA4002060A1 /* RAParty.swift */,
 				FA8475A01F5F255300B3E292 /* RAFriend.swift */,
 				FADF8F7D1F6B01FC00688366 /* RAPayment.swift */,
+				FAAEF1AD1F74309E00BB0916 /* RAGroup.swift */,
+				FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -1172,6 +1178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5C2AA41E5A5ACE00A0CB56 /* ExtensionEventType.swift in Sources */,
+				FAAEF1B01F74347200BB0916 /* RAInvitations.swift in Sources */,
 				FA3AA1801E57716E002CF4FC /* UserProfileCell.swift in Sources */,
 				7B60686B1F0FF293000F1755 /* UserMediaCustomViewCell.swift in Sources */,
 				FA8851921F4B7D0900647A1F /* Preferences.swift in Sources */,
@@ -1215,6 +1222,7 @@
 				7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */,
 				FAD506E91F4CDBA4002060A1 /* RAParty.swift in Sources */,
 				FADF8F7E1F6B01FC00688366 /* RAPayment.swift in Sources */,
+				FAAEF1AE1F74309E00BB0916 /* RAGroup.swift in Sources */,
 				FA303F6C1E5D1F26008961EF /* ExtensionUserPreferences.swift in Sources */,
 				FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */,
 				FA8475A61F5F2B9D00B3E292 /* InvitationsList.swift in Sources */,
