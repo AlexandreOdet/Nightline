@@ -34,16 +34,16 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.hideKeyboardWhenTappedAround()
-    self.title = R.string.localizable.sign_up()
+    hideKeyboardWhenTappedAround()
+    title = R.string.localizable.sign_up()
     let backgroundImage = UIImageView(image: R.image.background())
-    self.view.addSubview(backgroundImage)
+    view.addSubview(backgroundImage)
     backgroundImage.snp.makeConstraints { (make) -> Void in
-      make.edges.equalTo(self.view)
+      make.edges.equalToSuperview()
     }
     backgroundImage.alpha = 0.5
     if Utils.Network.isInternetAvailable() == false {
-      self.showNoConnectivityView()
+      showNoConnectivityView()
     } else {
       addBottomButton()
       initAllFields()
@@ -64,19 +64,19 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     stackViewSignUp.axis = .vertical
     stackViewSignUp.spacing = AppConstant.UI.Dimensions.formElementsSpacing
     
-    self.view.addSubview(stackViewSignUp)
+    view.addSubview(stackViewSignUp)
     stackViewSignUp.snp.makeConstraints { (make) -> Void in
-      make.center.equalTo(self.view)
-      make.leading.equalTo(self.view).offset(30)
-      make.trailing.equalTo(self.view).offset(-30)
+      make.center.equalToSuperview()
+      make.leading.equalToSuperview().offset(30)
+      make.trailing.equalToSuperview().offset(-30)
     }
     stackViewSignUp.translatesAutoresizingMaskIntoConstraints = false
     
     emailTextField.backgroundColor = UIColor.black
     emailTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.email(),
-                                                              attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
+                                                              attributes:[NSForegroundColorAttributeName: getAccentColor()])
     emailTextField.highlightBottom()
-    emailTextField.textColor = self.getAccentColor()
+    emailTextField.textColor = getAccentColor()
     emailTextField.textAlignment = .center
     emailTextField.delegate = self
     emailTextField.keyboardType = .emailAddress
@@ -88,9 +88,9 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     
     nicknameTextField.backgroundColor = UIColor.black
     nicknameTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.nickname(),
-                                                                 attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
+                                                                 attributes:[NSForegroundColorAttributeName: getAccentColor()])
     nicknameTextField.highlightBottom()
-    nicknameTextField.textColor = self.getAccentColor()
+    nicknameTextField.textColor = getAccentColor()
     nicknameTextField.textAlignment = .center
     nicknameTextField.delegate = self
     nicknameTextField.returnKeyType = .next
@@ -99,9 +99,9 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.password(),
-                                                                 attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
+                                                                 attributes:[NSForegroundColorAttributeName: getAccentColor()])
     passwordTextField.highlightBottom()
-    passwordTextField.textColor = self.getAccentColor()
+    passwordTextField.textColor = getAccentColor()
     passwordTextField.textAlignment = .center
     passwordTextField.isSecureTextEntry = true
     passwordTextField.returnKeyType = .done
@@ -116,20 +116,20 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   
   /*
    addBottomButton() func.
-   This functions sets position and content of the signupButton into self.view
+   This functions sets position and content of the signupButton into view
    @param None
    @return None
    */
   
   private func addBottomButton() {
-    self.view.addSubview(signupButton)
+    view.addSubview(signupButton)
     signupButton.snp.makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self.view)
+      make.bottom.equalToSuperview()
       make.height.equalTo(50)
-      make.width.equalTo(self.view)
+      make.width.equalToSuperview()
     }
     signupButton.translatesAutoresizingMaskIntoConstraints = false
-    signupButton.backgroundColor = self.getAccentColor()
+    signupButton.backgroundColor = getAccentColor()
     signupButton.setTitle(R.string.localizable.sign_up().uppercased(), for: .normal)
     signupButton.addTarget(self, action: #selector(showHomeScreen), for: .touchUpInside)
   }
@@ -169,18 +169,18 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     //
     if textField.tag != 2 {
       textField.resignFirstResponder()
-      let newTextField = self.view.viewWithTag(textField.tag + 1)
+      let newTextField = view.viewWithTag(textField.tag + 1)
       newTextField?.becomeFirstResponder()
     } else {
       textField.resignFirstResponder()
-      self.view.endEditing(true)
+      view.endEditing(true)
     }
     return true
   }
   
   /*
    addBackButton() func.
-   This function sets position and content of backButton into self.view
+   This function sets position and content of backButton into view
    @param None
    @return None
    */
@@ -188,10 +188,10 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
   private func addBackButton() {
     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backButtonPressed))
     gestureRecognizer.numberOfTapsRequired = 1
-    self.view.addSubview(backButton)
+    view.addSubview(backButton)
     backButton.snp.makeConstraints { (make) -> Void in
-      make.top.equalTo(self.view).offset(UIApplication.shared.statusBarFrame.height)
-      make.leading.equalTo(self.view).offset(10)
+      make.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
+      make.leading.equalToSuperview().offset(10)
       make.size.equalTo(50)
     }
     backButton.isUserInteractionEnabled = true
@@ -211,15 +211,15 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
    */
   
   func backButtonPressed() {
-    self.dismiss(animated: true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
   
   private func initNightlineLogo() {
     
-    self.view.addSubview(nightlineLogo)
+    view.addSubview(nightlineLogo)
     nightlineLogo.snp.makeConstraints { (make) -> Void in
       make.bottom.equalTo(stackViewSignUp.snp.top).offset(-25)
-      make.centerX.equalTo(self.view)
+      make.centerX.equalToSuperview()
       make.size.equalTo(150)
     }
     nightlineLogo.translatesAutoresizingMaskIntoConstraints = false

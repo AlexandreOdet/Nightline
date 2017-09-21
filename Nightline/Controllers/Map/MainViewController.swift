@@ -82,7 +82,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
 
         searchButton.snp.makeConstraints { make in
             make.height.width.equalTo(40)
-            make.bottom.equalToSuperview().offset(0 - (self.navigationController?.navigationBar.frame.size.height ?? 0) - 20)
+            make.bottom.equalToSuperview().offset(0 - (navigationController?.navigationBar.frame.size.height ?? 0) - 20)
             make.right.equalToSuperview().offset(-20)
         }
 
@@ -118,7 +118,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
             print("location access denied")
 
         default:
-            self.locationManager.requestWhenInUseAuthorization()
+            locationManager.requestWhenInUseAuthorization()
         }
     }
 

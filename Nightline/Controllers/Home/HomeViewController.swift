@@ -23,22 +23,18 @@ final class HomeViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     let backgroundImage = UIImageView(image: R.image.background())
-    self.view.addSubview(backgroundImage)
+    view.addSubview(backgroundImage)
     backgroundImage.snp.makeConstraints { (make) -> Void in
-      make.edges.equalTo(self.view)
+      make.edges.equalToSuperview()
     }
     if Utils.Network.isInternetAvailable() == false {
-      self.showNoConnectivityView()
+      showNoConnectivityView()
     } else {
       addLogoToView()
       addButtonsToView()
     }
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-  }
-  
+
   /*
    addLogoToView() func
    This func add Nightline's logo into self.view.
@@ -47,9 +43,9 @@ final class HomeViewController: BaseViewController {
    */
   
   private func addLogoToView() {
-    self.view.addSubview(imgNightline)
+    view.addSubview(imgNightline)
     imgNightline.snp.makeConstraints { (make) -> Void in
-      make.center.equalTo(self.view)
+      make.center.equalToSuperview()
     }
     imgNightline.translatesAutoresizingMaskIntoConstraints = false
     imgNightline.image = R.image.logo()
@@ -73,25 +69,25 @@ final class HomeViewController: BaseViewController {
    */
   
   private func addButtonsToView() {
-    self.view.addSubview(buttonSignup)
+    view.addSubview(buttonSignup)
     buttonSignup.snp.makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self.view)
+      make.bottom.equalToSuperview()
       make.height.equalTo(50)
-      make.width.equalTo(self.view)
+      make.width.equalToSuperview()
     }
     buttonSignup.translatesAutoresizingMaskIntoConstraints = false
-    buttonSignup.backgroundColor = self.getAccentColor()
+    buttonSignup.backgroundColor = getAccentColor()
     buttonSignup.setTitle(R.string.localizable.sign_up().uppercased(), for: .normal)
     buttonSignup.addTarget(self, action: #selector(goToSignUp(sender:)), for: .touchUpInside)
     
-    self.view.addSubview(buttonSignin)
+    view.addSubview(buttonSignin)
     buttonSignin.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(buttonSignup)
       make.width.equalTo(buttonSignup)
       make.bottom.equalTo(buttonSignup.snp.top)
     }
     buttonSignin.translatesAutoresizingMaskIntoConstraints = false
-    buttonSignin.backgroundColor = self.getPurpleColor()
+    buttonSignin.backgroundColor = getPurpleColor()
     buttonSignin.setTitle(R.string.localizable.sign_in().uppercased(), for: .normal)
     buttonSignin.addTarget(self, action: #selector(goToSignIn(sender:)), for: .touchUpInside)
   }
@@ -106,7 +102,7 @@ final class HomeViewController: BaseViewController {
   
   func goToSignUp(sender: UIButton) {
     let nextViewController = SignupViewController()
-    self.present(nextViewController, animated: true, completion: nil)
+    present(nextViewController, animated: true, completion: nil)
   }
   
   /*
@@ -119,8 +115,7 @@ final class HomeViewController: BaseViewController {
   
   func goToSignIn(sender: UIButton) {
     let nextViewController = SigninViewController()
-    self.present(nextViewController, animated: true, completion: nil)
+    present(nextViewController, animated: true, completion: nil)
   }
-  
 }
 

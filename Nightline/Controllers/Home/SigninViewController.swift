@@ -31,9 +31,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
     let loginButton = FBSDKLoginButton()
     let loginManager = FBSDKLoginManager()
 
-
     static let notificationIdentifier = "dismissHomeViewController"
-
 
     deinit {
         restApiUser.cancelRequest()
@@ -41,18 +39,18 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        self.title = R.string.localizable.sign_in()
+        hideKeyboardWhenTappedAround()
+        title = R.string.localizable.sign_in()
         let backgroundImage = UIImageView(image: R.image.background())
-        self.view.addSubview(backgroundImage)
+        view.addSubview(backgroundImage)
         backgroundImage.snp.makeConstraints { (make) -> Void in
-            make.edges.equalTo(self.view)
+            make.edges.equalToSuperview()
         }
         backgroundImage.alpha = 0.5
         if Utils.Network.isInternetAvailable() == false {
-            self.showNoConnectivityView()
+            showNoConnectivityView()
         } else {
-            self.view.backgroundColor = UIColor.black
+            view.backgroundColor = UIColor.black
             initBottomButton()
             initForgotPasswordLabel()
             initStackView()
@@ -70,11 +68,11 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
      */
 
     private func initStackView() {
-        self.view.addSubview(stackViewSignIn)
+        view.addSubview(stackViewSignIn)
         stackViewSignIn.snp.makeConstraints { (make) -> Void in
-            make.center.equalTo(self.view)
-            make.leading.equalTo(self.view).offset(30)
-            make.trailing.equalTo(self.view).offset(-30)
+            make.center.equalToSuperview()
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().offset(-30)
         }
         stackViewSignIn.translatesAutoresizingMaskIntoConstraints = false
         stackViewSignIn.axis = .vertical
@@ -83,9 +81,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
 
         nicknameTextField.backgroundColor = UIColor.black
         nicknameTextField.attributedPlaceholder = NSAttributedString(string:"E-mail",
-                                                                     attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
+                                                                     attributes:[NSForegroundColorAttributeName: getAccentColor()])
         nicknameTextField.highlightBottom()
-        nicknameTextField.textColor = self.getAccentColor()
+        nicknameTextField.textColor = getAccentColor()
         nicknameTextField.textAlignment = .center
         nicknameTextField.returnKeyType = UIReturnKeyType.next
         nicknameTextField.delegate = self
@@ -98,9 +96,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
 
         passwordTextField.backgroundColor = UIColor.black
         passwordTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.password(),
-                                                                     attributes:[NSForegroundColorAttributeName: self.getAccentColor()])
+                                                                     attributes:[NSForegroundColorAttributeName: getAccentColor()])
         passwordTextField.highlightBottom()
-        passwordTextField.textColor = self.getAccentColor()
+        passwordTextField.textColor = getAccentColor()
         passwordTextField.textAlignment = .center
         passwordTextField.isSecureTextEntry = true
         passwordTextField.returnKeyType = UIReturnKeyType.done
@@ -120,17 +118,17 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
      */
 
     private func initForgotPasswordLabel() {
-        self.view.addSubview(forgotPasswordLabel)
+        view.addSubview(forgotPasswordLabel)
         let forgotTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordAction))
         forgotTapGestureRecognizer.numberOfTapsRequired = 1
 
         forgotPasswordLabel.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(signinButton.snp.top).offset(-15)
-            make.centerX.equalTo(self.view)
+            make.centerX.equalToSuperview()
         }
         forgotPasswordLabel.translatesAutoresizingMaskIntoConstraints = false
         forgotPasswordLabel.text = R.string.localizable.passwd_forgot()
-        forgotPasswordLabel.textColor = self.getAccentColor()
+        forgotPasswordLabel.textColor = getAccentColor()
         forgotPasswordLabel.backgroundColor = UIColor.clear
         forgotPasswordLabel.isUserInteractionEnabled = true
         forgotPasswordLabel.addGestureRecognizer(forgotTapGestureRecognizer)
@@ -144,14 +142,14 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
      */
 
     private func initBottomButton() {
-        self.view.addSubview(signinButton)
+        view.addSubview(signinButton)
         signinButton.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(50)
-            make.bottom.equalTo(self.view)
-            make.width.equalTo(self.view)
+            make.bottom.equalToSuperview()
+            make.width.equalToSuperview()
         }
         signinButton.translatesAutoresizingMaskIntoConstraints = false
-        signinButton.backgroundColor = self.getAccentColor()
+        signinButton.backgroundColor = getAccentColor()
         signinButton.setTitle(R.string.localizable.sign_in().uppercased(), for: .normal)
         signinButton.addTarget(self, action: #selector(showHomeScreen), for: .touchUpInside)
     }
@@ -165,10 +163,10 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
 
     private func initNightlineLogo() {
 
-        self.view.addSubview(nightlineLogo)
+        view.addSubview(nightlineLogo)
         nightlineLogo.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(stackViewSignIn.snp.top).offset(-25)
-            make.centerX.equalTo(self.view)
+            make.centerX.equalToSuperview()
             make.size.equalTo(150)
         }
         nightlineLogo.translatesAutoresizingMaskIntoConstraints = false
@@ -219,10 +217,10 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 0 {
             textField.resignFirstResponder()
-            let newTextField = self.view.viewWithTag(textField.tag + 1)
+            let newTextField = view.viewWithTag(textField.tag + 1)
             newTextField?.becomeFirstResponder()
         } else if textField.tag == 1 {
-            self.view.endEditing(true)
+            view.endEditing(true)
             textField.resignFirstResponder()
         }
         return true
@@ -238,10 +236,10 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
     private func addBackButton() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backButtonPressed))
         gestureRecognizer.numberOfTapsRequired = 1
-        self.view.addSubview(backButton)
+        view.addSubview(backButton)
         backButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(UIApplication.shared.statusBarFrame.height)
-            make.leading.equalTo(self.view).offset(10)
+            make.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
+            make.leading.equalToSuperview().offset(10)
             make.size.equalTo(50)
         }
         backButton.isUserInteractionEnabled = true
@@ -261,7 +259,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
      */
 
     func backButtonPressed() {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     func forgotPasswordAction() {
@@ -276,20 +274,19 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
             log.debug("OK mail tapé: \(String(describing: mailTextField.text))")
         }))
         alertController.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 
     private func addFacebookButton() {
-        loginButton.readPermissions = self.facebookReadPermissions
+        loginButton.readPermissions = facebookReadPermissions
         loginButton.delegate = self
-        self.view.addSubview(loginButton)
+        view.addSubview(loginButton)
         loginButton.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(stackViewSignIn.snp.bottom).offset(50)
-            make.leading.equalTo(self.view).offset(20)
-            make.trailing.equalTo(self.view).offset(-20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
         }
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-
     }
 
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
