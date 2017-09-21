@@ -49,14 +49,14 @@ class EtablishmentMenuViewController: BaseViewController {
         //setUpConsommableArray()
         getMenu()
 
-        tableView = UITableView(frame: self.view.frame, style: .grouped)
+        tableView = UITableView(frame: view.frame, style: .grouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifer)
         tableView.delegate = self
         tableView.dataSource = self
 
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(view).offset(UIApplication.shared.statusBarFrame.height + (self.navigationController?.navigationBar.frame.height)!)
+            make.top.equalTo(view).offset(UIApplication.shared.statusBarFrame.height + (navigationController?.navigationBar.frame.height)!)
             make.bottom.equalTo(view)
             make.width.equalTo(view)
         }

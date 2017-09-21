@@ -21,9 +21,9 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.delegate = self
+    delegate = self
     NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: TabBarController.notificationIdentifier), object: nil)
-    self.tabBar.tintColor = UIColor.black
+    tabBar.tintColor = UIColor.black
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -46,8 +46,8 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     let tabBarThreeItem = UITabBarItem(title: R.string.localizable.settings(), image: R.image.settings(), selectedImage: R.image.settings_filled())
     tabThree.tabBarItem = tabBarThreeItem
     
-    self.tabBar.barTintColor = UIColor.orange
-    self.viewControllers = [tabOne, tabTwo, tabThree]
+    tabBar.barTintColor = UIColor.orange
+    viewControllers = [tabOne, tabTwo, tabThree]
   }
   
   // UITabBarControllerDelegate method
@@ -63,7 +63,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
    */
   
   func callbackObserver() {
-    self.selectedIndex = 0
+    selectedIndex = 0
     let notificationName = Notification.Name(MainViewController.notificationIdentifier)
     NotificationCenter.default.post(name: notificationName, object: nil)
   }

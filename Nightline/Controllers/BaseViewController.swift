@@ -23,7 +23,7 @@ class BaseViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = UIColor.black
+    view.backgroundColor = UIColor.black
     createNoConnectivityView()
   }
   
@@ -95,29 +95,29 @@ class BaseViewController: UIViewController {
   
   func createNoConnectivityView() {
     img = UIImageView(image: UIImage(named: "logo"))
-    self.view.addSubview(img)
+    view.addSubview(img)
     img.snp.makeConstraints { (make) -> Void in
-      make.center.equalTo(self.view)
+      make.center.equalToSuperview()
     }
     img.translatesAutoresizingMaskIntoConstraints = false
     img.isHidden = true
-    self.view.addSubview(label)
+    view.addSubview(label)
     label.snp.makeConstraints { (make) -> Void in
       make.top.equalTo(img.snp.bottom).offset(10)
-      make.leading.equalTo(self.view).offset(15)
-      make.trailing.equalTo(self.view).offset(-15)
-      make.centerX.equalTo(self.view)
+      make.leading.equalToSuperview().offset(15)
+      make.trailing.equalToSuperview().offset(-15)
+      make.centerX.equalToSuperview()
     }
     label.translatesAutoresizingMaskIntoConstraints = false
     label.text = "Pas de connexion internet"
     label.textAlignment = .center
     label.isHidden = true
-    self.view.addSubview(button)
+    view.addSubview(button)
     button.snp.makeConstraints { (make) -> Void in
       make.top.equalTo(label.snp.bottom).offset(10)
-      make.leading.equalTo(self.view).offset(15)
-      make.trailing.equalTo(self.view).offset(-15)
-      make.centerX.equalTo(self.view)
+      make.leading.equalToSuperview().offset(15)
+      make.trailing.equalToSuperview().offset(-15)
+      make.centerX.equalToSuperview()
     }
     button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitle("Réessayer", for: .normal)
@@ -134,10 +134,13 @@ class BaseViewController: UIViewController {
    */
   
   func showNoConnectivityView() {
-    self.view.backgroundColor = UIColor.white
-    self.img.isHidden = false
-    self.label.isHidden = false
-    self.button.isHidden = false
+    for subview in view.subviews {
+        subview.isHidden = true
+    }
+    view.backgroundColor = UIColor.white
+    img.isHidden = false
+    label.isHidden = false
+    button.isHidden = false
   }
   
   /*
@@ -148,9 +151,9 @@ class BaseViewController: UIViewController {
    */
   
   func hideNoConnectivityView() {
-    self.view.backgroundColor = UIColor.black
-    self.img.isHidden = true
-    self.label.isHidden = true
-    self.button.isHidden = true
+    view.backgroundColor = UIColor.black
+    img.isHidden = true
+    label.isHidden = true
+    button.isHidden = true
   }
 }

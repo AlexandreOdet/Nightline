@@ -27,8 +27,8 @@ final class UserFriendsListTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.tableView = UITableView(frame: self.view.frame, style: .grouped)
-    self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+    tableView = UITableView(frame: view.frame, style: .grouped)
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
     //        self.tableView.reloadData()
     getData()
   }
@@ -144,9 +144,10 @@ final class UserFriendsListTableViewController: UITableViewController {
         let userInstance = RAUser()
         firstly {
           userInstance.getUserInfos(id: String(fl.friends[indexPath.row].id))
-          }.then { result -> Void in
+          }.then { [weak self] result -> Void in
+            guard let strongSelf = self else { return }
             DispatchQueue.main.async {
-              self.presentUserDetails(user: result.user)
+              strongSelf.presentUserDetails(user: result.user)
             }
           }.catch { error -> Void in
             print(error)
@@ -159,9 +160,10 @@ final class UserFriendsListTableViewController: UITableViewController {
         let userInstance = RAUser()
         firstly {
           userInstance.getUserInfos(id: String(fl.friends[indexPath.row].id))
-          }.then { result -> Void in
+          }.then { [weak self] result -> Void in
+            guard let strongSelf = self else { return }
             DispatchQueue.main.async {
-              self.presentUserDetails(user: result.user)
+              strongSelf.presentUserDetails(user: result.user)
             }
           }.catch { error -> Void in
             print(error)
@@ -200,7 +202,7 @@ final class UserFriendsListTableViewController: UITableViewController {
     answerView.addAction(UIAlertAction(title: "Refuser", style: .destructive) {
       _ in
       // Refuse friend
-      if let ip = self.tableView.indexPathForSelectedRow, let pl = self.pendingList {
+      if let ip = self.tableView.indexPathForSelectedRow, let pl = pendingList {
         pl.invitations.remove(at: ip.row)
       }
       DispatchQueue.main.async {
@@ -213,6 +215,6 @@ final class UserFriendsListTableViewController: UITableViewController {
   func presentUserDetails(user: User) {
     let nextVC = DetailUserViewController()
     nextVC.user = user
-    self.navigationController?.pushViewController(nextVC, animated: true)
+    navigationController?.pushViewController(nextVC, animated: true)
   }
 }

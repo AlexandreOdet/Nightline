@@ -37,7 +37,7 @@ class EtablishmentViewController: ProfileViewController {
     }
 
     override func viewDidLoad() {
-        self.isUser = false
+        isUser = false
         super.viewDidLoad()
         setUpView()
         fetchData()
@@ -47,18 +47,18 @@ class EtablishmentViewController: ProfileViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         images = MediaManager.instance.getImagesOfBar(bar_id: String(idBar))
-        self.mediaBook.reloadData()
+        mediaBook.reloadData()
     }
 
     func showParty() {
         let nextVC = DetailPartyViewController()
         nextVC.bar_id = String(idBar)
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 
     func setupMediaBook() {
         mediaBook.backgroundColor = .white
-        self.view.addSubview(mediaBook)
+        view.addSubview(mediaBook)
         mediaBook.snp.makeConstraints { (make) in
             //      make.bottom.equalTo(self.camButton.snp.top).offset(-30)
             make.top.equalTo(self.separatorView).offset(20)
@@ -80,18 +80,18 @@ class EtablishmentViewController: ProfileViewController {
     // End collectionview functions
 
     private func setUpView() {
-        self.imgHeader.image = R.image.bar()
-        self.imgProfile.image = R.image.test_logo()
-        self.likeButton.image = (!isLiked) ? R.image.heart() : R.image.heart_filled()
-        self.likeButton.isUserInteractionEnabled = true
+        imgHeader.image = R.image.bar()
+        imgProfile.image = R.image.test_logo()
+        likeButton.image = (!isLiked) ? R.image.heart() : R.image.heart_filled()
+        likeButton.isUserInteractionEnabled = true
 
         let likeTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(likeButtonTarget))
         likeTapGestureRecognizer.numberOfTapsRequired = 1
-        self.likeButton.addGestureRecognizer(likeTapGestureRecognizer)
+        likeButton.addGestureRecognizer(likeTapGestureRecognizer)
 
-        self.typeLabel.text = Etablishment.bar.toString()
-        self.locationLabel.text = "Paris"
-        self.descriptionLabel.text = ""
+        typeLabel.text = Etablishment.bar.toString()
+        locationLabel.text = "Paris"
+        descriptionLabel.text = ""
 
         let imgMenu = R.image.menu()
         img.snp.makeConstraints { (make) -> Void in
@@ -99,9 +99,9 @@ class EtablishmentViewController: ProfileViewController {
         }
         let button1 = UIBarButtonItem(image: imgMenu, style: .plain, target: self,
                                       action: #selector(displayEtablishmentMenuViewController))
-        self.navigationItem.rightBarButtonItem  = button1
+        navigationItem.rightBarButtonItem  = button1
 
-        self.view.addSubview(camButton)
+        view.addSubview(camButton)
         camButton.snp.makeConstraints { (make) -> Void in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -113,9 +113,9 @@ class EtablishmentViewController: ProfileViewController {
     }
 
     func likeButtonTarget() {
-        self.isLiked = !self.isLiked
-        self.likeButton.image = (!isLiked) ? R.image.heart() : R.image.heart_filled()
-        animation.bounceEffect(sender: self.likeButton)
+        isLiked = !isLiked
+        likeButton.image = (!isLiked) ? R.image.heart() : R.image.heart_filled()
+        animation.bounceEffect(sender: likeButton)
     }
 
     func displayEtablishmentMenuViewController() {
@@ -200,7 +200,7 @@ extension EtablishmentViewController: UICollectionViewDataSource {
 
 extension EtablishmentViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.mediaBook.frame.height, height: self.mediaBook.frame.height)
+        return CGSize(width: mediaBook.frame.height, height: mediaBook.frame.height)
     }
 }
 
@@ -237,18 +237,18 @@ extension EtablishmentViewController: UIImagePickerControllerDelegate, UINavigat
             MediaManager.instance.saveImage(bar_id: String(idBar), image: selectedImage)
             mediaBook.reloadData()
         }
-        self.mediaBook.reloadData()
+        mediaBook.reloadData()
         dismiss(animated: true, completion: nil)
     }
     
     func takePicture() {
         let chooseSource = UIAlertController(title: "Choix de la source", message: "?", preferredStyle: .actionSheet)
         let roll = UIAlertAction(title: "Bibliothèque", style: .default, handler: {
-            action in
+            [unowned self] action in
             self.photoFromLibrairy()
         })
         let camera = UIAlertAction(title: "Camera", style: .default, handler: {
-            action in
+            [unowned self] action in
             self.photoFromCamera()
         })
         chooseSource.addAction(roll)

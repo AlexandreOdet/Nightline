@@ -20,24 +20,24 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpCollectionView()
-    self.view.backgroundColor = UIColor.white
+    view.backgroundColor = UIColor.white
   }
   
   private func setUpCollectionView() {
     let collectionViewLayout = UICollectionViewFlowLayout()
     collectionViewLayout.scrollDirection = .horizontal
-    collectionViewLayout.itemSize = CGSize(width: self.width * 19/20, height: self.height / 4)
+    collectionViewLayout.itemSize = CGSize(width: width * 19/20, height: height / 4)
     collectionViewLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: -10)
 
-    self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: collectionViewLayout)
-    self.collectionView?.register(AchievementCollectionViewCell.self, forCellWithReuseIdentifier: self.reuseIdentifier)
+    self.collectionView = UICollectionView(frame: view.frame, collectionViewLayout: collectionViewLayout)
+    self.collectionView?.register(AchievementCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     
-    self.view.addSubview(self.collectionView)
+    self.view.addSubview(collectionView)
     self.collectionView.snp.makeConstraints { (make) -> Void in
-      make.top.equalTo(self.view).offset(60)
-      make.trailing.equalTo(self.view)
-      make.leading.equalTo(self.view)
-      make.bottom.equalTo(self.view)
+      make.top.equalToSuperview().offset(60)
+      make.trailing.equalToSuperview()
+      make.leading.equalToSuperview()
+      make.bottom.equalToSuperview()
     }
     
     self.collectionView.dataSource = self
@@ -59,7 +59,7 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.reuseIdentifier, for: indexPath) as? AchievementCollectionViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? AchievementCollectionViewCell
     cell!.contentView.backgroundColor = .black
     cell!.titleLabel.text = AchievementManager.instance.achievementArray[indexPath.row].description
     if UserManager.instance.getAchievementStatus(AchievementManager.instance.achievementArray[indexPath.row].name) == true {

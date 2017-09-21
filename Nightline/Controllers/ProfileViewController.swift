@@ -39,7 +39,7 @@ class ProfileViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.white
         addHeader()
         addProfilePicture()
         addInfoContainerView()
@@ -55,10 +55,10 @@ class ProfileViewController: BaseViewController {
         if isUser {
             imgHeader.image = R.image.party()
         }
-        self.view.addSubview(imgHeader)
+        view.addSubview(imgHeader)
         imgHeader.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view)
-            make.width.equalTo(self.view)
+            make.top.equalToSuperview()
+            make.width.equalToSuperview()
             make.height.equalTo(250)
         }
         imgHeader.translatesAutoresizingMaskIntoConstraints = false
@@ -67,9 +67,9 @@ class ProfileViewController: BaseViewController {
 
     private func addProfilePicture() {
         imgProfile.roundImage(withBorder: true, borderColor: UIColor.black, borderSize: 1.0)
-        self.view.addSubview(imgProfile)
+        view.addSubview(imgProfile)
         imgProfile.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(self.view)
+            make.centerX.equalToSuperview()
             make.centerY.equalTo(imgHeader.snp.bottom)
             make.size.equalTo(AppConstant.UI.Dimensions.thumbnailPictureSize)
         }
@@ -78,27 +78,27 @@ class ProfileViewController: BaseViewController {
     }
 
     private func addInfoContainerView() {
-        self.view.addSubview(infoContainerView)
+        view.addSubview(infoContainerView)
         infoContainerView.backgroundColor = UIColor.clear
         infoContainerView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(imgHeader.snp.bottom)
-            make.width.equalTo(self.view)
+            make.width.equalToSuperview()
             make.height.equalTo(150)
         }
         infoContainerView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(separatorView)
+        view.addSubview(separatorView)
         separatorView.backgroundColor = UIColor.lightGray
         separatorView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(infoContainerView.snp.bottom)
             make.height.equalTo(1)
-            make.width.equalTo(self.view)
+            make.width.equalToSuperview()
         }
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         separatorView.isUserInteractionEnabled = false
     }
 
     private func fillInfoContainerView() {
-        self.view.addSubview(nameLabel)
+        view.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(infoContainerView).offset(30)
             make.leading.equalTo(infoContainerView).offset(10)
@@ -110,14 +110,14 @@ class ProfileViewController: BaseViewController {
 
         if isUser {
             let birthdayImage = UIImageView()
-            self.view.addSubview(nicknameLabel)
+            view.addSubview(nicknameLabel)
             nicknameLabel.snp.makeConstraints { (make) -> Void in
                 make.top.equalTo(nameLabel)
                 make.trailing.equalTo(infoContainerView).offset(-10)
             }
             nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
 
-            self.view.addSubview(birthdayImage)
+            view.addSubview(birthdayImage)
             birthdayImage.image = R.image.birthday()
             birthdayImage.snp.makeConstraints { (make) -> Void in
                 make.top.equalTo(nameLabel.snp.bottom).offset(20)
@@ -127,21 +127,21 @@ class ProfileViewController: BaseViewController {
             birthdayImage.isUserInteractionEnabled = false
             birthdayImage.translatesAutoresizingMaskIntoConstraints = false
 
-            self.view.addSubview(birthdayLabel)
+            view.addSubview(birthdayLabel)
             birthdayLabel.snp.makeConstraints { (make) -> Void in
                 make.bottom.equalTo(birthdayImage)
                 make.leading.equalTo(birthdayImage.snp.trailing).offset(2)
             }
             birthdayLabel.translatesAutoresizingMaskIntoConstraints = false
         } else {
-            self.view.addSubview(likeButton)
+            view.addSubview(likeButton)
             likeButton.snp.makeConstraints { (make) -> Void in
                 make.top.equalTo(nameLabel)
                 make.trailing.equalTo(infoContainerView).offset(-10)
                 make.size.equalTo(25)
             }
             likeButton.translatesAutoresizingMaskIntoConstraints = false
-            self.view.addSubview(typeLabel)
+            view.addSubview(typeLabel)
             typeLabel.snp.makeConstraints { (make) -> Void in
                 make.top.equalTo(nameLabel.snp.bottom).offset(20)
                 make.leading.equalTo(nameLabel)
@@ -155,7 +155,7 @@ class ProfileViewController: BaseViewController {
 
     private func addLocation() {
         let locationImage = UIImageView()
-        self.view.addSubview(locationLabel)
+        view.addSubview(locationLabel)
         if isUser {
             locationLabel.snp.makeConstraints { (make) -> Void in
                 make.trailing.equalTo(nicknameLabel)
@@ -169,7 +169,7 @@ class ProfileViewController: BaseViewController {
             }
             locationLabel.translatesAutoresizingMaskIntoConstraints = false
         }
-        self.view.addSubview(locationImage)
+        view.addSubview(locationImage)
         locationImage.image = R.image.location()
         locationImage.snp.makeConstraints { (make) -> Void in
             make.centerY.equalTo(locationLabel)
@@ -181,7 +181,7 @@ class ProfileViewController: BaseViewController {
     }
 
     private func addDescription() {
-        self.view.addSubview(descriptionLabel)
+        view.addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(infoContainerView).offset(-3)
             make.leading.equalTo(nameLabel)
@@ -206,11 +206,11 @@ class ProfileViewController: BaseViewController {
         numberStackView.distribution = .equalCentering
         numberStackView.spacing = 1
 
-        self.view.addSubview(numberStackView)
+        view.addSubview(numberStackView)
         numberStackView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(separatorView.snp.bottom)
-            make.leading.equalTo(self.view).offset(15)
-            make.trailing.equalTo(self.view).offset(-15)
+            make.leading.equalTo(view).offset(15)
+            make.trailing.equalTo(view).offset(-15)
             make.height.equalTo(50)
         }
         numberStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -235,10 +235,10 @@ class ProfileViewController: BaseViewController {
         setUpContainerView(container: friendsView, img: friendsImage, label: friendsLabel)
         setUpContainerView(container: pictureView, img: pictureImage, label: pictureLabel)
         setUpContainerView(container: trophyView, img: trophyImage, label: trophyLabel)
-        self.view.addSubview(sepators[2])
+        view.addSubview(sepators[2])
         sepators[2].snp.makeConstraints { (make) -> Void in
             make.top.equalTo(numberStackView.snp.bottom)
-            make.width.equalTo(self.view)
+            make.width.equalTo(view)
             make.height.equalTo(1)
         }
         sepators[2].translatesAutoresizingMaskIntoConstraints = false

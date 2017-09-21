@@ -13,6 +13,6 @@ import SnapKit
 class ConsommationTypeCollectionViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = .black
+    view.backgroundColor = .black
   }
 }

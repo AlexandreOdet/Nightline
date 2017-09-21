@@ -18,15 +18,15 @@ class AchievementCollectionViewCell: UICollectionViewCell {
   
   init(title: String, points: Int, image: UIImageView) {
     super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    self.contentView.backgroundColor = .black
+    contentView.backgroundColor = .black
     setUpView()
   }
   
   private func setUpView() {
-    self.contentView.addSubview(titleView)
+    contentView.addSubview(titleView)
     titleView.snp.makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self.contentView)
-      make.width.equalTo(self.contentView)
+      make.bottom.equalToSuperview()
+      make.width.equalToSuperview()
       make.height.equalTo(50)
     }
     titleView.backgroundColor = UIColor.white
@@ -34,26 +34,26 @@ class AchievementCollectionViewCell: UICollectionViewCell {
     
     titleView.addSubview(titleLabel)
     titleLabel.snp.makeConstraints { (make) -> Void in
-      make.center.equalTo(titleView)
-      make.leading.equalTo(titleView).offset(15)
-      make.trailing.equalTo(titleView).offset(-15)
+      make.center.equalToSuperview()
+      make.leading.equalToSuperview().offset(15)
+      make.trailing.equalToSuperview().offset(-15)
     }
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     titleLabel.textAlignment = .center
     
     
-    self.contentView.addSubview(img)
+    contentView.addSubview(img)
     img.snp.makeConstraints { (make) -> Void in
-      make.centerX.equalTo(self.contentView)
-      make.centerY.equalTo(self.contentView).offset(-20)
+      make.centerX.equalToSuperview()
+      make.centerY.equalToSuperview().offset(-20)
       make.size.equalTo(60)
     }
     img.translatesAutoresizingMaskIntoConstraints = false
     
-    self.contentView.addSubview(labelPoints)
+    contentView.addSubview(labelPoints)
     labelPoints.snp.makeConstraints { (make) -> Void in
-      make.top.equalTo(self.contentView)
-      make.trailing.equalTo(self.contentView).offset(-5)
+      make.top.equalToSuperview()
+      make.trailing.equalToSuperview().offset(-5)
     }
     labelPoints.translatesAutoresizingMaskIntoConstraints = false
     labelPoints.textColor = .white

@@ -32,7 +32,7 @@ class UserMediaTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UserMediaCustomViewCell(reuseIdentifier: "UserMediaCustomViewCell")
-    cell.profileImage.image = self.images[indexPath.row]
+    cell.profileImage.image = images[indexPath.row]
     return cell
   }
   

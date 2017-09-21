@@ -61,7 +61,6 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                     let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
 
                     self.map.setRegion(region, animated: true)                }
-                //addFiltersToMap()
             }
         }
         NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
@@ -115,19 +114,10 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
             return
 
         case .denied, .restricted:
-            print("location access denied")
-
+            return
         default:
             locationManager.requestWhenInUseAuthorization()
         }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-        // Enlevé pour centrer la carte pour la beta
-        //    let location = locations.last! as CLLocation
-
-        //    let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -152,19 +142,17 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         guard let annotation = (sender.view as? MKAnnotationView)?.annotation as? Marker else { return }
 
         let actionList = UIAlertController(title: annotation.name, message: "", preferredStyle: .actionSheet)
-        actionList.addAction(UIAlertAction(title: "Accéder à la fiche du bar", style: .default, handler: { action in
+        actionList.addAction(UIAlertAction(title: "Accéder à la fiche du bar", style: .default, handler: { [unowned self] action in
             let nextViewController = EtablishmentViewController()
             nextViewController.idBar = annotation.id
             self.tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
         }))
         actionList.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
-        self.present(actionList, animated: true, completion: nil)
+        present(actionList, animated: true, completion: nil)
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard view.tag == 1 else {
-            return
-        }
+        guard view.tag == 1 else { return }
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCalloutButton(sender:)))
         view.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -190,6 +178,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                 }
             }.catch { error in
                 print("Error = ", error.localizedDescription)
+                AlertUtils.networkErrorAlert(fromController: self)
         }
         let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(48.5271),
                                                      CLLocationDegrees(0.3036)) // ou (item.long, item.lat)
@@ -197,7 +186,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                             locationName: "In the cambrousse",
                             discipline: "",
                             coordinate: coordinates, id: 404)
-        self.map.addAnnotation(marker)
+        map.addAnnotation(marker)
     }
 
     /*
@@ -209,10 +198,10 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
      */
 
     func callbackObserver() {
-        self.present(HomeViewController(), animated: true, completion: nil)
+        present(HomeViewController(), animated: true, completion: nil)
     }
 
     func connexionOK() {
-        self.presentedViewController?.dismiss(animated: true, completion: nil)
+        presentedViewController?.dismiss(animated: true, completion: nil)
     }
 }

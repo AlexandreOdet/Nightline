@@ -25,11 +25,11 @@ final class UserMediaCustomViewCell: UITableViewCell {
   }
   
   private func setUpView() {
-    self.contentView.addSubview(profileImage)
+    contentView.addSubview(profileImage)
     profileImage.snp.makeConstraints { (make) -> Void in
-      make.leading.equalTo(self.contentView).offset(10)
+      make.leading.equalToSuperview().offset(10)
       make.size.equalTo(50)
-      make.centerY.equalTo(self.contentView)
+      make.centerY.equalToSuperview()
     }
     profileImage.translatesAutoresizingMaskIntoConstraints = false
     
