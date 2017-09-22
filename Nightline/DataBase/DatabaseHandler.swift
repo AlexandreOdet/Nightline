@@ -26,7 +26,7 @@ final class DatabaseHandler {
   
   func insertInDatabase<T: Object>(object: T.Type, properties: [String:Any], update: Bool = true) {
     try! self.realm.write {
-      self.realm.create(object.self, value: properties ,update: update)
+      realm.create(object.self, value: properties ,update: update)
     }
   }
   

@@ -202,7 +202,7 @@ final class UserFriendsListTableViewController: UITableViewController {
     answerView.addAction(UIAlertAction(title: "Refuser", style: .destructive) {
       _ in
       // Refuse friend
-      if let ip = self.tableView.indexPathForSelectedRow, let pl = pendingList {
+        if let ip = self.tableView.indexPathForSelectedRow, let pl = self.pendingList {
         pl.invitations.remove(at: ip.row)
       }
       DispatchQueue.main.async {

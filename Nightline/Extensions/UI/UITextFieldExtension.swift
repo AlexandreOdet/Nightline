@@ -23,11 +23,11 @@ extension UITextField {
         let border = CALayer()
         let width = CGFloat(0.5)
         border.borderColor = UIColor(hex: AppConstant.UI.Colors.colorAccent).cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - 1, width:  self.frame.size.width, height: width)
+        border.frame = CGRect(x: 0, y: frame.size.height - 1, width:  frame.size.width, height: width)
         
         border.borderWidth = width
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
+        layer.addSublayer(border)
+        layer.masksToBounds = true
     }
     
     

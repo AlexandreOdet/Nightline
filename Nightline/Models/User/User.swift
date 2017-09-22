@@ -46,42 +46,42 @@ class User: Mappable {
    */
   
   init(otherUser: DbUser) {
-    self.firstName = otherUser.firstName
-    self.lastName = otherUser.lastName
-    self.email = otherUser.email
-    self.passwd = otherUser.passwd
-    self.nickname = otherUser.nickname
-    self.city = otherUser.city
-    self.age = otherUser.age
-    self.picture = otherUser.picture
-    self.achievements = otherUser.achievements
-    self.achievementPoints = otherUser.achievementPoints
+    firstName = otherUser.firstName
+    lastName = otherUser.lastName
+    email = otherUser.email
+    passwd = otherUser.passwd
+    nickname = otherUser.nickname
+    city = otherUser.city
+    age = otherUser.age
+    picture = otherUser.picture
+    achievements = otherUser.achievements
+    achievementPoints = otherUser.achievementPoints
   }
   
   required init?(map: Map) {
-    self.id <- map["id"]
-    self.email <- map["email"]
-    self.passwd <- map["password"]
-    self.nickname <- map["pseudo"]
-    self.firstName <- map["firstname"]
-    self.nickname <- map["surname"]
-    self.number <- map["number"]
-    self.urlImage <- map["image"]
-    self.success <- map["success_points"]
-    self.friends <- map["connected_to"]
+    id <- map["id"]
+    email <- map["email"]
+    passwd <- map["password"]
+    nickname <- map["pseudo"]
+    firstName <- map["firstname"]
+    nickname <- map["surname"]
+    number <- map["number"]
+    urlImage <- map["image"]
+    success <- map["success_points"]
+    friends <- map["connected_to"]
   }
   
   func mapping(map: Map) {
-    self.id <- map["id"]
-    self.email <- map["email"]
-    self.passwd <- map["password"]
-    self.nickname <- map["pseudo"]
-    self.firstName <- map["firstname"]
-    self.nickname <- map["surname"]
-    self.number <- map["number"]
-    self.urlImage <- map["image"]
-    self.success <- map["success_points"]
-    self.friends <- map["connected_to"]
+    id <- map["id"]
+    email <- map["email"]
+    passwd <- map["password"]
+    nickname <- map["pseudo"]
+    firstName <- map["firstname"]
+    nickname <- map["surname"]
+    number <- map["number"]
+    urlImage <- map["image"]
+    success <- map["success_points"]
+    friends <- map["connected_to"]
   }
   
   /*

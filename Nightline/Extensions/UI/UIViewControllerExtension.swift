@@ -61,13 +61,13 @@ extension UIViewController {
         transition.type = kCATransitionPush
         transition.subtype = { () -> String in
             switch from {
-            case Direction.top:
+            case .top:
                 return kCATransitionFromTop
-            case Direction.right:
+            case .right:
                 return kCATransitionFromRight
-            case Direction.left:
+            case .left:
                 return kCATransitionFromLeft
-            case Direction.bottom:
+            case .bottom:
                 return kCATransitionFromBottom
             }
         }()

@@ -134,7 +134,7 @@ class EtablishmentViewController: ProfileViewController {
                     strongSelf.nameLabel.text = etabl.name.uppercased()
                 }
             }.catch { _ in
-                AlertUtils.networkErrorAlert(fromController: self)
+                AlertUtils.networkErrorAlert(from: self)
         }
     }
 }

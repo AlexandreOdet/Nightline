@@ -39,7 +39,7 @@ final class Animation {
                                options: UIViewAnimationOptions.allowUserInteraction,
                                animations: {
                                 sender.transform = CGAffineTransform.identity
-    }, completion: { Void in() })
+    }, completion:nil)
   }
   
   func animateUpButton(sender: UIView) {

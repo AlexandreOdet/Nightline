@@ -26,6 +26,6 @@ class RABase {
    */
   
   func cancelRequest() {
-    self.request?.cancel()
+    request?.cancel()
   }
 }

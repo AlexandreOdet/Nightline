@@ -10,9 +10,6 @@ import Foundation
 import UIKit
 
 class Achievement {
-  
-  
-  
   var img = UIImageView()
   var name = ""
   var title = ""
@@ -27,16 +24,16 @@ class Achievement {
     self.title = title
     self.points = points
     self.description = description
-    self.status = .lock
+    status = .lock
   }
   
   init(other: Achievement) {
-    self.name = other.name
-    self.img = other.img
-    self.title = other.title
-    self.points = other.points
-    self.description = other.description
-    self.status = other.status
+    name = other.name
+    img = other.img
+    title = other.title
+    points = other.points
+    description = other.description
+    status = other.status
   }
 }
 

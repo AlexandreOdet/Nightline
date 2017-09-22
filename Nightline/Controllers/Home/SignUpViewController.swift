@@ -151,7 +151,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
           tokenWrapper.setToken(valueFor: token)
           UserManager.instance.initDbUser(userFromApi: user)
           tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
-        } else { AlertUtils.networkErrorAlert(fromController: self)
+        } else { AlertUtils.networkErrorAlert(from: self)
           return
         }
         self.dismiss(animated: false, completion: { self.presentingViewController?.dismiss(animated: false, completion: nil)})
@@ -159,7 +159,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
         NotificationCenter.default.post(name: notificationName, object: nil)
         AchievementManager.instance.initUserAchievementArray()
       }.catch { _ in
-        AlertUtils.networkErrorAlert(fromController: self)
+        AlertUtils.networkErrorAlert(from: self)
       }.always {
         Utils.Network.spinnerStop()
     }

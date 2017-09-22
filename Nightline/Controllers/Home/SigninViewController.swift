@@ -200,7 +200,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                     tokenWrapper.setToken(valueFor: token)
                     UserManager.instance.initDbUser(userFromApi: user)
                     tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
-                } else { AlertUtils.networkErrorAlert(fromController: self)
+                } else { AlertUtils.networkErrorAlert(from: self)
                     return
                 }
                 self.dismiss(animated: false, completion: {
@@ -208,7 +208,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                 let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
                 NotificationCenter.default.post(name: notificationName, object: nil)
             }.catch { _ in
-                AlertUtils.networkErrorAlert(fromController: self)
+                AlertUtils.networkErrorAlert(from: self)
             }.always {
                 Utils.Network.spinnerStop()
         }
@@ -319,7 +319,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                             UserManager.instance.initDbUser(userFromApi: user)
                                             tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
                                         } else {
-                                            AlertUtils.networkErrorAlert(fromController: self)
+                                            AlertUtils.networkErrorAlert(from: self)
                                             self.loginManager.logOut()
                                         }
                                         self.dismiss(animated: false, completion: {
@@ -328,7 +328,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                         NotificationCenter.default.post(name: notificationName, object: nil)
                                     }.catch { _ in
                                         self.loginManager.logOut()
-                                        AlertUtils.networkErrorAlert(fromController: self)
+                                        AlertUtils.networkErrorAlert(from: self)
                                 }
                             }
                         }.catch { _ in
@@ -341,7 +341,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                         UserManager.instance.initDbUser(userFromApi: user)
                                         tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
                                     } else {
-                                        AlertUtils.networkErrorAlert(fromController: self)
+                                        AlertUtils.networkErrorAlert(from: self)
                                         self.loginManager.logOut()
                                     }
                                     self.dismiss(animated: false, completion: {
@@ -350,7 +350,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                     NotificationCenter.default.post(name: notificationName, object: nil)
                                 }.catch { _ in
                                     self.loginManager.logOut()
-                                    AlertUtils.networkErrorAlert(fromController: self)
+                                    AlertUtils.networkErrorAlert(from: self)
                             }
                     }
                 } else {

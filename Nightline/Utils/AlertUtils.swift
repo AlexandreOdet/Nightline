@@ -22,12 +22,12 @@ final class AlertUtils {
    @param fromController: Controller that sends the request.
    @return None
    */
-  static func networkErrorAlert(fromController: UIViewController) {
+  static func networkErrorAlert(from controller: UIViewController) {
     let alert = UIAlertController(title: R.string.localizable.error(),
                                   message: R.string.localizable.error_loading_data(),
                                   preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     alert.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .destructive, handler: nil))
-    fromController.present(alert, animated: true, completion: nil)
+    controller.present(alert, animated: true, completion: nil)
   }
 }

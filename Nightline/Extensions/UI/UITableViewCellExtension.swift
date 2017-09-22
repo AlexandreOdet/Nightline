@@ -21,6 +21,6 @@ import UIKit
 
 extension UITableViewCell {
   func onClick() {
-    Animation().onClick(sender: self.contentView)
+    Animation().onClick(sender: contentView)
   }
 }

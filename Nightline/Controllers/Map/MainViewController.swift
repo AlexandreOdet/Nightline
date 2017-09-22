@@ -178,7 +178,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                 }
             }.catch { error in
                 print("Error = ", error.localizedDescription)
-                AlertUtils.networkErrorAlert(fromController: self)
+                AlertUtils.networkErrorAlert(from: self)
         }
         let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(48.5271),
                                                      CLLocationDegrees(0.3036)) // ou (item.long, item.lat)

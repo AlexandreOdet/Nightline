@@ -20,11 +20,11 @@ import UIKit
 
 extension UIImageView {
   func roundImage(withBorder: Bool = true, borderColor: UIColor = UIColor.white, borderSize: CGFloat = 1.0) {
-    self.layer.cornerRadius = self.frame.width / 2
-    self.clipsToBounds = true
+    layer.cornerRadius = self.frame.width / 2
+    clipsToBounds = true
     if withBorder == true {
-      self.layer.borderWidth = borderSize
-      self.layer.borderColor = borderColor.cgColor
+      layer.borderWidth = borderSize
+      layer.borderColor = borderColor.cgColor
     }
   }
 }

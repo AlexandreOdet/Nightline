@@ -15,14 +15,14 @@ import MapKit
  */
 
 class Marker: NSObject, MKAnnotation {
-  let name: String?
-  let locationName: String
-  let discipline: String
-  let coordinate: CLLocationCoordinate2D
+  var name: String?
+  var locationName: String
+  var discipline: String
+  var coordinate: CLLocationCoordinate2D
   var id: Int
   
   init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D, id: Int) {
-    self.name = title
+    name = title
     self.locationName = locationName
     self.discipline = discipline
     self.coordinate = coordinate
