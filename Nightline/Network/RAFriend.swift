@@ -17,7 +17,7 @@ class RAFriends: RABase {
   func getUserFriendsList(userId: String) -> Promise<FriendsList> {
     let url = RoutesAPI.user.url.appending("/\(userId)/friends")
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url).responseObject(completionHandler: {
+        self.request = Alamofire.request(url, headers: headers).responseObject(completionHandler: {
         (response: DataResponse<FriendsList>) in
         switch response.result {
         case .success(let list):
@@ -31,7 +31,7 @@ class RAFriends: RABase {
   
   func sendInvitationToUser(userId: String, friendId: String, callbackError: @escaping () -> ()) {
     let url = RoutesAPI.user.url.appending("/\(userId)/\(friendId)/invite")
-    request = Alamofire.request(url).responseJSON(completionHandler: {
+    request = Alamofire.request(url, headers: headers).responseJSON(completionHandler: {
       (response: DataResponse<Any>) in
       switch response.result {
       case .success(_):
@@ -45,7 +45,7 @@ class RAFriends: RABase {
   func getUserInvitationList(userId: String) -> Promise<InvitationsList> {
     let url = RoutesAPI.user.url.appending("/\(userId)/invitations")
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url).responseObject(completionHandler: {
+        self.request = Alamofire.request(url, headers: headers).responseObject(completionHandler: {
         (response: DataResponse<InvitationsList>) in
         switch response.result {
         case .success(let list):
@@ -59,7 +59,7 @@ class RAFriends: RABase {
   
   func acceptInvitation(userId: String, invitationId: String) -> Void {
     let url = RoutesAPI.user.url.appending("/\(userId)/invitations/\(invitationId)/accept")
-    request = Alamofire.request(url).responseJSON(completionHandler: {
+    request = Alamofire.request(url, headers: headers).responseJSON(completionHandler: {
       (response: DataResponse<Any>) -> Void in
       switch response.result {
       case .success(_):
@@ -72,7 +72,7 @@ class RAFriends: RABase {
   
   func declineInvitation(userId: String, invitationId: String) -> Void {
     let url = RoutesAPI.user.url.appending("/\(userId)/invitations/\(invitationId)/decline")
-    request = Alamofire.request(url).responseJSON(completionHandler: {
+    request = Alamofire.request(url, headers: headers).responseJSON(completionHandler: {
       (response: DataResponse<Any>) -> Void in
       switch response.result {
       case .success(_):

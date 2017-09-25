@@ -16,7 +16,7 @@ class RAParty: RABase {
     let parameters = ["Current user ID":idUser]
     let url = RoutesAPI.party.url.appending("/\(idSoiree)/join")
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
         .responseObject(completionHandler: { (response: DataResponse<Party>) in
           switch response.result {
           case .success(let party):
@@ -34,7 +34,7 @@ class RAParty: RABase {
                   callbackError: @escaping (String) -> ()) {
     let params = ["SoireeLeavBody":party.toJSONString()!]
     let url = RoutesAPI.party.url.appending("/\(idSoiree)/leave")
-    request = Alamofire.request(url, method: .post, parameters: params)
+    request = Alamofire.request(url, method: .post, parameters: params, headers: headers)
       .responseJSON(completionHandler: { (response: DataResponse<Any>) in
         switch response.result {
         case .success(_):
@@ -49,7 +49,7 @@ class RAParty: RABase {
     let params = ["SoireeOrderBody":order.toJSONString()!]
     let url = RoutesAPI.party.url.appending("/\(idSoiree)/order")
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default)
+        self.request = Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
         .responseObject(completionHandler: { (response: DataResponse<Order>) in
           switch response.result {
           case .success(let order):

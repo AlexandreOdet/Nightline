@@ -18,7 +18,7 @@ class RAPayment: RABase {
     let url = RoutesAPI.payment.url
     var parameters: [String:Any] = ["token":creditCardToken]
     parameters["user"] = user.toJSON()
-    request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
+    request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
       .responseJSON(completionHandler: { (response) in
         switch response.result {
         case .success(_):

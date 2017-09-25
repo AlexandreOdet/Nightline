@@ -12,12 +12,10 @@ import AlamofireObjectMapper
 import PromiseKit
 
 class RAEtablissement: RABase {
-  
-  var headers = ["":""]
-  
+    
   func getEtablishmentList() -> Promise<EstablishmentList> {
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(RoutesAPI.etablishment.url, method: .get).responseObject(completionHandler: {
+        self.request = Alamofire.request(RoutesAPI.etablishment.url, method: .get, headers: headers).responseObject(completionHandler: {
         (response: DataResponse<EstablishmentList>) in
         switch response.result {
         case .success(let array):
@@ -32,7 +30,7 @@ class RAEtablissement: RABase {
   func getEtablishmentProfile(idEtablishment: Int) -> Promise<EstablishmentResponse> {
     let url = RoutesAPI.etablishment.url.appending("/" + String(idEtablishment))
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url).responseObject(completionHandler: {
+        self.request = Alamofire.request(url, headers: headers).responseObject(completionHandler: {
         (response: DataResponse<EstablishmentResponse>) in
         switch response.result {
         case .success(let etablishment):
@@ -47,7 +45,7 @@ class RAEtablissement: RABase {
   func getEstablishmentMenus(idEstablishment: String) -> Promise<MenuList> {
     let url = RoutesAPI.etablishment.url.appending("/\(idEstablishment)/menu")
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
+        self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
         .responseObject(completionHandler: { (response: DataResponse<MenuList>) in
           switch response.result {
           case .success(let menus):
@@ -65,7 +63,7 @@ class RAEtablissement: RABase {
     parameters["MenuID"] = idMenu
     let url = RoutesAPI.etablishment.url.appending("/\(idEstablishment)/menu/\(idMenu)")
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+        self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
         .responseObject(completionHandler: { (response: DataResponse<Menu>) in
           switch response.result {
           case .success(let menu):
@@ -81,7 +79,7 @@ class RAEtablissement: RABase {
   func getEstablishmentParties(idEstablishment: String) -> Promise<PartyResult> {
     let url = RoutesAPI.etablishment.url.appending("/\(idEstablishment)/soiree")
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
+        self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
         .responseObject(completionHandler: { (response: DataResponse<PartyResult>) in
           switch response.result {
           case .success(let party):
@@ -98,7 +96,7 @@ class RAEtablissement: RABase {
         let parameters = ["q":query]
         let url = RoutesAPI.baseUrl.appending("/search/establishments")
         return Promise { (fulfill, reject) in
-            self.request = Alamofire.request(url, method: .get, parameters: parameters)
+            self.request = Alamofire.request(url, method: .get, parameters: parameters, headers: headers)
                 .responseObject(completionHandler: { (response: DataResponse<SearchResult>) in
                     switch response.result {
                     case .success(let results):

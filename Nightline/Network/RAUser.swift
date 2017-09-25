@@ -78,13 +78,13 @@ final class RAUser: RABase {
     func updateUserInfos(user: User) {
         let parameters = ["user": user.toJSON()]
         let url = RoutesAPI.user.url.appending("/\(UserManager.instance.retrieveUserId())")
-        request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
+        request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
     }
 
     func getUserInfos(id: String) -> Promise<UserResponse> {
         let url = RoutesAPI.user.url.appending("/\(id)")
         return Promise { (fulfill, reject) in
-            self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
+            self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
                 .responseObject(completionHandler: { (response: DataResponse<UserResponse>) in
                     switch response.result {
                     case .success(let user):
@@ -101,7 +101,7 @@ final class RAUser: RABase {
         let parameters = ["UserID":id]
         let url = RoutesAPI.user.url.appending("/\(id)/success")
         return Promise { (fulfill, reject) in
-            self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+            self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
                 .responseArray(completionHandler: { (response: DataResponse<[Success]>) in
                     switch response.result {
                     case .success(let array):
@@ -118,8 +118,9 @@ final class RAUser: RABase {
         var parameters = ["UserID":idUser]
         parameters["Success"] = success.toJSONString()
         let url = RoutesAPI.user.url.appending("/\(idUser)/success")
+
         return Promise { (fulfill, reject) in
-            self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
                 .responseArray(completionHandler: { (response: DataResponse<[Success]>) in
                     switch response.result {
                     case .success(let array):
@@ -135,8 +136,9 @@ final class RAUser: RABase {
     func getUserPreferences(id: String) -> Promise<[Preferences]> {
         let parameters = ["UserID":id]
         let url = RoutesAPI.user.url.appending("/\(id)/preferences")
+
         return Promise { (fulfill, reject) in
-            self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default)
+            self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
                 .responseArray(completionHandler: { (response: DataResponse<[Preferences]>) in
                     switch response.result {
                     case .success(let prefs):
@@ -153,8 +155,9 @@ final class RAUser: RABase {
         var parameters = ["UserID":idUser]
         parameters["preference"] = preference.toJSONString()
         let url = RoutesAPI.user.url.appending("/\(idUser)/preferences")
+
         return Promise { (fulfill, reject) in
-            self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
                 .responseArray(completionHandler: { (response: DataResponse<[Preferences]>) in
                     switch response.result {
                     case .success(let prefs):
@@ -169,8 +172,9 @@ final class RAUser: RABase {
     
     func searchUser(query: String) -> Promise<SearchResult> {
         let url = "https://api.nightline.fr/search/users?q=\(query)"
+
         return Promise { (fulfill, reject) in
-            self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
+            self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
                 .responseObject(completionHandler: { (response: DataResponse<SearchResult>) in
                     switch response.result {
                     case .success(let results):

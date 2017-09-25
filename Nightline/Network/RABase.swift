@@ -17,7 +17,8 @@ import Alamofire
 
 class RABase {
   var request: Alamofire.Request?
-  
+    let headers = ["Authorization":tokenWrapper.getToken() ?? ""]
+    
   /*
    RABase function.
    Cancel a request when living a controller.
