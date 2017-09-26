@@ -31,4 +31,24 @@ extension UIColor {
   convenience init(hex:Int) {
     self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:(hex & 0xff))
   }
+  
+  public class var nightlinePrimary: UIColor {
+    return UIColor(hex: AppConstant.UI.Colors.colorPrimary)
+  }
+  
+  public class var nightlineAccent: UIColor {
+    return UIColor(hex: AppConstant.UI.Colors.colorPrimary)
+  }
+  
+  public class var nightlinePurple: UIColor {
+    return UIColor(hex: AppConstant.UI.Colors.purple)
+  }
+  
+  public class var nightlineWhite: UIColor {
+    return UIColor(hex: AppConstant.UI.Colors.white)
+  }
+  
+  public class var nightlineMidnightBlue: UIColor {
+    return UIColor(hex: AppConstant.UI.Colors.midnightBlue)
+  }
 }

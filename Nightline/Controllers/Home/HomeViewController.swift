@@ -76,7 +76,7 @@ final class HomeViewController: BaseViewController {
       make.width.equalToSuperview()
     }
     buttonSignup.translatesAutoresizingMaskIntoConstraints = false
-    buttonSignup.backgroundColor = getAccentColor()
+    buttonSignup.backgroundColor = UIColor.nightlineAccent
     buttonSignup.setTitle(R.string.localizable.sign_up().uppercased(), for: .normal)
     buttonSignup.addTarget(self, action: #selector(goToSignUp(sender:)), for: .touchUpInside)
     
@@ -87,7 +87,7 @@ final class HomeViewController: BaseViewController {
       make.bottom.equalTo(buttonSignup.snp.top)
     }
     buttonSignin.translatesAutoresizingMaskIntoConstraints = false
-    buttonSignin.backgroundColor = getPurpleColor()
+    buttonSignin.backgroundColor = UIColor.nightlinePurple
     buttonSignin.setTitle(R.string.localizable.sign_in().uppercased(), for: .normal)
     buttonSignin.addTarget(self, action: #selector(goToSignIn(sender:)), for: .touchUpInside)
   }

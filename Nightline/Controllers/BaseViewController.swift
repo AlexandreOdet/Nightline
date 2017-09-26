@@ -32,61 +32,6 @@ class BaseViewController: UIViewController {
   }
   
   /*
-   getPurpleColor() func.
-   This function will return our custom purple color.
-   @param None.
-   @return UIColor: Our custom purple color.
-   */
-  
-  func getPurpleColor() -> UIColor {
-    return UIColor(hex: AppConstant.UI.Colors.purple)
-  }
-  
-  /*
-   getPrimaryColor() func.
-   This function will return our custom primary color.
-   @param None.
-   @return UIColor: Our custom primary color.
-   */
-  
-  func getPrimaryColor() -> UIColor {
-    return UIColor(hex: AppConstant.UI.Colors.colorPrimary)
-  }
-
-  /*
-   getAccentColor() func.
-   This function will return our custom accent color.
-   @param None.
-   @return UIColor: Our custom accent color.
-   */
-  
-  func getAccentColor() -> UIColor {
-    return UIColor(hex: AppConstant.UI.Colors.colorAccent)
-  }
-
-  /*
-   getWhiteColor() func.
-   This function will return our custom white color.
-   @param None.
-   @return UIColor: Our custom white color.
-   */
-  
-  func getWhiteColor() -> UIColor {
-    return UIColor(hex: AppConstant.UI.Colors.white)
-  }
-  
-  /*
-   getMidnightBlue() func.
-   This function will return our custom Midnight blue color.
-   @param None.
-   @return UIColor: Our custom Midnight blue color.
-   */
-  
-  func getMidnightBlue() -> UIColor {
-    return UIColor(hex: AppConstant.UI.Colors.midnightBlue)
-  }
-  
-  /*
    createNoConnectivityView() func.
    This function creates and sets position of elements shown where there's no internet connectivity.
    @param None

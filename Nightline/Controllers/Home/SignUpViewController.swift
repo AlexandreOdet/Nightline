@@ -74,9 +74,9 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     
     emailTextField.backgroundColor = UIColor.black
     emailTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.email(),
-                                                              attributes:[NSForegroundColorAttributeName: getAccentColor()])
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.nightlineAccent])
     emailTextField.highlightBottom()
-    emailTextField.textColor = getAccentColor()
+    emailTextField.textColor = UIColor.nightlineAccent
     emailTextField.textAlignment = .center
     emailTextField.delegate = self
     emailTextField.keyboardType = .emailAddress
@@ -88,9 +88,9 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     
     nicknameTextField.backgroundColor = UIColor.black
     nicknameTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.nickname(),
-                                                                 attributes:[NSForegroundColorAttributeName: getAccentColor()])
+                                                                 attributes:[NSForegroundColorAttributeName: UIColor.nightlineAccent])
     nicknameTextField.highlightBottom()
-    nicknameTextField.textColor = getAccentColor()
+    nicknameTextField.textColor = UIColor.nightlineAccent
     nicknameTextField.textAlignment = .center
     nicknameTextField.delegate = self
     nicknameTextField.returnKeyType = .next
@@ -99,9 +99,9 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.password(),
-                                                                 attributes:[NSForegroundColorAttributeName: getAccentColor()])
+                                                                 attributes:[NSForegroundColorAttributeName: UIColor.nightlineAccent])
     passwordTextField.highlightBottom()
-    passwordTextField.textColor = getAccentColor()
+    passwordTextField.textColor = UIColor.nightlineAccent
     passwordTextField.textAlignment = .center
     passwordTextField.isSecureTextEntry = true
     passwordTextField.returnKeyType = .done
@@ -129,7 +129,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
       make.width.equalToSuperview()
     }
     signupButton.translatesAutoresizingMaskIntoConstraints = false
-    signupButton.backgroundColor = getAccentColor()
+    signupButton.backgroundColor = UIColor.nightlineAccent
     signupButton.setTitle(R.string.localizable.sign_up().uppercased(), for: .normal)
     signupButton.addTarget(self, action: #selector(showHomeScreen), for: .touchUpInside)
   }

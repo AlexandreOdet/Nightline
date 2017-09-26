@@ -81,9 +81,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
 
         nicknameTextField.backgroundColor = UIColor.black
         nicknameTextField.attributedPlaceholder = NSAttributedString(string:"E-mail",
-                                                                     attributes:[NSForegroundColorAttributeName: getAccentColor()])
+                                                                     attributes:[NSForegroundColorAttributeName: UIColor.nightlineAccent])
         nicknameTextField.highlightBottom()
-        nicknameTextField.textColor = getAccentColor()
+        nicknameTextField.textColor = UIColor.nightlineAccent
         nicknameTextField.textAlignment = .center
         nicknameTextField.returnKeyType = UIReturnKeyType.next
         nicknameTextField.delegate = self
@@ -96,9 +96,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
 
         passwordTextField.backgroundColor = UIColor.black
         passwordTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.password(),
-                                                                     attributes:[NSForegroundColorAttributeName: getAccentColor()])
+                                                                     attributes:[NSForegroundColorAttributeName: UIColor.nightlineAccent])
         passwordTextField.highlightBottom()
-        passwordTextField.textColor = getAccentColor()
+        passwordTextField.textColor = UIColor.nightlineAccent
         passwordTextField.textAlignment = .center
         passwordTextField.isSecureTextEntry = true
         passwordTextField.returnKeyType = UIReturnKeyType.done
@@ -128,7 +128,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
         }
         forgotPasswordLabel.translatesAutoresizingMaskIntoConstraints = false
         forgotPasswordLabel.text = R.string.localizable.passwd_forgot()
-        forgotPasswordLabel.textColor = getAccentColor()
+        forgotPasswordLabel.textColor = UIColor.nightlineAccent
         forgotPasswordLabel.backgroundColor = UIColor.clear
         forgotPasswordLabel.isUserInteractionEnabled = true
         forgotPasswordLabel.addGestureRecognizer(forgotTapGestureRecognizer)
@@ -149,7 +149,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
             make.width.equalToSuperview()
         }
         signinButton.translatesAutoresizingMaskIntoConstraints = false
-        signinButton.backgroundColor = getAccentColor()
+        signinButton.backgroundColor = UIColor.nightlineAccent
         signinButton.setTitle(R.string.localizable.sign_in().uppercased(), for: .normal)
         signinButton.addTarget(self, action: #selector(showHomeScreen), for: .touchUpInside)
     }
