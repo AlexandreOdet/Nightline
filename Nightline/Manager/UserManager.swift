@@ -425,12 +425,8 @@ final class UserManager {
    */
   
   func removeConsommationFromuserPreferences(conso: String) {
-    var index = 0
-    for value in networkUser.preferences.consoLiked where conso == value {
-      networkUser.preferences.consoLiked.remove(at: index)
-      index += 1
-      log.debug("Consommation: \(conso) - successfully remove")
-    }
+    guard let index = networkUser.preferences.consoLiked.index(of: conso) else { return }
+    networkUser.preferences.consoLiked.remove(at: index)
   }
   
   /**
@@ -457,12 +453,8 @@ final class UserManager {
    */
   
   func removeEtablishmentFromUserPreferences(etablishment: String) {
-    var index = 0
-    for value in networkUser.preferences.etablishmentLiked where etablishment == value {
-      networkUser.preferences.consoLiked.remove(at: index)
-      index += 1
-      log.debug("Etablishment: \(etablishment) - successfully remove")
-    }
+    guard let index = networkUser.preferences.etablishmentLiked.index(of: etablishment) else { return }
+    networkUser.preferences.etablishmentLiked.remove(at: index)
   }
   
   /**
