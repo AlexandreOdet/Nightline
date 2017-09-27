@@ -37,7 +37,7 @@ extension UIColor {
   }
   
   public class var nightlineAccent: UIColor {
-    return UIColor(hex: AppConstant.UI.Colors.colorPrimary)
+    return UIColor(hex: AppConstant.UI.Colors.colorAccent)
   }
   
   public class var nightlinePurple: UIColor {
