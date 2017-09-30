@@ -31,7 +31,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
     let loginButton = FBSDKLoginButton()
     let loginManager = FBSDKLoginManager()
 
-    static let notificationIdentifier = "dismissHomeViewController"
+  public class var notificationIdentifier: String { return "dismissHomeViewController" }
 
     deinit {
         restApiUser.cancelRequest()

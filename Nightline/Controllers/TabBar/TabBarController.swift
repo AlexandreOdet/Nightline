@@ -17,7 +17,7 @@ import SnapKit
 
 final class TabBarController: UITabBarController, UITabBarControllerDelegate {
   
-  static let notificationIdentifier = "LogoutNotification"
+  public class var notificationIdentifier: String { return "LogoutNotification" }
   
   override func viewDidLoad() {
     super.viewDidLoad()
