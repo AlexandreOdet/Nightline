@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="oAl-xy-K5f">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nightline" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="JV7-Lu-z58">
+                    <rect key="frame" x="0.0" y="123" width="375" height="43"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6G8-aw-nsQ">
+                    <rect key="frame" x="67" y="269" width="240" height="128"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oAl-xy-K5f" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5w4-eQ-aU6"/>
+                <constraint firstItem="oAl-xy-K5f" firstAttribute="centerY" secondItem="6G8-aw-nsQ" secondAttribute="centerY" id="GvJ-U6-UUU"/>
+                <constraint firstItem="JV7-Lu-z58" firstAttribute="centerX" secondItem="6G8-aw-nsQ" secondAttribute="centerX" id="Jcj-8d-kCf"/>
+                <constraint firstItem="oAl-xy-K5f" firstAttribute="trailing" secondItem="JV7-Lu-z58" secondAttribute="trailing" id="LCl-6S-I3h"/>
+                <constraint firstItem="oAl-xy-K5f" firstAttribute="leading" secondItem="JV7-Lu-z58" secondAttribute="leading" id="UQh-uy-wCN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6G8-aw-nsQ" secondAttribute="bottom" constant="270" id="cKm-gp-OFe"/>
+                <constraint firstItem="oAl-xy-K5f" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="jJT-dp-5pl"/>
+                <constraint firstItem="JV7-Lu-z58" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="103" id="oJY-8h-6vz"/>
+                <constraint firstItem="oAl-xy-K5f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="svJ-fl-foV"/>
+                <constraint firstAttribute="trailing" secondItem="oAl-xy-K5f" secondAttribute="trailing" id="swr-WO-1gy"/>
+                <constraint firstItem="6G8-aw-nsQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="67" id="yhL-ZR-gim"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="640" height="1136"/>
+        <image name="logo" width="140" height="140"/>
+    </resources>
+</document>
