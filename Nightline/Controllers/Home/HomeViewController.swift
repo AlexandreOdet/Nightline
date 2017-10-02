@@ -46,9 +46,12 @@ final class HomeViewController: BaseViewController {
     view.addSubview(imgNightline)
     imgNightline.snp.makeConstraints { (make) -> Void in
       make.center.equalToSuperview()
+      make.width.equalTo(240)
+      make.height.equalTo(128)
     }
     imgNightline.translatesAutoresizingMaskIntoConstraints = false
     imgNightline.image = R.image.logo()
+    imgNightline.contentMode = .scaleAspectFit
     imgNightline.isUserInteractionEnabled = true
     
     let logoGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animateLogo))

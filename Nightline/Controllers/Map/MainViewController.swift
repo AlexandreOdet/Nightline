@@ -20,7 +20,7 @@ import PromiseKit
 
 final class MainViewController: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
-    static let notificationIdentifier = "presentConnexionScreen"
+  public class var notificationIdentifier: String { return "presentConnexionScreen" }
 
     var map = MKMapView()
     let locationManager = CLLocationManager()
@@ -39,7 +39,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         super.viewDidLoad()
         AchievementManager.instance.initUserAchievementArray()
         if (tokenWrapper.getToken() == nil) {
-            self.present(HomeViewController(), animated: true, completion: nil)
+            self.present(HomeViewController(), animated: false, completion: nil)
         } else {
             requestLocationAccess()
             if CLLocationManager.locationServicesEnabled() {
@@ -198,10 +198,10 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
      */
 
     func callbackObserver() {
-        present(HomeViewController(), animated: true, completion: nil)
+        present(HomeViewController(), animated: false, completion: nil)
     }
 
     func connexionOK() {
-        presentedViewController?.dismiss(animated: true, completion: nil)
+        presentedViewController?.dismiss(animated: false, completion: nil)
     }
 }

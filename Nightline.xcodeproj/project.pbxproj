@@ -112,6 +112,7 @@
 		FADF8F7E1F6B01FC00688366 /* RAPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF8F7D1F6B01FC00688366 /* RAPayment.swift */; };
 		FADF8F811F6B089A00688366 /* AddUserCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF8F801F6B089A00688366 /* AddUserCreditCardViewController.swift */; };
 		FAF0A6CA1E876F3E00C2ED18 /* ExtensionInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0A6C91E876F3E00C2ED18 /* ExtensionInt.swift */; };
+		FAFAA2F81F7FCC3E0060AAAF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFAA2F71F7FCC3E0060AAAF /* LaunchScreen.xib */; };
 		FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8001E554C7B003AF68E /* Animation.swift */; };
 		FAFBF8031E554EC0003AF68E /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8021E554EC0003AF68E /* Plist.swift */; };
 		FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */; };
@@ -275,6 +276,7 @@
 		FADF8F7D1F6B01FC00688366 /* RAPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAPayment.swift; path = Network/RAPayment.swift; sourceTree = "<group>"; };
 		FADF8F801F6B089A00688366 /* AddUserCreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddUserCreditCardViewController.swift; path = Controllers/User/Payment/AddUserCreditCardViewController.swift; sourceTree = "<group>"; };
 		FAF0A6C91E876F3E00C2ED18 /* ExtensionInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionInt.swift; path = Extensions/Models/ExtensionInt.swift; sourceTree = "<group>"; };
+		FAFAA2F71F7FCC3E0060AAAF /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		FAFBF8001E554C7B003AF68E /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = Utils/Animation.swift; sourceTree = "<group>"; };
 		FAFBF8021E554EC0003AF68E /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Plist.swift; path = Utils/Plist.swift; sourceTree = "<group>"; };
 		FAFBF8051E55513B003AF68E /* ModelsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelsProtocol.swift; path = Protocols/ModelsProtocol.swift; sourceTree = "<group>"; };
@@ -703,6 +705,7 @@
 				FAFF37621E034137001B2A8F /* Controllers */,
 				FAFF37761E034295001B2A8F /* Info.plist */,
 				FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */,
+				FAFAA2F71F7FCC3E0060AAAF /* LaunchScreen.xib */,
 			);
 			path = Nightline;
 			sourceTree = "<group>";
@@ -943,6 +946,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFAA2F81F7FCC3E0060AAAF /* LaunchScreen.xib in Resources */,
 				7B5B6D381F60B1D000777C78 /* DetailPartyViewController.xib in Resources */,
 				7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */,
 				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
@@ -1449,6 +1453,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1472,6 +1477,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

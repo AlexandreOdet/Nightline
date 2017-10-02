@@ -23,11 +23,11 @@ final class AppConstant {
   
   final class UI {
     final class Colors {
-      static let colorPrimary = 0x0e1728
-      static let colorAccent = 0xe87e07 //Orange
-      static let white = 0xececec
-      static let purple = 0x9b59b6
-      static let midnightBlue = 0x0e1728
+      public class var colorPrimary: Int { return 0x0e1728 }
+      public class var colorAccent: Int { return 0xe87e07  }//Orange
+      public class var white: Int { return 0xececec }
+      public class var purple: Int { return 0x9b59b6 }
+      public class var midnightBlue: Int { return 0x0e1728 }
     }
     
     /*
@@ -36,8 +36,8 @@ final class AppConstant {
      */
     
     final class Dimensions {
-      static let formElementsSpacing = CGFloat(25)
-      static let thumbnailPictureSize = CGFloat(128)
+      public class var formElementsSpacing: CGFloat { return CGFloat(25) }
+      public class var thumbnailPictureSize: CGFloat { return CGFloat(128) }
     }
     
     /*
@@ -46,7 +46,7 @@ final class AppConstant {
      */
     
     final class Animation {
-      static let onClickDuration = 0.5
+      public class var onClickDuration: Double { return 0.5 }
     }
   }
   
@@ -56,19 +56,18 @@ final class AppConstant {
    */
   
   final class Network {
-    static let baseUrl = "https://api.nightline.fr"
-    static let login = "/login"
-    static let signup = "/register"
-    static let oauth_login = "/oauth_login"
-    static let etablishment = "/establishments"
-    static let drinks = ""
-    static let user = "/users"
-    static let party = "/soiree"
-    static let payment = "/update_stripe_user"
-    static let groups = "/groups"
+    public class var baseUrl: String { return "https://api.nightline.fr" }
+    public class var login: String { return "/login" }
+    public class var signup: String { return "/register" }
+    public class var oauth_login: String { return "/oauth_login" }
+    public class var etablishment: String { return "/establishments" }
+    public class var user: String { return "/users" }
+    public class  var party: String { return "/soiree" }
+    public class var payment: String { return "/update_stripe_user" }
+    public class var groups: String { return "/groups" }
   }
   
   final class StripeToken {
-    static let publishableKey = "pk_test_kdowSzKoGipTvU32aHZtryoq"
+    public class var publishableKey: String { return "pk_test_kdowSzKoGipTvU32aHZtryoq" }
   }
 }

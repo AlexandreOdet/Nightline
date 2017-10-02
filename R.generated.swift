@@ -331,16 +331,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
+    /// Nib `LaunchScreen`.
+    static let launchScreen = _R.nib._LaunchScreen()
     /// Nib `SearchUserViewController`.
     static let searchUserViewController = _R.nib._SearchUserViewController()
     
     /// `UINib(name: "DetailPartyViewController", in: bundle)`
     static func detailPartyViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.detailPartyViewController)
+    }
+    
+    /// `UINib(name: "LaunchScreen", in: bundle)`
+    static func launchScreen(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.launchScreen)
     }
     
     /// `UINib(name: "SearchUserViewController", in: bundle)`
@@ -775,7 +782,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -786,14 +793,38 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
-  struct nib {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try nib.validate()
+  }
+  
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _LaunchScreen.validate()
+    }
+    
     struct _DetailPartyViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "DetailPartyViewController"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _LaunchScreen: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "LaunchScreen"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "background", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'background' is used in nib 'LaunchScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in nib 'LaunchScreen', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
