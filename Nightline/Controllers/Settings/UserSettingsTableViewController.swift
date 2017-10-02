@@ -12,6 +12,7 @@ import SnapKit
 import Rswift
 import FBSDKLoginKit
 import Stripe
+import PromiseKit
 
 /*
  Controllers: UserSettingsTableViewController
@@ -186,8 +187,25 @@ extension UserSettingsTableViewController: STPAddCardViewControllerDelegate {
     }
     
     func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
-        // TODO
+        let paymentAPI = RAPayment()
+        paymentAPI.sendCardInfos(creditCardToken: "", user: UserManager.instance.networkUser) { ret in
+            switch ret {
+            case .error(let e):
+                self.presentErrorAlert(e: e)
+            case .success():
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
-    
-    
+
+    func presentErrorAlert(e: Error?) {
+        var msg: String?
+        if let error = e {
+            msg = error.localizedDescription
+        }
+        let alert = UIAlertController(title: "Erreur", message: msg ?? "Oups il semble y avoir un problème avec ta carte !", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: { _ in self.navigationController?.popViewController(animated: true)}))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

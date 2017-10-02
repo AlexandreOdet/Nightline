@@ -11,22 +11,25 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
+enum sendCardInfoReturn {
+    case success()
+    case error(e: Error?)
+}
+
 class RAPayment: RABase {
-  
-  func sendCardInfos(creditCardToken: String, user: User,
-                     callbackError: @escaping () -> ()) {
-    let url = RoutesAPI.payment.url
-    var parameters: [String:Any] = ["token":creditCardToken]
-    parameters["user"] = user.toJSON()
-    request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-      .responseJSON(completionHandler: { (response) in
-        switch response.result {
-        case .success(_):
-          return
-        case .failure(_):
-          callbackError()
-        }
-    })
-  }
-  
+    func sendCardInfos(creditCardToken: String, user: User,
+                       callback: @escaping (sendCardInfoReturn) -> Void) {
+        let url = RoutesAPI.payment.url
+        var parameters: [String:Any] = ["token":creditCardToken]
+        parameters["user"] = user.toJSON()
+        request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON(completionHandler: { (response) in
+                switch response.result {
+                case .success(_):
+                    callback(.success())
+                case .failure(_):
+                    callback(.error(e: response.error))
+                }
+            })
+    }
 }
