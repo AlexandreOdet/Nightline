@@ -44,7 +44,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
     // Create Tab Three
     let tabThree = GroupsListViewController()
-    let tabBarThreeItem = UITabBarItem(title: "Groups", image: R.image.settings(), selectedImage: R.image.settings_filled())
+    let tabBarThreeItem = UITabBarItem(title: "Groups", image: #imageLiteral(resourceName: "group"), selectedImage: #imageLiteral(resourceName: "group_filled"))
     tabThree.tabBarItem = tabBarThreeItem
 
     // Create Tab Four

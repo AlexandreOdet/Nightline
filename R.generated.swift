@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 43 images.
+  /// This `R.image` struct is generated, and contains static references to 45 images.
   struct image {
     /// Image `addFriend`.
     static let addFriend = Rswift.ImageResource(bundle: R.hostingBundle, name: "addFriend")
@@ -63,6 +63,10 @@ struct R: Rswift.Validatable {
     static let friend = Rswift.ImageResource(bundle: R.hostingBundle, name: "friend")
     /// Image `friends`.
     static let friends = Rswift.ImageResource(bundle: R.hostingBundle, name: "friends")
+    /// Image `group_filled`.
+    static let group_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "group_filled")
+    /// Image `group`.
+    static let group = Rswift.ImageResource(bundle: R.hostingBundle, name: "group")
     /// Image `heart_filled`.
     static let heart_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "heart_filled")
     /// Image `heart`.
@@ -193,6 +197,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "friends", bundle: ..., traitCollection: ...)`
     static func friends(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.friends, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "group", bundle: ..., traitCollection: ...)`
+    static func group(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.group, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "group_filled", bundle: ..., traitCollection: ...)`
+    static func group_filled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.group_filled, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "heart", bundle: ..., traitCollection: ...)`
