@@ -104,7 +104,7 @@ class EtablishmentViewController: ProfileViewController {
         view.addSubview(camButton)
         camButton.snp.makeConstraints { (make) -> Void in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-10)
             make.size.equalTo(70)
         }
         let buttonImage = UIImage(named: "partyIcon")
