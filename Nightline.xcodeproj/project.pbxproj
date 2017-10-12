@@ -25,9 +25,9 @@
 		7B6074D81F4CD4B400CA7E23 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6074D61F4CD4B400CA7E23 /* SearchUserViewController.swift */; };
 		7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */; };
 		7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */; };
-		7B9C5B751F8FBB9700259AC6 /* FriendsAndGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B731F8FBB9700259AC6 /* FriendsAndGroupsViewController.swift */; };
-		7B9C5B761F8FBB9700259AC6 /* FriendsAndGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C5B741F8FBB9700259AC6 /* FriendsAndGroupsViewController.xib */; };
-		7B9F41F11F2508FB0033385E /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9F41F01F2508FB0033385E /* DetailMediaViewController.swift */; };
+		7B9C5B7A1F8FCB6000259AC6 /* GroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */; };
+		7B9C5B7B1F8FCB6000259AC6 /* GroupsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */; };
+		7B9C5B7D1F8FCF3800259AC6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B7C1F8FCF3700259AC6 /* TabBarController.swift */; };
 		7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */; };
 		7BD406E61E9A5204003C09AC /* ProfilePictCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */; };
 		7BD6F25A1F1525E3001D88F6 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD6F2591F1525E3001D88F6 /* MediaManager.swift */; };
@@ -57,7 +57,6 @@
 		FA3AA17C1E577153002CF4FC /* EtablishmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1791E577153002CF4FC /* EtablishmentTableViewController.swift */; };
 		FA3AA17D1E577153002CF4FC /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA17A1E577153002CF4FC /* UserSettingsTableViewController.swift */; };
 		FA3AA1801E57716E002CF4FC /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA17F1E57716E002CF4FC /* UserProfileCell.swift */; };
-		FA3AA1831E57718B002CF4FC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1821E57718B002CF4FC /* TabBarController.swift */; };
 		FA3AA1881E5771A8002CF4FC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */; };
 		FA3AA18C1E57720F002CF4FC /* TokenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */; };
 		FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18B1E57720F002CF4FC /* UserManager.swift */; };
@@ -194,9 +193,9 @@
 		7B6074D61F4CD4B400CA7E23 /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserViewController.swift; path = Controllers/User/SearchUserViewController.swift; sourceTree = "<group>"; };
 		7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchUserViewController.xib; path = Controllers/User/SearchUserViewController.xib; sourceTree = "<group>"; };
 		7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewController.swift; path = Controllers/User/EditProfileTableViewController.swift; sourceTree = "<group>"; };
-		7B9C5B731F8FBB9700259AC6 /* FriendsAndGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsAndGroupsViewController.swift; path = Controllers/User/FriendsAndGroupsViewController.swift; sourceTree = "<group>"; };
-		7B9C5B741F8FBB9700259AC6 /* FriendsAndGroupsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FriendsAndGroupsViewController.xib; path = Controllers/User/FriendsAndGroupsViewController.xib; sourceTree = "<group>"; };
-		7B9F41F01F2508FB0033385E /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
+		7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewController.swift; sourceTree = "<group>"; };
+		7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsListViewController.xib; sourceTree = "<group>"; };
+		7B9C5B7C1F8FCF3700259AC6 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleLabelTableViewCell.swift; path = Controllers/Settings/CustomCells/DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePictCell.swift; path = Controllers/Settings/CustomCells/ProfilePictCell.swift; sourceTree = "<group>"; };
 		7BD6F2591F1525E3001D88F6 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = Manager/MediaManager.swift; sourceTree = "<group>"; };
@@ -227,7 +226,6 @@
 		FA3AA1791E577153002CF4FC /* EtablishmentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishmentTableViewController.swift; path = Controllers/Settings/EtablishmentTableViewController.swift; sourceTree = "<group>"; };
 		FA3AA17A1E577153002CF4FC /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettingsTableViewController.swift; path = Controllers/Settings/UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		FA3AA17F1E57716E002CF4FC /* UserProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileCell.swift; path = Controllers/Settings/CustomCells/UserProfileCell.swift; sourceTree = "<group>"; };
-		FA3AA1821E57718B002CF4FC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBar/TabBarController.swift; sourceTree = "<group>"; };
 		FA3AA1861E5771A8002CF4FC /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = Controllers/User/UserProfileViewController.swift; sourceTree = "<group>"; };
 		FA3AA18A1E57720F002CF4FC /* TokenWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenWrapper.swift; path = Manager/TokenWrapper.swift; sourceTree = "<group>"; };
 		FA3AA18B1E57720F002CF4FC /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Manager/UserManager.swift; sourceTree = "<group>"; };
@@ -381,6 +379,15 @@
 			name = EditFieldViewCOntrollers;
 			sourceTree = "<group>";
 		};
+		7B9C5B771F8FCB2F00259AC6 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */,
+				7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
 		D79DDBCA71922E6E1A0DF5C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,7 +427,6 @@
 				FA3A6D2C1E833D97008489F2 /* EtablishementViewController.swift */,
 				7B5B6D351F60B1D000777C78 /* DetailPartyViewController.swift */,
 				7B5B6D361F60B1D000777C78 /* DetailPartyViewController.xib */,
-				7B9F41F01F2508FB0033385E /* DetailMediaViewController.swift */,
 				FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */,
 				7B0A55011EF7E92E00BE08CD /* CamViewController.swift */,
 				7B0A55131EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift */,
@@ -481,9 +487,10 @@
 		FA3AA1811E57717D002CF4FC /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				FA3AA1821E57718B002CF4FC /* TabBarController.swift */,
+				7B9C5B7C1F8FCF3700259AC6 /* TabBarController.swift */,
 			);
 			name = TabBar;
+			path = Controllers/TabBar;
 			sourceTree = "<group>";
 		};
 		FA3AA1841E57719B002CF4FC /* User */ = {
@@ -496,8 +503,6 @@
 				FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */,
 				7B6068681F0FE964000F1755 /* UserMediaTableViewController.swift */,
 				FADF25CB1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift */,
-				7B9C5B731F8FBB9700259AC6 /* FriendsAndGroupsViewController.swift */,
-				7B9C5B741F8FBB9700259AC6 /* FriendsAndGroupsViewController.xib */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -760,6 +765,7 @@
 		FAFF37621E034137001B2A8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7B9C5B771F8FCB2F00259AC6 /* Groups */,
 				FA3A6D2B1E833D7E008489F2 /* Parties */,
 				FA3AA1841E57719B002CF4FC /* User */,
 				FA3AA1811E57717D002CF4FC /* TabBar */,
@@ -967,11 +973,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B9C5B761F8FBB9700259AC6 /* FriendsAndGroupsViewController.xib in Resources */,
 				FAFAA2F81F7FCC3E0060AAAF /* LaunchScreen.xib in Resources */,
 				7B5B6D381F60B1D000777C78 /* DetailPartyViewController.xib in Resources */,
 				7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */,
 				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
+				7B9C5B7B1F8FCB6000259AC6 /* GroupsListViewController.xib in Resources */,
 				FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1238,7 +1244,6 @@
 				FA303F6C1E5D1F26008961EF /* ExtensionUserPreferences.swift in Sources */,
 				FAFBF8061E55513B003AF68E /* ModelsProtocol.swift in Sources */,
 				FA8475A61F5F2B9D00B3E292 /* InvitationsList.swift in Sources */,
-				7B9F41F11F2508FB0033385E /* DetailMediaViewController.swift in Sources */,
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
 				FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */,
 				7B5A6AD21E9FB5AB00D902C5 /* EditCityViewController.swift in Sources */,
@@ -1257,6 +1262,7 @@
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
 				FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */,
 				FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */,
+				7B9C5B7A1F8FCB6000259AC6 /* GroupsListViewController.swift in Sources */,
 				FA2DFCA71F4E0EB100C70C1B /* UserLoginObject.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
 				FADF25CC1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift in Sources */,
@@ -1267,12 +1273,12 @@
 				FAC009361F8FB4B800D82EB9 /* GroupResponse.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */,
-				7B9C5B751F8FBB9700259AC6 /* FriendsAndGroupsViewController.swift in Sources */,
 				7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */,
 				7B4050421F54521F00A2B0A9 /* DetailUserViewController.swift in Sources */,
 				7B0A55021EF7E92E00BE08CD /* CamViewController.swift in Sources */,
 				FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */,
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
+				7B9C5B7D1F8FCF3800259AC6 /* TabBarController.swift in Sources */,
 				FA6B019C1F56222900F360B5 /* EstablishmentResponse.swift in Sources */,
 				FA3A6D2D1E833D97008489F2 /* EtablishementViewController.swift in Sources */,
 				FA3AA17C1E577153002CF4FC /* EtablishmentTableViewController.swift in Sources */,
@@ -1280,7 +1286,6 @@
 				7B5A6ACE1E9FB36D00D902C5 /* EditLastNameViewController.swift in Sources */,
 				FA303F6A1E5D1EAE008961EF /* ExtensionUser.swift in Sources */,
 				FA23240D1EF92CFE00F6AF88 /* RAEtablissement.swift in Sources */,
-				FA3AA1831E57718B002CF4FC /* TabBarController.swift in Sources */,
 				FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */,
 				FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */,
 				FA303F671E5D1D18008961EF /* ImageableProtocol.swift in Sources */,

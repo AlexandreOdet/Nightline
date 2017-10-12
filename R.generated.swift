@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 41 images.
+  /// This `R.image` struct is generated, and contains static references to 43 images.
   struct image {
     /// Image `addFriend`.
     static let addFriend = Rswift.ImageResource(bundle: R.hostingBundle, name: "addFriend")
@@ -51,6 +51,8 @@ struct R: Rswift.Validatable {
     static let birthday = Rswift.ImageResource(bundle: R.hostingBundle, name: "birthday")
     /// Image `cameraButton`.
     static let cameraButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraButton")
+    /// Image `cameraWhiteButton`.
+    static let cameraWhiteButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraWhiteButton")
     /// Image `champagne`.
     static let champagne = Rswift.ImageResource(bundle: R.hostingBundle, name: "champagne")
     /// Image `cocktail`.
@@ -81,6 +83,8 @@ struct R: Rswift.Validatable {
     static let moneyBag = Rswift.ImageResource(bundle: R.hostingBundle, name: "money-bag")
     /// Image `newPhotoIconWp`.
     static let newPhotoIconWp = Rswift.ImageResource(bundle: R.hostingBundle, name: "newPhotoIconWp")
+    /// Image `orangeArrow`.
+    static let orangeArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "orangeArrow")
     /// Image `partyIcon`.
     static let partyIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "partyIcon")
     /// Image `party`.
@@ -161,6 +165,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.cameraButton, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "cameraWhiteButton", bundle: ..., traitCollection: ...)`
+    static func cameraWhiteButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cameraWhiteButton, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "champagne", bundle: ..., traitCollection: ...)`
     static func champagne(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.champagne, compatibleWith: traitCollection)
@@ -234,6 +243,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "newPhotoIconWp", bundle: ..., traitCollection: ...)`
     static func newPhotoIconWp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.newPhotoIconWp, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "orangeArrow", bundle: ..., traitCollection: ...)`
+    static func orangeArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.orangeArrow, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "party", bundle: ..., traitCollection: ...)`
@@ -328,8 +342,8 @@ struct R: Rswift.Validatable {
   struct nib {
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
-    /// Nib `FriendsAndGroupsViewController`.
-    static let friendsAndGroupsViewController = _R.nib._FriendsAndGroupsViewController()
+    /// Nib `GroupsListViewController`.
+    static let groupsListViewController = _R.nib._GroupsListViewController()
     /// Nib `LaunchScreen`.
     static let launchScreen = _R.nib._LaunchScreen()
     /// Nib `SearchUserViewController`.
@@ -340,9 +354,9 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.detailPartyViewController)
     }
     
-    /// `UINib(name: "FriendsAndGroupsViewController", in: bundle)`
-    static func friendsAndGroupsViewController(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.friendsAndGroupsViewController)
+    /// `UINib(name: "GroupsListViewController", in: bundle)`
+    static func groupsListViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.groupsListViewController)
     }
     
     /// `UINib(name: "LaunchScreen", in: bundle)`
@@ -800,10 +814,11 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _DetailPartyViewController.validate()
       try _LaunchScreen.validate()
     }
     
-    struct _DetailPartyViewController: Rswift.NibResourceType {
+    struct _DetailPartyViewController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "DetailPartyViewController"
       
@@ -811,12 +826,16 @@ struct _R: Rswift.Validatable {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
       
+      static func validate() throws {
+        if UIKit.UIImage(named: "orangeArrow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'orangeArrow' is used in nib 'DetailPartyViewController', but couldn't be loaded.") }
+      }
+      
       fileprivate init() {}
     }
     
-    struct _FriendsAndGroupsViewController: Rswift.NibResourceType {
+    struct _GroupsListViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
-      let name = "FriendsAndGroupsViewController"
+      let name = "GroupsListViewController"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
