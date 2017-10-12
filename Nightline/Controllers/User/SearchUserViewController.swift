@@ -27,11 +27,11 @@ class SearchUserViewController: UIViewController {
     var estabArray: [UserPreview] = []
     var user: User? = nil
 
-  deinit {
-    userInstance.cancelRequest()
-    estabInstance.cancelRequest()
-  }
-  
+    deinit {
+        userInstance.cancelRequest()
+        estabInstance.cancelRequest()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.edgesForExtendedLayout = []
@@ -62,7 +62,7 @@ class SearchUserViewController: UIViewController {
                 firstly {
                     userInstance.searchUser(query: query)
                     }.then { [weak self] result -> Void in
-                      guard let strongSelf = self else { return }
+                        guard let strongSelf = self else { return }
                         strongSelf.userArray = []
                         if result.resultUser != nil {
                             strongSelf.userArray.append(contentsOf: result.resultUser)
@@ -78,7 +78,7 @@ class SearchUserViewController: UIViewController {
                 firstly {
                     estabInstance.searchEstablishment(query: query)
                     }.then { [weak self] result -> Void in
-                      guard let strongSelf = self else { return }
+                        guard let strongSelf = self else { return }
                         strongSelf.estabArray = []
                         if result.resultEstab != nil {
                             strongSelf.estabArray.append(contentsOf: result.resultEstab)
@@ -89,7 +89,7 @@ class SearchUserViewController: UIViewController {
                         }
                     }.catch { error -> Void in
                         print("Error : \(error)")
-                    }
+                }
             default:
                 break
             }

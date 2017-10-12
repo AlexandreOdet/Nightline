@@ -24,6 +24,8 @@
 		7B6074D81F4CD4B400CA7E23 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6074D61F4CD4B400CA7E23 /* SearchUserViewController.swift */; };
 		7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */; };
 		7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */; };
+		7B9C5B751F8FBB9700259AC6 /* FriendsAndGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B731F8FBB9700259AC6 /* FriendsAndGroupsViewController.swift */; };
+		7B9C5B761F8FBB9700259AC6 /* FriendsAndGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C5B741F8FBB9700259AC6 /* FriendsAndGroupsViewController.xib */; };
 		7B9F41F11F2508FB0033385E /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9F41F01F2508FB0033385E /* DetailMediaViewController.swift */; };
 		7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */; };
 		7BD406E61E9A5204003C09AC /* ProfilePictCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */; };
@@ -188,6 +190,8 @@
 		7B6074D61F4CD4B400CA7E23 /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserViewController.swift; path = Controllers/User/SearchUserViewController.swift; sourceTree = "<group>"; };
 		7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchUserViewController.xib; path = Controllers/User/SearchUserViewController.xib; sourceTree = "<group>"; };
 		7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewController.swift; path = Controllers/User/EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		7B9C5B731F8FBB9700259AC6 /* FriendsAndGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsAndGroupsViewController.swift; path = Controllers/User/FriendsAndGroupsViewController.swift; sourceTree = "<group>"; };
+		7B9C5B741F8FBB9700259AC6 /* FriendsAndGroupsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FriendsAndGroupsViewController.xib; path = Controllers/User/FriendsAndGroupsViewController.xib; sourceTree = "<group>"; };
 		7B9F41F01F2508FB0033385E /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
 		7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleLabelTableViewCell.swift; path = Controllers/Settings/CustomCells/DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePictCell.swift; path = Controllers/Settings/CustomCells/ProfilePictCell.swift; sourceTree = "<group>"; };
@@ -488,6 +492,8 @@
 				FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */,
 				7B6068681F0FE964000F1755 /* UserMediaTableViewController.swift */,
 				FADF25CB1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift */,
+				7B9C5B731F8FBB9700259AC6 /* FriendsAndGroupsViewController.swift */,
+				7B9C5B741F8FBB9700259AC6 /* FriendsAndGroupsViewController.xib */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -946,6 +952,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B9C5B761F8FBB9700259AC6 /* FriendsAndGroupsViewController.xib in Resources */,
 				FAFAA2F81F7FCC3E0060AAAF /* LaunchScreen.xib in Resources */,
 				7B5B6D381F60B1D000777C78 /* DetailPartyViewController.xib in Resources */,
 				7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */,
@@ -1242,6 +1249,7 @@
 				FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */,
+				7B9C5B751F8FBB9700259AC6 /* FriendsAndGroupsViewController.swift in Sources */,
 				7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */,
 				7B4050421F54521F00A2B0A9 /* DetailUserViewController.swift in Sources */,
 				7B0A55021EF7E92E00BE08CD /* CamViewController.swift in Sources */,

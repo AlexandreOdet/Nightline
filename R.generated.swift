@@ -331,10 +331,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
+    /// Nib `FriendsAndGroupsViewController`.
+    static let friendsAndGroupsViewController = _R.nib._FriendsAndGroupsViewController()
     /// Nib `LaunchScreen`.
     static let launchScreen = _R.nib._LaunchScreen()
     /// Nib `SearchUserViewController`.
@@ -343,6 +345,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "DetailPartyViewController", in: bundle)`
     static func detailPartyViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.detailPartyViewController)
+    }
+    
+    /// `UINib(name: "FriendsAndGroupsViewController", in: bundle)`
+    static func friendsAndGroupsViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.friendsAndGroupsViewController)
     }
     
     /// `UINib(name: "LaunchScreen", in: bundle)`
@@ -806,6 +813,17 @@ struct _R: Rswift.Validatable {
     struct _DetailPartyViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "DetailPartyViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _FriendsAndGroupsViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "FriendsAndGroupsViewController"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
