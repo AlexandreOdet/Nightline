@@ -85,6 +85,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     emailTextField.becomeFirstResponder()
     emailTextField.backgroundColor = .clear
     emailTextField.autocapitalizationType = .none
+    emailTextField.autocorrectionType = .no
     
     nicknameTextField.backgroundColor = UIColor.black
     nicknameTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.nickname(),
@@ -96,6 +97,8 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     nicknameTextField.returnKeyType = .next
     nicknameTextField.tag = 1
     nicknameTextField.backgroundColor = .clear
+    nicknameTextField.autocapitalizationType = .none
+    nicknameTextField.autocorrectionType = .no
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.password(),

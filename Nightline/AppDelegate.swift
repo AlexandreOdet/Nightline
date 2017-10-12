@@ -47,6 +47,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }.catch { _ in
           return
       }
+      firstly {
+        RAGroup().createGroup(groupName: "Super groupe :)", groupDescription: "Hé hé il semblerait que je puisse créer un groupe depuis une super app iOS")
+        }.then { groupReponse -> Void in
+          print(groupReponse.toJSON())
+          if let groupId = groupReponse.group.id {
+            firstly {
+                RAGroup().getGroupInformations(groupId: groupId)
+              }.then { groupResponse -> Void in
+                print(groupResponse.toJSON())
+              }.catch { _ in
+                print("Impossible d'accéder aux infos du groupe.")
+            }
+          }
+        }.catch { _ in
+          print("Oh non, une erreur malveillante s'est immissée entre ton code et le serveur :'(")
+      }
     }
     let userDefaults = UserDefaults.standard
     
