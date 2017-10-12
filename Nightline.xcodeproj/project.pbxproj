@@ -93,6 +93,7 @@
 		FAAEF1B11F7505B000BB0916 /* Pods_Nightline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBD1F3A02A7992CF7142393 /* Pods_Nightline.framework */; };
 		FAAEF1B21F7505B000BB0916 /* Pods_Nightline.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBD1F3A02A7992CF7142393 /* Pods_Nightline.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
+		FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009311F8F9BDE00D82EB9 /* Group.swift */; };
 		FAC3804C1EA089FC00F62FEC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804B1EA089FC00F62FEC /* Bolts.framework */; };
 		FAC3804E1EA08A0800F62FEC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */; };
 		FAC380501EA08A2200F62FEC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804F1EA08A2200F62FEC /* FBSDKLoginKit.framework */; };
@@ -257,6 +258,7 @@
 		FAAEF1AD1F74309E00BB0916 /* RAGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RAGroup.swift; path = Network/RAGroup.swift; sourceTree = "<group>"; };
 		FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RAInvitations.swift; path = Network/RAInvitations.swift; sourceTree = "<group>"; };
 		FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishmentMenuViewController.swift; path = Controllers/Parties/EtablishmentMenuViewController.swift; sourceTree = "<group>"; };
+		FAC009311F8F9BDE00D82EB9 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = Models/Groups/Group.swift; sourceTree = "<group>"; };
 		FAC3804B1EA089FC00F62FEC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FAC3804F1EA08A2200F62FEC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 		FA3BFCDD1E039DC600A72B5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FAC009301F8F9BBD00D82EB9 /* Groups */,
 				FA8475A21F5F268800B3E292 /* Friends */,
 				FA75ADA51E4BB9820078FFE9 /* Parties */,
 				FA75ADA41E4BB97C0078FFE9 /* User */,
@@ -632,6 +635,14 @@
 				FA8475A71F5F2BAC00B3E292 /* Invitation.swift */,
 			);
 			name = Friends;
+			sourceTree = "<group>";
+		};
+		FAC009301F8F9BBD00D82EB9 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				FAC009311F8F9BDE00D82EB9 /* Group.swift */,
+			);
+			name = Groups;
 			sourceTree = "<group>";
 		};
 		FADF25C61E87367900E74439 /* CustomCell */ = {
@@ -1233,6 +1244,7 @@
 				FA8475A41F5F26C800B3E292 /* FriendsList.swift in Sources */,
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
 				FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */,
+				FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */,
 				FA2DFCA71F4E0EB100C70C1B /* UserLoginObject.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
 				FADF25CC1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift in Sources */,
