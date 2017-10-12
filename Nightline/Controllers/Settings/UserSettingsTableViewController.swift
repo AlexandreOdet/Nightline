@@ -30,6 +30,8 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
         super.viewDidLoad()
         self.title = R.string.localizable.settings()
         addTableView()
+        tableView.backgroundColor = UIColor(hex: 0x0e1728)
+        self.tableView.separatorColor = UIColor(hex: 0x0e1728)
     }
     
     /*
@@ -81,6 +83,9 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
             let profileCell = UserProfileCell()
             profileCell.labelName.text = UserManager.instance.getUserNickname()
             profileCell.isUserInteractionEnabled = true
+            profileCell.backgroundColor = UIColor(hex : 0x363D4C)
+            profileCell.labelName.textColor = UIColor(hex: 0xE88B26)
+            profileCell.labelEmail.textColor = UIColor(hex: 0xFFAF57)
             return profileCell
         } else {
             if indexPath.section == SettingsCell.Preference.rawValue {
@@ -107,6 +112,8 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
             }
         }
         cell.selectionStyle = .none
+        cell.backgroundColor = UIColor(hex : 0x363D4C)
+        cell.textLabel?.textColor = UIColor(hex: 0xE88B26)
         return cell
     }
     
@@ -145,7 +152,13 @@ final class UserSettingsTableViewController: UIViewController, UITableViewDelega
         }
         return UITableViewAutomaticDimension
     }
-    
+
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view:UIView, forSection: Int) {
+        if let headerTitle = view as? UITableViewHeaderFooterView {
+            headerTitle.textLabel?.textColor = UIColor(hex: 0xE88B26)
+        }
+    }
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionArray[section]
     }
