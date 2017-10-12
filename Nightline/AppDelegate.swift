@@ -52,9 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }.then { groupReponse -> Void in
           print(groupReponse.toJSON())
           if let groupId = groupReponse.group.id {
-          RAGroup().deleteGroup(groupId:"\(groupId)", callbackError: {
-            print("Erreur groupe non supprimé :/")
-          })
+            firstly {
+                RAGroup().getGroupInformations(groupId: groupId)
+              }.then { groupResponse -> Void in
+                print(groupResponse.toJSON())
+              }.catch { _ in
+                print("Impossible d'accéder aux infos du groupe.")
+            }
           }
         }.catch { _ in
           print("Oh non, une erreur malveillante s'est immissée entre ton code et le serveur :'(")

@@ -56,6 +56,20 @@ class RAGroup: RABase {
     })
   }
   
-  func getGroupInformations(groupId: String) { }
+  func getGroupInformations(groupId: Int) -> Promise<CreateGroupResponse> {
+    let url = RoutesAPI.baseUrl + AppConstant.Network.groups + "/\(groupId)"
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url).responseObject(completionHandler: {
+        (response: DataResponse<CreateGroupResponse>) in
+        switch response.result {
+        case .success(let group):
+          fulfill(group)
+        case .failure(let error):
+          reject(error)
+        }
+      })
+      
+    }
+  }
   
 }
