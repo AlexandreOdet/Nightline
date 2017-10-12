@@ -11,10 +11,10 @@ import ObjectMapper
 
 class Group: Mappable {
   
-  var id: Int!
+  var id: Int?
   var name: String!
   var description: String!
-  var users: [User]!
+  var users: [User]?
   
   init() {
     id = -1

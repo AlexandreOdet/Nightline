@@ -14,12 +14,10 @@ import AlamofireObjectMapper
 
 class RAGroup: RABase {
   
-  func createGroup(groupName: String, groupDescription: String, id: Int = -1, members: [User]) -> Promise<Group> {
+  func createGroup(groupName: String, groupDescription: String) -> Promise<Group> {
     let group = Group()
     group.name = groupName
     group.description = groupDescription
-    group.id = id
-    group.users.append(contentsOf: members)
     
     var parameters = [String:Any]()
     parameters["ownerId"] = UserManager.instance.retrieveUserId()
@@ -27,7 +25,7 @@ class RAGroup: RABase {
     
     let finalUrl = RoutesAPI.baseUrl.appending(AppConstant.Network.groups)
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(finalUrl, parameters: parameters).responseObject(completionHandler: {
+      self.request = Alamofire.request(finalUrl, method: .post, parameters: parameters).responseObject(completionHandler: {
         (response: DataResponse<Group>) in
         switch response.result {
         case .success(let group):
@@ -37,11 +35,12 @@ class RAGroup: RABase {
         }
       })
     }
-    
-    func updateGroupInfo(groupId: String) { }
-    
-    func deleteGroup(groupId: String) { }
-    
-    func getGroupInformations(groupId: String) { }
-    
+  }
+  
+  func updateGroupInfo(groupId: String) { }
+  
+  func deleteGroup(groupId: String) { }
+  
+  func getGroupInformations(groupId: String) { }
+  
 }
