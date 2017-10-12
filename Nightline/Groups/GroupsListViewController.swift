@@ -1,23 +1,18 @@
 //
-//  DetailMediaViewController.swift
+//  GroupsListViewController.swift
 //  Nightline
 //
-//  Created by cedric moreaux on 23/07/2017.
+//  Created by cedric moreaux on 12/10/2017.
 //  Copyright © 2017 Odet Alexandre. All rights reserved.
 //
 
 import UIKit
 
-class DetailMediaViewController: UIViewController {
+class GroupsListViewController: UIViewController {
 
-  let imageView = UIImageView()
-  
     override func viewDidLoad() {
         super.viewDidLoad()
-      self.view.addSubview(imageView)
-      imageView.snp.makeConstraints { (make) in
-        make.edges.equalToSuperview()
-      }
+
         // Do any additional setup after loading the view.
     }
 
