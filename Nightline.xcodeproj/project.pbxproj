@@ -90,9 +90,11 @@
 		FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */; };
 		FAAEF1AE1F74309E00BB0916 /* RAGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AD1F74309E00BB0916 /* RAGroup.swift */; };
 		FAAEF1B01F74347200BB0916 /* RAInvitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */; };
-		FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
 		FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009311F8F9BDE00D82EB9 /* Group.swift */; };
+		FAC009341F8FB23B00D82EB9 /* CreateGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009331F8FB23B00D82EB9 /* CreateGroupResponse.swift */; };
+		FAC009361F8FB4B800D82EB9 /* GroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009351F8FB4B800D82EB9 /* GroupResponse.swift */; };
 		FAC3804C1EA089FC00F62FEC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804B1EA089FC00F62FEC /* Bolts.framework */; };
 		FAC3804E1EA08A0800F62FEC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */; };
 		FAC380501EA08A2200F62FEC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804F1EA08A2200F62FEC /* FBSDKLoginKit.framework */; };
@@ -157,7 +159,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */,
+				FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +260,8 @@
 		FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RAInvitations.swift; path = Network/RAInvitations.swift; sourceTree = "<group>"; };
 		FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EtablishmentMenuViewController.swift; path = Controllers/Parties/EtablishmentMenuViewController.swift; sourceTree = "<group>"; };
 		FAC009311F8F9BDE00D82EB9 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = Models/Groups/Group.swift; sourceTree = "<group>"; };
+		FAC009331F8FB23B00D82EB9 /* CreateGroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateGroupResponse.swift; path = Models/Groups/CreateGroupResponse.swift; sourceTree = "<group>"; };
+		FAC009351F8FB4B800D82EB9 /* GroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupResponse.swift; path = Models/Groups/GroupResponse.swift; sourceTree = "<group>"; };
 		FAC3804B1EA089FC00F62FEC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FAC3804F1EA08A2200F62FEC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -639,6 +643,8 @@
 			isa = PBXGroup;
 			children = (
 				FAC009311F8F9BDE00D82EB9 /* Group.swift */,
+				FAC009331F8FB23B00D82EB9 /* CreateGroupResponse.swift */,
+				FAC009351F8FB4B800D82EB9 /* GroupResponse.swift */,
 			);
 			name = Groups;
 			sourceTree = "<group>";
@@ -1185,6 +1191,7 @@
 				FA8851921F4B7D0900647A1F /* Preferences.swift in Sources */,
 				FA303F6E1E5D23A1008961EF /* ExtensionGender.swift in Sources */,
 				FA3AA1711E577106002CF4FC /* HomeViewController.swift in Sources */,
+				FAC009341F8FB23B00D82EB9 /* CreateGroupResponse.swift in Sources */,
 				7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */,
 				FA2DFCB51F52312F00C70C1B /* EstablishmentList.swift in Sources */,
 				7BD6F25A1F1525E3001D88F6 /* MediaManager.swift in Sources */,
@@ -1250,6 +1257,7 @@
 				FA5729831E5CFBE800B36784 /* RoutesAPI.swift in Sources */,
 				7B5A6AD41E9FB81700D902C5 /* EditAgeViewController.swift in Sources */,
 				FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */,
+				FAC009361F8FB4B800D82EB9 /* GroupResponse.swift in Sources */,
 				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */,
 				7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */,

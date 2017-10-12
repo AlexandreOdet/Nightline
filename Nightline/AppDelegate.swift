@@ -47,6 +47,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }.catch { _ in
           return
       }
+      firstly {
+        RAGroup().createGroup(groupName: "Super groupe :)", groupDescription: "Hé hé il semblerait que je puisse créer un groupe depuis une super app iOS")
+        }.then { groupReponse -> Void in
+          print(groupReponse.toJSON())
+          if let groupId = groupReponse.group.id {
+          RAGroup().deleteGroup(groupId:"\(groupId)", callbackError: {
+            print("Erreur groupe non supprimé :/")
+          })
+          }
+        }.catch { _ in
+          print("Oh non, une erreur malveillante s'est immissée entre ton code et le serveur :'(")
+      }
     }
     let userDefaults = UserDefaults.standard
     
