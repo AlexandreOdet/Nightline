@@ -62,6 +62,8 @@
 		FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18B1E57720F002CF4FC /* UserManager.swift */; };
 		FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */; };
 		FA4548A31F0FD12B0064A1BE /* Consommable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4548A21F0FD12B0064A1BE /* Consommable.swift */; };
+		FA4FC1B01F9118F0003CCCC7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4FC1AF1F9118F0003CCCC7 /* SplashScreenViewController.swift */; };
+		FA4FC1B21F91194B003CCCC7 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC1B11F91194B003CCCC7 /* SplashScreen.xib */; };
 		FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */; };
 		FA5729831E5CFBE800B36784 /* RoutesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5729821E5CFBE800B36784 /* RoutesAPI.swift */; };
 		FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */; };
@@ -229,6 +231,8 @@
 		FA3AA18B1E57720F002CF4FC /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Manager/UserManager.swift; sourceTree = "<group>"; };
 		FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertUtils.swift; path = Utils/AlertUtils.swift; sourceTree = "<group>"; };
 		FA4548A21F0FD12B0064A1BE /* Consommable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Consommable.swift; path = Models/Parties/Consommable.swift; sourceTree = "<group>"; };
+		FA4FC1AF1F9118F0003CCCC7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashScreenViewController.swift; path = Controllers/SplashScreen/SplashScreenViewController.swift; sourceTree = "<group>"; };
+		FA4FC1B11F91194B003CCCC7 /* SplashScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SplashScreen.xib; path = Controllers/SplashScreen/SplashScreen.xib; sourceTree = "<group>"; };
 		FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutableProtocol.swift; path = Protocols/RoutableProtocol.swift; sourceTree = "<group>"; };
 		FA5729821E5CFBE800B36784 /* RoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; name = RoutesAPI.swift; path = Enums/Routes/RoutesAPI.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionRoutesAPI.swift; path = Extensions/Enums/ExtensionRoutesAPI.swift; sourceTree = "<group>"; };
@@ -534,6 +538,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		FA4FC1AE1F9118C2003CCCC7 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FA4FC1AF1F9118F0003CCCC7 /* SplashScreenViewController.swift */,
+				FA4FC1B11F91194B003CCCC7 /* SplashScreen.xib */,
+			);
+			name = SplashScreen;
+			sourceTree = "<group>";
+		};
 		FA5729811E5CFBBC00B36784 /* Routes */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,6 +752,7 @@
 		FAFF37621E034137001B2A8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA4FC1AE1F9118C2003CCCC7 /* SplashScreen */,
 				7B9C5B771F8FCB2F00259AC6 /* Groups */,
 				FA3A6D2B1E833D7E008489F2 /* Parties */,
 				FA3AA1841E57719B002CF4FC /* User */,
@@ -953,6 +967,7 @@
 				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
 				7B9C5B7B1F8FCB6000259AC6 /* GroupsListViewController.xib in Resources */,
 				FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */,
+				FA4FC1B21F91194B003CCCC7 /* SplashScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1237,6 +1252,7 @@
 				FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */,
 				FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */,
 				7B9C5B7A1F8FCB6000259AC6 /* GroupsListViewController.swift in Sources */,
+				FA4FC1B01F9118F0003CCCC7 /* SplashScreenViewController.swift in Sources */,
 				FA2DFCA71F4E0EB100C70C1B /* UserLoginObject.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
 				FADF25CC1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift in Sources */,
