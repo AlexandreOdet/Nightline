@@ -39,7 +39,7 @@ class EditPictureViewController: BaseViewController, UIImagePickerControllerDele
     picture.addGestureRecognizer(tapGestureRecognizer)
 }
   
-  func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
+  @objc func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
     let chooseSource = UIAlertController(title: "Choix de la source", message: "?", preferredStyle: .actionSheet)
     let roll = UIAlertAction(title: "Bibliothèque", style: .default, handler: {
       action in

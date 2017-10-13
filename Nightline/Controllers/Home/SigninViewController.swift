@@ -81,7 +81,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
 
         nicknameTextField.backgroundColor = UIColor.black
         nicknameTextField.attributedPlaceholder = NSAttributedString(string:"E-mail",
-                                                                     attributes:[NSForegroundColorAttributeName: UIColor.nightlineAccent])
+                                                                     attributes:[NSAttributedStringKey.foregroundColor: UIColor.nightlineAccent])
         nicknameTextField.highlightBottom()
         nicknameTextField.textColor = UIColor.nightlineAccent
         nicknameTextField.textAlignment = .center
@@ -96,7 +96,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
 
         passwordTextField.backgroundColor = UIColor.black
         passwordTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.password(),
-                                                                     attributes:[NSForegroundColorAttributeName: UIColor.nightlineAccent])
+                                                                     attributes:[NSAttributedStringKey.foregroundColor: UIColor.nightlineAccent])
         passwordTextField.highlightBottom()
         passwordTextField.textColor = UIColor.nightlineAccent
         passwordTextField.textAlignment = .center
@@ -178,7 +178,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
         nightlineLogo.addGestureRecognizer(logoGestureRecognizer)
     }
 
-    func animateLogo() {
+    @objc func animateLogo() {
         Animation().bounceEffect(sender: nightlineLogo)
     }
 
@@ -190,7 +190,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
      @return None
      */
 
-    func showHomeScreen() {
+    @objc func showHomeScreen() {
         Utils.Network.spinnerStart()
         firstly {
             restApiUser.loginUser(email: nicknameTextField.text ?? "", password: passwordTextField.text ?? "")
@@ -258,11 +258,11 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
      @return None
      */
 
-    func backButtonPressed() {
+    @objc func backButtonPressed() {
         dismiss(animated: true, completion: nil)
     }
 
-    func forgotPasswordAction() {
+    @objc func forgotPasswordAction() {
         var mailTextField = UITextField()
         let alertController = UIAlertController(title: "", message: R.string.localizable.type_mail(), preferredStyle: .alert)
         alertController.addTextField(configurationHandler: { (textField) in

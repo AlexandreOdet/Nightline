@@ -74,7 +74,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     
     emailTextField.backgroundColor = UIColor.black
     emailTextField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.email(),
-                                                              attributes:[NSForegroundColorAttributeName: UIColor.nightlineAccent])
+                                                              attributes:[NSAttributedStringKey.foregroundColor: UIColor.nightlineAccent])
     emailTextField.highlightBottom()
     emailTextField.textColor = UIColor.nightlineAccent
     emailTextField.textAlignment = .center
@@ -89,7 +89,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     
     nicknameTextField.backgroundColor = UIColor.black
     nicknameTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.nickname(),
-                                                                 attributes:[NSForegroundColorAttributeName: UIColor.nightlineAccent])
+                                                                 attributes:[NSAttributedStringKey.foregroundColor: UIColor.nightlineAccent])
     nicknameTextField.highlightBottom()
     nicknameTextField.textColor = UIColor.nightlineAccent
     nicknameTextField.textAlignment = .center
@@ -102,7 +102,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     
     passwordTextField.backgroundColor = UIColor.black
     passwordTextField.attributedPlaceholder = NSAttributedString(string:R.string.localizable.password(),
-                                                                 attributes:[NSForegroundColorAttributeName: UIColor.nightlineAccent])
+                                                                 attributes:[NSAttributedStringKey.foregroundColor: UIColor.nightlineAccent])
     passwordTextField.highlightBottom()
     passwordTextField.textColor = UIColor.nightlineAccent
     passwordTextField.textAlignment = .center
@@ -145,7 +145,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
    @return None
    */
   
-  func showHomeScreen() {
+  @objc func showHomeScreen() {
     Utils.Network.spinnerStart()
     firstly {
       restApiUser.signUpUser(email: emailTextField.text!, nickname: nicknameTextField.text!, password: passwordTextField.text!)
@@ -213,7 +213,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
    @return None
    */
   
-  func backButtonPressed() {
+  @objc func backButtonPressed() {
     dismiss(animated: true, completion: nil)
   }
   
@@ -234,7 +234,7 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
     nightlineLogo.addGestureRecognizer(logoGestureRecognizer)
   }
   
-  func animateLogo() {
+  @objc func animateLogo() {
     Animation().bounceEffect(sender: nightlineLogo)
   }
   

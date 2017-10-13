@@ -56,7 +56,7 @@ class EditAgeViewController: BaseViewController, UIPickerViewDelegate, UIPickerV
   
   func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
     let str = row.toString()
-    return NSAttributedString(string: str, attributes: [NSForegroundColorAttributeName:UIColor.init(hex: 0xFF7F40)])
+    return NSAttributedString(string: str, attributes: [NSAttributedStringKey.foregroundColor:UIColor.init(hex: 0xFF7F40)])
   }
   
   override func viewDidLoad() {

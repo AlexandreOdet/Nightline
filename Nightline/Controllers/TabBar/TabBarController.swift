@@ -68,7 +68,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
    @return None
    */
   
-  func callbackObserver() {
+  @objc func callbackObserver() {
     selectedIndex = 0
     let notificationName = Notification.Name(MainViewController.notificationIdentifier)
     NotificationCenter.default.post(name: notificationName, object: nil)

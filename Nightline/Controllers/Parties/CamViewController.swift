@@ -41,7 +41,7 @@ class CamViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegat
     returnButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
   }
   
-  func dismissView() {
+  @objc func dismissView() {
     dismiss(animated: true, completion: nil)
   }
   

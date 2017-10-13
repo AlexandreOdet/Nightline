@@ -16,18 +16,18 @@ import RealmSwift
 
 class DbUser: Object {
   var id: Int = 0
-  dynamic var firstName = ""
-  dynamic var lastName = ""
-  dynamic var gender = ""
-  dynamic var email = ""
-  dynamic var passwd = ""
-  dynamic var nickname = ""
-  dynamic var age = ""
-  dynamic var city = ""
+  @objc dynamic var firstName = ""
+  @objc dynamic var lastName = ""
+  @objc dynamic var gender = ""
+  @objc dynamic var email = ""
+  @objc dynamic var passwd = ""
+  @objc dynamic var nickname = ""
+  @objc dynamic var age = ""
+  @objc dynamic var city = ""
   var userId: Int = 0
-  dynamic var achievementPoints = 0
+  @objc dynamic var achievementPoints = 0
   var achievements : [Achievement] = []
-  dynamic var picture: NSData? = UIImageJPEGRepresentation(R.image.logo()!, 0.1)! as NSData
+  @objc dynamic var picture: NSData? = UIImageJPEGRepresentation(R.image.logo()!, 0.1)! as NSData
   var preferences = UserPreferences()
   
   /*
