@@ -122,8 +122,6 @@
 		FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8071E55539B003AF68E /* UserPreferences.swift */; };
 		FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */; };
 		FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFF37301E03402F001B2A8F /* Assets.xcassets */; };
-		FAFF373F1E03402F001B2A8F /* NightlineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF373E1E03402F001B2A8F /* NightlineTests.swift */; };
-		FAFF374A1E03402F001B2A8F /* NightlineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37491E03402F001B2A8F /* NightlineUITests.swift */; };
 		FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37571E034073001B2A8F /* AppDelegate.swift */; };
 		FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF375E1E0340C0001B2A8F /* AppConstant.swift */; };
 		FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37631E034147001B2A8F /* BaseViewController.swift */; };
@@ -292,11 +290,7 @@
 		FAFF372E1E03402F001B2A8F /* Nightline.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nightline.xcdatamodel; sourceTree = "<group>"; };
 		FAFF37301E03402F001B2A8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAFF373A1E03402F001B2A8F /* NightlineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightlineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAFF373E1E03402F001B2A8F /* NightlineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightlineTests.swift; sourceTree = "<group>"; };
-		FAFF37401E03402F001B2A8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFF37451E03402F001B2A8F /* NightlineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightlineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAFF37491E03402F001B2A8F /* NightlineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightlineUITests.swift; sourceTree = "<group>"; };
-		FAFF374B1E03402F001B2A8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFF37571E034073001B2A8F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFF375E1E0340C0001B2A8F /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppConstant.swift; path = Constants/AppConstant.swift; sourceTree = "<group>"; };
 		FAFF37631E034147001B2A8F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Controllers/BaseViewController.swift; sourceTree = "<group>"; };
@@ -693,8 +687,6 @@
 			isa = PBXGroup;
 			children = (
 				FAFF37251E03402F001B2A8F /* Nightline */,
-				FAFF373D1E03402F001B2A8F /* NightlineTests */,
-				FAFF37481E03402F001B2A8F /* NightlineUITests */,
 				FAFF37241E03402F001B2A8F /* Products */,
 				D79DDBCA71922E6E1A0DF5C4 /* Frameworks */,
 				56A7B199520A6E0A53E5B9C3 /* Pods */,
@@ -734,24 +726,6 @@
 				FAFAA2F71F7FCC3E0060AAAF /* LaunchScreen.xib */,
 			);
 			path = Nightline;
-			sourceTree = "<group>";
-		};
-		FAFF373D1E03402F001B2A8F /* NightlineTests */ = {
-			isa = PBXGroup;
-			children = (
-				FAFF373E1E03402F001B2A8F /* NightlineTests.swift */,
-				FAFF37401E03402F001B2A8F /* Info.plist */,
-			);
-			path = NightlineTests;
-			sourceTree = "<group>";
-		};
-		FAFF37481E03402F001B2A8F /* NightlineUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FAFF37491E03402F001B2A8F /* NightlineUITests.swift */,
-				FAFF374B1E03402F001B2A8F /* Info.plist */,
-			);
-			path = NightlineUITests;
 			sourceTree = "<group>";
 		};
 		FAFF375D1E0340B7001B2A8F /* Constants */ = {
@@ -1315,7 +1289,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAFF373F1E03402F001B2A8F /* NightlineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1323,7 +1296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAFF374A1E03402F001B2A8F /* NightlineUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

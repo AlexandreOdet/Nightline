@@ -26,7 +26,8 @@ class RAGroup: RABase {
     print(parameters)
     let finalUrl = RoutesAPI.baseUrl.appending(AppConstant.Network.groups)
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(finalUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseObject(completionHandler: {
+      self.request = Alamofire.request(finalUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        .responseObject(completionHandler: {
         (response: DataResponse<CreateGroupResponse>) in
         switch response.result {
         case .success(let group):
@@ -38,12 +39,27 @@ class RAGroup: RABase {
     }
   }
   
-  func updateGroupInfo(groupId: String) { }
+  func updateGroupInfo(modifiedGroup: Group, callbackError: @escaping () -> ()) {
+    let url = RoutesAPI.baseUrl.appending(AppConstant.Network.groups)
+    let parameters = ["group":modifiedGroup.toJSON()]
+    request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
+      .responseJSON(completionHandler: {
+        (response: DataResponse<Any>) in
+        switch response.result {
+        case .success(_):
+          return
+        case .failure(let err):
+          print(err.localizedDescription)
+          callbackError()
+        }
+      })
+  }
   
   func deleteGroup(groupId: String, callbackError: @escaping () -> ()){
     let url = RoutesAPI.baseUrl.appending(AppConstant.Network.groups)
     let parameters = ["GroupID":groupId]
-    request = Alamofire.request(url, method: .delete, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler: {
+    request = Alamofire.request(url, method: .delete, parameters: parameters, encoding: JSONEncoding.default)
+      .responseJSON(completionHandler: {
       (response: DataResponse<Any>) -> Void in
       switch response.result {
       case .success(_):
