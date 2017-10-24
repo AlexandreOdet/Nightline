@@ -331,7 +331,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
@@ -341,6 +341,8 @@ struct R: Rswift.Validatable {
     static let launchScreen = _R.nib._LaunchScreen()
     /// Nib `SearchUserViewController`.
     static let searchUserViewController = _R.nib._SearchUserViewController()
+    /// Nib `SplashScreen`.
+    static let splashScreen = _R.nib._SplashScreen()
     
     /// `UINib(name: "DetailPartyViewController", in: bundle)`
     static func detailPartyViewController(_: Void = ()) -> UIKit.UINib {
@@ -360,6 +362,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "SearchUserViewController", in: bundle)`
     static func searchUserViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.searchUserViewController)
+    }
+    
+    /// `UINib(name: "SplashScreen", in: bundle)`
+    static func splashScreen(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.splashScreen)
     }
     
     fileprivate init() {}
@@ -856,6 +863,17 @@ struct _R: Rswift.Validatable {
     struct _SearchUserViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "SearchUserViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SplashScreen: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SplashScreen"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView

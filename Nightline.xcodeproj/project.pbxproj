@@ -102,6 +102,7 @@
 		FAC3804E1EA08A0800F62FEC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */; };
 		FAC380501EA08A2200F62FEC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804F1EA08A2200F62FEC /* FBSDKLoginKit.framework */; };
 		FAC380521EA08A2A00F62FEC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC380511EA08A2A00F62FEC /* FBSDKShareKit.framework */; };
+		FAC6D7221F9F20CF0023DA35 /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6D7211F9F20CF0023DA35 /* GroupList.swift */; };
 		FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E41F4CD4C9002060A1 /* Menu.swift */; };
 		FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E61F4CD8AD002060A1 /* Party.swift */; };
 		FAD506E91F4CDBA4002060A1 /* RAParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E81F4CDBA4002060A1 /* RAParty.swift */; };
@@ -270,6 +271,7 @@
 		FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FAC3804F1EA08A2200F62FEC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FAC380511EA08A2A00F62FEC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		FAC6D7211F9F20CF0023DA35 /* GroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupList.swift; path = Models/Groups/GroupList.swift; sourceTree = "<group>"; };
 		FAD506E41F4CD4C9002060A1 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Models/Parties/Menu.swift; sourceTree = "<group>"; };
 		FAD506E61F4CD8AD002060A1 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Party.swift; path = Models/Parties/Party.swift; sourceTree = "<group>"; };
 		FAD506E81F4CDBA4002060A1 /* RAParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAParty.swift; path = Network/RAParty.swift; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 				FAC009311F8F9BDE00D82EB9 /* Group.swift */,
 				FAC009331F8FB23B00D82EB9 /* CreateGroupResponse.swift */,
 				FAC009351F8FB4B800D82EB9 /* GroupResponse.swift */,
+				FAC6D7211F9F20CF0023DA35 /* GroupList.swift */,
 			);
 			name = Groups;
 			sourceTree = "<group>";
@@ -1270,6 +1273,7 @@
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
 				7B9C5B7D1F8FCF3800259AC6 /* TabBarController.swift in Sources */,
 				FA6B019C1F56222900F360B5 /* EstablishmentResponse.swift in Sources */,
+				FAC6D7221F9F20CF0023DA35 /* GroupList.swift in Sources */,
 				FA3A6D2D1E833D97008489F2 /* EtablishementViewController.swift in Sources */,
 				FA3AA17C1E577153002CF4FC /* EtablishmentTableViewController.swift in Sources */,
 				FA3AA17D1E577153002CF4FC /* UserSettingsTableViewController.swift in Sources */,
