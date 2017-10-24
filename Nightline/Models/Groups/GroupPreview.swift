@@ -1,5 +1,5 @@
 //
-//  GroupList.swift
+//  GroupPreview.swift
 //  Nightline
 //
 //  Created by Odet Alexandre on 24/10/2017.
@@ -9,14 +9,17 @@
 import Foundation
 import ObjectMapper
 
-class GroupList: Mappable {
-    var groups: [GroupPreview] = []
+class GroupPreview: Mappable {
+    var id: Int! = 0
+    var name: String! = ""
+    var description: String! = ""
     
     required init?(map: Map) {
-
     }
     
     func mapping(map: Map) {
-       groups <- map["groups"]
+        id <- map["id"]
+        name <- map["name"]
+        description <- map["description"]
     }
 }
