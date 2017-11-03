@@ -57,12 +57,12 @@ final class UserProfileViewController: ProfileViewController {
     trophyView.addGestureRecognizer(achievementsGestureRecognizer)
   }
   
-  func showUserFriendsList() {
+  @objc func showUserFriendsList() {
     let vc = UserFriendsListTableViewController()
     tabBarController?.navigationController?.pushViewController(vc, animated: true)
   }
   
-  func showUserMediaList() {
+  @objc func showUserMediaList() {
     let images = MediaManager.instance.getAllImages()
     if images.count > 0 {
       let lightboxImages = images.map {LightboxImage(image: $0)}
@@ -72,7 +72,7 @@ final class UserProfileViewController: ProfileViewController {
     }
   }
   
-  func showUserAchievementsList() {
+  @objc func showUserAchievementsList() {
     let nextViewController = UserAchievementsListCollectionViewController()
     tabBarController?.navigationController?.pushViewController(nextViewController, animated: true)
   }

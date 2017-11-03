@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 45 images.
+  /// This `R.image` struct is generated, and contains static references to 42 images.
   struct image {
     /// Image `addFriend`.
     static let addFriend = Rswift.ImageResource(bundle: R.hostingBundle, name: "addFriend")
@@ -51,8 +51,6 @@ struct R: Rswift.Validatable {
     static let birthday = Rswift.ImageResource(bundle: R.hostingBundle, name: "birthday")
     /// Image `cameraButton`.
     static let cameraButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraButton")
-    /// Image `cameraWhiteButton`.
-    static let cameraWhiteButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraWhiteButton")
     /// Image `champagne`.
     static let champagne = Rswift.ImageResource(bundle: R.hostingBundle, name: "champagne")
     /// Image `cocktail`.
@@ -167,11 +165,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "cameraButton", bundle: ..., traitCollection: ...)`
     static func cameraButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.cameraButton, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "cameraWhiteButton", bundle: ..., traitCollection: ...)`
-    static func cameraWhiteButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.cameraWhiteButton, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "champagne", bundle: ..., traitCollection: ...)`
@@ -352,7 +345,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
@@ -362,6 +355,8 @@ struct R: Rswift.Validatable {
     static let launchScreen = _R.nib._LaunchScreen()
     /// Nib `SearchUserViewController`.
     static let searchUserViewController = _R.nib._SearchUserViewController()
+    /// Nib `SplashScreen`.
+    static let splashScreen = _R.nib._SplashScreen()
     
     /// `UINib(name: "DetailPartyViewController", in: bundle)`
     static func detailPartyViewController(_: Void = ()) -> UIKit.UINib {
@@ -381,6 +376,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "SearchUserViewController", in: bundle)`
     static func searchUserViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.searchUserViewController)
+    }
+    
+    /// `UINib(name: "SplashScreen", in: bundle)`
+    static func splashScreen(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.splashScreen)
     }
     
     fileprivate init() {}
@@ -877,6 +877,17 @@ struct _R: Rswift.Validatable {
     struct _SearchUserViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "SearchUserViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SplashScreen: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SplashScreen"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView

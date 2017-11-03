@@ -59,7 +59,7 @@ final class HomeViewController: BaseViewController {
     imgNightline.addGestureRecognizer(logoGestureRecognizer)
   }
   
-  func animateLogo() {
+  @objc func animateLogo() {
     Animation().bounceEffect(sender: imgNightline)
   }
   
@@ -103,7 +103,7 @@ final class HomeViewController: BaseViewController {
    @return None.
    */
   
-  func goToSignUp(sender: UIButton) {
+  @objc func goToSignUp(sender: UIButton) {
     let nextViewController = SignupViewController()
     present(nextViewController, animated: true, completion: nil)
   }
@@ -116,7 +116,7 @@ final class HomeViewController: BaseViewController {
    @return None.
    */
   
-  func goToSignIn(sender: UIButton) {
+  @objc func goToSignIn(sender: UIButton) {
     let nextViewController = SigninViewController()
     present(nextViewController, animated: true, completion: nil)
   }

@@ -67,7 +67,7 @@ class DetailUserViewController: ProfileViewController {
         self.pictureLabel.text = friendship.text
     }
 
-    func addFriendAction() {
+    @objc func addFriendAction() {
         switch friendship {
         case .notFriend:
             addFriend()

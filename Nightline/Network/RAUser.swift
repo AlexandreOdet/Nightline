@@ -150,6 +150,23 @@ final class RAUser: RABase {
                 })
         }
     }
+    
+    func getUserGroupList(id: String) -> Promise<GroupList> {
+        let parameters = ["UserID":id]
+        let url = RoutesAPI.user.url.appending("/\(id)/groups")
+        return Promise { (fulfill, reject) in
+            self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+                .responseObject(completionHandler: { (response: DataResponse<GroupList>) in
+                    switch response.result {
+                    case .success(let groups):
+                        fulfill(groups)
+                    case .failure(let err):
+                        log.error("\(err)")
+                        reject(err)
+                    }
+                })
+        }
+    }
 
     func addPreferencesToList(idUser: String, preference: Preferences) -> Promise<[Preferences]> {
         var parameters = ["UserID":idUser]

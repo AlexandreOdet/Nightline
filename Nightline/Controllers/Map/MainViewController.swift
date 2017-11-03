@@ -94,7 +94,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         searchButton.addGestureRecognizer(searchGestureRecognizer)
     }
 
-    func popSearchView() {
+    @objc func popSearchView() {
         let nextVC = SearchUserViewController()
         tabBarController?.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -138,7 +138,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         return nil
     }
 
-    func didTapCalloutButton(sender: UITapGestureRecognizer) {
+    @objc func didTapCalloutButton(sender: UITapGestureRecognizer) {
         guard let annotation = (sender.view as? MKAnnotationView)?.annotation as? Marker else { return }
 
         let actionList = UIAlertController(title: annotation.name, message: "", preferredStyle: .actionSheet)
@@ -197,11 +197,11 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
      @return None
      */
 
-    func callbackObserver() {
+    @objc func callbackObserver() {
         present(HomeViewController(), animated: false, completion: nil)
     }
 
-    func connexionOK() {
+    @objc func connexionOK() {
         presentedViewController?.dismiss(animated: false, completion: nil)
     }
 }

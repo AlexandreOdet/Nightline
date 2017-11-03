@@ -50,7 +50,7 @@ class EtablishmentViewController: ProfileViewController {
         mediaBook.reloadData()
     }
 
-    func showParty() {
+    @objc func showParty() {
         let nextVC = DetailPartyViewController()
         nextVC.bar_id = String(idBar)
         navigationController?.pushViewController(nextVC, animated: true)
@@ -112,13 +112,13 @@ class EtablishmentViewController: ProfileViewController {
         camButton.addTarget(self, action: #selector(showParty), for: .touchUpInside)
     }
 
-    func likeButtonTarget() {
+    @objc func likeButtonTarget() {
         isLiked = !isLiked
         likeButton.image = (!isLiked) ? R.image.heart() : R.image.heart_filled()
         animation.bounceEffect(sender: likeButton)
     }
 
-    func displayEtablishmentMenuViewController() {
+    @objc func displayEtablishmentMenuViewController() {
         if let nav = self.navigationController {
             let nextViewController = EtablishmentMenuViewController()
             nextViewController.bar_id = String(idBar)

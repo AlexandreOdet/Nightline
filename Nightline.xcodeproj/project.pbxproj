@@ -33,6 +33,7 @@
 		7BD6F25A1F1525E3001D88F6 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD6F2591F1525E3001D88F6 /* MediaManager.swift */; };
 		829DE74825BCBE72D5E67473 /* Pods_NightlineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA35FC8016886464C57CBAE1 /* Pods_NightlineUITests.framework */; };
 		8F087631415B5F674F697A0A /* Pods_NightlineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33196B8A1F235AC4086DBCC3 /* Pods_NightlineTests.framework */; };
+		FA18F6081F9F25DA00BD8B0E /* GroupPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18F6071F9F25DA00BD8B0E /* GroupPreview.swift */; };
 		FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB89D1E03495E00C8E437 /* R.generated.swift */; };
 		FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DB8A11E0349FE00C8E437 /* MapKit.framework */; };
 		FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB8A71E034CEA00C8E437 /* Localizable.strings */; };
@@ -62,6 +63,8 @@
 		FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AA18B1E57720F002CF4FC /* UserManager.swift */; };
 		FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */; };
 		FA4548A31F0FD12B0064A1BE /* Consommable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4548A21F0FD12B0064A1BE /* Consommable.swift */; };
+		FA4FC1B01F9118F0003CCCC7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4FC1AF1F9118F0003CCCC7 /* SplashScreenViewController.swift */; };
+		FA4FC1B21F91194B003CCCC7 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4FC1B11F91194B003CCCC7 /* SplashScreen.xib */; };
 		FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */; };
 		FA5729831E5CFBE800B36784 /* RoutesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5729821E5CFBE800B36784 /* RoutesAPI.swift */; };
 		FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */; };
@@ -100,6 +103,7 @@
 		FAC3804E1EA08A0800F62FEC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */; };
 		FAC380501EA08A2200F62FEC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3804F1EA08A2200F62FEC /* FBSDKLoginKit.framework */; };
 		FAC380521EA08A2A00F62FEC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC380511EA08A2A00F62FEC /* FBSDKShareKit.framework */; };
+		FAC6D7221F9F20CF0023DA35 /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6D7211F9F20CF0023DA35 /* GroupList.swift */; };
 		FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E41F4CD4C9002060A1 /* Menu.swift */; };
 		FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E61F4CD8AD002060A1 /* Party.swift */; };
 		FAD506E91F4CDBA4002060A1 /* RAParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E81F4CDBA4002060A1 /* RAParty.swift */; };
@@ -122,8 +126,6 @@
 		FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBF8071E55539B003AF68E /* UserPreferences.swift */; };
 		FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFF372D1E03402F001B2A8F /* Nightline.xcdatamodeld */; };
 		FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFF37301E03402F001B2A8F /* Assets.xcassets */; };
-		FAFF373F1E03402F001B2A8F /* NightlineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF373E1E03402F001B2A8F /* NightlineTests.swift */; };
-		FAFF374A1E03402F001B2A8F /* NightlineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37491E03402F001B2A8F /* NightlineUITests.swift */; };
 		FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37571E034073001B2A8F /* AppDelegate.swift */; };
 		FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF375E1E0340C0001B2A8F /* AppConstant.swift */; };
 		FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37631E034147001B2A8F /* BaseViewController.swift */; };
@@ -200,6 +202,7 @@
 		7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePictCell.swift; path = Controllers/Settings/CustomCells/ProfilePictCell.swift; sourceTree = "<group>"; };
 		7BD6F2591F1525E3001D88F6 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = Manager/MediaManager.swift; sourceTree = "<group>"; };
 		DA35FC8016886464C57CBAE1 /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA18F6071F9F25DA00BD8B0E /* GroupPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupPreview.swift; path = Models/Groups/GroupPreview.swift; sourceTree = "<group>"; };
 		FA1DB89D1E03495E00C8E437 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ../R.generated.swift; sourceTree = "<group>"; };
 		FA1DB8A11E0349FE00C8E437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FA1DB8A61E034CEA00C8E437 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 		FA3AA18B1E57720F002CF4FC /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Manager/UserManager.swift; sourceTree = "<group>"; };
 		FA42C9281E56B50100C6B1C8 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertUtils.swift; path = Utils/AlertUtils.swift; sourceTree = "<group>"; };
 		FA4548A21F0FD12B0064A1BE /* Consommable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Consommable.swift; path = Models/Parties/Consommable.swift; sourceTree = "<group>"; };
+		FA4FC1AF1F9118F0003CCCC7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashScreenViewController.swift; path = Controllers/SplashScreen/SplashScreenViewController.swift; sourceTree = "<group>"; };
+		FA4FC1B11F91194B003CCCC7 /* SplashScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SplashScreen.xib; path = Controllers/SplashScreen/SplashScreen.xib; sourceTree = "<group>"; };
 		FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutableProtocol.swift; path = Protocols/RoutableProtocol.swift; sourceTree = "<group>"; };
 		FA5729821E5CFBE800B36784 /* RoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; name = RoutesAPI.swift; path = Enums/Routes/RoutesAPI.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionRoutesAPI.swift; path = Extensions/Enums/ExtensionRoutesAPI.swift; sourceTree = "<group>"; };
@@ -268,6 +273,7 @@
 		FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FAC3804F1EA08A2200F62FEC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FAC380511EA08A2A00F62FEC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		FAC6D7211F9F20CF0023DA35 /* GroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupList.swift; path = Models/Groups/GroupList.swift; sourceTree = "<group>"; };
 		FAD506E41F4CD4C9002060A1 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Models/Parties/Menu.swift; sourceTree = "<group>"; };
 		FAD506E61F4CD8AD002060A1 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Party.swift; path = Models/Parties/Party.swift; sourceTree = "<group>"; };
 		FAD506E81F4CDBA4002060A1 /* RAParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAParty.swift; path = Network/RAParty.swift; sourceTree = "<group>"; };
@@ -292,11 +298,7 @@
 		FAFF372E1E03402F001B2A8F /* Nightline.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nightline.xcdatamodel; sourceTree = "<group>"; };
 		FAFF37301E03402F001B2A8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAFF373A1E03402F001B2A8F /* NightlineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightlineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAFF373E1E03402F001B2A8F /* NightlineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightlineTests.swift; sourceTree = "<group>"; };
-		FAFF37401E03402F001B2A8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFF37451E03402F001B2A8F /* NightlineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightlineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAFF37491E03402F001B2A8F /* NightlineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightlineUITests.swift; sourceTree = "<group>"; };
-		FAFF374B1E03402F001B2A8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFF37571E034073001B2A8F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFF375E1E0340C0001B2A8F /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppConstant.swift; path = Constants/AppConstant.swift; sourceTree = "<group>"; };
 		FAFF37631E034147001B2A8F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Controllers/BaseViewController.swift; sourceTree = "<group>"; };
@@ -540,6 +542,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		FA4FC1AE1F9118C2003CCCC7 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FA4FC1AF1F9118F0003CCCC7 /* SplashScreenViewController.swift */,
+				FA4FC1B11F91194B003CCCC7 /* SplashScreen.xib */,
+			);
+			name = SplashScreen;
+			sourceTree = "<group>";
+		};
 		FA5729811E5CFBBC00B36784 /* Routes */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +667,8 @@
 				FAC009311F8F9BDE00D82EB9 /* Group.swift */,
 				FAC009331F8FB23B00D82EB9 /* CreateGroupResponse.swift */,
 				FAC009351F8FB4B800D82EB9 /* GroupResponse.swift */,
+				FAC6D7211F9F20CF0023DA35 /* GroupList.swift */,
+				FA18F6071F9F25DA00BD8B0E /* GroupPreview.swift */,
 			);
 			name = Groups;
 			sourceTree = "<group>";
@@ -693,8 +706,6 @@
 			isa = PBXGroup;
 			children = (
 				FAFF37251E03402F001B2A8F /* Nightline */,
-				FAFF373D1E03402F001B2A8F /* NightlineTests */,
-				FAFF37481E03402F001B2A8F /* NightlineUITests */,
 				FAFF37241E03402F001B2A8F /* Products */,
 				D79DDBCA71922E6E1A0DF5C4 /* Frameworks */,
 				56A7B199520A6E0A53E5B9C3 /* Pods */,
@@ -736,24 +747,6 @@
 			path = Nightline;
 			sourceTree = "<group>";
 		};
-		FAFF373D1E03402F001B2A8F /* NightlineTests */ = {
-			isa = PBXGroup;
-			children = (
-				FAFF373E1E03402F001B2A8F /* NightlineTests.swift */,
-				FAFF37401E03402F001B2A8F /* Info.plist */,
-			);
-			path = NightlineTests;
-			sourceTree = "<group>";
-		};
-		FAFF37481E03402F001B2A8F /* NightlineUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FAFF37491E03402F001B2A8F /* NightlineUITests.swift */,
-				FAFF374B1E03402F001B2A8F /* Info.plist */,
-			);
-			path = NightlineUITests;
-			sourceTree = "<group>";
-		};
 		FAFF375D1E0340B7001B2A8F /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +758,7 @@
 		FAFF37621E034137001B2A8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA4FC1AE1F9118C2003CCCC7 /* SplashScreen */,
 				7B9C5B771F8FCB2F00259AC6 /* Groups */,
 				FA3A6D2B1E833D7E008489F2 /* Parties */,
 				FA3AA1841E57719B002CF4FC /* User */,
@@ -979,6 +973,7 @@
 				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
 				7B9C5B7B1F8FCB6000259AC6 /* GroupsListViewController.xib in Resources */,
 				FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */,
+				FA4FC1B21F91194B003CCCC7 /* SplashScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1257,12 +1252,14 @@
 				FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */,
 				FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */,
 				FA78B71B1E56978600765056 /* RAUser.swift in Sources */,
+				FA18F6081F9F25DA00BD8B0E /* GroupPreview.swift in Sources */,
 				FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */,
 				FA8475A41F5F26C800B3E292 /* FriendsList.swift in Sources */,
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
 				FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */,
 				FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */,
 				7B9C5B7A1F8FCB6000259AC6 /* GroupsListViewController.swift in Sources */,
+				FA4FC1B01F9118F0003CCCC7 /* SplashScreenViewController.swift in Sources */,
 				FA2DFCA71F4E0EB100C70C1B /* UserLoginObject.swift in Sources */,
 				FA3AA1721E577106002CF4FC /* SigninViewController.swift in Sources */,
 				FADF25CC1E874C1B00E74439 /* UserAchievementsListCollectionViewController.swift in Sources */,
@@ -1280,6 +1277,7 @@
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
 				7B9C5B7D1F8FCF3800259AC6 /* TabBarController.swift in Sources */,
 				FA6B019C1F56222900F360B5 /* EstablishmentResponse.swift in Sources */,
+				FAC6D7221F9F20CF0023DA35 /* GroupList.swift in Sources */,
 				FA3A6D2D1E833D97008489F2 /* EtablishementViewController.swift in Sources */,
 				FA3AA17C1E577153002CF4FC /* EtablishmentTableViewController.swift in Sources */,
 				FA3AA17D1E577153002CF4FC /* UserSettingsTableViewController.swift in Sources */,
@@ -1315,7 +1313,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAFF373F1E03402F001B2A8F /* NightlineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1323,7 +1320,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAFF374A1E03402F001B2A8F /* NightlineUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1483,7 +1479,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1507,7 +1504,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
