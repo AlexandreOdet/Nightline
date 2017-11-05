@@ -71,14 +71,6 @@ class EtablishmentViewController: ProfileViewController {
         // LoadListOfImages()
     }
 
-    // CollectionView functions:
-
-    //  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //    return self.images.count
-    //  }
-
-    // End collectionview functions
-
     private func setUpView() {
         imgHeader.image = R.image.bar()
         imgProfile.image = R.image.test_logo()

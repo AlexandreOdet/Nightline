@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 42 images.
+  /// This `R.image` struct is generated, and contains static references to 45 images.
   struct image {
     /// Image `addFriend`.
     static let addFriend = Rswift.ImageResource(bundle: R.hostingBundle, name: "addFriend")
@@ -51,6 +51,8 @@ struct R: Rswift.Validatable {
     static let birthday = Rswift.ImageResource(bundle: R.hostingBundle, name: "birthday")
     /// Image `cameraButton`.
     static let cameraButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraButton")
+    /// Image `cameraWhiteButton`.
+    static let cameraWhiteButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraWhiteButton")
     /// Image `champagne`.
     static let champagne = Rswift.ImageResource(bundle: R.hostingBundle, name: "champagne")
     /// Image `cocktail`.
@@ -165,6 +167,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "cameraButton", bundle: ..., traitCollection: ...)`
     static func cameraButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.cameraButton, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "cameraWhiteButton", bundle: ..., traitCollection: ...)`
+    static func cameraWhiteButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cameraWhiteButton, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "champagne", bundle: ..., traitCollection: ...)`
@@ -345,10 +352,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
+    /// Nib `GroupTableViewCell`.
+    static let groupTableViewCell = _R.nib._GroupTableViewCell()
     /// Nib `GroupsListViewController`.
     static let groupsListViewController = _R.nib._GroupsListViewController()
     /// Nib `LaunchScreen`.
@@ -361,6 +370,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "DetailPartyViewController", in: bundle)`
     static func detailPartyViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.detailPartyViewController)
+    }
+    
+    /// `UINib(name: "GroupTableViewCell", in: bundle)`
+    static func groupTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.groupTableViewCell)
     }
     
     /// `UINib(name: "GroupsListViewController", in: bundle)`
@@ -842,6 +856,17 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "orangeArrow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'orangeArrow' is used in nib 'DetailPartyViewController', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _GroupTableViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "GroupTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> GroupTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GroupTableViewCell
       }
       
       fileprivate init() {}

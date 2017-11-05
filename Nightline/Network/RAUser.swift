@@ -152,10 +152,10 @@ final class RAUser: RABase {
     }
     
     func getUserGroupList(id: String) -> Promise<GroupList> {
-        let parameters = ["UserID":id]
+//        let parameters = ["UserID":id]
         let url = RoutesAPI.user.url.appending("/\(id)/groups")
         return Promise { (fulfill, reject) in
-            self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
                 .responseObject(completionHandler: { (response: DataResponse<GroupList>) in
                     switch response.result {
                     case .success(let groups):
