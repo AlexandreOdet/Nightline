@@ -13,6 +13,7 @@ import SnapKit
 class GroupsListViewController: UIViewController {
 
     let raUser = RAUser()
+    let raGrp = RAGroup()
     var grpList: [GroupPreview] = []
     var img = UIImageView()
     let reuseId = "grpCell"
@@ -70,10 +71,30 @@ class GroupsListViewController: UIViewController {
             }.then { result -> Void in
                 self.grpList = result.groups
                 self.tableView.reloadData()
-                _ = self.grpList.map {print("YOOO => " + $0.name)}
+                _ = self.grpList.map {print("grp: " + String($0.id!) + " " + $0.name)}
             }.catch { error -> Void in
                 print("Error : \(error)")
         }
+    }
+
+    func deleteGrp(grp: GroupPreview) {
+        print(String(grp.id))
+        raGrp.deleteGroup(groupId: String(grp.id)) {
+            let alert = UIAlertController(title: "Erreur", message: "La supression du groupe \"\(grp.name!)\" à échouée", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in  }))
+        }
+        getGrpList()
+    }
+
+    func confirmDelete(grp: GroupPreview) {
+        let alert = UIAlertController(title: "Supression", message: "Etes vous sur de vouloir supprimer le groupe \"\(grp.name!)\"?", preferredStyle: .actionSheet)
+        let cancelAct = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAct = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            self.deleteGrp(grp: grp)
+        }
+        alert.addAction(cancelAct)
+        alert.addAction(deleteAct)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -142,5 +163,13 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
         titleLabel.textColor = .orange
         titleLabel.text = "Vos groupes:"
         return headerView
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete: UITableViewRowAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+            self.confirmDelete(grp: self.grpList[indexPath.row])
+        }
+        delete.backgroundColor = deepBlue
+        return [delete]
     }
 }

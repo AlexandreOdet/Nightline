@@ -56,9 +56,8 @@ class RAGroup: RABase {
   }
   
   func deleteGroup(groupId: String, callbackError: @escaping () -> ()){
-    let url = RoutesAPI.baseUrl.appending(AppConstant.Network.groups)
-    let parameters = ["GroupID":groupId]
-    request = Alamofire.request(url, method: .delete, parameters: parameters, encoding: JSONEncoding.default)
+    let url = RoutesAPI.baseUrl.appending(AppConstant.Network.groups).appending("/\(groupId)")
+    request = Alamofire.request(url, method: .delete, parameters: nil, encoding: JSONEncoding.default)
       .responseJSON(completionHandler: {
       (response: DataResponse<Any>) -> Void in
       switch response.result {
