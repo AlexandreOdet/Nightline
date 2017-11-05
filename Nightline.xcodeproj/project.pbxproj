@@ -24,6 +24,8 @@
 		7B60686B1F0FF293000F1755 /* UserMediaCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60686A1F0FF293000F1755 /* UserMediaCustomViewCell.swift */; };
 		7B6074D81F4CD4B400CA7E23 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6074D61F4CD4B400CA7E23 /* SearchUserViewController.swift */; };
 		7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */; };
+		7B61E6D71FAF9EAA0000AE7D /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B61E6D51FAF9EAA0000AE7D /* AddGroupViewController.swift */; };
+		7B61E6D81FAF9EAA0000AE7D /* AddGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B61E6D61FAF9EAA0000AE7D /* AddGroupViewController.xib */; };
 		7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */; };
 		7B9C5B7A1F8FCB6000259AC6 /* GroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */; };
 		7B9C5B7B1F8FCB6000259AC6 /* GroupsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */; };
@@ -194,6 +196,8 @@
 		7B60686A1F0FF293000F1755 /* UserMediaCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMediaCustomViewCell.swift; sourceTree = "<group>"; };
 		7B6074D61F4CD4B400CA7E23 /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserViewController.swift; path = Controllers/User/SearchUserViewController.swift; sourceTree = "<group>"; };
 		7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchUserViewController.xib; path = Controllers/User/SearchUserViewController.xib; sourceTree = "<group>"; };
+		7B61E6D51FAF9EAA0000AE7D /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
+		7B61E6D61FAF9EAA0000AE7D /* AddGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGroupViewController.xib; sourceTree = "<group>"; };
 		7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewController.swift; path = Controllers/User/EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewController.swift; sourceTree = "<group>"; };
 		7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsListViewController.xib; sourceTree = "<group>"; };
@@ -381,9 +385,19 @@
 			name = EditFieldViewCOntrollers;
 			sourceTree = "<group>";
 		};
+		7B61E6D41FAF9E680000AE7D /* AddGroup */ = {
+			isa = PBXGroup;
+			children = (
+				7B61E6D51FAF9EAA0000AE7D /* AddGroupViewController.swift */,
+				7B61E6D61FAF9EAA0000AE7D /* AddGroupViewController.xib */,
+			);
+			path = AddGroup;
+			sourceTree = "<group>";
+		};
 		7B9C5B771F8FCB2F00259AC6 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				7B61E6D41FAF9E680000AE7D /* AddGroup */,
 				7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */,
 				7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */,
 			);
@@ -967,6 +981,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B61E6D81FAF9EAA0000AE7D /* AddGroupViewController.xib in Resources */,
 				FAFAA2F81F7FCC3E0060AAAF /* LaunchScreen.xib in Resources */,
 				7B5B6D381F60B1D000777C78 /* DetailPartyViewController.xib in Resources */,
 				7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */,
@@ -1281,6 +1296,7 @@
 				FA3A6D2D1E833D97008489F2 /* EtablishementViewController.swift in Sources */,
 				FA3AA17C1E577153002CF4FC /* EtablishmentTableViewController.swift in Sources */,
 				FA3AA17D1E577153002CF4FC /* UserSettingsTableViewController.swift in Sources */,
+				7B61E6D71FAF9EAA0000AE7D /* AddGroupViewController.swift in Sources */,
 				7B5A6ACE1E9FB36D00D902C5 /* EditLastNameViewController.swift in Sources */,
 				FA303F6A1E5D1EAE008961EF /* ExtensionUser.swift in Sources */,
 				FA23240D1EF92CFE00F6AF88 /* RAEtablissement.swift in Sources */,

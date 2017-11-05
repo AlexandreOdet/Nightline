@@ -354,10 +354,10 @@ struct R: Rswift.Validatable {
   
   /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
+    /// Nib `AddGroupViewController`.
+    static let addGroupViewController = _R.nib._AddGroupViewController()
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
-    /// Nib `GroupTableViewCell`.
-    static let groupTableViewCell = _R.nib._GroupTableViewCell()
     /// Nib `GroupsListViewController`.
     static let groupsListViewController = _R.nib._GroupsListViewController()
     /// Nib `LaunchScreen`.
@@ -367,14 +367,14 @@ struct R: Rswift.Validatable {
     /// Nib `SplashScreen`.
     static let splashScreen = _R.nib._SplashScreen()
     
+    /// `UINib(name: "AddGroupViewController", in: bundle)`
+    static func addGroupViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.addGroupViewController)
+    }
+    
     /// `UINib(name: "DetailPartyViewController", in: bundle)`
     static func detailPartyViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.detailPartyViewController)
-    }
-    
-    /// `UINib(name: "GroupTableViewCell", in: bundle)`
-    static func groupTableViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.groupTableViewCell)
     }
     
     /// `UINib(name: "GroupsListViewController", in: bundle)`
@@ -846,6 +846,17 @@ struct _R: Rswift.Validatable {
       try _LaunchScreen.validate()
     }
     
+    struct _AddGroupViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "AddGroupViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _DetailPartyViewController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "DetailPartyViewController"
@@ -856,17 +867,6 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "orangeArrow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'orangeArrow' is used in nib 'DetailPartyViewController', but couldn't be loaded.") }
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct _GroupTableViewCell: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "GroupTableViewCell"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> GroupTableViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GroupTableViewCell
       }
       
       fileprivate init() {}

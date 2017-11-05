@@ -58,7 +58,7 @@
                         <segment title="User"/>
                         <segment title="Place"/>
                     </segments>
-                    <color key="tintColor" red="0.91730970144271851" green="0.54727464914321899" blue="0.050949640572071075" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" red="0.91764705882352937" green="0.5490196078431373" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="changeSearchCat:" destination="-1" eventType="valueChanged" id="otu-hR-hGZ"/>
                     </connections>

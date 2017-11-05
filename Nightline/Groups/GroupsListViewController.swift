@@ -50,6 +50,18 @@ class GroupsListViewController: UIViewController {
 
     @objc func addGrp() {
         print("Create group triggered")
+        let addGrpVc = AddGroupViewController()
+        addGrpVc.modalPresentationStyle = .overCurrentContext
+        addGrpVc.reloadTVData = getGrpList
+        present(addGrpVc, animated: true, completion: nil)
+    }
+
+    func setBlur() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
     }
 
     func getGrpList() {
@@ -71,43 +83,43 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return grpList.count
+        return grpList.count + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.backgroundColor = deepBlue
+        if indexPath.row < grpList.count {
+            let bg = UIView()
+            cell.addSubview(bg)
+            bg.snp.makeConstraints { (make) in
+                make.edges.equalToSuperview().inset(4)
+            }
+            bg.layer.cornerRadius = 5
+            bg.backgroundColor = UIColor(hex : 0x363D4C)
+            bg.clipsToBounds = true
 
-        let bg = UIView()
-        cell.addSubview(bg)
-        bg.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(4)
+            let nameLabel = UILabel()
+            cell.addSubview(nameLabel)
+            nameLabel.snp.makeConstraints { (make) in
+                make.top.equalTo(cell).inset(5)
+                make.left.right.equalToSuperview().inset(10)
+                make.height.equalTo(25)
+            }
+            nameLabel.text = grpList[indexPath.row].name
+            nameLabel.textColor = UIColor.orange
+
+            let descTextView = UITextView()
+            cell.addSubview(descTextView)
+            descTextView.snp.makeConstraints { (make) in
+                make.right.left.bottom.equalTo(cell).inset(5)
+                make.height.equalTo(55)
+            }
+            descTextView.isEditable = false
+            descTextView.textColor = UIColor.orange
+            descTextView.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0)
+            descTextView.text = grpList[indexPath.row].description
         }
-        bg.layer.cornerRadius = 5
-        bg.backgroundColor = UIColor(hex : 0x363D4C)
-        bg.clipsToBounds = true
-
-        let nameLabel = UILabel()
-        cell.addSubview(nameLabel)
-        nameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(cell).inset(5)
-            make.left.right.equalToSuperview().inset(10)
-            make.height.equalTo(25)
-        }
-        nameLabel.text = grpList[indexPath.row].name
-        nameLabel.textColor = UIColor.orange
-
-        let descTextView = UITextView()
-        cell.addSubview(descTextView)
-        descTextView.snp.makeConstraints { (make) in
-            make.right.left.bottom.equalTo(cell).inset(5)
-            make.height.equalTo(55)
-        }
-        descTextView.isEditable = false
-        descTextView.textColor = UIColor.orange
-        descTextView.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0)
-        descTextView.text = grpList[indexPath.row].description
-
         return cell
     }
 
@@ -116,12 +128,19 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 15
+        return 30
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = deepBlue
+        let titleLabel = UILabel()
+        headerView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        titleLabel.textColor = .orange
+        titleLabel.text = "Vos groupes:"
         return headerView
     }
 }
