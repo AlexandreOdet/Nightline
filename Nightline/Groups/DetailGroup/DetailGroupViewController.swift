@@ -7,13 +7,52 @@
 //
 
 import UIKit
+import PromiseKit
 
 class DetailGroupViewController: UIViewController {
+    let raGrp = RAGroup()
+    let grpId = 0
+    var grp: GroupResponse!
+    let deepBlue = UIColor(hex: 0x0e1728)
+    let lightBlue = UIColor(hex : 0x363D4C)
+    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var membersCV: UICollectionView!
+
+    convenience init(grp: GroupResponse) {
+        self.init()
+        self.grp = grp
+    }
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.edgesForExtendedLayout = []
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(grp.id)
+        print(grp.name)
+        print(grp.owner.pseudo)
+        setTheme()
+        setData()
         // Do any additional setup after loading the view.
+    }
+
+    func setTheme() {
+        mainView.backgroundColor = deepBlue
+    }
+
+    func setData() {
+        nameLabel.text = grp.name
     }
 
     override func didReceiveMemoryWarning() {

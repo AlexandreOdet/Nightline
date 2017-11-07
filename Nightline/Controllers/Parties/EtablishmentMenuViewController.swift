@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
-import PageMenu
 import PromiseKit
-
 
 class EtablishmentMenuViewController: BaseViewController {
 
