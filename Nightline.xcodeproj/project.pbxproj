@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		16EA4369710548135CFAEE5B /* Pods_Nightline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B3CF14417D25DE04E3BFFD /* Pods_Nightline.framework */; };
-		7B0A55021EF7E92E00BE08CD /* CamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A55011EF7E92E00BE08CD /* CamViewController.swift */; };
 		7B0A55141EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0A55131EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift */; };
 		7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */; };
 		7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */; };
@@ -26,6 +25,8 @@
 		7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */; };
 		7B61E6D71FAF9EAA0000AE7D /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B61E6D51FAF9EAA0000AE7D /* AddGroupViewController.swift */; };
 		7B61E6D81FAF9EAA0000AE7D /* AddGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B61E6D61FAF9EAA0000AE7D /* AddGroupViewController.xib */; };
+		7B61E6DC1FB23DE60000AE7D /* DetailGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B61E6DA1FB23DE50000AE7D /* DetailGroupViewController.swift */; };
+		7B61E6DD1FB23DE60000AE7D /* DetailGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B61E6DB1FB23DE50000AE7D /* DetailGroupViewController.xib */; };
 		7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */; };
 		7B9C5B7A1F8FCB6000259AC6 /* GroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */; };
 		7B9C5B7B1F8FCB6000259AC6 /* GroupsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */; };
@@ -180,7 +181,6 @@
 		356652EF85A586EE2B3B7C86 /* Pods-NightlineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4583D38ED9C6C3DCE45141F0 /* Pods-NightlineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6C1B6E312BD7D4A5D1D151D1 /* Pods-NightlineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests.release.xcconfig"; sourceTree = "<group>"; };
-		7B0A55011EF7E92E00BE08CD /* CamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CamViewController.swift; path = Controllers/Parties/CamViewController.swift; sourceTree = "<group>"; };
 		7B0A55131EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsommationTypeCollectionViewController.swift; path = Controllers/Parties/ConsommationTypeCollectionViewController.swift; sourceTree = "<group>"; };
 		7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 		7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditPictureViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditPictureViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +198,8 @@
 		7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchUserViewController.xib; path = Controllers/User/SearchUserViewController.xib; sourceTree = "<group>"; };
 		7B61E6D51FAF9EAA0000AE7D /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		7B61E6D61FAF9EAA0000AE7D /* AddGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGroupViewController.xib; sourceTree = "<group>"; };
+		7B61E6DA1FB23DE50000AE7D /* DetailGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGroupViewController.swift; sourceTree = "<group>"; };
+		7B61E6DB1FB23DE50000AE7D /* DetailGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailGroupViewController.xib; sourceTree = "<group>"; };
 		7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewController.swift; path = Controllers/User/EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewController.swift; sourceTree = "<group>"; };
 		7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsListViewController.xib; sourceTree = "<group>"; };
@@ -394,9 +396,19 @@
 			path = AddGroup;
 			sourceTree = "<group>";
 		};
+		7B61E6D91FB23DB60000AE7D /* DetailGroup */ = {
+			isa = PBXGroup;
+			children = (
+				7B61E6DA1FB23DE50000AE7D /* DetailGroupViewController.swift */,
+				7B61E6DB1FB23DE50000AE7D /* DetailGroupViewController.xib */,
+			);
+			path = DetailGroup;
+			sourceTree = "<group>";
+		};
 		7B9C5B771F8FCB2F00259AC6 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				7B61E6D91FB23DB60000AE7D /* DetailGroup */,
 				7B61E6D41FAF9E680000AE7D /* AddGroup */,
 				7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */,
 				7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */,
@@ -444,7 +456,6 @@
 				7B5B6D351F60B1D000777C78 /* DetailPartyViewController.swift */,
 				7B5B6D361F60B1D000777C78 /* DetailPartyViewController.xib */,
 				FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */,
-				7B0A55011EF7E92E00BE08CD /* CamViewController.swift */,
 				7B0A55131EF9310100BE08CD /* ConsommationTypeCollectionViewController.swift */,
 			);
 			name = Parties;
@@ -984,6 +995,7 @@
 				7B61E6D81FAF9EAA0000AE7D /* AddGroupViewController.xib in Resources */,
 				FAFAA2F81F7FCC3E0060AAAF /* LaunchScreen.xib in Resources */,
 				7B5B6D381F60B1D000777C78 /* DetailPartyViewController.xib in Resources */,
+				7B61E6DD1FB23DE60000AE7D /* DetailGroupViewController.xib in Resources */,
 				7B6074D91F4CD4B400CA7E23 /* SearchUserViewController.xib in Resources */,
 				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
 				7B9C5B7B1F8FCB6000259AC6 /* GroupsListViewController.xib in Resources */,
@@ -1132,12 +1144,12 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Nightline/Pods-Nightline-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
+				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/PageMenu/PageMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -1145,19 +1157,19 @@
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-11/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyCam/SwiftyCam.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -1165,8 +1177,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyCam.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1199,7 +1211,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1287,7 +1299,6 @@
 				FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */,
 				7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */,
 				7B4050421F54521F00A2B0A9 /* DetailUserViewController.swift in Sources */,
-				7B0A55021EF7E92E00BE08CD /* CamViewController.swift in Sources */,
 				FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */,
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
 				7B9C5B7D1F8FCF3800259AC6 /* TabBarController.swift in Sources */,
@@ -1313,6 +1324,7 @@
 				FA3AA18C1E57720F002CF4FC /* TokenWrapper.swift in Sources */,
 				FA6B01921F54756800F360B5 /* UserResponse.swift in Sources */,
 				FA8851941F4B810900647A1F /* SearchResult.swift in Sources */,
+				7B61E6DC1FB23DE60000AE7D /* DetailGroupViewController.swift in Sources */,
 				FA8851901F4B72CF00647A1F /* Success.swift in Sources */,
 				7BD406E61E9A5204003C09AC /* ProfilePictCell.swift in Sources */,
 				FA6B01901F54744D00F360B5 /* MenuList.swift in Sources */,

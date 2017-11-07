@@ -16,8 +16,27 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 0 color palettes.
+  /// This `R.color` struct is generated, and contains static references to 2 colors.
   struct color {
+    /// Color `midnightBlue`.
+    static let midnightBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "midnightBlue")
+    /// Color `midnightOrange`.
+    static let midnightOrange = Rswift.ColorResource(bundle: R.hostingBundle, name: "midnightOrange")
+    
+    /// `UIColor(named: "midnightBlue", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func midnightBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.midnightBlue, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "midnightOrange", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func midnightOrange(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.midnightOrange, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -352,10 +371,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
   struct nib {
     /// Nib `AddGroupViewController`.
     static let addGroupViewController = _R.nib._AddGroupViewController()
+    /// Nib `DetailGroupViewController`.
+    static let detailGroupViewController = _R.nib._DetailGroupViewController()
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
     /// Nib `GroupsListViewController`.
@@ -370,6 +391,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "AddGroupViewController", in: bundle)`
     static func addGroupViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.addGroupViewController)
+    }
+    
+    /// `UINib(name: "DetailGroupViewController", in: bundle)`
+    static func detailGroupViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.detailGroupViewController)
     }
     
     /// `UINib(name: "DetailPartyViewController", in: bundle)`
@@ -849,6 +875,17 @@ struct _R: Rswift.Validatable {
     struct _AddGroupViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "AddGroupViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _DetailGroupViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "DetailGroupViewController"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView

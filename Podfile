@@ -4,7 +4,7 @@ platform :ios, '10.2'
 target 'Nightline' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'SnapKit' , '~> 3.2.0'
+  pod 'SnapKit'
   pod 'R.swift'
   pod 'Alamofire'
   pod 'ObjectMapper'
@@ -13,12 +13,13 @@ target 'Nightline' do
   pod 'AlamofireObjectMapper'
   pod 'KeychainSwift'
   pod 'PromiseKit'
-  pod 'SwiftyCam'
-  pod 'PageMenu'
+#  pod 'SwiftyCam'
+#  pod 'PageMenu'
   pod 'Lightbox'
   pod 'Reveal-SDK'
-  pod 'PagingMenuController'
+#  pod 'PagingMenuController'
   pod 'Stripe'
+  pod 'SwiftSpinner'
   
   # Pods for Nightline
 
