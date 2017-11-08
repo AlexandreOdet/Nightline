@@ -11,7 +11,6 @@ import CoreData
 import SwiftyBeaver
 import KeychainSwift
 import FBSDKCoreKit
-//import Cloudinary
 import PromiseKit
 import Stripe
 

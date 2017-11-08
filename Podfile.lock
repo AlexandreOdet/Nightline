@@ -12,8 +12,6 @@ PODS:
     - Hue (~> 3.0)
     - Imaginary (~> 3.0)
   - ObjectMapper (3.0.0)
-  - PageMenu (2.0.0)
-  - PagingMenuController (2.2.0)
   - PromiseKit (4.5.0):
     - PromiseKit/Foundation (= 4.5.0)
     - PromiseKit/QuartzCore (= 4.5.0)
@@ -36,8 +34,8 @@ PODS:
   - Reveal-SDK (11)
   - SnapKit (4.0.0)
   - Stripe (11.4.0)
+  - SwiftSpinner (1.4.1)
   - SwiftyBeaver (1.4.2)
-  - SwiftyCam (2.6.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -45,16 +43,14 @@ DEPENDENCIES:
   - KeychainSwift
   - Lightbox
   - ObjectMapper
-  - PageMenu
-  - PagingMenuController
   - PromiseKit
   - R.swift
   - RealmSwift
   - Reveal-SDK
   - SnapKit
   - Stripe
+  - SwiftSpinner
   - SwiftyBeaver
-  - SwiftyCam
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -65,8 +61,6 @@ SPEC CHECKSUMS:
   KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
   Lightbox: b72d18d05b57ba55dbac2eb0d7dafdc934205cf3
   ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
-  PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
-  PagingMenuController: 6176618987bb170096664f2da097313e45ed9c31
   PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
@@ -75,9 +69,9 @@ SPEC CHECKSUMS:
   Reveal-SDK: 7fa13d04bb55db61ff2342a990cf731d5159361d
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Stripe: dc8396620ab86a36221fc8df72ba9f5d317d174c
+  SwiftSpinner: bf7c13332ad008952a09358cadf24a186510ae31
   SwiftyBeaver: 91057725648ee4980308f1650af077d04b3654a0
-  SwiftyCam: 86c114177a1b1f5dc2c82384577d0c20b922a31b
 
-PODFILE CHECKSUM: 8361896042f6c374be0f2b15eb96c93be3d5811f
+PODFILE CHECKSUM: 058ce01f86165d6ac86106d74d5531fd6e959eb6
 
 COCOAPODS: 1.3.1

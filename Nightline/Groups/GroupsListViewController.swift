@@ -9,6 +9,7 @@
 import UIKit
 import PromiseKit
 import SnapKit
+import SwiftSpinner
 
 class GroupsListViewController: UIViewController {
 
@@ -30,7 +31,6 @@ class GroupsListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.edgesForExtendedLayout = []
-        setNavBar()
         getGrpList()
     }
 
@@ -66,6 +66,8 @@ class GroupsListViewController: UIViewController {
     }
 
     func getGrpList() {
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+        setNavBar()
         firstly {
             raUser.getUserGroupList(id: String(UserManager.instance.retrieveUserId()))
             }.then { result -> Void in
@@ -140,6 +142,15 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
             descTextView.textColor = UIColor.orange
             descTextView.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0)
             descTextView.text = grpList[indexPath.row].description
+        } else if grpList.count == 0 {
+            let noGrpLabel = UILabel()
+            cell.addSubview(noGrpLabel)
+            noGrpLabel.snp.makeConstraints({ (make) in
+                make.edges.equalToSuperview()
+            })
+            noGrpLabel.text = "Aucun groupe"
+            noGrpLabel.textAlignment = .center
+            noGrpLabel.textColor = .orange
         }
         return cell
     }
@@ -171,5 +182,30 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         delete.backgroundColor = deepBlue
         return [delete]
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let grpId = grpList[indexPath.row].id
+        SwiftSpinner.show("Chargement des détails du groupe")
+        firstly {
+            raGrp.getGroupInformations(groupId: grpId ?? 0)
+            }.then { group -> Void in
+                let nextVC = DetailGroupViewController(grp: group.group)
+                self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+                SwiftSpinner.hide()
+                if let nav = self.navigationController {
+                    nav.pushViewController(nextVC, animated: true)
+                }
+            }.catch { _ -> Void in
+                SwiftSpinner.hide() {
+                    self.showErrorLoadingGrpDetails()
+                }
+        }
+    }
+
+    func showErrorLoadingGrpDetails() {
+        let alert = UIAlertController(title: "Erreur", message: "Le chargement des details du groupe a échoué", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }

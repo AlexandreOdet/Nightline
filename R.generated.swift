@@ -364,10 +364,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
   struct nib {
     /// Nib `AddGroupViewController`.
     static let addGroupViewController = _R.nib._AddGroupViewController()
+    /// Nib `DetailGroupViewController`.
+    static let detailGroupViewController = _R.nib._DetailGroupViewController()
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
     /// Nib `GroupsListViewController`.
@@ -382,6 +384,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "AddGroupViewController", in: bundle)`
     static func addGroupViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.addGroupViewController)
+    }
+    
+    /// `UINib(name: "DetailGroupViewController", in: bundle)`
+    static func detailGroupViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.detailGroupViewController)
     }
     
     /// `UINib(name: "DetailPartyViewController", in: bundle)`
@@ -861,6 +868,17 @@ struct _R: Rswift.Validatable {
     struct _AddGroupViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "AddGroupViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _DetailGroupViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "DetailGroupViewController"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
