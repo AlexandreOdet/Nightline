@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailGroupViewController" customModule="Nightline" customModuleProvider="target">
             <connections>
+                <outlet property="editMembersBtn" destination="G3j-FD-Hv9" id="D2z-Pc-kFh"/>
                 <outlet property="mainView" destination="i5M-Pr-FkT" id="K17-hP-hso"/>
                 <outlet property="membersCV" destination="LLG-if-P9N" id="4K7-Qh-Tdj"/>
                 <outlet property="nameLabel" destination="YBQ-ey-oIr" id="Rz9-sb-b51"/>
@@ -23,26 +24,61 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBQ-ey-oIr">
-                    <rect key="frame" x="16" y="20" width="343" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="0.4986549616" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LLG-if-P9N">
-                    <rect key="frame" x="16" y="92" width="343" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LLG-if-P9N">
+                    <rect key="frame" x="16" y="160" width="343" height="180"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5JZ-yA-CLd">
-                        <size key="itemSize" width="50" height="50"/>
+                        <size key="itemSize" width="100" height="100"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3j-FD-Hv9">
+                    <rect key="frame" x="16" y="122" width="150" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="21z-PX-YJT"/>
+                        <constraint firstAttribute="width" constant="150" id="UYc-Sr-QYa"/>
+                    </constraints>
+                    <state key="normal" title="Editer les membres">
+                        <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="editMembers:" destination="-1" eventType="touchUpInside" id="tr6-GT-eBm"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vk5-Lh-ewE">
+                    <rect key="frame" x="16" y="89" width="343" height="2"/>
+                    <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="2Mb-aL-wxd"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBQ-ey-oIr">
+                    <rect key="frame" x="16" y="33" width="343" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="zAP-zQ-Kvr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" red="1" green="0.4986549616" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LLG-if-P9N" secondAttribute="bottom" constant="327" id="6CE-rY-59g"/>
+                <constraint firstItem="LLG-if-P9N" firstAttribute="trailing" secondItem="YBQ-ey-oIr" secondAttribute="trailing" id="9bT-a0-3ow"/>
+                <constraint firstItem="LLG-if-P9N" firstAttribute="leading" secondItem="G3j-FD-Hv9" secondAttribute="leading" id="KiH-NU-tck"/>
+                <constraint firstItem="LLG-if-P9N" firstAttribute="top" secondItem="YBQ-ey-oIr" secondAttribute="bottom" constant="87" id="M8I-JZ-UJb"/>
+                <constraint firstItem="LLG-if-P9N" firstAttribute="top" secondItem="G3j-FD-Hv9" secondAttribute="bottom" constant="8" id="Nsi-Sy-OLB"/>
+                <constraint firstItem="G3j-FD-Hv9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="VMs-vf-e50"/>
+                <constraint firstItem="vk5-Lh-ewE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="X5g-yj-Aok"/>
+                <constraint firstItem="YBQ-ey-oIr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="13" id="XDb-Gl-RwX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vk5-Lh-ewE" secondAttribute="trailing" constant="16" id="beW-Iz-cRG"/>
+                <constraint firstItem="YBQ-ey-oIr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="kIa-AJ-f0a"/>
+                <constraint firstItem="vk5-Lh-ewE" firstAttribute="top" secondItem="YBQ-ey-oIr" secondAttribute="bottom" constant="16" id="lya-vZ-oS8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YBQ-ey-oIr" secondAttribute="trailing" constant="16" id="zxh-vI-394"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="34.5" y="77.5"/>
         </view>

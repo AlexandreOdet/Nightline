@@ -364,7 +364,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 9 nibs.
   struct nib {
     /// Nib `AddGroupViewController`.
     static let addGroupViewController = _R.nib._AddGroupViewController()
@@ -372,6 +372,10 @@ struct R: Rswift.Validatable {
     static let detailGroupViewController = _R.nib._DetailGroupViewController()
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
+    /// Nib `EditMembersViewController`.
+    static let editMembersViewController = _R.nib._EditMembersViewController()
+    /// Nib `GroupMemberCollectionViewCell`.
+    static let groupMemberCollectionViewCell = _R.nib._GroupMemberCollectionViewCell()
     /// Nib `GroupsListViewController`.
     static let groupsListViewController = _R.nib._GroupsListViewController()
     /// Nib `LaunchScreen`.
@@ -394,6 +398,16 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "DetailPartyViewController", in: bundle)`
     static func detailPartyViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.detailPartyViewController)
+    }
+    
+    /// `UINib(name: "EditMembersViewController", in: bundle)`
+    static func editMembersViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.editMembersViewController)
+    }
+    
+    /// `UINib(name: "GroupMemberCollectionViewCell", in: bundle)`
+    static func groupMemberCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.groupMemberCollectionViewCell)
     }
     
     /// `UINib(name: "GroupsListViewController", in: bundle)`
@@ -897,6 +911,28 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "orangeArrow", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'orangeArrow' is used in nib 'DetailPartyViewController', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _EditMembersViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "EditMembersViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _GroupMemberCollectionViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "GroupMemberCollectionViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> GroupMemberCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GroupMemberCollectionViewCell
       }
       
       fileprivate init() {}

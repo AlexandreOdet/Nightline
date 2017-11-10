@@ -12,6 +12,8 @@
 		7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */; };
 		7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */; };
 		7B4050421F54521F00A2B0A9 /* DetailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4050401F54521F00A2B0A9 /* DetailUserViewController.swift */; };
+		7B4374D01FB4AF40001C53D1 /* EditMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4374CE1FB4AF40001C53D1 /* EditMembersViewController.swift */; };
+		7B4374D11FB4AF41001C53D1 /* EditMembersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B4374CF1FB4AF40001C53D1 /* EditMembersViewController.xib */; };
 		7B46AA601E9F557300529E64 /* EditFirstNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */; };
 		7B5A6ACE1E9FB36D00D902C5 /* EditLastNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A6ACD1E9FB36D00D902C5 /* EditLastNameViewController.swift */; };
 		7B5A6AD01E9FB4C200D902C5 /* EditNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A6ACF1E9FB4C200D902C5 /* EditNickNameViewController.swift */; };
@@ -31,6 +33,8 @@
 		7B9C5B7A1F8FCB6000259AC6 /* GroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */; };
 		7B9C5B7B1F8FCB6000259AC6 /* GroupsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */; };
 		7B9C5B7D1F8FCF3800259AC6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B7C1F8FCF3700259AC6 /* TabBarController.swift */; };
+		7BAC21221FB48FB1002FA850 /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC21201FB48FB1002FA850 /* GroupMemberCollectionViewCell.swift */; };
+		7BAC21231FB48FB1002FA850 /* GroupMemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC21211FB48FB1002FA850 /* GroupMemberCollectionViewCell.xib */; };
 		7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */; };
 		7BD406E61E9A5204003C09AC /* ProfilePictCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */; };
 		7BD6F25A1F1525E3001D88F6 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD6F2591F1525E3001D88F6 /* MediaManager.swift */; };
@@ -185,6 +189,8 @@
 		7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 		7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditPictureViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditPictureViewController.swift; sourceTree = "<group>"; };
 		7B4050401F54521F00A2B0A9 /* DetailUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailUserViewController.swift; path = Controllers/User/DetailUserViewController.swift; sourceTree = "<group>"; };
+		7B4374CE1FB4AF40001C53D1 /* EditMembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMembersViewController.swift; sourceTree = "<group>"; };
+		7B4374CF1FB4AF40001C53D1 /* EditMembersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMembersViewController.xib; sourceTree = "<group>"; };
 		7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditFirstNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditFirstNameViewController.swift; sourceTree = "<group>"; };
 		7B5A6ACD1E9FB36D00D902C5 /* EditLastNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditLastNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditLastNameViewController.swift; sourceTree = "<group>"; };
 		7B5A6ACF1E9FB4C200D902C5 /* EditNickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditNickNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditNickNameViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +210,8 @@
 		7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewController.swift; sourceTree = "<group>"; };
 		7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsListViewController.xib; sourceTree = "<group>"; };
 		7B9C5B7C1F8FCF3700259AC6 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		7BAC21201FB48FB1002FA850 /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		7BAC21211FB48FB1002FA850 /* GroupMemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMemberCollectionViewCell.xib; sourceTree = "<group>"; };
 		7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleLabelTableViewCell.swift; path = Controllers/Settings/CustomCells/DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePictCell.swift; path = Controllers/Settings/CustomCells/ProfilePictCell.swift; sourceTree = "<group>"; };
 		7BD6F2591F1525E3001D88F6 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = Manager/MediaManager.swift; sourceTree = "<group>"; };
@@ -374,6 +382,15 @@
 			name = SearchView;
 			sourceTree = "<group>";
 		};
+		7B4374CD1FB4AF09001C53D1 /* EditMembers */ = {
+			isa = PBXGroup;
+			children = (
+				7B4374CE1FB4AF40001C53D1 /* EditMembersViewController.swift */,
+				7B4374CF1FB4AF40001C53D1 /* EditMembersViewController.xib */,
+			);
+			path = EditMembers;
+			sourceTree = "<group>";
+		};
 		7B46AA5E1E9F550000529E64 /* EditFieldViewCOntrollers */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +416,8 @@
 		7B61E6D91FB23DB60000AE7D /* DetailGroup */ = {
 			isa = PBXGroup;
 			children = (
+				7B4374CD1FB4AF09001C53D1 /* EditMembers */,
+				7BAC21241FB48FBA002FA850 /* GroupMemberCell */,
 				7B61E6DA1FB23DE50000AE7D /* DetailGroupViewController.swift */,
 				7B61E6DB1FB23DE50000AE7D /* DetailGroupViewController.xib */,
 			);
@@ -414,6 +433,15 @@
 				7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */,
 			);
 			path = Groups;
+			sourceTree = "<group>";
+		};
+		7BAC21241FB48FBA002FA850 /* GroupMemberCell */ = {
+			isa = PBXGroup;
+			children = (
+				7BAC21201FB48FB1002FA850 /* GroupMemberCollectionViewCell.swift */,
+				7BAC21211FB48FB1002FA850 /* GroupMemberCollectionViewCell.xib */,
+			);
+			path = GroupMemberCell;
 			sourceTree = "<group>";
 		};
 		D79DDBCA71922E6E1A0DF5C4 /* Frameworks */ = {
@@ -992,6 +1020,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAC21231FB48FB1002FA850 /* GroupMemberCollectionViewCell.xib in Resources */,
 				7B61E6D81FAF9EAA0000AE7D /* AddGroupViewController.xib in Resources */,
 				FAFAA2F81F7FCC3E0060AAAF /* LaunchScreen.xib in Resources */,
 				7B5B6D381F60B1D000777C78 /* DetailPartyViewController.xib in Resources */,
@@ -1000,6 +1029,7 @@
 				FA1DB8A51E034CEA00C8E437 /* Localizable.strings in Resources */,
 				7B9C5B7B1F8FCB6000259AC6 /* GroupsListViewController.xib in Resources */,
 				FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */,
+				7B4374D11FB4AF41001C53D1 /* EditMembersViewController.xib in Resources */,
 				FA4FC1B21F91194B003CCCC7 /* SplashScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1234,6 +1264,7 @@
 				FAF0A6CA1E876F3E00C2ED18 /* ExtensionInt.swift in Sources */,
 				FA5C2A9C1E5A519700A0CB56 /* UITableViewCellExtension.swift in Sources */,
 				7B5A6AD01E9FB4C200D902C5 /* EditNickNameViewController.swift in Sources */,
+				7B4374D01FB4AF40001C53D1 /* EditMembersViewController.swift in Sources */,
 				FADF25D01E8767F800E74439 /* AchievementManager.swift in Sources */,
 				FA5C2A9E1E5A519700A0CB56 /* UIViewControllerExtension.swift in Sources */,
 				FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */,
@@ -1272,6 +1303,7 @@
 				FAD506EF1F4D777C002060A1 /* Order.swift in Sources */,
 				FADAF4E71F2BAB7200C779A2 /* LoginSignUpUserResponse.swift in Sources */,
 				FAFF4EA21E5E4762006582C7 /* ExtensionString.swift in Sources */,
+				7BAC21221FB48FB1002FA850 /* GroupMemberCollectionViewCell.swift in Sources */,
 				FA2DFCB31F522DEE00C70C1B /* Owner.swift in Sources */,
 				FA3AA1881E5771A8002CF4FC /* UserProfileViewController.swift in Sources */,
 				7B5B6D371F60B1D000777C78 /* DetailPartyViewController.swift in Sources */,
@@ -1501,7 +1533,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Nightline/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1527,7 +1559,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Nightline/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nightline.AlexandreOdet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
