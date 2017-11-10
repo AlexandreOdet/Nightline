@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import SnapKit
 
 class DetailGroupViewController: UIViewController {
     let raGrp = RAGroup()
@@ -15,15 +16,36 @@ class DetailGroupViewController: UIViewController {
     var grp: GroupResponse!
     let deepBlue = UIColor(hex: 0x0e1728)
     let lightBlue = UIColor(hex : 0x363D4C)
+    var grpMembers = [User]()
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var membersCV: UICollectionView!
-
+    @IBOutlet weak var editMembersBtn: UIButton!
+    
     convenience init(grp: GroupResponse) {
         self.init()
         self.grp = grp
     }
 
+    func setFakeUserList() {
+        let user1 = User()
+        user1.firstName = "Cedric"
+        user1.lastName = "Moreaux"
+        let user2 = User()
+        user2.firstName = "Florian"
+        user2.lastName = "Seure"
+        let user3 = User()
+        user3.firstName = "Maxime"
+        user3.lastName = "Guittet"
+        let user4 = User()
+        user4.firstName = "Diego"
+        user4.lastName = "Moran"
+        let user5 = User()
+        user5.firstName = "Leo"
+        user5.lastName = "Bourrel"
+        grpMembers = [user1, user2, user3, user4, user5]
+    }
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -42,33 +64,49 @@ class DetailGroupViewController: UIViewController {
         print(grp.id)
         print(grp.name)
         print(grp.owner.pseudo)
+        setFakeUserList()
         setTheme()
         setData()
-        // Do any additional setup after loading the view.
     }
 
     func setTheme() {
         mainView.backgroundColor = deepBlue
+        membersCV.backgroundColor = deepBlue
+        editMembersBtn.backgroundColor = lightBlue
+        editMembersBtn.layer.cornerRadius = editMembersBtn.frame.height / 2
+        editMembersBtn.clipsToBounds = true
     }
 
     func setData() {
+        membersCV.delegate = self
+        membersCV.dataSource = self
+                membersCV.register(UINib(nibName: "GroupMemberCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "grpMember")
         nameLabel.text = grp.name
+        membersCV.reloadData()
     }
-
+    
+    @IBAction func editMembers(_ sender: Any) {
+        let nextVC = EditMembersViewController(usrList: grpMembers)
+        nextVC.modalPresentationStyle = .overCurrentContext
+        present(nextVC, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension DetailGroupViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return grpMembers.count
     }
-    */
 
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = membersCV.dequeueReusableCell(withReuseIdentifier: "grpMember", for: indexPath) as! GroupMemberCollectionViewCell
+        cell.backgroundColor = deepBlue
+        cell.setData(usr: grpMembers[indexPath.row])
+        cell.setView()
+        return cell
+    }
 }

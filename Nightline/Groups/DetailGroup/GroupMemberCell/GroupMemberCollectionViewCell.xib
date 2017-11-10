@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GroupMemberCollectionViewCell" customModule="Nightline" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="se0-fn-Mxu">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LastName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WT4-Ei-YfE">
+                        <rect key="frame" x="3" y="47" width="94" height="50"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPq-sw-tR0">
+                        <rect key="frame" x="3" y="3" width="94" height="50"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="IPq-sw-tR0" secondAttribute="trailing" constant="3" id="DFR-zW-Ff5"/>
+                <constraint firstAttribute="trailing" secondItem="se0-fn-Mxu" secondAttribute="trailing" id="Huh-lW-qml"/>
+                <constraint firstItem="se0-fn-Mxu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="K53-35-9fs"/>
+                <constraint firstItem="WT4-Ei-YfE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="LUm-Eh-9MQ"/>
+                <constraint firstItem="WT4-Ei-YfE" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.5" id="Lm0-eH-J0J"/>
+                <constraint firstItem="se0-fn-Mxu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="X1d-QQ-SH6"/>
+                <constraint firstItem="IPq-sw-tR0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="XuL-pD-mq3"/>
+                <constraint firstAttribute="trailing" secondItem="WT4-Ei-YfE" secondAttribute="trailing" constant="3" id="bPF-tA-mCo"/>
+                <constraint firstAttribute="bottom" secondItem="WT4-Ei-YfE" secondAttribute="bottom" constant="3" id="icU-fX-5EL"/>
+                <constraint firstItem="IPq-sw-tR0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="n1I-bk-m7i"/>
+                <constraint firstItem="IPq-sw-tR0" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.5" id="n3w-qj-uLg"/>
+                <constraint firstAttribute="bottom" secondItem="se0-fn-Mxu" secondAttribute="bottom" id="nRw-Lm-shs"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="bg" destination="se0-fn-Mxu" id="GXP-En-FQk"/>
+                <outlet property="firstNameLabel" destination="IPq-sw-tR0" id="m05-fv-Jsa"/>
+                <outlet property="lastNameLabel" destination="WT4-Ei-YfE" id="ayk-Lh-qpg"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
