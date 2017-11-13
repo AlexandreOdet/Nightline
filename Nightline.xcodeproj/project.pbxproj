@@ -41,9 +41,9 @@
 		7BD406E61E9A5204003C09AC /* ProfilePictCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */; };
 		7BD6F25A1F1525E3001D88F6 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD6F2591F1525E3001D88F6 /* MediaManager.swift */; };
 		FA158DBA1FB9A3BD00D31BE4 /* RateEstabResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA158DB91FB9A3BD00D31BE4 /* RateEstabResponse.swift */; };
-		FA158DBC1FB9D0BF00D31BE4 /* Notifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA158DBB1FB9D0BF00D31BE4 /* Notifiable.swift */; };
 		FA158DBE1FB9D1C100D31BE4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA158DBD1FB9D1C100D31BE4 /* Notification.swift */; };
 		FA158DC11FB9D97500D31BE4 /* EchoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA158DC01FB9D97500D31BE4 /* EchoTableViewController.swift */; };
+		FA158DC41FB9E93800D31BE4 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA158DC31FB9E93800D31BE4 /* MoreTableViewController.swift */; };
 		FA18F6081F9F25DA00BD8B0E /* GroupPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18F6071F9F25DA00BD8B0E /* GroupPreview.swift */; };
 		FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB89D1E03495E00C8E437 /* R.generated.swift */; };
 		FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DB8A11E0349FE00C8E437 /* MapKit.framework */; };
@@ -220,9 +220,9 @@
 		E0A30BB44C99E358567676D7 /* Pods-NightlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EC6DFE226EA7266FDC3CC816 /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA158DB91FB9A3BD00D31BE4 /* RateEstabResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RateEstabResponse.swift; path = Models/Parties/RateEstabResponse.swift; sourceTree = "<group>"; };
-		FA158DBB1FB9D0BF00D31BE4 /* Notifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Notifiable.swift; path = Protocols/Notifiable.swift; sourceTree = "<group>"; };
 		FA158DBD1FB9D1C100D31BE4 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = Models/Notification.swift; sourceTree = "<group>"; };
 		FA158DC01FB9D97500D31BE4 /* EchoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EchoTableViewController.swift; path = Controllers/Echo/EchoTableViewController.swift; sourceTree = "<group>"; };
+		FA158DC31FB9E93800D31BE4 /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoreTableViewController.swift; path = Controllers/More/MoreTableViewController.swift; sourceTree = "<group>"; };
 		FA18F6071F9F25DA00BD8B0E /* GroupPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupPreview.swift; path = Models/Groups/GroupPreview.swift; sourceTree = "<group>"; };
 		FA1DB89D1E03495E00C8E437 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ../R.generated.swift; sourceTree = "<group>"; };
 		FA1DB8A11E0349FE00C8E437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -474,6 +474,14 @@
 				FA158DC01FB9D97500D31BE4 /* EchoTableViewController.swift */,
 			);
 			name = Echo;
+			sourceTree = "<group>";
+		};
+		FA158DC21FB9E91F00D31BE4 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				FA158DC31FB9E93800D31BE4 /* MoreTableViewController.swift */,
+			);
+			name = More;
 			sourceTree = "<group>";
 		};
 		FA303F631E5D1C44008961EF /* Parties */ = {
@@ -771,7 +779,6 @@
 				FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */,
 				FA303F661E5D1D18008961EF /* ImageableProtocol.swift */,
 				7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */,
-				FA158DBB1FB9D0BF00D31BE4 /* Notifiable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -832,6 +839,7 @@
 		FAFF37621E034137001B2A8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA158DC21FB9E91F00D31BE4 /* More */,
 				FA158DBF1FB9D95000D31BE4 /* Echo */,
 				FA4FC1AE1F9118C2003CCCC7 /* SplashScreen */,
 				7B9C5B771F8FCB2F00259AC6 /* Groups */,
@@ -1308,9 +1316,9 @@
 				FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */,
 				7B6068691F0FE964000F1755 /* UserMediaTableViewController.swift in Sources */,
 				FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */,
-				FA158DBC1FB9D0BF00D31BE4 /* Notifiable.swift in Sources */,
 				7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */,
 				FAFF4EA41E5E4827006582C7 /* ExtensionDBUser.swift in Sources */,
+				FA158DC41FB9E93800D31BE4 /* MoreTableViewController.swift in Sources */,
 				FAAC43C81E85BA2100CEF9CA /* ProfileViewController.swift in Sources */,
 				FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */,
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,

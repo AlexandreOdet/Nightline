@@ -48,16 +48,21 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     tabThree.tabBarItem = tabBarThreeItem
 
     // Create Tab Four
-    let tabFour = UserSettingsTableViewController()
-    let tabBarFourItem = UITabBarItem(title: R.string.localizable.settings(), image: R.image.settings(), selectedImage: R.image.settings_filled())
+//    let tabFour = UserSettingsTableViewController()
+//    let tabBarFourItem = UITabBarItem(title: R.string.localizable.settings(), image: R.image.settings(), selectedImage: R.image.settings_filled())
+//    tabFour.tabBarItem = tabBarFourItem
+//
+//    tabBar.barTintColor = UIColor.orange
+//
+//    let tabFive = EchoTableViewController()
+//    let tabBarFiveItem = UITabBarItem(title: "Echo", image: nil, selectedImage: nil)
+//    tabFive.tabBarItem = tabBarFiveItem
+    
+    let tabFour = MoreTableViewController()
+    let tabBarFourItem = UITabBarItem(title: "Plus", image: R.image.suspension(), selectedImage: nil)
+    
     tabFour.tabBarItem = tabBarFourItem
-    
-    tabBar.barTintColor = UIColor.orange
-    
-    let tabFive = EchoTableViewController()
-    let tabBarFiveItem = UITabBarItem(title: "Echo", image: nil, selectedImage: nil)
-    tabFive.tabBarItem = tabBarFiveItem
-    viewControllers = [tabOne, tabTwo, tabThree, tabFour, tabFive]
+    viewControllers = [tabOne, tabTwo, tabThree, tabFour]
   }
   
   // UITabBarControllerDelegate method
