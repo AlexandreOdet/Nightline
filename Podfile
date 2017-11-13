@@ -13,11 +13,9 @@ target 'Nightline' do
   pod 'AlamofireObjectMapper'
   pod 'KeychainSwift'
   pod 'PromiseKit'
-#  pod 'SwiftyCam'
-#  pod 'PageMenu'
+  pod 'Cosmos'
+  pod 'Starscream'
   pod 'Lightbox'
-  pod 'Reveal-SDK'
-#  pod 'PagingMenuController'
   pod 'Stripe'
   pod 'SwiftSpinner'
   

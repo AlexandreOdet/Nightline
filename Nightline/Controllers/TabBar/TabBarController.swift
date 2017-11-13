@@ -41,18 +41,19 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     let tabTwoBarItem2 = UITabBarItem(title: R.string.localizable.profile(), image: R.image.avatar(), selectedImage: R.image.user())
     
     tabTwo.tabBarItem = tabTwoBarItem2
-
+    
     // Create Tab Three
     let tabThree = GroupsListViewController()
     let tabBarThreeItem = UITabBarItem(title: "Groups", image: #imageLiteral(resourceName: "group"), selectedImage: #imageLiteral(resourceName: "group_filled"))
     tabThree.tabBarItem = tabBarThreeItem
-
-    // Create Tab Four
-    let tabFour = UserSettingsTableViewController()
-    let tabBarFourItem = UITabBarItem(title: R.string.localizable.settings(), image: R.image.settings(), selectedImage: R.image.settings_filled())
+    
+    let tabFour = MoreTableViewController()
+    let tabBarFourItem = UITabBarItem(title: "Plus", image: R.image.suspension(), selectedImage: nil)
+    
     tabFour.tabBarItem = tabBarFourItem
     
     tabBar.barTintColor = UIColor.orange
+    
     viewControllers = [tabOne, tabTwo, tabThree, tabFour]
   }
   

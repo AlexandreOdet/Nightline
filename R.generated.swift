@@ -70,8 +70,6 @@ struct R: Rswift.Validatable {
     static let birthday = Rswift.ImageResource(bundle: R.hostingBundle, name: "birthday")
     /// Image `cameraButton`.
     static let cameraButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraButton")
-    /// Image `cameraWhiteButton`.
-    static let cameraWhiteButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraWhiteButton")
     /// Image `champagne`.
     static let champagne = Rswift.ImageResource(bundle: R.hostingBundle, name: "champagne")
     /// Image `cocktail`.
@@ -134,6 +132,8 @@ struct R: Rswift.Validatable {
     static let settings = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings")
     /// Image `stop`.
     static let stop = Rswift.ImageResource(bundle: R.hostingBundle, name: "stop")
+    /// Image `suspension`.
+    static let suspension = Rswift.ImageResource(bundle: R.hostingBundle, name: "suspension")
     /// Image `test_logo`.
     static let test_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "test_logo")
     /// Image `toast`.
@@ -186,11 +186,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "cameraButton", bundle: ..., traitCollection: ...)`
     static func cameraButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.cameraButton, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "cameraWhiteButton", bundle: ..., traitCollection: ...)`
-    static func cameraWhiteButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.cameraWhiteButton, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "champagne", bundle: ..., traitCollection: ...)`
@@ -346,6 +341,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "stop", bundle: ..., traitCollection: ...)`
     static func stop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.stop, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "suspension", bundle: ..., traitCollection: ...)`
+    static func suspension(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.suspension, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "test_logo", bundle: ..., traitCollection: ...)`

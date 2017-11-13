@@ -19,7 +19,8 @@ class Etablissement: Mappable {
   var imgUrl: String = ""
   var type: Int = -1
   var adress = ""
-  var owner: Owner!
+  var rate: Int = 0
+  var owner: Int = 0
   
   required init?(map: Map) {}
   
@@ -31,6 +32,19 @@ class Etablissement: Mappable {
     longitude <- map["long"]
     type <- map["type"]
     description <- map["desc"]
+    rate <- map["rate"]
     owner <- map["owner"]
   }
 }
+/*
+ "establishment": {
+ "id": 71,
+ "name": "Lumières",
+ "address": "7 Cour Alphonse Daudet, 72230 Ruaudin",
+ "long": 2.3732348,
+ "lat": 48.8660245,
+ "type": "Rooftop",
+ "desc": "Lorem ipsum dolor sit amet, dictas conceptam democritum cu nec, soleat petentium maluisset eam ei, in nec illum elaboraret",
+ "rate": 4,
+ "owner": 70
+ */
