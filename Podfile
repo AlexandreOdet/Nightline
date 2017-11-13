@@ -15,11 +15,7 @@ target 'Nightline' do
   pod 'PromiseKit'
   pod 'Cosmos'
   pod 'Starscream'
-#  pod 'SwiftyCam'
-#  pod 'PageMenu'
   pod 'Lightbox'
-  pod 'Reveal-SDK'
-#  pod 'PagingMenuController'
   pod 'Stripe'
   pod 'SwiftSpinner'
   

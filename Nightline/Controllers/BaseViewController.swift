@@ -22,7 +22,7 @@ class BaseViewController: UIViewController {
   var label = UILabel()
   var button = UIButton()
   
-  var websocket = WebSocket(url: URL("")!, protocols: ["chat"])
+  var websocket = WebSocket(url: URL(string: "")!, protocols: ["chat"])
   
   override func viewDidLoad() {
     super.viewDidLoad()
