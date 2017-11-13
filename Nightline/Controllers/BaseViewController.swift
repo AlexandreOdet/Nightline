@@ -16,16 +16,23 @@ import Starscream
  It defines some functions that'll be use often.
  */
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, WebSocketDelegate  {
   
   var img = UIImageView()
   var label = UILabel()
   var button = UIButton()
   
-  var websocket = WebSocket(url: URL(string: "")!, protocols: ["chat"])
+  var ws = WebSocket(url: URL(string: "ws://nightline.fr:8047/")!, protocols: ["chat"])
+  
+  deinit {
+    ws.disconnect()
+    ws.delegate = nil
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    ws.connect()
+    ws.delegate = self
     view.backgroundColor = UIColor.black
     createNoConnectivityView()
   }
@@ -103,5 +110,21 @@ class BaseViewController: UIViewController {
     img.isHidden = true
     label.isHidden = true
     button.isHidden = true
+  }
+  
+  func websocketDidConnect(socket: WebSocketClient) {
+    print("WebSocket.DidConnect ")
+  }
+  
+  func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+    print("WebSocket.DidDisconnect")
+  }
+  
+  func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+    print("Message received : \(text)")
+  }
+  
+  func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+    print("Data received : \(data)")
   }
 }

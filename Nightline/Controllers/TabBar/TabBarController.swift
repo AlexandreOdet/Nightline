@@ -53,7 +53,11 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     tabFour.tabBarItem = tabBarFourItem
     
     tabBar.barTintColor = UIColor.orange
-    viewControllers = [tabOne, tabTwo, tabThree, tabFour]
+    
+    let tabFive = EchoTableViewController()
+    let tabBarFiveItem = UITabBarItem(title: "Echo", image: nil, selectedImage: nil)
+    tabFive.tabBarItem = tabBarFiveItem
+    viewControllers = [tabOne, tabTwo, tabThree, tabFour, tabFive]
   }
   
   // UITabBarControllerDelegate method

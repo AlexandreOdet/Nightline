@@ -43,6 +43,7 @@
 		FA158DBA1FB9A3BD00D31BE4 /* RateEstabResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA158DB91FB9A3BD00D31BE4 /* RateEstabResponse.swift */; };
 		FA158DBC1FB9D0BF00D31BE4 /* Notifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA158DBB1FB9D0BF00D31BE4 /* Notifiable.swift */; };
 		FA158DBE1FB9D1C100D31BE4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA158DBD1FB9D1C100D31BE4 /* Notification.swift */; };
+		FA158DC11FB9D97500D31BE4 /* EchoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA158DC01FB9D97500D31BE4 /* EchoTableViewController.swift */; };
 		FA18F6081F9F25DA00BD8B0E /* GroupPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18F6071F9F25DA00BD8B0E /* GroupPreview.swift */; };
 		FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB89D1E03495E00C8E437 /* R.generated.swift */; };
 		FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1DB8A11E0349FE00C8E437 /* MapKit.framework */; };
@@ -104,7 +105,7 @@
 		FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */; };
 		FAAEF1AE1F74309E00BB0916 /* RAGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AD1F74309E00BB0916 /* RAGroup.swift */; };
 		FAAEF1B01F74347200BB0916 /* RAInvitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */; };
-		FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
 		FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009311F8F9BDE00D82EB9 /* Group.swift */; };
 		FAC009341F8FB23B00D82EB9 /* CreateGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009331F8FB23B00D82EB9 /* CreateGroupResponse.swift */; };
@@ -172,7 +173,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */,
+				FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +222,7 @@
 		FA158DB91FB9A3BD00D31BE4 /* RateEstabResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RateEstabResponse.swift; path = Models/Parties/RateEstabResponse.swift; sourceTree = "<group>"; };
 		FA158DBB1FB9D0BF00D31BE4 /* Notifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Notifiable.swift; path = Protocols/Notifiable.swift; sourceTree = "<group>"; };
 		FA158DBD1FB9D1C100D31BE4 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = Models/Notification.swift; sourceTree = "<group>"; };
+		FA158DC01FB9D97500D31BE4 /* EchoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EchoTableViewController.swift; path = Controllers/Echo/EchoTableViewController.swift; sourceTree = "<group>"; };
 		FA18F6071F9F25DA00BD8B0E /* GroupPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupPreview.swift; path = Models/Groups/GroupPreview.swift; sourceTree = "<group>"; };
 		FA1DB89D1E03495E00C8E437 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ../R.generated.swift; sourceTree = "<group>"; };
 		FA1DB8A11E0349FE00C8E437 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -464,6 +466,14 @@
 				EC6DFE226EA7266FDC3CC816 /* Pods_NightlineUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA158DBF1FB9D95000D31BE4 /* Echo */ = {
+			isa = PBXGroup;
+			children = (
+				FA158DC01FB9D97500D31BE4 /* EchoTableViewController.swift */,
+			);
+			name = Echo;
 			sourceTree = "<group>";
 		};
 		FA303F631E5D1C44008961EF /* Parties */ = {
@@ -822,6 +832,7 @@
 		FAFF37621E034137001B2A8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA158DBF1FB9D95000D31BE4 /* Echo */,
 				FA4FC1AE1F9118C2003CCCC7 /* SplashScreen */,
 				7B9C5B771F8FCB2F00259AC6 /* Groups */,
 				FA3A6D2B1E833D7E008489F2 /* Parties */,
@@ -1303,6 +1314,7 @@
 				FAAC43C81E85BA2100CEF9CA /* ProfileViewController.swift in Sources */,
 				FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */,
 				FAFF37801E034654001B2A8F /* Utils.swift in Sources */,
+				FA158DC11FB9D97500D31BE4 /* EchoTableViewController.swift in Sources */,
 				FADF25CE1E875A4800E74439 /* UserAchievementsListTableViewCell.swift in Sources */,
 				FA23240F1EF92D0F00F6AF88 /* Etablishment.swift in Sources */,
 				FA75ADAD1E4BBBA80078FFE9 /* Marker.swift in Sources */,
