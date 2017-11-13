@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Starscream
 
 /*
  Controllers: BaseViewController
@@ -20,6 +21,8 @@ class BaseViewController: UIViewController {
   var img = UIImageView()
   var label = UILabel()
   var button = UIButton()
+  
+  var websocket = WebSocket(url: URL("")!, protocols: ["chat"])
   
   override func viewDidLoad() {
     super.viewDidLoad()

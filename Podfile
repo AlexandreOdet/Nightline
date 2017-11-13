@@ -14,6 +14,7 @@ target 'Nightline' do
   pod 'KeychainSwift'
   pod 'PromiseKit'
   pod 'Cosmos'
+  pod 'Starscream'
 #  pod 'SwiftyCam'
 #  pod 'PageMenu'
   pod 'Lightbox'

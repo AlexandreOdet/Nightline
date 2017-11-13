@@ -148,11 +148,9 @@ class EtablishmentViewController: ProfileViewController {
           establishmentId: "\(self.idBar!)",
           rate: integerRating)
         }.then { response -> Void in
-          print(response.estab.rate)
-          alert.dismiss(animated: true, completion: nil)
+          print(response.estab)
         }.catch { error -> Void in
           print("\(error)")
-          alert.dismiss(animated: true, completion: nil)
       }
     }
     
