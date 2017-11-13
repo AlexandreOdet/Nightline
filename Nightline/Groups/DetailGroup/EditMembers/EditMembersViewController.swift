@@ -9,6 +9,11 @@
 import UIKit
 
 class EditMembersViewController: UIViewController {
+    public enum cv {
+        case friends
+        case members
+    }
+
     @IBOutlet weak var friendsCV: UICollectionView!
     @IBOutlet weak var membersCV: UICollectionView!
     @IBOutlet weak var friendBackground: UIView!
@@ -72,6 +77,11 @@ class EditMembersViewController: UIViewController {
         doneBtn.backgroundColor = friendBackground.backgroundColor
     }
 
+    func reloadCVs() {
+        membersCV.reloadData()
+        friendsCV.reloadData()
+    }
+
     @IBAction func doneAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -108,29 +118,81 @@ extension EditMembersViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension EditMembersViewController: UICollectionViewDropDelegate {
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
-        let indexPath = coordinator.destinationIndexPath ?? IndexPath(item: 0, section: 0)
-        coordinator.session.loadObjects(ofClass: NSString.self) { (string) in
+        guard let dragCoordinator = coordinator.session.localDragSession?.localContext as? MemberDragCoordinator else { return }
+        let indexPath = coordinator.destinationIndexPath ?? IndexPath(item: collectionView.numberOfItems(inSection: 0), section: 0)
+        dragCoordinator.calculateDestinationIndexPaths(from: indexPath, count: coordinator.items.count)
+        dragCoordinator.destination = collectionView == membersCV ? .members : .friends
+        moveMember(using: dragCoordinator, performingDropWith: coordinator)
+//        guard let dragCoordinator = coordinator.session.localDragSession?.localContext as? MemberDragCoordinator else { return }
+//        switch dragCoordinator.source {
+//        case .friends:
+//            memberList.insert(dragCoordinator.user, at: coordinator.destinationIndexPath?.row ?? 0)
+//            if let index = friendList.index(where: { (usr) -> Bool in
+//                return usr == dragCoordinator.user
+//            }) {
+//                friendList.remove(at: index)
+//            }
+//        case .members:
+//            friendList.insert(dragCoordinator.user, at: coordinator.destinationIndexPath?.row ?? 0)
+//            if let index = memberList.index(where: { (usr) -> Bool in
+//                return usr == dragCoordinator.user
+//            }) {
+//                memberList.remove(at: index)
+//            }
+//        }
+//        membersCV.reloadData()
+//        friendsCV.reloadData()
+    }
 
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+        return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+    }
+
+    func moveMember(using dragCoordinator: MemberDragCoordinator, performingDropWith dropCoordinator: UICollectionViewDropCoordinator) {
+        guard let destinationIndexPaths = dragCoordinator.destinationIndexPaths else { return }
+        for (index, item) in dropCoordinator.items.enumerated() {
+            let sourceIndexPath = dragCoordinator.sourceIndexPaths[index]
+            let destinationIndexPath = destinationIndexPaths[index]
+            if dragCoordinator.isReordering {
+                let cv = dragCoordinator.source == .friends ? friendsCV : membersCV
+                switch dragCoordinator.source {
+                case .friends:
+                    friendList.remove(at: friendList.index {$0 == dragCoordinator.user} ?? 0)
+                case .members:
+                    memberList.remove(at: memberList.index {$0 == dragCoordinator.user} ?? 0)
+                }
+                cv?.performBatchUpdates({
+                    cv?.moveItem(at: sourceIndexPath, to: destinationIndexPath)
+                }) { _ in
+                    self.reloadCVs()}
+            } else {
+                let cv = dragCoordinator.source == .friends ? membersCV : friendsCV
+                cv?.performBatchUpdates({
+                    switch dragCoordinator.destination {
+                    case .members:
+                        memberList.insert(dragCoordinator.user, at: destinationIndexPath.item)
+                    case .friends:
+                        friendList.insert(dragCoordinator.user, at: destinationIndexPath.item)
+                    }
+                    cv?.insertItems(at: [destinationIndexPath])
+                }) { _ in
+                    self.reloadCVs()}
+            }
+            dropCoordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
         }
-
     }
 }
 
 extension EditMembersViewController: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        var list = [User]()
-        var e = ""
+        let memberDragCoordinator = MemberDragCoordinator(source: collectionView == friendsCV ? .friends : .members)
         switch collectionView {
         case friendsCV:
-            list = friendList
-            e = "f"
+            memberDragCoordinator.user = friendList[indexPath.row]
         default:
-            list = memberList
-            e = "m"
+            memberDragCoordinator.user = memberList[indexPath.row]
         }
-        let t = e + String(indexPath.row)
-        let itemProvider = NSItemProvider()
-        let dragItem = UIDragItem(itemProvider: NSItemProvider(object: t as NSString))
-        return [dragItem]
+        session.localContext = memberDragCoordinator
+        return [memberDragCoordinator.dragItemForMemberAt(indexPath: indexPath)]
     }
 }
