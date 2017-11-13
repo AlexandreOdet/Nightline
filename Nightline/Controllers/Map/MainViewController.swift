@@ -58,6 +58,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                 map.isZoomEnabled = true
                 map.delegate = self
                 if let location = locationManager.location {
+                  print(location.coordinate)
                     let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
 
                     self.map.setRegion(region, animated: true)                }
