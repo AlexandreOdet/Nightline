@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window!.rootViewController = nav1
     self.window?.makeKeyAndVisible()
     UIApplication.shared.statusBarStyle = .lightContent
-    let idUser = UserManager.instance.retrieveUserId()
+//    let idUser = UserManager.instance.retrieveUserId()
 //    if idUser > -1 {
 //      firstly {
 //        RAUser().getUserInfos(id: String(idUser))

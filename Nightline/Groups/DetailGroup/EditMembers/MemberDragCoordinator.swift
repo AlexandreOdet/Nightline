@@ -10,27 +10,23 @@ import Foundation
 import UIKit
 
 class MemberDragCoordinator {
-    var source = EditMembersViewController.cv.members
+    var source: EditMembersViewController.cv = .members
+    var sourceList: [User] = []
     var sourceIndexPaths = [IndexPath]()
     var sourceIndexes: [Int] {
         get {
             return sourceIndexPaths.map { $0.item }
         }
     }
-    var destination = EditMembersViewController.cv.members
+    var destination: EditMembersViewController.cv = .members
     var destinationIndexPaths: [IndexPath]?
-    var destinationIndexes: [Int] {
-        get {
-            return sourceIndexPaths.map { $0.item }
-        }
-    }
     var dragCompleted = false
     var isReordering: Bool {
         get {
             return source == destination
         }
     }
-    var user = User()
+    var users = [User]()
 
     init(source: EditMembersViewController.cv) {
         self.source = source
