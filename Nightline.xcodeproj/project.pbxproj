@@ -106,7 +106,7 @@
 		FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */; };
 		FAAEF1AE1F74309E00BB0916 /* RAGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AD1F74309E00BB0916 /* RAGroup.swift */; };
 		FAAEF1B01F74347200BB0916 /* RAInvitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */; };
-		FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
 		FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009311F8F9BDE00D82EB9 /* Group.swift */; };
 		FAC009341F8FB23B00D82EB9 /* CreateGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009331F8FB23B00D82EB9 /* CreateGroupResponse.swift */; };
@@ -117,6 +117,7 @@
 		FAC380521EA08A2A00F62FEC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC380511EA08A2A00F62FEC /* FBSDKShareKit.framework */; };
 		FAC6D7221F9F20CF0023DA35 /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6D7211F9F20CF0023DA35 /* GroupList.swift */; };
 		FAC829CA1FC5782A00B2CA08 /* WebSocketBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC829C91FC5782A00B2CA08 /* WebSocketBuilder.swift */; };
+		FAC829CD1FC57BD300B2CA08 /* MessagerieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC829CC1FC57BD300B2CA08 /* MessagerieTableViewController.swift */; };
 		FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E41F4CD4C9002060A1 /* Menu.swift */; };
 		FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E61F4CD8AD002060A1 /* Party.swift */; };
 		FAD506E91F4CDBA4002060A1 /* RAParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E81F4CDBA4002060A1 /* RAParty.swift */; };
@@ -175,7 +176,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */,
+				FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +301,7 @@
 		FAC380511EA08A2A00F62FEC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		FAC6D7211F9F20CF0023DA35 /* GroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupList.swift; path = Models/Groups/GroupList.swift; sourceTree = "<group>"; };
 		FAC829C91FC5782A00B2CA08 /* WebSocketBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebSocketBuilder.swift; path = Utils/WebSocketBuilder.swift; sourceTree = "<group>"; };
+		FAC829CC1FC57BD300B2CA08 /* MessagerieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessagerieTableViewController.swift; path = Controllers/Messagerie/MessagerieTableViewController.swift; sourceTree = "<group>"; };
 		FAD506E41F4CD4C9002060A1 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Models/Parties/Menu.swift; sourceTree = "<group>"; };
 		FAD506E61F4CD8AD002060A1 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Party.swift; path = Models/Parties/Party.swift; sourceTree = "<group>"; };
 		FAD506E81F4CDBA4002060A1 /* RAParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAParty.swift; path = Network/RAParty.swift; sourceTree = "<group>"; };
@@ -759,6 +761,14 @@
 			name = Groups;
 			sourceTree = "<group>";
 		};
+		FAC829CB1FC57BAB00B2CA08 /* Messagerie */ = {
+			isa = PBXGroup;
+			children = (
+				FAC829CC1FC57BD300B2CA08 /* MessagerieTableViewController.swift */,
+			);
+			name = Messagerie;
+			sourceTree = "<group>";
+		};
 		FADF25C61E87367900E74439 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,6 +854,7 @@
 		FAFF37621E034137001B2A8F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAC829CB1FC57BAB00B2CA08 /* Messagerie */,
 				FA158DC21FB9E91F00D31BE4 /* More */,
 				FA158DBF1FB9D95000D31BE4 /* Echo */,
 				FA4FC1AE1F9118C2003CCCC7 /* SplashScreen */,
@@ -1383,6 +1394,7 @@
 				7B61E6D71FAF9EAA0000AE7D /* AddGroupViewController.swift in Sources */,
 				7B5A6ACE1E9FB36D00D902C5 /* EditLastNameViewController.swift in Sources */,
 				FA303F6A1E5D1EAE008961EF /* ExtensionUser.swift in Sources */,
+				FAC829CD1FC57BD300B2CA08 /* MessagerieTableViewController.swift in Sources */,
 				FA23240D1EF92CFE00F6AF88 /* RAEtablissement.swift in Sources */,
 				FAFBF8011E554C7B003AF68E /* Animation.swift in Sources */,
 				FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */,
