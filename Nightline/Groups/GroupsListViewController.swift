@@ -81,17 +81,22 @@ class GroupsListViewController: UIViewController {
 
     func deleteGrp(grp: GroupPreview) {
         print(String(grp.id))
-        raGrp.deleteGroup(groupId: String(grp.id)) {
-            let alert = UIAlertController(title: "Erreur", message: "La supression du groupe \"\(grp.name!)\" à échouée", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in  }))
+        raGrp.deleteGroup(groupId: String(grp.id)) { result in
+            switch result {
+            case .success():
+                self.getGrpList()
+            case .failure(let error):
+                let alert = UIAlertController(title: "Erreur", message: "La supression du groupe \"\(grp.name!)\" à échouée", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                print(error)
+            }
         }
-        getGrpList()
     }
 
     func confirmDelete(grp: GroupPreview) {
         let alert = UIAlertController(title: "Supression", message: "Etes vous sur de vouloir supprimer le groupe \"\(grp.name!)\"?", preferredStyle: .actionSheet)
         let cancelAct = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let deleteAct = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+        let deleteAct = UIAlertAction(title: "Delete", style: .destructive) { _ in
             self.deleteGrp(grp: grp)
         }
         alert.addAction(cancelAct)
