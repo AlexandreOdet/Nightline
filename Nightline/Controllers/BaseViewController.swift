@@ -90,7 +90,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
   
   func showNoConnectivityView() {
     for subview in view.subviews {
-        subview.isHidden = true
+      subview.isHidden = true
     }
     view.backgroundColor = UIColor.white
     img.isHidden = false
@@ -126,5 +126,15 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
   
   func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
     print("Data received : \(data)")
+    guard let brutJson = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
+    guard let properJSON = brutJson as? [String:Any] else { return }
+    if let dataType = properJSON["type"] as? String {
+      switch dataType {
+      case "invitation":
+        return
+      default:
+        return
+      }
+    }
   }
 }
