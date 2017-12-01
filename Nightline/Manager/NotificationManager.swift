@@ -15,27 +15,22 @@ class NotificationManager {
   private init() { }
   
   func didReceiveANotification(notification: NightlineNotification) {
-    
+    notifications.append(notification)
   }
   
-  func didReadANotification(notification: NightlineNotification /*, completionHandler: (()->())? = nil*/) -> NotificationDirection {
-    
-    var returnValue: NotificationDirection!
-    
+  func didReadANotification(notification: NightlineNotification) -> NotificationDirection {
     switch notification.type {
     case "invitation":
-      returnValue = .invitationList
+      let invit = Invitation(from: notification)
+      InvitationManager.instance.didReceiveAnInvitation(invitation: invit)
+      return .invitationList
     case "achievement":
-      returnValue = .achievement
+      return .achievement
     case "message":
       return .chat
     default:
       return .unknown
     }
-//    if let handler = completionHandler {
-//      handler()
-//    }
-    return returnValue
   }
   
   func clearNotifications() {

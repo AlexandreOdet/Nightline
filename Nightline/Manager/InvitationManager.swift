@@ -16,14 +16,16 @@ class InvitationManager {
   private init() {}
   
   func didReceiveAnInvitation(invitation: Invitation) {
-    
+    if !invitations.contains(where: { $0.id == invitation.id }) {
+      invitations.append(invitation)
+    }
   }
   
   func didAcceptAnInvitation(invitation: Invitation) {
-    
+    //toDo
   }
   
   func didDeclineAnInvitation(invitation: Invitation) {
-    
+    //toDo
   }
 }

@@ -25,6 +25,21 @@ class Invitation: Mappable {
     when <- map["date"]
   }
   
+  init() {
+    id = 0
+    from = ""
+    to = ""
+    when = ""
+  }
+  
+  func isEqual(to other: Invitation) -> Bool {
+    return id == other.id
+  }
+  
+  init(from notification: NightlineNotification) {
+    
+  }
+  
 }
 
 /*
