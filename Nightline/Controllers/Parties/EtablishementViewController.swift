@@ -136,10 +136,11 @@ class EtablishmentViewController: ProfileViewController {
   }
   
   @objc func rateEstablishment() {
-    let ratingView = CosmosView()
     let alert = UIAlertController(title: "", message: "Vous pouvez noter votre établissement avec une note de 0 à 5", preferredStyle: .alert)
+    let ratingView = CosmosView(frame: alert.view.frame)
+    
     ratingView.settings.fillMode = .full
-    ratingView.contentMode = .center
+    
     ratingView.didFinishTouchingCosmos = { [unowned self] rating in
       let integerRating = Int(rating)
       alert.dismiss(animated: true, completion: nil)
