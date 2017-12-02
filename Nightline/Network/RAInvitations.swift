@@ -21,4 +21,28 @@ class RAInvitations: RABase {
      GET /users/userID/invitations
      GET /users/userID/groups/invitations
      */
+  
+  func acceptUserInvitation(invitationID: String) {
+    
+  }
+  
+  func declineUserInvitation(invitationID: String) {
+    
+  }
+  
+  func getUserInvitations(userID: String) {
+    
+  }
+  
+  func acceptGroupInvitation(invitationID: String) {
+    
+  }
+  
+  func declineGroupInvitation(invitationID: String) {
+    
+  }
+  
+  func getUserGroupsInvitation(userID: String) {
+    
+  }
 }

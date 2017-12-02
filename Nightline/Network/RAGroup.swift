@@ -21,9 +21,7 @@ class RAGroup: RABase {
     
     var parameters = [String:Any]()
     parameters["ownerId"] = UserManager.instance.retrieveUserId()
-    parameters["group"] = group.toJSON()
-    
-    print(parameters)
+    parameters["group"] = group.toJSON()    
     let finalUrl = RoutesAPI.baseUrl.appending(AppConstant.Network.groups)
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(finalUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default)

@@ -10,10 +10,17 @@ import Foundation
 
 class InvitationManager {
   var invitations = [Invitation]()
+  var restApiInvitation = RAInvitations()
+  
+  deinit {
+    restApiInvitation.cancelRequest()
+  }
   
   static let instance = InvitationManager()
   
-  private init() {}
+  private init() {
+    restApiInvitation.getUserInvitations(userID: String(UserManager.instance.retrieveUserId()))
+  }
   
   func didReceiveAnInvitation(invitation: Invitation) {
     if !invitations.contains(where: { $0.id == invitation.id }) {
