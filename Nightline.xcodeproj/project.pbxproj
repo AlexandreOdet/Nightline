@@ -83,6 +83,7 @@
 		FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */; };
 		FA5729831E5CFBE800B36784 /* RoutesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5729821E5CFBE800B36784 /* RoutesAPI.swift */; };
 		FA5729861E5CFC7A00B36784 /* ExtensionRoutesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */; };
+		FA5AD8711FD32DE000ED2FBA /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5AD8701FD32DE000ED2FBA /* NotificationType.swift */; };
 		FA5C2A9A1E5A519700A0CB56 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A951E5A519700A0CB56 /* UIColorExtension.swift */; };
 		FA5C2A9B1E5A519700A0CB56 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A961E5A519700A0CB56 /* UIImageViewExtension.swift */; };
 		FA5C2A9C1E5A519700A0CB56 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5C2A971E5A519700A0CB56 /* UITableViewCellExtension.swift */; };
@@ -270,6 +271,7 @@
 		FA57297F1E5CFB6B00B36784 /* RoutableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutableProtocol.swift; path = Protocols/RoutableProtocol.swift; sourceTree = "<group>"; };
 		FA5729821E5CFBE800B36784 /* RoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; name = RoutesAPI.swift; path = Enums/Routes/RoutesAPI.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FA5729851E5CFC7A00B36784 /* ExtensionRoutesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionRoutesAPI.swift; path = Extensions/Enums/ExtensionRoutesAPI.swift; sourceTree = "<group>"; };
+		FA5AD8701FD32DE000ED2FBA /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationType.swift; path = Enums/Notification/NotificationType.swift; sourceTree = "<group>"; };
 		FA5C2A951E5A519700A0CB56 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Extensions/UI/UIColorExtension.swift; sourceTree = "<group>"; tabWidth = 2; };
 		FA5C2A961E5A519700A0CB56 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = Extensions/UI/UIImageViewExtension.swift; sourceTree = "<group>"; };
 		FA5C2A971E5A519700A0CB56 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewCellExtension.swift; path = Extensions/UI/UITableViewCellExtension.swift; sourceTree = "<group>"; };
@@ -654,6 +656,14 @@
 			name = Routes;
 			sourceTree = "<group>";
 		};
+		FA5AD86F1FD32DC100ED2FBA /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				FA5AD8701FD32DE000ED2FBA /* NotificationType.swift */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
 		FA5C2A921E5A515100A0CB56 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -919,6 +929,7 @@
 		FAFF37881E034703001B2A8F /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				FA5AD86F1FD32DC100ED2FBA /* Notification */,
 				FA5729811E5CFBBC00B36784 /* Routes */,
 				FA75ADB61E4D301F0078FFE9 /* Parties */,
 				FA75ADAE1E4CE3B00078FFE9 /* CustomCells */,
@@ -1415,6 +1426,7 @@
 				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,
 				FAD506ED1F4D7371002060A1 /* OrderParty.swift in Sources */,
 				FA158DBE1FB9D1C100D31BE4 /* Notification.swift in Sources */,
+				FA5AD8711FD32DE000ED2FBA /* NotificationType.swift in Sources */,
 				FA158DC61FB9F17D00D31BE4 /* WebSocketAPI.swift in Sources */,
 				FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */,
 				FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */,
