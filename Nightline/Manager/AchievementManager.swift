@@ -38,6 +38,10 @@ class AchievementManager {
     }
   }
   
+  func didUnlockANewAchievements(achievement: Achievement) {
+    achievementArray.append(achievement)
+  }
+  
   func initUserAchievementArray() {
     for elem in achievementArray {
       UserManager.instance.addAchievement(newAchievement: elem)

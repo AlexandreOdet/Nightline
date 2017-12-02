@@ -26,6 +26,8 @@ class NotificationManager {
       InvitationManager.instance.didReceiveAnInvitation(invitation: invit)
       return .invitationList
     case .achievement:
+      let achievement = Achievement(from: notification)
+      AchievementManager.instance.didUnlockANewAchievements(achievement: achievement)
       return .achievement
     case .message:
       return .chat
