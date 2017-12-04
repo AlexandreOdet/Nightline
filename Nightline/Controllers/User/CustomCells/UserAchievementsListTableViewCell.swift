@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class AchievementCollectionViewCell: UICollectionViewCell {
+class OldAchievementCollectionViewCell: UICollectionViewCell {
   var labelPoints = UILabel()
   var titleView = UIView()
   var titleLabel = UILabel()

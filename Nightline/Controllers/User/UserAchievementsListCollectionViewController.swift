@@ -30,7 +30,7 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
     collectionViewLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: -10)
 
     self.collectionView = UICollectionView(frame: view.frame, collectionViewLayout: collectionViewLayout)
-    self.collectionView?.register(AchievementCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    self.collectionView?.register(OldAchievementCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     
     self.view.addSubview(collectionView)
     self.collectionView.snp.makeConstraints { (make) -> Void in
@@ -59,7 +59,7 @@ final class UserAchievementsListCollectionViewController: BaseViewController, UI
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? AchievementCollectionViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? OldAchievementCollectionViewCell
     cell!.contentView.backgroundColor = .black
     cell!.titleLabel.text = AchievementManager.instance.achievementArray[indexPath.row].description
     if UserManager.instance.getAchievementStatus(AchievementManager.instance.achievementArray[indexPath.row].name) == true {

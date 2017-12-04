@@ -25,11 +25,13 @@ class EditMembersViewController: UIViewController {
     let lightBlue = UIColor(hex : 0x363D4C)
     var blurEffectView: UIVisualEffectView?
     var cvs = Dictionary<cv,UICollectionView>()
+    var membersBeforeChange = [User]()
     var lists: Dictionary<cv, [User]> = [.members: [User](), .friends: [User]()]
     
     convenience init(usrList: [User]) {
         self.init()
         self.lists[.members]! = usrList
+        self.membersBeforeChange = usrList
         let user = User()
         user.firstName = "Alexandre"
         user.lastName = "Odet"
@@ -90,6 +92,7 @@ class EditMembersViewController: UIViewController {
     }
 
     @IBAction func doneAction(_ sender: Any) {
+        doChange()
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -101,6 +104,13 @@ class EditMembersViewController: UIViewController {
         blurEffectView!.alpha = 0.3
         view.addSubview(blurEffectView!)
         view.sendSubview(toBack: blurEffectView!)
+    }
+
+    func doChange() {
+        let idBefore = membersBeforeChange.map {$0.id}
+        let idNow = lists[.members]!.map {$0.id}
+        let toDelete = idBefore.filter {!idNow.contains($0)}
+        print("id to delete", toDelete)
     }
 }
 

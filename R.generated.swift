@@ -50,7 +50,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 45 images.
+  /// This `R.image` struct is generated, and contains static references to 46 images.
   struct image {
     /// Image `addFriend`.
     static let addFriend = Rswift.ImageResource(bundle: R.hostingBundle, name: "addFriend")
@@ -70,6 +70,8 @@ struct R: Rswift.Validatable {
     static let birthday = Rswift.ImageResource(bundle: R.hostingBundle, name: "birthday")
     /// Image `cameraButton`.
     static let cameraButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraButton")
+    /// Image `cameraWhiteButton`.
+    static let cameraWhiteButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "cameraWhiteButton")
     /// Image `champagne`.
     static let champagne = Rswift.ImageResource(bundle: R.hostingBundle, name: "champagne")
     /// Image `cocktail`.
@@ -186,6 +188,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "cameraButton", bundle: ..., traitCollection: ...)`
     static func cameraButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.cameraButton, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "cameraWhiteButton", bundle: ..., traitCollection: ...)`
+    static func cameraWhiteButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cameraWhiteButton, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "champagne", bundle: ..., traitCollection: ...)`
@@ -371,8 +378,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 9 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 12 nibs.
   struct nib {
+    /// Nib `AchievementCollectionViewCell`.
+    static let achievementCollectionViewCell = _R.nib._AchievementCollectionViewCell()
     /// Nib `AddGroupViewController`.
     static let addGroupViewController = _R.nib._AddGroupViewController()
     /// Nib `DetailGroupViewController`.
@@ -387,10 +396,19 @@ struct R: Rswift.Validatable {
     static let groupsListViewController = _R.nib._GroupsListViewController()
     /// Nib `LaunchScreen`.
     static let launchScreen = _R.nib._LaunchScreen()
+    /// Nib `PhotoCollectionViewCell`.
+    static let photoCollectionViewCell = _R.nib._PhotoCollectionViewCell()
     /// Nib `SearchUserViewController`.
     static let searchUserViewController = _R.nib._SearchUserViewController()
     /// Nib `SplashScreen`.
     static let splashScreen = _R.nib._SplashScreen()
+    /// Nib `UserProfileViewController`.
+    static let userProfileViewController = _R.nib._UserProfileViewController()
+    
+    /// `UINib(name: "AchievementCollectionViewCell", in: bundle)`
+    static func achievementCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.achievementCollectionViewCell)
+    }
     
     /// `UINib(name: "AddGroupViewController", in: bundle)`
     static func addGroupViewController(_: Void = ()) -> UIKit.UINib {
@@ -427,6 +445,11 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.launchScreen)
     }
     
+    /// `UINib(name: "PhotoCollectionViewCell", in: bundle)`
+    static func photoCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.photoCollectionViewCell)
+    }
+    
     /// `UINib(name: "SearchUserViewController", in: bundle)`
     static func searchUserViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.searchUserViewController)
@@ -435,6 +458,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "SplashScreen", in: bundle)`
     static func splashScreen(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.splashScreen)
+    }
+    
+    /// `UINib(name: "UserProfileViewController", in: bundle)`
+    static func userProfileViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.userProfileViewController)
     }
     
     fileprivate init() {}
@@ -883,7 +911,24 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _DetailPartyViewController.validate()
+      try _UserProfileViewController.validate()
+      try _AchievementCollectionViewCell.validate()
       try _LaunchScreen.validate()
+    }
+    
+    struct _AchievementCollectionViewCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "AchievementCollectionViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> AchievementCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? AchievementCollectionViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "money-bag", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'money-bag' is used in nib 'AchievementCollectionViewCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
     }
     
     struct _AddGroupViewController: Rswift.NibResourceType {
@@ -972,6 +1017,17 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _PhotoCollectionViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "PhotoCollectionViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> PhotoCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PhotoCollectionViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _SearchUserViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "SearchUserViewController"
@@ -989,6 +1045,23 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _UserProfileViewController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "UserProfileViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "trophy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trophy' is used in nib 'UserProfileViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "friends", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'friends' is used in nib 'UserProfileViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in nib 'UserProfileViewController', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
