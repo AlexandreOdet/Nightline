@@ -128,13 +128,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
     print("Data received : \(data)")
     guard let brutJson = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
     guard let properJSON = brutJson as? [String:Any] else { return }
-    if let dataType = properJSON["type"] as? String {
-      switch dataType {
-      case "invitation":
-        return
-      default:
-        return
-      }
-    }
+    let notification = NotificationManager.manager.buildNotification(from: properJSON)
+    NotificationManager.manager.didReceiveANotification(notification: notification)
   }
 }

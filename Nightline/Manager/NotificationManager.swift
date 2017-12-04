@@ -11,7 +11,7 @@ import Foundation
 class NotificationManager {
   
   var notifications = [NightlineNotification]()
-  
+  static let manager = NotificationManager()
   private init() { }
   
   func didReceiveANotification(notification: NightlineNotification) {
@@ -19,14 +19,17 @@ class NotificationManager {
   }
   
   func didReadANotification(notification: NightlineNotification) -> NotificationDirection {
-    switch notification.type {
-    case "invitation":
+    let type = NotificationType(type: notification.type)
+    switch type {
+    case .invitation:
       let invit = Invitation(from: notification)
       InvitationManager.instance.didReceiveAnInvitation(invitation: invit)
       return .invitationList
-    case "achievement":
+    case .achievement:
+      let achievement = Achievement(from: notification)
+      AchievementManager.instance.didUnlockANewAchievements(achievement: achievement)
       return .achievement
-    case "message":
+    case .message:
       return .chat
     default:
       return .unknown
@@ -35,6 +38,12 @@ class NotificationManager {
   
   func clearNotifications() {
     notifications.removeAll()
+  }
+  
+  func buildNotification(from json: [String:Any]) -> NightlineNotification {
+    let notification = NightlineNotification()
+    notification.type = json["type"] as! String
+    return notification
   }
   
 }

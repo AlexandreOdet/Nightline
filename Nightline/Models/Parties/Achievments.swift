@@ -35,6 +35,10 @@ class Achievement {
     description = other.description
     status = other.status
   }
+  
+  init(from: NightlineNotification) {
+    //toDo
+  }
 }
 
 enum AchievementStatus {

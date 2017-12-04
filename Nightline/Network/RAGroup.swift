@@ -13,29 +13,25 @@ import PromiseKit
 import AlamofireObjectMapper
 
 class RAGroup: RABase {
-
-    func createGroup(groupName: String, groupDescription: String) -> Promise<CreateGroupResponse> {
-        let group = Group()
-        group.name = groupName
-        group.description = groupDescription
-
-        var parameters = [String:Any]()
-        parameters["ownerId"] = UserManager.instance.retrieveUserId()
-        parameters["group"] = group.toJSON()
-
-        print(parameters)
-        let finalUrl = RoutesAPI.baseUrl.appending(AppConstant.Network.groups)
-        return Promise { (fulfill, reject) in
-            self.request = Alamofire.request(finalUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default)
-                .responseObject(completionHandler: {
-                    (response: DataResponse<CreateGroupResponse>) in
-                    switch response.result {
-                    case .success(let group):
-                        fulfill(group)
-                    case .failure(let error):
-                        reject(error)
-                    }
-                })
+  
+  func createGroup(groupName: String, groupDescription: String) -> Promise<CreateGroupResponse> {
+    let group = Group()
+    group.name = groupName
+    group.description = groupDescription
+    
+    var parameters = [String:Any]()
+    parameters["ownerId"] = UserManager.instance.retrieveUserId()
+    parameters["group"] = group.toJSON()    
+    let finalUrl = RoutesAPI.baseUrl.appending(AppConstant.Network.groups)
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(finalUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        .responseObject(completionHandler: {
+        (response: DataResponse<CreateGroupResponse>) in
+        switch response.result {
+        case .success(let group):
+          fulfill(group)
+        case .failure(let error):
+          reject(error)
         }
     }
 
