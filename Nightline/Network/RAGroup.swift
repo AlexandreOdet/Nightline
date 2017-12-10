@@ -26,6 +26,58 @@ class RAGroup: RABase {
     return Promise { (fulfill, reject) in
       self.request = Alamofire.request(finalUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default)
         .responseObject(completionHandler: {
+          (response: DataResponse<CreateGroupResponse>) in
+          switch response.result {
+          case .success(let group):
+            fulfill(group)
+          case .failure(let error):
+            reject(error)
+          }
+        })
+    }
+  }
+  
+  func updateGroupInfo(modifiedGroup: Group, callbackError: @escaping () -> ()) {
+    let url = RoutesAPI.baseUrl.appending(AppConstant.Network.groups)
+    let parameters = ["group":modifiedGroup.toJSON()]
+    request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
+      .responseJSON(completionHandler: {
+        (response: DataResponse<Any>) in
+        switch response.result {
+        case .success(_):
+          return
+        case .failure(let err):
+          print(err.localizedDescription)
+          callbackError()
+        }
+      })
+  }
+  
+  enum deleteGroupResult {
+    case success()
+    case failure(error: Error)
+  }
+  
+  func deleteGroup(groupId: String, callback: @escaping (deleteGroupResult) -> ()){
+    let url = RoutesAPI.baseUrl.appending(AppConstant.Network.groups).appending("/\(groupId)")
+    request = Alamofire.request(url, method: .delete, parameters: nil, encoding: JSONEncoding.default)
+      .responseJSON(completionHandler: {
+        (response: DataResponse<Any>) -> Void in
+        switch response.result {
+        case .success(_):
+          print("Group deleted")
+          callback(.success())
+        case .failure(let error):
+          print("deleteGroup: \(error.localizedDescription)")
+          callback(.failure(error: error))
+        }
+      })
+  }
+  
+  func getGroupInformations(groupId: Int) -> Promise<CreateGroupResponse> {
+    let url = RoutesAPI.baseUrl + AppConstant.Network.groups + "/\(groupId)"
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url).responseObject(completionHandler: {
         (response: DataResponse<CreateGroupResponse>) in
         switch response.result {
         case .success(let group):
@@ -33,57 +85,12 @@ class RAGroup: RABase {
         case .failure(let error):
           reject(error)
         }
+      })
     }
-
-    func updateGroupInfo(modifiedGroup: Group, callbackError: @escaping () -> ()) {
-        let url = RoutesAPI.baseUrl.appending(AppConstant.Network.groups)
-        let parameters = ["group":modifiedGroup.toJSON()]
-        request = Alamofire.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default)
-            .responseJSON(completionHandler: {
-                (response: DataResponse<Any>) in
-                switch response.result {
-                case .success(_):
-                    return
-                case .failure(let err):
-                    print(err.localizedDescription)
-                    callbackError()
-                }
-            })
-    }
-
-    enum deleteGroupResult {
-        case success()
-        case failure(error: Error)
-    }
-
-    func deleteGroup(groupId: String, callback: @escaping (deleteGroupResult) -> ()){
-        let url = RoutesAPI.baseUrl.appending(AppConstant.Network.groups).appending("/\(groupId)")
-        request = Alamofire.request(url, method: .delete, parameters: nil, encoding: JSONEncoding.default)
-            .responseJSON(completionHandler: {
-                (response: DataResponse<Any>) -> Void in
-                switch response.result {
-                case .success(_):
-                    print("Group deleted")
-                    callback(.success())
-                case .failure(let error):
-                    print("deleteGroup: \(error.localizedDescription)")
-                    callback(.failure(error: error))
-                }
-            })
-    }
-
-    func getGroupInformations(groupId: Int) -> Promise<CreateGroupResponse> {
-        let url = RoutesAPI.baseUrl + AppConstant.Network.groups + "/\(groupId)"
-        return Promise { (fulfill, reject) in
-            self.request = Alamofire.request(url).responseObject(completionHandler: {
-                (response: DataResponse<CreateGroupResponse>) in
-                switch response.result {
-                case .success(let group):
-                    fulfill(group)
-                case .failure(let error):
-                    reject(error)
-                }
-            })
-        }
-    }
+  }
+  
+  func deleteUserFromGroup() {
+    
+  }
+  
 }
