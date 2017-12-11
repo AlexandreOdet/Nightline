@@ -89,6 +89,7 @@ final class Utils {
       tokenWrapper.deleteToken()
       if UserDefaults.standard.string(forKey: "userId") != nil {
         UserDefaults.standard.removeObject(forKey: "userId")
+        UserDefaults.standard.synchronize()
       }
     }
   }

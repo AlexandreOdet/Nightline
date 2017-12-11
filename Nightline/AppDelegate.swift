@@ -35,12 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window?.makeKeyAndVisible()
     UIApplication.shared.statusBarStyle = .lightContent
     let idUser = UserManager.instance.retrieveUserId()
+    print("idUser = \(idUser)")
     if idUser > -1 {
       firstly {
         RAUser().getUserInfos(id: String(idUser))
         }.then { response -> Void in
           if let user = response.user {
             UserManager.instance.networkUser = user
+            print("[AppDelegate]: User Loaded")
           }
         }.catch { _ in
           return

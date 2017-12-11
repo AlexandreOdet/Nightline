@@ -151,7 +151,9 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
       }.then{ [unowned self] resp -> Void in
         if let token = resp.token, let user = resp.user {
           tokenWrapper.setToken(valueFor: token)
-          tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
+          UserDefaults.standard.set(String(user.id), forKey: "userId")
+          UserDefaults.standard.synchronize()
+          UserManager.instance.loadUserInfos()
         } else { AlertUtils.networkErrorAlert(from: self)
           return
         }

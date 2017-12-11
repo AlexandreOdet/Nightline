@@ -199,6 +199,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                 if let token = resp.token, let user = resp.user {
                     tokenWrapper.setToken(valueFor: token)
                   UserDefaults.standard.set(String(user.id), forKey: "userId")
+                  UserDefaults.standard.synchronize()
+                  UserManager.instance.loadUserInfos()
                 } else { AlertUtils.networkErrorAlert(from: self)
                     return
                 }
@@ -303,6 +305,8 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                             if let token = resp.token, let user = resp.user {
                                 tokenWrapper.setToken(valueFor: token)
                               UserDefaults.standard.set(String(user.id), forKey: "userId")
+                              UserDefaults.standard.synchronize()
+                              UserManager.instance.loadUserInfos()
                               self.dismiss(animated: false, completion: {
                                     self.presentingViewController?.dismiss(animated: false, completion: nil)})
                                 let notificationName = Notification.Name(SigninViewController.notificationIdentifier)
@@ -314,7 +318,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                         resp -> Void in
                                         if let token = resp.token, let user = resp.user {
                                             tokenWrapper.setToken(valueFor: token)
-                                            tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
+                                          UserDefaults.standard.set(String(user.id), forKey: "userId")
+                                          UserDefaults.standard.synchronize()
+                                          UserManager.instance.loadUserInfos()
                                         } else {
                                             AlertUtils.networkErrorAlert(from: self)
                                             self.loginManager.logOut()
@@ -335,7 +341,9 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                     resp -> Void in
                                     if let token = resp.token, let user = resp.user {
                                         tokenWrapper.setToken(valueFor: token)
-                                        tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
+                                      UserDefaults.standard.set(String(user.id), forKey: "userId")
+                                      UserDefaults.standard.synchronize()
+                                      UserManager.instance.loadUserInfos()
                                     } else {
                                         AlertUtils.networkErrorAlert(from: self)
                                         self.loginManager.logOut()

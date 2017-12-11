@@ -23,11 +23,28 @@ final class UserManager {
   
   func retrieveUserId() -> Int {
     if let userId = UserDefaults.standard.string(forKey: "userId") {
+      print("[UserManager] Retrieved from userDefaults = \(userId)")
       return Int(userId) ?? -1
     }
     return -1
   }
   
+  func loadUserInfos() {
+    let idUser = UserManager.instance.retrieveUserId()
+    print("[UserManager] idUser = \(idUser)")
+    if idUser > -1 {
+      firstly {
+        RAUser().getUserInfos(id: String(idUser))
+        }.then { response -> Void in
+          if let user = response.user {
+            UserManager.instance.networkUser = user
+            print("[UserManager]: User Loaded")
+          }
+        }.catch { _ in
+          return
+      }
+    }
+  }
   
   /**
    Method of the UserManager class.
