@@ -14,6 +14,11 @@ import AlamofireObjectMapper
 
 class RAGroup: RABase {
   
+  enum deleteGroupResult {
+    case success()
+    case failure(error: Error)
+  }
+  
   func createGroup(groupName: String, groupDescription: String) -> Promise<CreateGroupResponse> {
     let group = Group()
     group.name = groupName
@@ -53,11 +58,6 @@ class RAGroup: RABase {
       })
   }
   
-  enum deleteGroupResult {
-    case success()
-    case failure(error: Error)
-  }
-  
   func deleteGroup(groupId: String, callback: @escaping (deleteGroupResult) -> ()){
     let url = RoutesAPI.baseUrl.appending(AppConstant.Network.groups).appending("/\(groupId)")
     request = Alamofire.request(url, method: .delete, parameters: nil, encoding: JSONEncoding.default)
@@ -87,6 +87,11 @@ class RAGroup: RABase {
         }
       })
     }
+  }
+  
+  func addMemberToGroup(groupID: String, userID: String) {
+    let url = RoutesAPI.baseUrl + AppConstant.Network.groups + "/\(groupID)/invite/\(userID)"
+    Alamofire.request(url)
   }
   
   func deleteUserFromGroup(groupID: String, userID: String) {
