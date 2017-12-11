@@ -8,7 +8,6 @@ target 'Nightline' do
   pod 'R.swift'
   pod 'Alamofire'
   pod 'ObjectMapper'
-  pod 'RealmSwift'
   pod 'SwiftyBeaver'
   pod 'AlamofireObjectMapper'
   pod 'KeychainSwift'

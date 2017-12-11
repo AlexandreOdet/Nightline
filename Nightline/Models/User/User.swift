@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 import ObjectMapper
 
 /*
@@ -37,25 +36,6 @@ class User: Mappable {
 
     required init() {
 
-    }
-
-    /*
-     init(otherUser: DbUser)
-     This initializer is used when no network is available and we need some data.
-     We copy all data stored in Realm in this user.
-     */
-
-    init(otherUser: DbUser) {
-        firstName = otherUser.firstName
-        lastName = otherUser.lastName
-        email = otherUser.email
-        passwd = otherUser.passwd
-        nickname = otherUser.nickname
-        city = otherUser.city
-        age = otherUser.age
-        picture = otherUser.picture
-        achievements = otherUser.achievements
-        achievementPoints = otherUser.achievementPoints
     }
 
     required init?(map: Map) {

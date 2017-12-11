@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 import PromiseKit
 
 /**
@@ -20,48 +19,7 @@ import PromiseKit
 
 final class UserManager {
   static let instance = UserManager()
-  var localUser: Array<DbUser>? = nil
   var networkUser = User()
-  
-  private init() {
-    localUser = DatabaseHandler().getObjectArray(ofType: DbUser.self)
-  }
-  
-  func initDbUser(userFromApi: User) {
-    networkUser = userFromApi
-    if let users = localUser {
-      if !users.isEmpty {
-        for user in users {
-          if user.email == userFromApi.email {
-            DatabaseHandler().insertInDatabase(object: DbUser.self, properties: userFromApi.toJSON())
-          }
-        }
-      } else {
-        DatabaseHandler().insertInDatabase(object: DbUser.self, properties: userFromApi.toJSON())
-      }
-    } else {
-      DatabaseHandler().insertInDatabase(object: DbUser.self, properties: userFromApi.toJSON())
-    }
-    localUser = DatabaseHandler().getObjectArray(ofType: DbUser.self)
-  }
-  
-  func initDbUser(userFromApi: UserLoginObject) {
-    if let users = localUser {
-      if !users.isEmpty {
-        for user in users {
-          if user.email == userFromApi.email {
-            DatabaseHandler().insertInDatabase(object: DbUser.self, properties: userFromApi.toJSON())
-          }
-        }
-      } else {
-        DatabaseHandler().insertInDatabase(object: DbUser.self, properties: userFromApi.toJSON())
-      }
-    } else {
-      DatabaseHandler().insertInDatabase(object: DbUser.self, properties: userFromApi.toJSON())
-      localUser = DatabaseHandler().getObjectArray(ofType: DbUser.self)
-    }
-  }
-  
   
   func retrieveUserId() -> Int {
     if let userId = UserDefaults.standard.string(forKey: "userId") {
@@ -84,12 +42,6 @@ final class UserManager {
     if !networkUser.firstName.isEmpty {
       return networkUser.firstName
     }
-    if let users = localUser {
-      if !users.isEmpty {
-        let dbUser = users[0]
-        return (dbUser.firstName.isEmpty) ? "": dbUser.firstName
-      }
-    }
     return ""
   }
   
@@ -104,7 +56,6 @@ final class UserManager {
   
   func updateUserFirstName(newValue: String) {
     networkUser.firstName = newValue
-    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["firstName":newValue])
   }
   
   /**
@@ -120,12 +71,6 @@ final class UserManager {
     if !networkUser.lastName.isEmpty {
       return networkUser.lastName
     }
-    if let users = localUser {
-      if !users.isEmpty {
-        let dbUser = users[0]
-        return (dbUser.lastName.isEmpty) ? "" : dbUser.lastName
-      }
-    }
     return ""
   }
   
@@ -140,7 +85,6 @@ final class UserManager {
   
   func updateUserLasttName(newValue: String) {
     networkUser.lastName = newValue
-    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["lastName":newValue])
   }
   
   /**
@@ -156,12 +100,6 @@ final class UserManager {
   func getUserCompleteName() -> String {
     if !networkUser.lastName.isEmpty && !networkUser.firstName.isEmpty {
       return networkUser.firstName + " " + networkUser.lastName
-    }
-    if let users = localUser {
-      if !users.isEmpty {
-        let dbUser = users[0]
-        return dbUser.firstName + " " + dbUser.lastName
-      }
     }
     return ""
   }
@@ -179,12 +117,6 @@ final class UserManager {
     if !networkUser.email.isEmpty {
       return networkUser.email
     }
-    if let users = localUser {
-      if !users.isEmpty {
-        let dbUser = users[0]
-        return (dbUser.email.isEmpty) ? "" : dbUser.email
-      }
-    }
     return ""
   }
   
@@ -199,7 +131,6 @@ final class UserManager {
   
   func updateUserEmail(newValue: String) {
     networkUser.email = newValue
-    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["email":newValue])
   }
   
   /**
@@ -214,12 +145,6 @@ final class UserManager {
   func getUserAge() -> String {
     if !networkUser.age.isEmpty {
       return networkUser.age
-    }
-    if let users = localUser {
-      if !users.isEmpty {
-        let dbUser = users[0]
-        return dbUser.age
-      }
     }
     return ""
   }
@@ -237,12 +162,6 @@ final class UserManager {
     if !networkUser.nickname.isEmpty {
       return networkUser.nickname
     }
-    if let array = localUser {
-      if !array.isEmpty {
-        let dbUser = array[0]
-        return dbUser.nickname
-      }
-    }
     return ""
   }
   
@@ -257,7 +176,6 @@ final class UserManager {
   
   func updateUserNickName(newValue: String) {
     networkUser.nickname = newValue
-    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["nickname":newValue])
   }
   
   /**
@@ -271,7 +189,6 @@ final class UserManager {
   
   func updateUserAge(newValue: String) {
     networkUser.age = newValue
-    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["age":newValue])
   }
   
   /**
@@ -287,12 +204,6 @@ final class UserManager {
     if !networkUser.city.isEmpty {
       return networkUser.city
     }
-    if let users = localUser {
-      if !users.isEmpty {
-        let dbUser = users[0]
-        return dbUser.city
-      }
-    }
     return ""
   }
   
@@ -307,7 +218,6 @@ final class UserManager {
   
   func updateUserCity(newValue: String) {
     networkUser.city = newValue
-    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["city":newValue])
   }
   
   /**
@@ -323,12 +233,6 @@ final class UserManager {
     if networkUser.picture != nil {
       return networkUser.picture
     }
-    if let array = localUser {
-      if !array.isEmpty {
-        let dbUser = array[0]
-        return dbUser.picture
-      }
-    }
     return nil
   }
   
@@ -343,7 +247,6 @@ final class UserManager {
   
   func updateUserPicture(newValue: NSData) {
     networkUser.picture = newValue
-    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["picture":newValue])
   }
   
   /**
@@ -372,12 +275,6 @@ final class UserManager {
     if networkUser.preferences.consoLiked.isEmpty == false {
       return networkUser.preferences.consoLiked
     }
-    if let users = localUser {
-      if !users.isEmpty {
-      let dbUser = users[0]
-        return dbUser.preferences.consoLiked
-      }
-    }
     return []
   }
   
@@ -394,13 +291,6 @@ final class UserManager {
     if networkUser.preferences.etablishmentLiked.isEmpty == false {
       return networkUser.preferences.etablishmentLiked
     }
-    if let users = localUser {
-      if !users.isEmpty {
-        let dbUser = users[0]
-        return dbUser.preferences.etablishmentLiked
-      }
-    }
-
     return []
   }
   
@@ -458,21 +348,6 @@ final class UserManager {
   func removeEtablishmentFromUserPreferences(etablishment: String) {
     guard let index = networkUser.preferences.etablishmentLiked.index(of: etablishment) else { return }
     networkUser.preferences.etablishmentLiked.remove(at: index)
-  }
-  
-  /**
-   Method of the UserManager class.
-   Update user preferences in database.
-   
-   @param None.
-   
-   @return Nothing.
-   */
-  
-  func updateUserPreferencesInDatabase() {
-    log.debug(networkUser.preferences.toString())
-    DatabaseHandler().insertInDatabase(object: DbUser.self, properties: ["consos":networkUser.preferences.consoLiked])
-    log.debug(localUser?[0].toString() ??  "nil")
   }
   
   /**
@@ -559,9 +434,8 @@ final class UserManager {
   
   func pushUserUpdate() {
     let userInstance = RAUser()
-    let user = User(otherUser: (localUser?[0])!)
     DispatchQueue.global().async {
-      userInstance.updateUserInfos(user: user)
+      userInstance.updateUserInfos(user: self.networkUser)
     }
   }
 }

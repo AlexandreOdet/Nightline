@@ -8,7 +8,6 @@
 
 import Foundation
 import SnapKit
-import RealmSwift
 import Rswift
 import PromiseKit
 
@@ -152,7 +151,6 @@ final class SignupViewController: BaseViewController, UITextFieldDelegate {
       }.then{ [unowned self] resp -> Void in
         if let token = resp.token, let user = resp.user {
           tokenWrapper.setToken(valueFor: token)
-          UserManager.instance.initDbUser(userFromApi: user)
           tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
         } else { AlertUtils.networkErrorAlert(from: self)
           return
