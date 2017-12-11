@@ -89,8 +89,9 @@ class RAGroup: RABase {
     }
   }
   
-  func deleteUserFromGroup() {
-    
+  func deleteUserFromGroup(groupID: String, userID: String) {
+    let url = RoutesAPI.baseUrl + AppConstant.Network.groups + "/\(groupID)/member/\(userID)"
+    Alamofire.request(url, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil)
   }
   
 }
