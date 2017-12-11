@@ -199,7 +199,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                 if let token = resp.token, let user = resp.user {
                     tokenWrapper.setToken(valueFor: token)
                     UserManager.instance.initDbUser(userFromApi: user)
-                    tokenWrapper.setToken(valueFor: String(user.id), key: "userId")
+                  UserDefaults.standard.set(String(user.id), forKey: "userId")
                 } else { AlertUtils.networkErrorAlert(from: self)
                     return
                 }

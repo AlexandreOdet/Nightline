@@ -87,7 +87,9 @@ final class Utils {
     
     static func logOutUser() {
       tokenWrapper.deleteToken()
-      tokenWrapper.deleteToken(for: "userId")
+      if UserDefaults.standard.string(forKey: "userId") != nil {
+        UserDefaults.standard.removeObject(forKey: "userId")
+      }
     }
   }
 }

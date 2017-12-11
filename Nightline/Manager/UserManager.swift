@@ -64,7 +64,10 @@ final class UserManager {
   
   
   func retrieveUserId() -> Int {
-    return Int(TokenWrapper().getToken(for: "userId") ?? "-1") ?? -1
+    if let userId = UserDefaults.standard.string(forKey: "userId") {
+      return Int(userId) ?? -1
+    }
+    return -1
   }
   
   
