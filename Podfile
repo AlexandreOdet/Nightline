@@ -17,6 +17,8 @@ target 'Nightline' do
   pod 'Lightbox'
   pod 'Stripe'
   pod 'SwiftSpinner'
+  pod 'Cloudinary'
+  pod 'SwiftyJSON'
   
   # Pods for Nightline
 
