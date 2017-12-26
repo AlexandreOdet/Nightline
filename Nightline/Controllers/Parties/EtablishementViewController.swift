@@ -282,12 +282,3 @@ extension EtablishmentViewController: UIImagePickerControllerDelegate, UINavigat
     present(chooseSource, animated: true, completion: nil)
   }
 }
-
-
-
-
-
-
-
-
-

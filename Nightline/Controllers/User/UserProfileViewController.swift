@@ -42,11 +42,11 @@ class UserProfileViewController: UIViewController {
     }
 
     func fillTopView() {
-        if let imgdt = UserManager.instance.getUserPicture(), let profileImage = UIImage(data: (imgdt as Data)) {
-            picture.image = profileImage
-        } else {
-            picture.image = R.image.male()
-        }
+        picture.image = UserManager.instance.getUserPicture(callback: { (img) in
+            DispatchQueue.main.async {
+                self.picture.image = img
+            }
+        })
         firstnameLabel.text = UserManager.instance.getUserFirstName()
         nameLabel.text = UserManager.instance.getUserLastName()
         pseudoLabel.text = UserManager.instance.getUserNickname()

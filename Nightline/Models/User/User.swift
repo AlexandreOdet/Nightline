@@ -28,7 +28,8 @@ class User: Mappable {
     var achievementPoints = 0
     var preferences = UserPreferences()
     var gender = Gender.male
-    var picture: NSData? = nil
+//    var picture: NSData? = nil
+    var image: UIImage?
     var number = ""
     var urlImage = ""
     var success = 0

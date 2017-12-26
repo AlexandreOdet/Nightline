@@ -22,11 +22,11 @@ final class OldUserProfileViewController: ProfileViewController {
   }
   
   private func setUpView() {
-    if let imgdt = UserManager.instance.getUserPicture(), let profileImage = UIImage(data: (imgdt as Data)) {
-      imgProfile.image = profileImage
-    } else {
-      imgProfile.image = R.image.male()
-    }
+    imgProfile.image = UserManager.instance.getUserPicture(callback: { (img) in
+        DispatchQueue.main.async {
+            self.imgProfile.image = img
+        }
+    })
     if  !UserManager.instance.getUserFirstName().isEmpty, !UserManager.instance.getUserLastName().isEmpty {
       nameLabel.text = UserManager.instance.getUserFirstName() + " " + (UserManager.instance.getUserLastName().first?.description)!
     } else {

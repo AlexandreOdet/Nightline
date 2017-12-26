@@ -45,10 +45,11 @@ final class UserProfileCell: UITableViewCell {
     }
     userPicture.translatesAutoresizingMaskIntoConstraints = false
     userPicture.roundImage(withBorder: true, borderColor: .black, borderSize: 1.0)
-    
-    if let dataPicutre = UserManager.instance.getUserPicture() {
-      userPicture.image = UIImage(data: dataPicutre as Data)
-    }
+    userPicture.image = UserManager.instance.getUserPicture(callback: { (img) in
+        DispatchQueue.main.async {
+            self.userPicture.image = img
+        }
+    })
     
     self.contentView.addSubview(labelName)
     labelName.snp.makeConstraints { (make) -> Void in

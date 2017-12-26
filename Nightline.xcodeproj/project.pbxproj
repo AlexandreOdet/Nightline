@@ -31,6 +31,7 @@
 		7B61E6DC1FB23DE60000AE7D /* DetailGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B61E6DA1FB23DE50000AE7D /* DetailGroupViewController.swift */; };
 		7B61E6DD1FB23DE60000AE7D /* DetailGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B61E6DB1FB23DE50000AE7D /* DetailGroupViewController.xib */; };
 		7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */; };
+		7B96E6491FED5F2500E6DFD8 /* CloudinaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96E6481FED5F2500E6DFD8 /* CloudinaryManager.swift */; };
 		7B9C5B7A1F8FCB6000259AC6 /* GroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */; };
 		7B9C5B7B1F8FCB6000259AC6 /* GroupsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */; };
 		7B9C5B7D1F8FCF3800259AC6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B7C1F8FCF3700259AC6 /* TabBarController.swift */; };
@@ -116,7 +117,7 @@
 		FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */; };
 		FAAEF1AE1F74309E00BB0916 /* RAGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AD1F74309E00BB0916 /* RAGroup.swift */; };
 		FAAEF1B01F74347200BB0916 /* RAInvitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */; };
-		FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
 		FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009311F8F9BDE00D82EB9 /* Group.swift */; };
 		FAC009341F8FB23B00D82EB9 /* CreateGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009331F8FB23B00D82EB9 /* CreateGroupResponse.swift */; };
@@ -153,13 +154,10 @@
 		FAFF37581E034073001B2A8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37571E034073001B2A8F /* AppDelegate.swift */; };
 		FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF375E1E0340C0001B2A8F /* AppConstant.swift */; };
 		FAFF37691E034147001B2A8F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37631E034147001B2A8F /* BaseViewController.swift */; };
-		FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37721E03421D001B2A8F /* DatabaseHandler.swift */; };
-		FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37731E03421D001B2A8F /* DatabaseUser.swift */; };
 		FAFF37801E034654001B2A8F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF377D1E034654001B2A8F /* Utils.swift */; };
 		FAFF37851E034678001B2A8F /* RABase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF37841E034678001B2A8F /* RABase.swift */; };
 		FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF378A1E03470F001B2A8F /* Gender.swift */; };
 		FAFF4EA21E5E4762006582C7 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF4EA11E5E4762006582C7 /* ExtensionString.swift */; };
-		FAFF4EA41E5E4827006582C7 /* ExtensionDBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF4EA31E5E4827006582C7 /* ExtensionDBUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,7 +184,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */,
+				FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +215,7 @@
 		7B61E6DA1FB23DE50000AE7D /* DetailGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGroupViewController.swift; sourceTree = "<group>"; };
 		7B61E6DB1FB23DE50000AE7D /* DetailGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailGroupViewController.xib; sourceTree = "<group>"; };
 		7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewController.swift; path = Controllers/User/EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		7B96E6481FED5F2500E6DFD8 /* CloudinaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudinaryManager.swift; path = Manager/CloudinaryManager.swift; sourceTree = "<group>"; };
 		7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewController.swift; sourceTree = "<group>"; };
 		7B9C5B791F8FCB6000259AC6 /* GroupsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsListViewController.xib; sourceTree = "<group>"; };
 		7B9C5B7C1F8FCF3700259AC6 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -350,14 +349,11 @@
 		FAFF37571E034073001B2A8F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFF375E1E0340C0001B2A8F /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppConstant.swift; path = Constants/AppConstant.swift; sourceTree = "<group>"; };
 		FAFF37631E034147001B2A8F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Controllers/BaseViewController.swift; sourceTree = "<group>"; };
-		FAFF37721E03421D001B2A8F /* DatabaseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseHandler.swift; path = DataBase/DatabaseHandler.swift; sourceTree = "<group>"; };
-		FAFF37731E03421D001B2A8F /* DatabaseUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseUser.swift; path = DataBase/DatabaseUser.swift; sourceTree = "<group>"; };
 		FAFF37761E034295001B2A8F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFF377D1E034654001B2A8F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Utils/Utils.swift; sourceTree = "<group>"; };
 		FAFF37841E034678001B2A8F /* RABase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RABase.swift; path = Network/RABase.swift; sourceTree = "<group>"; };
 		FAFF378A1E03470F001B2A8F /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gender.swift; path = Enums/User/Gender.swift; sourceTree = "<group>"; };
 		FAFF4EA11E5E4762006582C7 /* ExtensionString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionString.swift; path = Extensions/Utils/ExtensionString.swift; sourceTree = "<group>"; };
-		FAFF4EA31E5E4827006582C7 /* ExtensionDBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionDBUser.swift; path = Extensions/Models/User/ExtensionDBUser.swift; sourceTree = "<group>"; };
 		FE9A23182BC6F92BF6388ACC /* Pods-NightlineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -542,7 +538,6 @@
 			children = (
 				FA303F691E5D1EAE008961EF /* ExtensionUser.swift */,
 				FA303F6B1E5D1F26008961EF /* ExtensionUserPreferences.swift */,
-				FAFF4EA31E5E4827006582C7 /* ExtensionDBUser.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -642,6 +637,7 @@
 				FADF25CF1E8767F800E74439 /* AchievementManager.swift */,
 				FA0A3A231FD0A247003BA6D9 /* NotificationManager.swift */,
 				FA0D07841FD0A7F6000E8985 /* InvitationManager.swift */,
+				7B96E6481FED5F2500E6DFD8 /* CloudinaryManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -927,8 +923,6 @@
 		FAFF37711E034211001B2A8F /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				FAFF37721E03421D001B2A8F /* DatabaseHandler.swift */,
-				FAFF37731E03421D001B2A8F /* DatabaseUser.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -1307,6 +1301,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
@@ -1315,19 +1310,19 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
@@ -1336,13 +1331,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1391,7 +1385,6 @@
 				7B6068691F0FE964000F1755 /* UserMediaTableViewController.swift in Sources */,
 				FA5729801E5CFB6B00B36784 /* RoutableProtocol.swift in Sources */,
 				7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */,
-				FAFF4EA41E5E4827006582C7 /* ExtensionDBUser.swift in Sources */,
 				FA158DC41FB9E93800D31BE4 /* MoreTableViewController.swift in Sources */,
 				FAAC43C81E85BA2100CEF9CA /* ProfileViewController.swift in Sources */,
 				FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */,
@@ -1421,7 +1414,6 @@
 				7B5B6D371F60B1D000777C78 /* DetailPartyViewController.swift in Sources */,
 				FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */,
 				FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */,
-				FAFF37741E03421D001B2A8F /* DatabaseHandler.swift in Sources */,
 				FA78B71B1E56978600765056 /* RAUser.swift in Sources */,
 				FA18F6081F9F25DA00BD8B0E /* GroupPreview.swift in Sources */,
 				FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */,
@@ -1429,6 +1421,7 @@
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
 				FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */,
 				FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */,
+				7B96E6491FED5F2500E6DFD8 /* CloudinaryManager.swift in Sources */,
 				7BAC79531FB5D40600186026 /* MemberDragCoordinator.swift in Sources */,
 				7B9C5B7A1F8FCB6000259AC6 /* GroupsListViewController.swift in Sources */,
 				FA4FC1B01F9118F0003CCCC7 /* SplashScreenViewController.swift in Sources */,
@@ -1440,7 +1433,6 @@
 				7B5A6AD41E9FB81700D902C5 /* EditAgeViewController.swift in Sources */,
 				FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */,
 				FAC009361F8FB4B800D82EB9 /* GroupResponse.swift in Sources */,
-				FAFF37751E03421D001B2A8F /* DatabaseUser.swift in Sources */,
 				FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */,
 				7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */,
 				7B4050421F54521F00A2B0A9 /* DetailUserViewController.swift in Sources */,
