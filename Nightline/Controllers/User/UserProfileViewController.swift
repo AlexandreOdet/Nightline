@@ -115,7 +115,7 @@ class UserProfileViewController: UIViewController {
         setMediasView()
         setAchievementsView()
         let lineNbr = CGFloat(photos.count / 3 + 1)
-        let sizeCell = (mediasCV.frame.width / 3) - 8
+        //let sizeCell = (mediasCV.frame.width / 3) - 8
         //let viewHeight = lineNbr * (sizeCell + 8)
         mediasView.frame.size.height = 700
         print(lineNbr)
