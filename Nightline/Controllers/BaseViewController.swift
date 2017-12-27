@@ -21,8 +21,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
   var img = UIImageView()
   var label = UILabel()
   var button = UIButton()
-  
-  var ws = WebSocket(url: URL(string: "ws://nightline.fr:8047/")!, protocols: ["chat"])
+  var ws = WebSocket(url: URL(string: AppConstant.Network.websocketsBaseUrl + "\(UserManager.instance.retrieveUserId())")!, protocols: [])
   
   deinit {
     ws.disconnect()
@@ -32,6 +31,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
   override func viewDidLoad() {
     super.viewDidLoad()
     ws.connect()
+    print("WebSocket URL = ", ws.currentURL)
     ws.delegate = self
     view.backgroundColor = UIColor.black
     createNoConnectivityView()
@@ -117,7 +117,11 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
   }
   
   func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-    print("WebSocket.DidDisconnect")
+    if let err = error {
+      print("WebSocket.DidDisconnect with error: \(err)")
+    } else {
+      print("WebSocket.DidDisconnect")
+    }
   }
   
   func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {

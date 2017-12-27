@@ -65,7 +65,7 @@ final class AppConstant {
     public class  var party: String { return "/soiree" }
     public class var payment: String { return "/update_stripe_user" }
     public class var groups: String { return "/groups" }
-    public class var websocketsBaseUrl: String { return "ws://ws.nightline.fr/"}
+    public class var websocketsBaseUrl: String { return "ws://nightline.fr:8048/"}
   }
   
   final class StripeToken {
