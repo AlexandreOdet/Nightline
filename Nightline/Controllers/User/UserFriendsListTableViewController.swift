@@ -15,8 +15,6 @@ final class UserFriendsListTableViewController: UITableViewController {
 
     private let anim = Animation()
     private let reuseIdentifier = "UserFriendsListCell"
-    //    var pendingList: [String] = ["pendingtoto", "pendingtiti", "Ptata", "Ptutu"]
-    //    var friendList: [String] = ["toto", "titi", "tata", "tutu"]
     let friendsInstance = RAFriends()
     let invits = RAInvitations()
     var friendList: FriendsList?
@@ -30,7 +28,6 @@ final class UserFriendsListTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView = UITableView(frame: view.frame, style: .grouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-        //        self.tableView.reloadData()
         getData()
     }
 

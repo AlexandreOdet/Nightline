@@ -81,7 +81,7 @@ class DetailUserViewController: ProfileViewController {
         if UserManager.instance.getUserAge() == "" {
             self.birthdayLabel.text = ""
         } else {
-            self.birthdayLabel.text = user.age + " ans"
+            self.birthdayLabel.text = UserManager.instance.getUserAge() + " ans"
         }
         self.locationLabel.text = user.city
         self.descriptionLabel.text = ""

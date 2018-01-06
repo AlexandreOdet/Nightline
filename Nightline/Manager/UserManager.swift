@@ -157,10 +157,17 @@ final class UserManager {
      */
 
     func getUserAge() -> String {
-        if !networkUser.age.isEmpty {
-            return networkUser.age
+        guard networkUser.birthdate != "" else { return "" }
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        let birthdate = df.date(from: networkUser.birthdate)
+        let calendar = Calendar.current
+        let res = calendar.dateComponents([.year], from: birthdate ?? Date(), to: Date())
+        if let age = res.year {
+            return String(age)
+        } else {
+            return ""
         }
-        return ""
     }
 
     /**
@@ -201,8 +208,10 @@ final class UserManager {
      @return Nothing.
      */
 
-    func updateUserAge(newValue: String) {
-        networkUser.age = newValue
+    func updateUserAge(newValue: Date) {
+        let to = DateFormatter()
+        to.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        networkUser.birthdate = to.string(from: newValue)
     }
 
     /**
@@ -445,5 +454,42 @@ final class UserManager {
         DispatchQueue.global().async {
             userInstance.updateUserInfos(user: self.networkUser)
         }
+    }
+
+    func formatDate(fromReadableDate date: String) -> String {
+        let from = DateFormatter()
+        from.dateFormat = "dd/MM/yyyy"
+
+        let to = DateFormatter()
+        to.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+
+        return to.string(from: from.date(from: date) ?? Date())
+    }
+
+    func formatDate(fromServerDate date: String) -> String {
+        let from = DateFormatter()
+        from.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+
+        let to = DateFormatter()
+        to.dateFormat = "dd/MM/yyyy"
+
+        return to.string(from: from.date(from: date) ?? Date())
+    }
+
+    func getBirthDate() -> Date? {
+        guard networkUser.birthdate != "" else { return nil }
+
+        let from = DateFormatter()
+        from.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+
+        return from.date(from: networkUser.birthdate) ?? Date()
+    }
+
+    func getUserNumber() -> String {
+        return networkUser.number
+    }
+
+    func updateUserNumber(newNumber nbr: String) {
+        networkUser.number = nbr
     }
 }
