@@ -14,7 +14,7 @@ import Rswift
 class EditProfileTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
 
-    var sectionsArray : [[String]] = [["Photo"], ["Prénom", "Nom", "Pseudo"], ["Age", "Ville"]]
+    var sectionsArray : [[String]] = [["Photo"], ["Prénom", "Nom", "Pseudo"], ["Age", "Numéro"]]
     var tableView = UITableView()
 
     override func viewDidLoad() {
@@ -91,7 +91,7 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
             case 0:
                 cell.labelLeft.text = UserManager.instance.getUserAge()
             default:
-                cell.labelLeft.text = UserManager.instance.getUserCity()
+                cell.labelLeft.text = UserManager.instance.getUserNumber()
             }
         }
         cell.labelRight.text = self.sectionsArray[indexPath.section][indexPath.row]
@@ -148,7 +148,7 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
     func testProfileFullyFilled() {
         if UserManager.instance.getAchievementStatus("ProfileFullyFilled") {
             return
-        } else if UserManager.instance.getUserFirstName() != "", UserManager.instance.getUserLastName() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserAge() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserCity() != "" {
+        } else if UserManager.instance.getUserFirstName() != "", UserManager.instance.getUserLastName() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserAge() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserNumber() != "" {
             AchievementManager.instance.validateAchievement("ProfileFullyFilled", self)
         }
     }

@@ -55,7 +55,7 @@ class UserProfileViewController: UIViewController {
         } else {
             ageLabel.text = UserManager.instance.getUserAge() + " ans"
         }
-        cityLabel.text = UserManager.instance.getUserCity()
+        cityLabel.text = UserManager.instance.getUserNumber()
     }
 
     func setFriendsView() {

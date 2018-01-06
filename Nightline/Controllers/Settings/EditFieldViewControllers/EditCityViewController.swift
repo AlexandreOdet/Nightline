@@ -31,7 +31,7 @@ class EditCityViewController: BaseViewController {
       make.height.equalTo(30)
     }
     self.view.backgroundColor = self.backgroundColor()
-    editLabel.text = "Ville :"
+    editLabel.text = "Numéro de téléphone :"
     editLabel.textColor = self.labelTextColor()
     self.contentView.addSubview(editTextField)
     editTextField.snp.makeConstraints { make in
@@ -41,6 +41,7 @@ class EditCityViewController: BaseViewController {
     }
     editTextField.text = UserManager.instance.getUserCity()
     editTextField.borderStyle = .roundedRect
+    editTextField.keyboardType = .phonePad
     editTextField.backgroundColor = self.textFieldBackgroundColor()
     editTextField.textColor = self.textFieldTextColor()
     editTextField.becomeFirstResponder()
@@ -58,7 +59,7 @@ class EditCityViewController: BaseViewController {
   
   override func viewWillDisappear(_ animated: Bool) {
     if (editTextField.text != "") {
-      UserManager.instance.updateUserCity(newValue: editTextField.text!)
+      UserManager.instance.updateUserNumber(newNumber: editTextField.text!)
     }
   }
   
