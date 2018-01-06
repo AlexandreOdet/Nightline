@@ -22,8 +22,8 @@ class User: Mappable {
     var nickname = ""
     var passwd = ""
     var city = ""
-    var age = ""
     var id = 0
+    var birthdate = ""
     var achievements : [Achievement] = []
     var achievementPoints = 0
     var preferences = UserPreferences()
@@ -50,6 +50,7 @@ class User: Mappable {
         urlImage <- map["image"]
         success <- map["success_points"]
         friends <- map["connected_to"]
+        birthdate <- map["birthdate"]
     }
 
     func mapping(map: Map) {
@@ -63,6 +64,7 @@ class User: Mappable {
         urlImage <- map["image"]
         success <- map["success_points"]
         friends <- map["connected_to"]
+        birthdate <- map["birthdate"]
     }
 
     static func ==(left: User, right: User) -> Bool {
@@ -72,7 +74,6 @@ class User: Mappable {
             left.nickname == right.nickname,
             left.passwd == right.passwd,
             left.city == right.city,
-            left.age == right.age,
             left.id == right.id {
             return true }
         return false
