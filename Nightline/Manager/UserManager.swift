@@ -23,7 +23,6 @@ final class UserManager {
 
     func retrieveUserId() -> Int {
         if let userId = UserDefaults.standard.string(forKey: "userId") {
-            print("[UserManager] Retrieved from userDefaults = \(userId)")
             return Int(userId) ?? -1
         }
         return -1
@@ -31,14 +30,12 @@ final class UserManager {
 
     func loadUserInfos() {
         let idUser = UserManager.instance.retrieveUserId()
-        print("[UserManager] idUser = \(idUser)")
         if idUser > -1 {
             firstly {
                 RAUser().getUserInfos(id: String(idUser))
                 }.then { response -> Void in
                     if let user = response.user {
                         UserManager.instance.networkUser = user
-                        print("[UserManager]: User Loaded")
                     }
                 }.catch { _ in
                     return
@@ -419,24 +416,11 @@ final class UserManager {
      @return An Achievement Object or nil.
      */
 
-    //  func validateAchievement<T: Achievement>(achievementName: String) -> T? {
-    //    for elem in networkUser.achievements {
-    //      if elem.name == achievementName && elem.status == .lock {
-    //        elem.status = .unlock
-    //        networkUser.achievementPoints = networkUser.achievementPoints + elem.points
-    //        print("L'achievement : \(achievementName) a bien été validé")
-    //        return (elem as! T)
-    //      }
-    //    }
-    //    return nil
-    //  }
-
     func validateAchievement(achievementName: String) -> Achievement? {
         for elem in networkUser.achievements {
             if elem.name == achievementName && elem.status == .lock {
                 elem.status = .unlock
                 networkUser.achievementPoints = networkUser.achievementPoints + elem.points
-                print("L'achievement : \(achievementName) a bien été validé")
                 return (elem)
             }
         }

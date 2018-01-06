@@ -204,7 +204,6 @@ final class RAUser: RABase {
   }
   
   func rateEstablishment(userId: String, establishmentId: String, rate: Int) -> Promise<RateEstabResponse> {
-    print("ESTABID -> ", establishmentId)
     let parameters = ["rate":rate]
     let url = RoutesAPI.user.url.appending("/\(userId)/rate/\(establishmentId)")
     return Promise { (fulfill, reject) in

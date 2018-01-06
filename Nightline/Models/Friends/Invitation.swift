@@ -27,8 +27,6 @@ class Invitation: Mappable {
   
   init() {
     id = 0
-    from = ""
-    to = ""
     when = ""
   }
   
