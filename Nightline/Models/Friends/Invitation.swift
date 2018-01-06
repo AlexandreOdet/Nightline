@@ -12,8 +12,8 @@ import ObjectMapper
 class Invitation: Mappable {
   
   var id: Int!
-  var from: String!
-  var to: String!
+  var from: InvitationInformationSenderReceiver!
+  var to: InvitationInformationSenderReceiver!
   var when: String!
   
   required init?(map: Map) {}
@@ -27,8 +27,6 @@ class Invitation: Mappable {
   
   init() {
     id = 0
-    from = ""
-    to = ""
     when = ""
   }
   

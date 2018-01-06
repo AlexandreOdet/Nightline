@@ -115,7 +115,7 @@ final class UserFriendsListTableViewController: UITableViewController {
     switch indexPath.section {
     case 0:
       if let pl = pendingList, pl.invitations.count > 0 {
-        let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, nameUser: pl.invitations[indexPath.row].from)
+        let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, nameUser: pl.invitations[indexPath.row].from.pseudo)
         return cell
       } else if let fl = friendList, fl.friends.count > 0 {
         let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, nameUser: fl.friends[indexPath.row].nickname)
@@ -139,7 +139,7 @@ final class UserFriendsListTableViewController: UITableViewController {
     switch indexPath.section {
     case 0:
       if let pl = pendingList, pl.invitations.count > 0 {
-        answerInvitation(name: pl.invitations[indexPath.row].from)
+        answerInvitation(name: pl.invitations[indexPath.row].from.pseudo)
       } else if let fl = friendList, fl.friends.count > 0 {
         let userInstance = RAUser()
         firstly {
