@@ -88,15 +88,29 @@ class RAInvitations: RABase {
     }
   }
   
-  func acceptGroupInvitation(invitationID: String) {
-    
+  func acceptGroupInvitation(invitationID: String, callback: @escaping (responseServer) -> ()) {
+    let url = RoutesAPI.baseUrl + "/invitations/groups/\(invitationID)/accept"
+    Alamofire.request(url).responseJSON(completionHandler: {
+      response in
+      switch response.result {
+      case .failure(let error):
+        callback(.failure(error))
+      case .success(_):
+        callback(.success)
+      }
+    })
   }
   
-  func declineGroupInvitation(invitationID: String) {
-    
-  }
-  
-  func getUserGroupsInvitation(userID: String) {
-    
+  func declineGroupInvitation(invitationID: String, callback: @escaping (responseServer) -> ()) {
+    let url = RoutesAPI.baseUrl + "/invitations/groups/\(invitationID)/decline"
+    Alamofire.request(url).responseJSON(completionHandler: {
+      response in
+      switch response.result {
+      case .failure(let error):
+        callback(.failure(error))
+      case .success(_):
+        callback(.success)
+      }
+    })
   }
 }
