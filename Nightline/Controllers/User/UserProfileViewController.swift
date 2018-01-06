@@ -65,6 +65,7 @@ class UserProfileViewController: UIViewController {
         friendsIcon.tintColor = deepBlue
         friendsLabel.text = "0 ami"
         getFriends()
+        friendsView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(friendViewClicked)))
     }
 
     func setTrophyView() {
@@ -124,6 +125,11 @@ class UserProfileViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    @objc func friendViewClicked() {
+        let nv = UserFriendsListTableViewController()
+        self.navigationController?.pushViewController(nv, animated: true)
     }
 }
 

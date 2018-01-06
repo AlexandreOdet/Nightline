@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A6F33541400FACF03BDE615 /* Pods_NightlineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BEACD1CD8D3EF3AEAEA8733 /* Pods_NightlineUITests.framework */; };
 		7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */; };
 		7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */; };
 		7B4050421F54521F00A2B0A9 /* DetailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4050401F54521F00A2B0A9 /* DetailUserViewController.swift */; };
 		7B4374D01FB4AF40001C53D1 /* EditMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4374CE1FB4AF40001C53D1 /* EditMembersViewController.swift */; };
 		7B4374D11FB4AF41001C53D1 /* EditMembersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B4374CF1FB4AF40001C53D1 /* EditMembersViewController.xib */; };
 		7B46AA601E9F557300529E64 /* EditFirstNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */; };
+		7B50EA9A20013A95003FD065 /* InvitationInformationSenderReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B50EA9920013A95003FD065 /* InvitationInformationSenderReceiver.swift */; };
 		7B5A6ACE1E9FB36D00D902C5 /* EditLastNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A6ACD1E9FB36D00D902C5 /* EditLastNameViewController.swift */; };
 		7B5A6AD01E9FB4C200D902C5 /* EditNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A6ACF1E9FB4C200D902C5 /* EditNickNameViewController.swift */; };
 		7B5A6AD21E9FB5AB00D902C5 /* EditCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A6AD11E9FB5AB00D902C5 /* EditCityViewController.swift */; };
@@ -44,9 +46,8 @@
 		7BBD27341E9F0A23006253ED /* DoubleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */; };
 		7BD406E61E9A5204003C09AC /* ProfilePictCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */; };
 		7BD6F25A1F1525E3001D88F6 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD6F2591F1525E3001D88F6 /* MediaManager.swift */; };
-		81A69561D0AF46B1D28EFEC4 /* Pods_NightlineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE30FC21B7B1FCD55E65E81E /* Pods_NightlineTests.framework */; };
-		ACD4449518C0CD0FE8E1B0E4 /* Pods_NightlineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189562DFD81C64C1493D95BA /* Pods_NightlineUITests.framework */; };
-		D68382A28D88CEDFBAD75E4A /* Pods_Nightline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA409A882153D1BA648B3E1D /* Pods_Nightline.framework */; };
+		7CBC6342813C73212635CC5E /* Pods_Nightline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411C6D09370D0DAE09228065 /* Pods_Nightline.framework */; };
+		CEAAE9F11B75A4A2A264A50D /* Pods_NightlineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72760B597C7DF94ABDB6CF0 /* Pods_NightlineTests.framework */; };
 		FA0A3A241FD0A247003BA6D9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0A3A231FD0A247003BA6D9 /* NotificationManager.swift */; };
 		FA0D07851FD0A7F6000E8985 /* InvitationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D07841FD0A7F6000E8985 /* InvitationManager.swift */; };
 		FA0D07871FD0AD15000E8985 /* NotificationDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D07861FD0AD15000E8985 /* NotificationDirections.swift */; };
@@ -117,7 +118,7 @@
 		FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */; };
 		FAAEF1AE1F74309E00BB0916 /* RAGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AD1F74309E00BB0916 /* RAGroup.swift */; };
 		FAAEF1B01F74347200BB0916 /* RAInvitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */; };
-		FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
 		FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009311F8F9BDE00D82EB9 /* Group.swift */; };
 		FAC009341F8FB23B00D82EB9 /* CreateGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009331F8FB23B00D82EB9 /* CreateGroupResponse.swift */; };
@@ -184,7 +185,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */,
+				FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,16 +193,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13FDABA76142AD57AF04BAA8 /* Pods-NightlineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.release.xcconfig"; sourceTree = "<group>"; };
-		189562DFD81C64C1493D95BA /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		39C5C463702E5E23641A2095 /* Pods-NightlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4F56F509E3BF9AB1FFDF432D /* Pods-Nightline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nightline.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nightline/Pods-Nightline.release.xcconfig"; sourceTree = "<group>"; };
+		0B11E804EC4415FA553763ED /* Pods-NightlineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.release.xcconfig"; sourceTree = "<group>"; };
+		248B4E994D9497BC9CDD3850 /* Pods-Nightline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nightline.release.xcconfig"; path = "Pods/Target Support Files/Pods-Nightline/Pods-Nightline.release.xcconfig"; sourceTree = "<group>"; };
+		2BEACD1CD8D3EF3AEAEA8733 /* Pods_NightlineUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		411C6D09370D0DAE09228065 /* Pods_Nightline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nightline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 		7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditPictureViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditPictureViewController.swift; sourceTree = "<group>"; };
 		7B4050401F54521F00A2B0A9 /* DetailUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailUserViewController.swift; path = Controllers/User/DetailUserViewController.swift; sourceTree = "<group>"; };
 		7B4374CE1FB4AF40001C53D1 /* EditMembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMembersViewController.swift; sourceTree = "<group>"; };
 		7B4374CF1FB4AF40001C53D1 /* EditMembersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMembersViewController.xib; sourceTree = "<group>"; };
+		7B45583364153B0AEF25FA6D /* Pods-Nightline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nightline.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nightline/Pods-Nightline.debug.xcconfig"; sourceTree = "<group>"; };
 		7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditFirstNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditFirstNameViewController.swift; sourceTree = "<group>"; };
+		7B50EA9920013A95003FD065 /* InvitationInformationSenderReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvitationInformationSenderReceiver.swift; path = Models/Friends/InvitationInformationSenderReceiver.swift; sourceTree = "<group>"; };
 		7B5A6ACD1E9FB36D00D902C5 /* EditLastNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditLastNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditLastNameViewController.swift; sourceTree = "<group>"; };
 		7B5A6ACF1E9FB4C200D902C5 /* EditNickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditNickNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditNickNameViewController.swift; sourceTree = "<group>"; };
 		7B5A6AD11E9FB5AB00D902C5 /* EditCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditCityViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditCityViewController.swift; sourceTree = "<group>"; };
@@ -233,11 +236,10 @@
 		7BBD27331E9F0A23006253ED /* DoubleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleLabelTableViewCell.swift; path = Controllers/Settings/CustomCells/DoubleLabelTableViewCell.swift; sourceTree = "<group>"; };
 		7BD406E51E9A5204003C09AC /* ProfilePictCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePictCell.swift; path = Controllers/Settings/CustomCells/ProfilePictCell.swift; sourceTree = "<group>"; };
 		7BD6F2591F1525E3001D88F6 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = Manager/MediaManager.swift; sourceTree = "<group>"; };
-		9B5D3A7540F69803B0EE2A5C /* Pods-NightlineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		BE30FC21B7B1FCD55E65E81E /* Pods_NightlineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2AAA1D728E823CF264D0D50 /* Pods-NightlineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests.release.xcconfig"; sourceTree = "<group>"; };
-		C4FB19AF32F9684193C31749 /* Pods-Nightline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nightline.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Nightline/Pods-Nightline.debug.xcconfig"; sourceTree = "<group>"; };
-		EA409A882153D1BA648B3E1D /* Pods_Nightline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nightline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89ADDB1DCAD05B0F6101A585 /* Pods-NightlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C66F797A7927862EA65F89DD /* Pods-NightlineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C72760B597C7DF94ABDB6CF0 /* Pods_NightlineTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NightlineTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D11CDCB07510470BE3E3AE2C /* Pods-NightlineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA0A3A231FD0A247003BA6D9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = Manager/NotificationManager.swift; sourceTree = "<group>"; };
 		FA0D07841FD0A7F6000E8985 /* InvitationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InvitationManager.swift; path = Manager/InvitationManager.swift; sourceTree = "<group>"; };
 		FA0D07861FD0AD15000E8985 /* NotificationDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationDirections.swift; path = Enums/Routes/NotificationDirections.swift; sourceTree = "<group>"; };
@@ -355,7 +357,6 @@
 		FAFF37841E034678001B2A8F /* RABase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RABase.swift; path = Network/RABase.swift; sourceTree = "<group>"; };
 		FAFF378A1E03470F001B2A8F /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gender.swift; path = Enums/User/Gender.swift; sourceTree = "<group>"; };
 		FAFF4EA11E5E4762006582C7 /* ExtensionString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionString.swift; path = Extensions/Utils/ExtensionString.swift; sourceTree = "<group>"; };
-		FE9A23182BC6F92BF6388ACC /* Pods-NightlineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NightlineUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,7 +369,7 @@
 				FAC380521EA08A2A00F62FEC /* FBSDKShareKit.framework in Frameworks */,
 				FAC380501EA08A2200F62FEC /* FBSDKLoginKit.framework in Frameworks */,
 				FA1DB8A21E0349FE00C8E437 /* MapKit.framework in Frameworks */,
-				D68382A28D88CEDFBAD75E4A /* Pods_Nightline.framework in Frameworks */,
+				7CBC6342813C73212635CC5E /* Pods_Nightline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +377,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81A69561D0AF46B1D28EFEC4 /* Pods_NightlineTests.framework in Frameworks */,
+				CEAAE9F11B75A4A2A264A50D /* Pods_NightlineTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,13 +385,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACD4449518C0CD0FE8E1B0E4 /* Pods_NightlineUITests.framework in Frameworks */,
+				7A6F33541400FACF03BDE615 /* Pods_NightlineUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EC503374AA142C8B77E54AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B45583364153B0AEF25FA6D /* Pods-Nightline.debug.xcconfig */,
+				248B4E994D9497BC9CDD3850 /* Pods-Nightline.release.xcconfig */,
+				89ADDB1DCAD05B0F6101A585 /* Pods-NightlineTests.debug.xcconfig */,
+				D11CDCB07510470BE3E3AE2C /* Pods-NightlineTests.release.xcconfig */,
+				C66F797A7927862EA65F89DD /* Pods-NightlineUITests.debug.xcconfig */,
+				0B11E804EC4415FA553763ED /* Pods-NightlineUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7B40503F1F5451DB00A2B0A9 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,19 +496,6 @@
 			name = AchievementCell;
 			sourceTree = "<group>";
 		};
-		B359802D63729927E53B8C13 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C4FB19AF32F9684193C31749 /* Pods-Nightline.debug.xcconfig */,
-				4F56F509E3BF9AB1FFDF432D /* Pods-Nightline.release.xcconfig */,
-				39C5C463702E5E23641A2095 /* Pods-NightlineTests.debug.xcconfig */,
-				C2AAA1D728E823CF264D0D50 /* Pods-NightlineTests.release.xcconfig */,
-				9B5D3A7540F69803B0EE2A5C /* Pods-NightlineUITests.debug.xcconfig */,
-				13FDABA76142AD57AF04BAA8 /* Pods-NightlineUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D79DDBCA71922E6E1A0DF5C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,9 +504,9 @@
 				FAC3804D1EA08A0800F62FEC /* FBSDKCoreKit.framework */,
 				FAC3804B1EA089FC00F62FEC /* Bolts.framework */,
 				FA1DB8A11E0349FE00C8E437 /* MapKit.framework */,
-				EA409A882153D1BA648B3E1D /* Pods_Nightline.framework */,
-				BE30FC21B7B1FCD55E65E81E /* Pods_NightlineTests.framework */,
-				189562DFD81C64C1493D95BA /* Pods_NightlineUITests.framework */,
+				411C6D09370D0DAE09228065 /* Pods_Nightline.framework */,
+				C72760B597C7DF94ABDB6CF0 /* Pods_NightlineTests.framework */,
+				2BEACD1CD8D3EF3AEAEA8733 /* Pods_NightlineUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -792,6 +793,7 @@
 				FA8475A31F5F26C800B3E292 /* FriendsList.swift */,
 				FA8475A51F5F2B9D00B3E292 /* InvitationsList.swift */,
 				FA8475A71F5F2BAC00B3E292 /* Invitation.swift */,
+				7B50EA9920013A95003FD065 /* InvitationInformationSenderReceiver.swift */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -854,7 +856,7 @@
 				FAFF37251E03402F001B2A8F /* Nightline */,
 				FAFF37241E03402F001B2A8F /* Products */,
 				D79DDBCA71922E6E1A0DF5C4 /* Frameworks */,
-				B359802D63729927E53B8C13 /* Pods */,
+				1EC503374AA142C8B77E54AD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -920,13 +922,6 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		FAFF37711E034211001B2A8F /* Database */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Database;
-			sourceTree = "<group>";
-		};
 		FAFF377A1E034646001B2A8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -990,14 +985,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAFF374E1E03402F001B2A8F /* Build configuration list for PBXNativeTarget "Nightline" */;
 			buildPhases = (
-				3930F3D84AB7DD3EEA1DFFD3 /* [CP] Check Pods Manifest.lock */,
+				69BB1ADD8EDAD2834F44B692 /* [CP] Check Pods Manifest.lock */,
 				FA1DB89C1E03484100C8E437 /* ShellScript */,
 				FAFF371F1E03402F001B2A8F /* Sources */,
 				FAFF37201E03402F001B2A8F /* Frameworks */,
 				FAFF37211E03402F001B2A8F /* Resources */,
 				FAAEF1B31F7505B100BB0916 /* Embed Frameworks */,
-				64BD9FAC79E77CC932FC50E5 /* [CP] Embed Pods Frameworks */,
-				9256287343533D28411BB343 /* [CP] Copy Pods Resources */,
+				AEBA4148D9614E44E1BB9BDA /* [CP] Embed Pods Frameworks */,
+				C21FC71AE5674610584F907A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1012,12 +1007,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAFF37511E034030001B2A8F /* Build configuration list for PBXNativeTarget "NightlineTests" */;
 			buildPhases = (
-				E33136F9DAB3874F7907B048 /* [CP] Check Pods Manifest.lock */,
+				FF6E4CEA7E0EA685751DDD8F /* [CP] Check Pods Manifest.lock */,
 				FAFF37361E03402F001B2A8F /* Sources */,
 				FAFF37371E03402F001B2A8F /* Frameworks */,
 				FAFF37381E03402F001B2A8F /* Resources */,
-				5485C6D88C3394AF9BB2B1CC /* [CP] Embed Pods Frameworks */,
-				B3E4D1EF21AE9760008A29EE /* [CP] Copy Pods Resources */,
+				9B669FA434218DB42CA23825 /* [CP] Embed Pods Frameworks */,
+				007DC1ACD3C57DCF1FC3C35B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1033,12 +1028,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAFF37541E034030001B2A8F /* Build configuration list for PBXNativeTarget "NightlineUITests" */;
 			buildPhases = (
-				745EC28170A6EACE3B8BA112 /* [CP] Check Pods Manifest.lock */,
+				7D760A2E1C3B71815056D8B8 /* [CP] Check Pods Manifest.lock */,
 				FAFF37411E03402F001B2A8F /* Sources */,
 				FAFF37421E03402F001B2A8F /* Frameworks */,
 				FAFF37431E03402F001B2A8F /* Resources */,
-				FDD672D7EFEA5073183A9C7D /* [CP] Embed Pods Frameworks */,
-				2FABCB3324DED32177152DDB /* [CP] Copy Pods Resources */,
+				306073D9BEFB983BCCAFB7F6 /* [CP] Embed Pods Frameworks */,
+				057E67F05B45A15BF2C7C163 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1149,7 +1144,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2FABCB3324DED32177152DDB /* [CP] Copy Pods Resources */ = {
+		007DC1ACD3C57DCF1FC3C35B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		057E67F05B45A15BF2C7C163 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1164,7 +1174,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3930F3D84AB7DD3EEA1DFFD3 /* [CP] Check Pods Manifest.lock */ = {
+		306073D9BEFB983BCCAFB7F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69BB1ADD8EDAD2834F44B692 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1182,70 +1207,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5485C6D88C3394AF9BB2B1CC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		64BD9FAC79E77CC932FC50E5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Nightline/Pods-Nightline-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
-				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
-				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
-				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nightline/Pods-Nightline-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		745EC28170A6EACE3B8BA112 /* [CP] Check Pods Manifest.lock */ = {
+		7D760A2E1C3B71815056D8B8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1263,68 +1225,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9256287343533D28411BB343 /* [CP] Copy Pods Resources */ = {
+		9B669FA434218DB42CA23825 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nightline/Pods-Nightline-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B3E4D1EF21AE9760008A29EE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineTests/Pods-NightlineTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E33136F9DAB3874F7907B048 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NightlineTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA1DB89C1E03484100C8E437 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
-		};
-		FDD672D7EFEA5073183A9C7D /* [CP] Embed Pods Frameworks */ = {
+		AEBA4148D9614E44E1BB9BDA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1339,6 +1255,7 @@
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
@@ -1360,6 +1277,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
@@ -1373,7 +1291,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NightlineUITests/Pods-NightlineUITests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nightline/Pods-Nightline-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C21FC71AE5674610584F907A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Nightline/Pods-Nightline-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA1DB89C1E03484100C8E437 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+		};
+		FF6E4CEA7E0EA685751DDD8F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NightlineTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1407,6 +1371,7 @@
 				7B6074D81F4CD4B400CA7E23 /* SearchUserViewController.swift in Sources */,
 				FA3AA1761E577137002CF4FC /* MainViewController.swift in Sources */,
 				FA0A3A241FD0A247003BA6D9 /* NotificationManager.swift in Sources */,
+				7B50EA9A20013A95003FD065 /* InvitationInformationSenderReceiver.swift in Sources */,
 				FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */,
 				FA5C2AA01E5A51B300A0CB56 /* ExtensionConsommation.swift in Sources */,
 				FA0D07851FD0A7F6000E8985 /* InvitationManager.swift in Sources */,
@@ -1666,7 +1631,7 @@
 		};
 		FAFF374F1E03402F001B2A8F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4FB19AF32F9684193C31749 /* Pods-Nightline.debug.xcconfig */;
+			baseConfigurationReference = 7B45583364153B0AEF25FA6D /* Pods-Nightline.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1692,7 +1657,7 @@
 		};
 		FAFF37501E03402F001B2A8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F56F509E3BF9AB1FFDF432D /* Pods-Nightline.release.xcconfig */;
+			baseConfigurationReference = 248B4E994D9497BC9CDD3850 /* Pods-Nightline.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1717,7 +1682,7 @@
 		};
 		FAFF37521E034030001B2A8F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39C5C463702E5E23641A2095 /* Pods-NightlineTests.debug.xcconfig */;
+			baseConfigurationReference = 89ADDB1DCAD05B0F6101A585 /* Pods-NightlineTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1733,7 +1698,7 @@
 		};
 		FAFF37531E034030001B2A8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2AAA1D728E823CF264D0D50 /* Pods-NightlineTests.release.xcconfig */;
+			baseConfigurationReference = D11CDCB07510470BE3E3AE2C /* Pods-NightlineTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1749,7 +1714,7 @@
 		};
 		FAFF37551E034030001B2A8F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B5D3A7540F69803B0EE2A5C /* Pods-NightlineUITests.debug.xcconfig */;
+			baseConfigurationReference = C66F797A7927862EA65F89DD /* Pods-NightlineUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 97AYAAKHJ8;
@@ -1764,7 +1729,7 @@
 		};
 		FAFF37561E034030001B2A8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13FDABA76142AD57AF04BAA8 /* Pods-NightlineUITests.release.xcconfig */;
+			baseConfigurationReference = 0B11E804EC4415FA553763ED /* Pods-NightlineUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 97AYAAKHJ8;

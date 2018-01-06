@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import PromiseKit
 
 class DetailUserViewController: ProfileViewController {
 
     var user : User!
     var friendship = FriendStatus.notFriend
+    let invitManager = RAInvitations()
+    let friendManager = RAFriends()
 
     enum FriendStatus: String {
         case notFriend = ""
@@ -37,12 +40,36 @@ class DetailUserViewController: ProfileViewController {
     override func viewDidLoad() {
         self.isUser = true
         super.viewDidLoad()
-        // TODO: Verify friendship status
+        checkFriendshipStatus()
         setUpView()
+    }
+
+    func checkFriendshipStatus() {
+        firstly {
+            friendManager.getUserFriendsList(userId: String(UserManager.instance.retrieveUserId()))
+            }.then { result -> Void in
+                result.friends.forEach({ (user) in
+                    if user.id == self.user.id {
+                        self.friendship = .friend
+                    }
+                })
+        }
+        firstly {
+            invitManager.getUserInvitations(userID: String(UserManager.instance.retrieveUserId()))
+            }.then { result -> Void in
+                result.invitations.forEach({ (inv) in
+
+                })
+        }
     }
 
     private func setUpView() {
         self.imgProfile.image = R.image.male()
+        CloudinaryManager.shared.downloadProfilePicture(withUserId: String(user.id)) { (img) in
+            DispatchQueue.main.async {
+                self.imgProfile.image = img
+            }
+        }
         if  user.firstName != "", user.lastName != "" {
             self.nameLabel.text = user.firstName + " " + (user.lastName.first?.description)!
         } else if user.firstName != "" {
@@ -57,7 +84,7 @@ class DetailUserViewController: ProfileViewController {
             self.birthdayLabel.text = user.age + " ans"
         }
         self.locationLabel.text = user.city
-        self.descriptionLabel.text = "Epitech 4th year student in China, Beijing"
+        self.descriptionLabel.text = ""
         self.friendsLabel.text = String(describing: user.friends.count)
         self.pictureLabel.text = ""
         self.trophyLabel.text = String(user.achievementPoints)
@@ -80,7 +107,14 @@ class DetailUserViewController: ProfileViewController {
 
     func addFriend() {
         friendship = .pending
-        // TODO
+        invitManager.inviteFriend(userId: String(UserManager.instance.retrieveUserId()),
+                                  friendId: String(user.id)) { result in
+                                    switch result {
+                                    case .success:
+                                        break
+                                    default:
+                                        self.friendship = .notFriend
+                                    }
+        }
     }
-
 }

@@ -34,16 +34,14 @@ class CloudinaryManager {
             var params = CLDUploadRequestParams()
             params = params.setFolder(folder)
             params.setPublicId(name)
-            cloudinary.createUploader().upload(data: data, uploadPreset: "cdnNightline", params: params, progress: { (progress) in
-                print("in progress")
-                print(String(describing: progress.estimatedTimeRemaining))
-            }, completionHandler: { (result, error) in
+            cloudinary.createUploader().upload(data: data, uploadPreset: "cdnNightline", params: params, completionHandler: { (result, error) in
                 if let error = error {
                     print("Upload finished with failure, error:")
                     print(error)
                 } else {
                     print("Upload finished with success, image's url:")
                     print(String(describing: result?.url))
+                    callback()
                 }
             })
         }
