@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
@@ -14,6 +15,11 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 
     func setImg(img: UIImage) {
         self.imageView.image = img
+    }
+
+    func setImg(withUrl url: String) {
+        let url = URL(string: url)
+        self.imageView.kf.setImage(with: url)
     }
 
     override func awakeFromNib() {

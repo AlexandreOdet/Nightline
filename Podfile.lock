@@ -4,27 +4,28 @@ PODS:
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
   - Cache (4.1.2)
-  - Cloudinary (2.0.4):
-    - Alamofire (~> 4.5.1)
+  - Cloudinary (2.1.0):
+    - Alamofire (~> 4.6.0)
   - Cosmos (13.0.0)
   - Hue (3.0.1)
-  - Imaginary (3.0.2):
+  - Imaginary (3.0.3):
     - Cache (~> 4.0)
   - KeychainSwift (10.0.0)
-  - Lightbox (2.1.1):
+  - Kingfisher (4.6.1)
+  - Lightbox (2.1.2):
     - Hue (~> 3.0)
     - Imaginary (~> 3.0)
   - ObjectMapper (3.1.0)
-  - PromiseKit (4.5.0):
-    - PromiseKit/Foundation (= 4.5.0)
-    - PromiseKit/QuartzCore (= 4.5.0)
-    - PromiseKit/UIKit (= 4.5.0)
-  - PromiseKit/CorePromise (4.5.0)
-  - PromiseKit/Foundation (4.5.0):
+  - PromiseKit (4.5.1):
+    - PromiseKit/Foundation (= 4.5.1)
+    - PromiseKit/QuartzCore (= 4.5.1)
+    - PromiseKit/UIKit (= 4.5.1)
+  - PromiseKit/CorePromise (4.5.1)
+  - PromiseKit/Foundation (4.5.1):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.5.0):
+  - PromiseKit/QuartzCore (4.5.1):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.5.0):
+  - PromiseKit/UIKit (4.5.1):
     - PromiseKit/CorePromise
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
@@ -33,7 +34,7 @@ PODS:
   - Starscream (3.0.3)
   - Stripe (11.5.0)
   - SwiftSpinner (1.5.0)
-  - SwiftyBeaver (1.5.0)
+  - SwiftyBeaver (1.5.1)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - Cloudinary
   - Cosmos
   - KeychainSwift
+  - Kingfisher
   - Lightbox
   - ObjectMapper
   - PromiseKit
@@ -57,23 +59,24 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   Cache: bd0233fc688b5e83a27bcd87807db7e6f23adcc5
-  Cloudinary: b104153aa69a73cf87a32a3e26758eaec7fcd05f
+  Cloudinary: e5e1a5288f18f45d4932bfda62c2c50311ccf2a9
   Cosmos: af3973becc045af335b64498c9812034876b7661
   Hue: 93e852fa6211ab35922ad8c293f51c43d6c79eb2
-  Imaginary: d675200546110e305d6a26db6267c0622ffe5e6b
+  Imaginary: 9b45836a5af881f452a86e0a1215772ae4712d00
   KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
-  Lightbox: 30dc3540527e03194a10ee51be8ad5e039a1893f
+  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
+  Lightbox: 2dc267df8be2285bc7724cb11cbbf4aaaf59dced
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
-  PromiseKit: 9c1d9f6d7b65e3951a90bea7f407c56972be5d8e
+  PromiseKit: 445dac9b2c3c3b4b31b5f842bc325700b848a8bd
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Starscream: dfb1b3f39506717ee52b67fb48de0c8269504cbc
   Stripe: 10761682d20dc491c52287393c800db056c9748d
   SwiftSpinner: 4c058c7a1d6b444dd2e1d70988ead40783097133
-  SwiftyBeaver: 384235c59d9c67b4a5e1810cffa713babba34efd
+  SwiftyBeaver: 4f74563624b2c1e821c522c54142b5dd5ebb0f30
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: a3b1b89c14acedffbec0bce858cb1b8439608c34
+PODFILE CHECKSUM: 8bc8cf22332d1d52e054f0198f3a641d787818b9
 
 COCOAPODS: 1.3.1

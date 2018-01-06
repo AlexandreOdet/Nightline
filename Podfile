@@ -19,6 +19,7 @@ target 'Nightline' do
   pod 'SwiftSpinner'
   pod 'Cloudinary'
   pod 'SwiftyJSON'
+  pod 'Kingfisher'
   
   # Pods for Nightline
 
