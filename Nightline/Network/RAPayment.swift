@@ -32,4 +32,27 @@ class RAPayment: RABase {
                 }
             })
     }
+  
+  func orderInParty(currentPartyId: Int, totalPrice: Float, users: [User], consos: [Consommable]) {
+    let parameters = buildJSONForOrder(currentPartyId: currentPartyId, totalPrice: totalPrice, users: users, consos: consos)
+    print("Parameters = \(parameters)")
+  }
+  
+  func buildJSONForOrder(currentPartyId: Int, totalPrice: Float, users: [User], consos: [Consommable]) -> [String:Any] {
+    var json = [String:Any]()
+    var jsonOrder = [String:Any]()
+    
+    jsonOrder["price"] = totalPrice
+    jsonOrder["users"] = users.toJSON()
+    jsonOrder["consos"] = consos.toJSON()
+    var partyJSON = [String:Any]()
+    partyJSON["id"] = currentPartyId
+    
+    jsonOrder["soiree"] = partyJSON
+    
+    json["order"] = jsonOrder
+
+    
+    return json
+  }
 }
