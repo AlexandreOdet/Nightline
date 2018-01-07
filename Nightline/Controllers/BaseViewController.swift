@@ -8,7 +8,9 @@
 
 import Foundation
 import UIKit
+import PromiseKit
 import Starscream
+import TTGSnackbar
 
 /*
  Controllers: BaseViewController
@@ -112,7 +114,6 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
   }
   
   func websocketDidConnect(socket: WebSocketClient) {
-    print("WebSocket.DidConnect ")
   }
   
   func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
@@ -128,10 +129,44 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
   }
   
   func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-    print("Data received : \(data)")
     guard let brutJson = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
     guard let properJSON = brutJson as? [String:Any] else { return }
+    
+    print("ProperJSON = \(properJSON)")
+    
     let notification = NotificationManager.manager.buildNotification(from: properJSON)
-    NotificationManager.manager.didReceiveANotification(notification: notification)
+    
+    switch notification.type {
+    case "success":
+      print("Received Success")
+      let successName = notification.body["name"] as! String
+      let snackbar = TTGSnackbar(message: "Vous venez de débloquer le succès \(successName)", duration: .short)
+      snackbar.show()
+    case "group_invitation":
+      let groupName = notification.body["name"] as! String
+      let snackbar = TTGSnackbar(message: "Vous venez d'être invité dans le groupe \(groupName) !", duration: .short)
+      snackbar.show()
+    case "user_invitation":
+      let userName = notification.body["name"] as! String
+      let snackbar = TTGSnackbar(message: "\(userName) vous a demandé en ami !", duration: .short)
+      snackbar.show()
+    case "user_invitation_answered":
+      let userName = notification.body["name"] as! String
+      let snackbar = TTGSnackbar(message: "\(userName) vous a accepté en tant qu'ami !", duration: .short)
+      snackbar.show()
+    case "group_invitation_answered":
+      let userID = notification.body["userID"] as! Int
+      firstly {
+        RAUser().getUserInfos(id: "\(userID)")
+        }.then { user -> Void in
+          let groupName = notification.body["name"] as! String
+          let snackbar = TTGSnackbar(message: "\(user.user.nickname) a accepté votre invitation au groupe \(groupName)", duration: .short)
+          snackbar.show()
+        }.catch { _ in
+          return
+      }
+    default:
+      ()
+    }
   }
 }

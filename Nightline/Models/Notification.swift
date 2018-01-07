@@ -10,4 +10,5 @@ import Foundation
 
 class NightlineNotification {
   var type = ""
+  var body = [String:Any]()
 }

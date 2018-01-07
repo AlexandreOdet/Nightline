@@ -16,7 +16,7 @@ class GroupsListViewController: BaseViewController {
     let raUser = RAUser()
     let raGrp = RAGroup()
     var grpList: [GroupPreview] = []
-    var img = UIImageView()
+    var image = UIImageView()
     let reuseId = "grpCell"
     let deepBlue = UIColor(hex: 0x0e1728)
     @IBOutlet weak var tableView: UITableView!
