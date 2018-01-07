@@ -114,7 +114,7 @@ class DetailGroupViewController: BaseViewController {
     }
     
     @IBAction func editMembers(_ sender: Any) {
-        let nextVC = EditMembersViewController(usrList: grpMembers, grpId: grp.id)
+        let nextVC = EditMembersViewController(usrList: grpMembersWithOwner, grpId: grp.id)
         nextVC.modalPresentationStyle = .overCurrentContext
         present(nextVC, animated: true, completion: nil)
     }

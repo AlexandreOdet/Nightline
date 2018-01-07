@@ -127,7 +127,7 @@
 		FAAC43CA1E861C8700CEF9CA /* UserFriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC43C91E861C8700CEF9CA /* UserFriendsListTableViewController.swift */; };
 		FAAEF1AE1F74309E00BB0916 /* RAGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AD1F74309E00BB0916 /* RAGroup.swift */; };
 		FAAEF1B01F74347200BB0916 /* RAInvitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAEF1AF1F74347200BB0916 /* RAInvitations.swift */; };
-		FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */; };
 		FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009311F8F9BDE00D82EB9 /* Group.swift */; };
 		FAC009341F8FB23B00D82EB9 /* CreateGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC009331F8FB23B00D82EB9 /* CreateGroupResponse.swift */; };
@@ -194,7 +194,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FAAEF1B21F7505B000BB0916 /* (null) in Embed Frameworks */,
+				FAAEF1B21F7505B000BB0916 /* BuildFile in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1317,6 +1317,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TTGSnackbar/TTGSnackbar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1339,6 +1340,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTGSnackbar.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

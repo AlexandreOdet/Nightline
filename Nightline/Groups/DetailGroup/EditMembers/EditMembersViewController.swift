@@ -37,12 +37,6 @@ class EditMembersViewController: BaseViewController {
         self.lists[.members]! = usrList
         self.membersBeforeChange = usrList
         self.grpId = String(grpId)
-//        let user = User()
-//        user.firstName = "Alexandre"
-//        user.lastName = "Odet"
-//        user.id = 1
-//        self.lists[.friends] = [user]
-
     }
     
     init() {
@@ -66,9 +60,16 @@ class EditMembersViewController: BaseViewController {
             friendsInstance.getUserFriendsList(userId: String(UserManager.instance.retrieveUserId()))
             }.then { [weak self] result -> Void in
                 guard let strongSelf = self else { return }
-                strongSelf.lists[.friends] = result.friends
+                result.friends.forEach({ (usr) in
+                    if strongSelf.lists[.members]?.filter({$0.id == usr.id}).count == 0 {
+                        print("in", usr.nickname)
+                        strongSelf.lists[.friends]?.append(usr)
+                    } else {
+                        print("out", usr.nickname)
+                    }
+                })
                 DispatchQueue.main.async {
-                    strongSelf.friendsCV.reloadData()
+                    strongSelf.cvs[.friends]?.reloadData()
                 }
             }.catch { error -> Void in
                 // Handle error?
