@@ -11,7 +11,7 @@ import ObjectMapper
 
 class PartyConsommable: Mappable {
   
-  var consos: Consommable!
+  var consos: Consommable = Consommable()
   var amount = 0
   
   required init?(map: Map) {

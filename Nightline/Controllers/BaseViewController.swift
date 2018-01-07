@@ -31,7 +31,6 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
   override func viewDidLoad() {
     super.viewDidLoad()
     ws.connect()
-    print("WebSocket URL = ", ws.currentURL)
     ws.delegate = self
     view.backgroundColor = UIColor.black
     createNoConnectivityView()

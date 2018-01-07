@@ -1,5 +1,5 @@
 //
-//  PartyUsers.swift
+//  PartyPartyID.swift
 //  Nightline
 //
 //  Created by Odet Alexandre on 07/01/2018.
@@ -9,15 +9,16 @@
 import Foundation
 import ObjectMapper
 
-class PartyUsers: Mappable {
-
-  var users: [PartyUser] = []
+class PartyPartyID: Mappable {
   
-  required init?(map: Map) {
-  }
+  var id:Int = 0
   
   func mapping(map: Map) {
-    users <- map["users"]
+    id <- map["id"]
+  }
+  
+  required init?(map: Map) {
+    
   }
   
   init() {}

@@ -10,10 +10,10 @@ import Foundation
 import ObjectMapper
 
 class Consommable: Mappable {
-  var id: Int!
-  var name: String!
-  var price: Float?
-  var desc: String!
+  var id: Int! = 0
+  var name: String! = ""
+  var price: Float? = 0
+  var desc: String! = ""
   
   init(name: String, price: Float) {
     self.name = name
@@ -27,4 +27,6 @@ class Consommable: Mappable {
     price <- map["price"]
     desc <- map["description"]
   }
+  
+  init() {}
 }
