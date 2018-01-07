@@ -143,18 +143,22 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
       let snackbar = TTGSnackbar(message: "Vous venez de débloquer le succès \(successName)", duration: .short)
       snackbar.show()
     case "group_invitation":
+      print("Receive Group Invitation")
       let groupName = notification.body["name"] as! String
       let snackbar = TTGSnackbar(message: "Vous venez d'être invité dans le groupe \(groupName) !", duration: .short)
       snackbar.show()
     case "user_invitation":
+      print("Receive User Invitation")
       let userName = notification.body["name"] as! String
       let snackbar = TTGSnackbar(message: "\(userName) vous a demandé en ami !", duration: .short)
       snackbar.show()
     case "user_invitation_answered":
+      print("Invitation Answered")
       let userName = notification.body["name"] as! String
       let snackbar = TTGSnackbar(message: "\(userName) vous a accepté en tant qu'ami !", duration: .short)
       snackbar.show()
     case "group_invitation_answered":
+      print("GroupInvitation Answered")
       let userID = notification.body["userID"] as! Int
       firstly {
         RAUser().getUserInfos(id: "\(userID)")
