@@ -12,6 +12,7 @@ class GroupMemberCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var firstNameLabel:  UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var bg: UIView!
+    @IBOutlet weak var img: UIImageView!
     let deepBlue = UIColor(hex: 0x0e1728)
     let lightBlue = UIColor(hex : 0x363D4C)
     
@@ -38,6 +39,12 @@ class GroupMemberCollectionViewCell: UICollectionViewCell {
         print("firstname = \(usr.firstName)")
         firstNameLabel.text = usr.firstName
         lastNameLabel.text = usr.lastName
+        img.roundImage(withBorder: true, borderColor: UIColor(hex: 0x0e1728), borderSize: 1.0)
+        CloudinaryManager.shared.downloadProfilePicture(withUserId: String(usr.id)) { (img) in
+            DispatchQueue.main.async {
+                self.img.image = img
+            }
+        }
     }
 }
 

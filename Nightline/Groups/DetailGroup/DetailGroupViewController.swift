@@ -17,6 +17,8 @@ class DetailGroupViewController: BaseViewController {
     let deepBlue = UIColor(hex: 0x0e1728)
     let lightBlue = UIColor(hex : 0x363D4C)
     var grpMembers = [User]()
+    var grpMembersWithOwner = [User]()
+    var owner: User?
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var membersCV: UICollectionView!
@@ -68,8 +70,10 @@ class DetailGroupViewController: BaseViewController {
         super.viewDidLoad()
         print(grp.id)
         print(grp.name)
-        print(grp.owner.pseudo)
-        setFakeUserList()
+        print("Owner : ", grp.owner.pseudo)
+        print("Members :")
+        grp.users?.forEach {print($0.nickname)}
+//        setFakeUserList()
         setTheme()
         setData()
     }
@@ -85,13 +89,32 @@ class DetailGroupViewController: BaseViewController {
     func setData() {
         membersCV.delegate = self
         membersCV.dataSource = self
-                membersCV.register(UINib(nibName: "GroupMemberCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "grpMember")
+        membersCV.register(UINib(nibName: "GroupMemberCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "grpMember")
         nameLabel.text = grp.name
+        grpMembers = grp.users ?? [User]()
+        grpMembersWithOwner = grp.users ?? [User]()
+        getOwnerData()
         membersCV.reloadData()
+    }
+
+    func getOwnerData() {
+        let instance = RAUser()
+        firstly {
+            instance.getUserInfos(id: String(grp.owner.id))
+            }.then { result -> Void in
+                self.owner = result.user
+                self.grpMembersWithOwner.append(result.user)
+                DispatchQueue.main.async {
+                    self.membersCV.reloadData()
+                }
+            }.catch { error -> Void in
+                print("DetailGroupViewController - Error getting owner informations")
+                print(error.localizedDescription)
+        }
     }
     
     @IBAction func editMembers(_ sender: Any) {
-        let nextVC = EditMembersViewController(usrList: grpMembers)
+        let nextVC = EditMembersViewController(usrList: grpMembers, grpId: grp.id)
         nextVC.modalPresentationStyle = .overCurrentContext
         present(nextVC, animated: true, completion: nil)
     }
@@ -104,13 +127,13 @@ class DetailGroupViewController: BaseViewController {
 
 extension DetailGroupViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return grpMembers.count
+        return grpMembersWithOwner.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = membersCV.dequeueReusableCell(withReuseIdentifier: "grpMember", for: indexPath) as! GroupMemberCollectionViewCell
         cell.backgroundColor = deepBlue
-        cell.setData(usr: grpMembers[indexPath.row])
+        cell.setData(usr: grpMembersWithOwner[indexPath.row])
         cell.setView()
         return cell
     }

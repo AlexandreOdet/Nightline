@@ -300,7 +300,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                     firstly {
                         self.restApiUser.signUpUser(email: fbDetails["email"] as! String,
                                                     nickname: fbDetails["name"] as! String,
-                                                    password: "test")
+                                                    password: "girafe")
                         }.then { [unowned self] resp -> Void in
                             if let token = resp.token, let user = resp.user {
                                 tokenWrapper.setToken(valueFor: token)
@@ -313,7 +313,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                                 NotificationCenter.default.post(name: notificationName, object: nil)
                             } else {
                                 firstly {
-                                    self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "test")
+                                    self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "girafe")
                                     }.then { [unowned self]
                                         resp -> Void in
                                         if let token = resp.token, let user = resp.user {
@@ -336,7 +336,7 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                             }
                         }.catch { _ in
                             firstly {
-                                self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "test")
+                                self.restApiUser.loginUser(email: fbDetails["email"] as! String, password: "girafe")
                                 }.then { [unowned self]
                                     resp -> Void in
                                     if let token = resp.token, let user = resp.user {

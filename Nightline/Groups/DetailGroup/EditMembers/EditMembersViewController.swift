@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class EditMembersViewController: BaseViewController {
     public enum cv {
@@ -27,16 +28,21 @@ class EditMembersViewController: BaseViewController {
     var cvs = Dictionary<cv,UICollectionView>()
     var membersBeforeChange = [User]()
     var lists: Dictionary<cv, [User]> = [.members: [User](), .friends: [User]()]
+    let friendsInstance = RAFriends()
+    let grpInstance = RAGroup()
+    var grpId = ""
     
-    convenience init(usrList: [User]) {
+    convenience init(usrList: [User], grpId: Int) {
         self.init()
         self.lists[.members]! = usrList
         self.membersBeforeChange = usrList
-        let user = User()
-        user.firstName = "Alexandre"
-        user.lastName = "Odet"
-        user.id = 1
-        self.lists[.friends] = [user]
+        self.grpId = String(grpId)
+//        let user = User()
+//        user.firstName = "Alexandre"
+//        user.lastName = "Odet"
+//        user.id = 1
+//        self.lists[.friends] = [user]
+
     }
     
     init() {
@@ -52,8 +58,23 @@ class EditMembersViewController: BaseViewController {
         setTheme()
         setData()
         setBlur()
+        getFriendList()
     }
-    
+
+    func getFriendList() {
+        firstly {
+            friendsInstance.getUserFriendsList(userId: String(UserManager.instance.retrieveUserId()))
+            }.then { [weak self] result -> Void in
+                guard let strongSelf = self else { return }
+                strongSelf.lists[.friends] = result.friends
+                DispatchQueue.main.async {
+                    strongSelf.friendsCV.reloadData()
+                }
+            }.catch { error -> Void in
+                // Handle error?
+        }
+    }
+
     func setData() {
         membersCV.delegate = self
         membersCV.dataSource = self
@@ -111,8 +132,18 @@ class EditMembersViewController: BaseViewController {
         let idNow = lists[.members]!.map {$0.id}
         let toDelete = idBefore.filter {!idNow.contains($0)}
         let toAdd = idNow.filter {!idBefore.contains($0)}
-        print("id to delete", toDelete)
-        print("id to add", toAdd)
+        print("id to delete :", toDelete)
+        print("id to add :", toAdd)
+        toAdd.forEach {addMember(id: String($0))}
+        toDelete.forEach {deleteMember(id: String($0))}
+    }
+
+    func addMember(id: String) {
+        grpInstance.addMemberToGroup(groupID: grpId, userID: id)
+    }
+
+    func deleteMember(id: String) {
+        grpInstance.deleteUserFromGroup(groupID: grpId, userID: id)
     }
 }
 

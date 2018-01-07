@@ -41,6 +41,7 @@ class SearchUserViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(hex: 0x0e1728)
         self.tableView.backgroundColor = UIColor(hex: 0x0e1728)
         self.tableView.separatorColor = UIColor(hex: 0x0e1728)
         self.searchField.backgroundColor = UIColor(hex: 0x363D4C)

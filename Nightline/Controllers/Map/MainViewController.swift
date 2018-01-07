@@ -167,7 +167,7 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                 if let tab = response.array {
                     for item in tab {
                         let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(item.latitude),
-                                                                     CLLocationDegrees(item.longitude)) // ou (item.long, item.lat)
+                                                                     CLLocationDegrees(item.longitude))
                         let marker = Marker(title: item.name,
                                             locationName: item.name,
                                             discipline: "",
@@ -181,13 +181,6 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                 print("Error = ", error.localizedDescription)
                 AlertUtils.networkErrorAlert(from: self)
         }
-        let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(48.5271),
-                                                     CLLocationDegrees(0.3036)) // ou (item.long, item.lat)
-        let marker = Marker(title: "ced's bar",
-                            locationName: "In the cambrousse",
-                            discipline: "",
-                            coordinate: coordinates, id: 404)
-        map.addAnnotation(marker)
     }
 
     /*

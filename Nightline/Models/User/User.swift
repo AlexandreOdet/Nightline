@@ -78,5 +78,11 @@ class User: Mappable {
             return true }
         return false
     }
+
+    init(withOwner owner: Owner) {
+        nickname = owner.pseudo
+        email = owner.email
+        id = owner.id
+    }
 }
 
