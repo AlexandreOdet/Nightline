@@ -50,13 +50,27 @@ class Basket {
     
     order.consos.append(consommableOrder)
   }
-  
-  func validateOrder() {
-    paymentInstance.orderInParty(order: order)
-  }
-  
+
   func chooseCurrentParty(partyID: Int) {
     order.currentParty.id = partyID
+  }
+  
+  func addOrderToHistory(orderID: Int) {
+    if orderHistory.contains(orderID) {
+      return
+    }
+    orderHistory.append(orderID)
+  }
+  
+  func removeOrderFromHistory(orderID: Int) {
+    var index = 0
+    for order in orderHistory {
+      if order == orderID {
+        orderHistory.remove(at: index)
+        return
+      }
+      index += 1
+    }
   }
   
 }

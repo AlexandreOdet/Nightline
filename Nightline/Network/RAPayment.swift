@@ -52,21 +52,44 @@ class RAPayment: RABase {
           }
         })
     }
-    
-    
   }
   
-  func answerOrderRequest(orderID: Int, userID: Int, answer: Bool) {
+  func answerOrderRequest(orderID: Int, userID: Int, answer: Bool) -> Promise<SingleOrderResponse> {
     var parameters = [String:Any]()
     parameters["order"] = orderID
     parameters["user"] = userID
     parameters["answer"] = answer
     
     let url = RoutesAPI.order.url + "/answer"
-    request = Alamofire.request(url,
-                                method: .post,
-                                parameters: parameters,
-                                encoding: JSONEncoding.default,
-                                headers: headers)
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url,
+                                  method: .post,
+                                  parameters: parameters,
+                                  encoding: JSONEncoding.default,
+                                  headers: headers)
+        .responseObject(completionHandler: { (response: DataResponse<SingleOrderResponse>) in
+          switch response.result {
+          case .success(let order):
+            fulfill(order)
+          case .failure(let errror):
+            reject(errror)
+          }
+        })
+    }
+  }
+  
+  func getOrderDetail(orderID: Int) -> Promise<SingleOrderResponse> {
+    let url = RoutesAPI.order.url + "/\(orderID)"
+    return Promise { (fullfil, reject) in
+      self.request = Alamofire.request(url)
+        .responseObject(completionHandler: { (response: DataResponse<SingleOrderResponse>) in
+          switch response.result {
+          case .success(let order):
+            fullfil(order)
+          case .failure(let errror):
+            reject(errror)
+          }
+        })
+    }
   }
 }
