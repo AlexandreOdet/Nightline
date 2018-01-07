@@ -26,6 +26,7 @@ class CloudinaryManager {
     }
 
     func uploadProfilePict(img: UIImage, user_id: String, callback: @escaping () -> ()) {
+        self.deleteProfilePict(forUserId: user_id)
         self.uploadImg(img: img, folder: "profilePictures", name: user_id) { callback() }
     }
 
@@ -69,9 +70,11 @@ class CloudinaryManager {
     }
 
     func downloadProfilePicture(withUserId userId: String, callback: @escaping (UIImage?) -> ()) {
-        let url = "https://res.cloudinary.com/nightline/image/upload/v1514278444/profilePictures/" + userId
-        downloadImg(withUrl: url) { (image) in
-            callback(image)
+        let url = cloudinary.createUrl().generate("profilePictures/\(userId)")
+        if let url = url {
+            downloadImg(withUrl: url) { (image) in
+                callback(image)
+            }
         }
     }
 
@@ -86,6 +89,10 @@ class CloudinaryManager {
                 callback(nil)
             }
         }
+    }
+
+    func deleteProfilePict(forUserId id: String) {
+        cloudinary.createManagementApi().destroy("profilePictures/\(id)")
     }
 }
 

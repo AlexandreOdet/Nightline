@@ -253,16 +253,12 @@ final class UserManager {
      */
 
     func getUserPicture(callback: @escaping (UIImage) -> ()) -> UIImage {
-        if let img = networkUser.image {
-            return img
-        } else {
-            CloudinaryManager.shared.downloadProfilePicture(withUserId: String(retrieveUserId()), callback: { (img) in
-                if let img = img {
-                    callback(img)
-                }
-            })
-            return UIImage(named: "avatar")!
-        }
+        CloudinaryManager.shared.downloadProfilePicture(withUserId: String(retrieveUserId()), callback: { (img) in
+            if let img = img {
+                callback(img)
+            }
+        })
+        return UIImage(named: "male")!
     }
 
     /**
@@ -276,7 +272,14 @@ final class UserManager {
 
     func updateUserPicture(img: UIImage) {
         self.networkUser.image = img
-        CloudinaryManager.shared.uploadProfilePict(img: img, user_id: String(retrieveUserId())) { return }
+        CloudinaryManager.shared.uploadProfilePict(img: img, user_id: String(retrieveUserId())) {
+            self.networkUser.urlImage = "http://res.cloudinary.com/nightline/image/upload/v1515360317/profilePictures/\(String(self.networkUser.id))"
+            self.pushUserUpdate()
+        }
+    }
+
+    func updateUserImageUrl(url: String) {
+
     }
 
     /**
