@@ -104,6 +104,10 @@
 		FA6302B720022CB900FE97BD /* PartyPartyID.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6302B620022CB900FE97BD /* PartyPartyID.swift */; };
 		FA6302BB2002318300FE97BD /* PartyOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6302BA2002318300FE97BD /* PartyOrder.swift */; };
 		FA6302BD2002331800FE97BD /* BasketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6302BC2002331800FE97BD /* BasketManager.swift */; };
+		FA6302BF2002557A00FE97BD /* OrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6302BE2002557A00FE97BD /* OrderResponse.swift */; };
+		FA6302C1200257D700FE97BD /* OrderArrayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6302C0200257D700FE97BD /* OrderArrayResponse.swift */; };
+		FA6302C32002591F00FE97BD /* OrderStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6302C22002591F00FE97BD /* OrderStep.swift */; };
+		FA6302C520025A5500FE97BD /* SingleOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6302C420025A5500FE97BD /* SingleOrderResponse.swift */; };
 		FA6B01901F54744D00F360B5 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B018F1F54744D00F360B5 /* MenuList.swift */; };
 		FA6B01921F54756800F360B5 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B01911F54756800F360B5 /* UserResponse.swift */; };
 		FA6B019C1F56222900F360B5 /* EstablishmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B019B1F56222900F360B5 /* EstablishmentResponse.swift */; };
@@ -303,6 +307,10 @@
 		FA6302B620022CB900FE97BD /* PartyPartyID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PartyPartyID.swift; path = Models/Payment/PartyPartyID.swift; sourceTree = "<group>"; };
 		FA6302BA2002318300FE97BD /* PartyOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PartyOrder.swift; path = Models/Payment/PartyOrder.swift; sourceTree = "<group>"; };
 		FA6302BC2002331800FE97BD /* BasketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BasketManager.swift; path = Manager/BasketManager.swift; sourceTree = "<group>"; };
+		FA6302BE2002557A00FE97BD /* OrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderResponse.swift; path = Models/Payment/OrderResponse.swift; sourceTree = "<group>"; };
+		FA6302C0200257D700FE97BD /* OrderArrayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderArrayResponse.swift; path = Models/Payment/OrderArrayResponse.swift; sourceTree = "<group>"; };
+		FA6302C22002591F00FE97BD /* OrderStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderStep.swift; path = Models/Payment/OrderStep.swift; sourceTree = "<group>"; };
+		FA6302C420025A5500FE97BD /* SingleOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingleOrderResponse.swift; path = Models/Payment/SingleOrderResponse.swift; sourceTree = "<group>"; };
 		FA6B018F1F54744D00F360B5 /* MenuList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuList.swift; path = Models/Parties/MenuList.swift; sourceTree = "<group>"; };
 		FA6B01911F54756800F360B5 /* UserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserResponse.swift; path = Models/User/UserResponse.swift; sourceTree = "<group>"; };
 		FA6B019B1F56222900F360B5 /* EstablishmentResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EstablishmentResponse.swift; path = Models/Parties/EstablishmentResponse.swift; sourceTree = "<group>"; };
@@ -744,6 +752,10 @@
 				FA6302B02002294E00FE97BD /* PartyUser.swift */,
 				FA6302B620022CB900FE97BD /* PartyPartyID.swift */,
 				FA6302BA2002318300FE97BD /* PartyOrder.swift */,
+				FA6302BE2002557A00FE97BD /* OrderResponse.swift */,
+				FA6302C0200257D700FE97BD /* OrderArrayResponse.swift */,
+				FA6302C22002591F00FE97BD /* OrderStep.swift */,
+				FA6302C420025A5500FE97BD /* SingleOrderResponse.swift */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -1388,6 +1400,7 @@
 				FADF25D01E8767F800E74439 /* AchievementManager.swift in Sources */,
 				FA5C2A9E1E5A519700A0CB56 /* UIViewControllerExtension.swift in Sources */,
 				FAFBF8081E55539B003AF68E /* UserPreferences.swift in Sources */,
+				FA6302C32002591F00FE97BD /* OrderStep.swift in Sources */,
 				FA75ADB11E4CE42B0078FFE9 /* SettingsCell.swift in Sources */,
 				FA3AA1731E577106002CF4FC /* SignUpViewController.swift in Sources */,
 				7B6074D81F4CD4B400CA7E23 /* SearchUserViewController.swift in Sources */,
@@ -1424,11 +1437,13 @@
 				FA8475A61F5F2B9D00B3E292 /* InvitationsList.swift in Sources */,
 				FAFF375F1E0340C0001B2A8F /* AppConstant.swift in Sources */,
 				FA6302BB2002318300FE97BD /* PartyOrder.swift in Sources */,
+				FA6302C520025A5500FE97BD /* SingleOrderResponse.swift in Sources */,
 				FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */,
 				7B5A6AD21E9FB5AB00D902C5 /* EditCityViewController.swift in Sources */,
 				FAD506EF1F4D777C002060A1 /* Order.swift in Sources */,
 				FADAF4E71F2BAB7200C779A2 /* LoginSignUpUserResponse.swift in Sources */,
 				FAFF4EA21E5E4762006582C7 /* ExtensionString.swift in Sources */,
+				FA6302C1200257D700FE97BD /* OrderArrayResponse.swift in Sources */,
 				7BAC21221FB48FB1002FA850 /* GroupMemberCollectionViewCell.swift in Sources */,
 				FA2DFCB31F522DEE00C70C1B /* Owner.swift in Sources */,
 				FA3AA1881E5771A8002CF4FC /* OldUserProfileViewController.swift in Sources */,
@@ -1498,6 +1513,7 @@
 				FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */,
 				FAFF37851E034678001B2A8F /* RABase.swift in Sources */,
 				FA75ADAB1E4BBA2B0078FFE9 /* User.swift in Sources */,
+				FA6302BF2002557A00FE97BD /* OrderResponse.swift in Sources */,
 				7B9F1D7A1FD31C6500169002 /* UserProfileViewController.swift in Sources */,
 				7B46AA601E9F557300529E64 /* EditFirstNameViewController.swift in Sources */,
 				FA8475A11F5F255300B3E292 /* RAFriend.swift in Sources */,

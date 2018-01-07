@@ -35,4 +35,6 @@ class PartyResult: Mappable {
     func mapping(map: Map) {
         party <- map["soiree"]
     }
+  
+  init() {}
 }
