@@ -28,7 +28,7 @@ struct LightDate {
     }
 }
 
-class DetailPartyViewController: UIViewController {
+class DetailPartyViewController: BaseViewController {
     var bar_id = ""
     let estabInstance = RAEtablissement()
     var party: Party?

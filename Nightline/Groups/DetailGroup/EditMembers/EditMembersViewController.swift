@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditMembersViewController: UIViewController {
+class EditMembersViewController: BaseViewController {
     public enum cv {
         case friends
         case members
@@ -110,7 +110,9 @@ class EditMembersViewController: UIViewController {
         let idBefore = membersBeforeChange.map {$0.id}
         let idNow = lists[.members]!.map {$0.id}
         let toDelete = idBefore.filter {!idNow.contains($0)}
+        let toAdd = idNow.filter {!idBefore.contains($0)}
         print("id to delete", toDelete)
+        print("id to add", toAdd)
     }
 }
 

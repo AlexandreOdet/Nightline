@@ -11,7 +11,7 @@ import PromiseKit
 import SnapKit
 import SwiftSpinner
 
-class GroupsListViewController: UIViewController {
+class GroupsListViewController: BaseViewController {
 
     let raUser = RAUser()
     let raGrp = RAGroup()

@@ -9,7 +9,7 @@
 import UIKit
 import PromiseKit
 
-class AddGroupViewController: UIViewController {
+class AddGroupViewController: BaseViewController {
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descTextView: UITextView!

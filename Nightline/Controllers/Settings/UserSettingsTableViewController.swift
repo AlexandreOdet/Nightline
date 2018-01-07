@@ -19,7 +19,7 @@ import PromiseKit
  This controller shows a UITableView containing all settings of the app.
  */
 
-final class UserSettingsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class UserSettingsTableViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     let reuseIdentifier = "SettingsCell"
     var tableView = UITableView()

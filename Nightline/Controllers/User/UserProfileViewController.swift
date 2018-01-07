@@ -9,7 +9,7 @@
 import UIKit
 import PromiseKit
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: BaseViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var pseudoLabel: UILabel!
     @IBOutlet weak var firstnameLabel: UILabel!

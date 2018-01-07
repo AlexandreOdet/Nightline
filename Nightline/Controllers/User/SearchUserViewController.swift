@@ -9,7 +9,7 @@
 import UIKit
 import PromiseKit
 
-class SearchUserViewController: UIViewController {
+class SearchUserViewController: BaseViewController {
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchButton: UIButton!

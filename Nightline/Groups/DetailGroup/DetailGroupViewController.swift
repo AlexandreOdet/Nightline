@@ -10,7 +10,7 @@ import UIKit
 import PromiseKit
 import SnapKit
 
-class DetailGroupViewController: UIViewController {
+class DetailGroupViewController: BaseViewController {
     let raGrp = RAGroup()
     let grpId = 0
     var grp: GroupResponse!
