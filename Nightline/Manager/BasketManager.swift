@@ -36,6 +36,18 @@ class Basket {
     order.users.append(partyUser)
   }
   
+  func removeUserFromOrder(userID: Int) {
+    var index = 0
+    for user in order.users {
+      if let usr = user.user {
+        if usr.id == userID {
+          order.users.remove(at: index)
+        }
+      }
+      index += 1
+    }
+  }
+  
   func addConsommableToOrder(consommableID: Int) {
     for conso in order.consos {
       if conso.consos.id == consommableID {
