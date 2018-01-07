@@ -119,21 +119,21 @@ final class UserFriendsListTableViewController: UITableViewController {
         switch indexPath.section {
         case 0:
             if pendingList.count > 0 {
-                let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, nameUser: pendingList[indexPath.row].from.pseudo)
+                let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, InvitUser: pendingList[indexPath.row].from)
                 return cell
             } else if let fl = friendList, fl.friends.count > 0 {
-                let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, nameUser: fl.friends[indexPath.row].nickname)
+                let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, user: fl.friends[indexPath.row])
                 return cell
             } else {
-                let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, nameUser: "No friend")
+                let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, user: nil)
                 return cell
             }
         default:
             if let fl = friendList, fl.friends.count > 0 {
-                let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, nameUser: fl.friends[indexPath.row].nickname)
+                let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, user: fl.friends[indexPath.row])
                 return cell
             }else {
-                let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, nameUser: "No friend")
+                let cell = UserFriendsListTableViewCell(reuseIdentifier: reuseIdentifier, user: nil)
                 return cell
             }
         }
