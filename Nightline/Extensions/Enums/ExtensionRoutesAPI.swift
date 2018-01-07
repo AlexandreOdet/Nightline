@@ -38,6 +38,8 @@ extension RoutesAPI: RoutableProtocol {
         return AppConstant.Network.payment
       case .groups:
         return AppConstant.Network.groups
+      case .order:
+        return AppConstant.Network.order
       }
     }()
     return (RoutesAPI.baseUrl.appending(path))

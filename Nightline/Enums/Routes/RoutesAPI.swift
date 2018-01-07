@@ -26,4 +26,5 @@ enum RoutesAPI {
   case party
   case payment
   case groups
+  case order
 }

@@ -35,6 +35,13 @@ class RAPayment: RABase {
   
   func orderInParty(order: PartyOrder) {
     let parameters = ["order": order.toJSON()]
-    print("Parameters = \(parameters)")
+    let url = RoutesAPI.order.url
+    request = Alamofire.request(url,
+                                method: .post,
+                                parameters: parameters,
+                                encoding: JSONEncoding.default,
+                                headers: headers)
+    
+    
   }
 }

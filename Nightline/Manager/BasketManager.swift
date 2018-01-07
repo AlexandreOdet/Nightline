@@ -13,7 +13,7 @@ class Basket {
   static let manager = Basket()
   
   var paymentInstance = RAPayment()
-  var order = PartyOrder()
+  private var order = PartyOrder()
   var orderHistory = [Int]()
   var totalPrice = 0
   
@@ -53,6 +53,10 @@ class Basket {
   
   func validateOrder() {
     paymentInstance.orderInParty(order: order)
+  }
+  
+  func chooseCurrentParty(partyID: Int) {
+    order.currentParty.id = partyID
   }
   
 }
