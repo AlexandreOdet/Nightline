@@ -42,7 +42,8 @@ class NotificationManager {
   
   func buildNotification(from json: [String:Any]) -> NightlineNotification {
     let notification = NightlineNotification()
-    notification.type = json["type"] as! String
+    print("json = \(json)")
+    notification.type = json["name"] as! String
     notification.body = json["body"] as! [String:Any]
     return notification
   }
