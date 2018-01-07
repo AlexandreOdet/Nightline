@@ -20,6 +20,7 @@ target 'Nightline' do
   pod 'Cloudinary'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
+  pod 'TTGSnackbar'
   
   # Pods for Nightline
 
