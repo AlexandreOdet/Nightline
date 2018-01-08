@@ -67,9 +67,7 @@ final class UserFriendsListTableViewController: UITableViewController {
         invits.acceptUserInvitation(invitationID: invitId) { response in
             switch response {
             case .success:
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                self.getData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -80,9 +78,7 @@ final class UserFriendsListTableViewController: UITableViewController {
         invits.declineUserInvitation(invitationID: invitId) { response in
             switch response {
             case .success:
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                self.getInvits()
             case .failure(let error):
                 print(error.localizedDescription)
             }
