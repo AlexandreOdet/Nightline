@@ -9,7 +9,17 @@
 import UIKit
 import PromiseKit
 
-class DetailUserViewController: UIViewController {
+class DetailUserViewController: BaseViewController {
+    struct Message {
+        var message: String = ""
+        var sender: String = ""
+
+        init(msg: String, sender: String) {
+            self.message = msg
+            self.sender = sender
+        }
+    }
+
     enum FriendStatus: String {
         case notFriend = "Ajouter"
         case pending = "Pending"
@@ -44,7 +54,10 @@ class DetailUserViewController: UIViewController {
     @IBOutlet weak var friendshipLabel: UILabel!
     @IBOutlet weak var trophyView: UIView!
     @IBOutlet weak var trophyLabel: UILabel!
-
+    @IBOutlet weak var messagerieTV: UITableView!
+    @IBOutlet weak var messagerieInput: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     var user : User!
     var friendship: FriendStatus! {
         didSet {
@@ -55,11 +68,27 @@ class DetailUserViewController: UIViewController {
     let invitManager = RAInvitations()
     let friendManager = RAFriends()
 
+    // Messagerie
+    var messages = [Message]()
+
+    func setFakeMessages() {
+        messages = [
+            Message(msg: "Message 1Message 1Message 1Message 1Message 1Message 1Message 1Message 1Message 1Message 1Message 1Message 1", sender: "sender1"),
+            Message(msg: "Message 2", sender: "sender2"),
+            Message(msg: "Message 3", sender: "sender3"),
+            Message(msg: "Message 4", sender: "sender4"),
+            Message(msg: "Message 5", sender: "sender5")
+        ]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(noti:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(noti:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        hideKeyboardWhenTappedAround()
         friendship = .unknow
         checkFriendshipStatus()
+        setFakeMessages()
         setView()
     }
 
@@ -77,6 +106,24 @@ class DetailUserViewController: UIViewController {
             DispatchQueue.main.async {
                 self.profilePict.image = img
             }
+        }
+        messagerieTV.rowHeight = UITableViewAutomaticDimension
+        messagerieTV.estimatedRowHeight = 140
+        messagerieTV.backgroundColor = .clear
+        messagerieTV.delegate = self
+        messagerieTV.dataSource = self
+        messagerieTV.separatorColor = .clear
+        messagerieTV.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "messageCell")
+        messagerieInput.addTarget(self, action: #selector(sendMessage), for: UIControlEvents.editingDidEndOnExit)
+    }
+
+    @objc func sendMessage() {
+        if let message = messagerieInput.text, message != "" {
+            let newMessage = Message(msg: message, sender: "moi")
+            messages.append(newMessage)
+            messagerieTV.reloadData()
+            messagerieInput.text = ""
+            scrollToLastRow()
         }
     }
 
@@ -116,6 +163,55 @@ class DetailUserViewController: UIViewController {
                                     default:
                                         self.friendship = .notFriend
                                     }
+        }
+    }
+
+    @objc func keyboardWillHide(noti: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+
+
+    @objc func keyboardWillShow(noti: Notification) {
+
+        guard let userInfo = noti.userInfo else { return }
+        guard var keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+    }
+}
+
+extension DetailUserViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = messagerieTV.dequeueReusableCell(withIdentifier: "messageCell") as? MessageTableViewCell {
+            cell.setCell(msg: messages[indexPath.row].message, sender: messages[indexPath.row].sender)
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+
+    func scrollToLastRow() {
+        let indexPath = IndexPath(row: messages.count - 1, section: 0)
+        self.messagerieTV.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
+}
+
+extension DetailUserViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        switch reason {
+        case .committed:
+            print("Commited")
+        default:
+            print("other")
         }
     }
 }

@@ -45,6 +45,8 @@
 		7BAC21221FB48FB1002FA850 /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC21201FB48FB1002FA850 /* GroupMemberCollectionViewCell.swift */; };
 		7BAC21231FB48FB1002FA850 /* GroupMemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC21211FB48FB1002FA850 /* GroupMemberCollectionViewCell.xib */; };
 		7BAC79531FB5D40600186026 /* MemberDragCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC79521FB5D40600186026 /* MemberDragCoordinator.swift */; };
+		7BB1DFF52003C2CD00206884 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1DFF32003C2CD00206884 /* MessageTableViewCell.swift */; };
+		7BB1DFF62003C2CD00206884 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB1DFF42003C2CD00206884 /* MessageTableViewCell.xib */; };
 		7BBA2DF21FD498E200BAE408 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA2DF01FD498E200BAE408 /* PhotoCollectionViewCell.swift */; };
 		7BBA2DF31FD498E200BAE408 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BBA2DF11FD498E200BAE408 /* PhotoCollectionViewCell.xib */; };
 		7BBA2DF81FD5ED7C00BAE408 /* AchievementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBA2DF61FD5ED7C00BAE408 /* AchievementCollectionViewCell.swift */; };
@@ -245,6 +247,8 @@
 		7BAC21201FB48FB1002FA850 /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		7BAC21211FB48FB1002FA850 /* GroupMemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMemberCollectionViewCell.xib; sourceTree = "<group>"; };
 		7BAC79521FB5D40600186026 /* MemberDragCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDragCoordinator.swift; sourceTree = "<group>"; };
+		7BB1DFF32003C2CD00206884 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageTableViewCell.swift; path = Controllers/User/MessageTableViewCell.swift; sourceTree = "<group>"; };
+		7BB1DFF42003C2CD00206884 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MessageTableViewCell.xib; path = Controllers/User/MessageTableViewCell.xib; sourceTree = "<group>"; };
 		7BBA2DF01FD498E200BAE408 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewCell.swift; path = Controllers/User/CustomCells/PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		7BBA2DF11FD498E200BAE408 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoCollectionViewCell.xib; path = Controllers/User/CustomCells/PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		7BBA2DF61FD5ED7C00BAE408 /* AchievementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AchievementCollectionViewCell.swift; path = Controllers/User/CustomCells/AchievementCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -433,6 +437,8 @@
 				7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */,
 				7B8A76012003889800D17933 /* DetailUserViewController.swift */,
 				7B8A76022003889800D17933 /* DetailUserViewController.xib */,
+				7BB1DFF32003C2CD00206884 /* MessageTableViewCell.swift */,
+				7BB1DFF42003C2CD00206884 /* MessageTableViewCell.xib */,
 			);
 			name = SearchView;
 			sourceTree = "<group>";
@@ -1158,6 +1164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BAC21231FB48FB1002FA850 /* GroupMemberCollectionViewCell.xib in Resources */,
+				7BB1DFF62003C2CD00206884 /* MessageTableViewCell.xib in Resources */,
 				7B61E6D81FAF9EAA0000AE7D /* AddGroupViewController.xib in Resources */,
 				FAFAA2F81F7FCC3E0060AAAF /* LaunchScreen.xib in Resources */,
 				7B5B6D381F60B1D000777C78 /* DetailPartyViewController.xib in Resources */,
@@ -1530,6 +1537,7 @@
 				FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */,
 				FAFF37851E034678001B2A8F /* RABase.swift in Sources */,
 				FA75ADAB1E4BBA2B0078FFE9 /* User.swift in Sources */,
+				7BB1DFF52003C2CD00206884 /* MessageTableViewCell.swift in Sources */,
 				FA6302BF2002557A00FE97BD /* OrderResponse.swift in Sources */,
 				7B8A75FE2003007800D17933 /* GroupInvitation.swift in Sources */,
 				7B9F1D7A1FD31C6500169002 /* UserProfileViewController.swift in Sources */,
