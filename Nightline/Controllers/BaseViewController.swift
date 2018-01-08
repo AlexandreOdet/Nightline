@@ -135,22 +135,22 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
     case "success":
       print("Received Success")
       let successName = notification.body["name"] as! String
-      let snackbar = TTGSnackbar(message: "Vous venez de débloquer le succès \(successName)", duration: .short)
+      let snackbar = TTGSnackbar(message: "Vous venez de débloquer le succès \(successName)", duration: .long)
       snackbar.show()
     case "group_invitation":
       print("Receive Group Invitation")
       let groupName = notification.body["name"] as! String
-      let snackbar = TTGSnackbar(message: "Vous venez d'être invité dans le groupe \(groupName) !", duration: .short)
+      let snackbar = TTGSnackbar(message: "Vous venez d'être invité dans le groupe \(groupName) !", duration: .long)
       snackbar.show()
     case "user_invitation":
       print("Receive User Invitation")
       let userName = notification.body["name"] as! String
-      let snackbar = TTGSnackbar(message: "\(userName) vous a demandé en ami !", duration: .short)
+      let snackbar = TTGSnackbar(message: "\(userName) vous a demandé en ami !", duration: .long)
       snackbar.show()
     case "user_invitation_answered":
       print("Invitation Answered")
       let userName = notification.body["name"] as! String
-      let snackbar = TTGSnackbar(message: "\(userName) vous a accepté en tant qu'ami !", duration: .short)
+      let snackbar = TTGSnackbar(message: "\(userName) vous a accepté en tant qu'ami !", duration: .long)
       snackbar.show()
     case "group_invitation_answered":
       print("GroupInvitation Answered")
@@ -159,48 +159,48 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
         RAUser().getUserInfos(id: "\(userID)")
         }.then { user -> Void in
           let groupName = notification.body["name"] as! String
-          let snackbar = TTGSnackbar(message: "\(user.user.nickname) a accepté votre invitation au groupe \(groupName)", duration: .short)
+          let snackbar = TTGSnackbar(message: "\(user.user.nickname) a accepté votre invitation au groupe \(groupName)", duration: .long)
           snackbar.show()
         }.catch { _ in
           return
       }
     case "order_progress":
       print("ORDER PROGRESS")
-      if let stepRawValue = notification.body["Step"] as? String {
+      if let stepRawValue = notification.body["step"] as? String {
         let step = PaymentStep(step: stepRawValue)
         switch step {
         case .issued:
           ()
         case .confirmed:
-          if let orderObject = notification.body["Order"] as? String {
-            print("Object Order retrieved", orderObject)
-            if let order = Mapper<OrderResponse>().map(JSONString: orderObject) {
-              let alert = UIAlertController(title: "Commande \(order.id)", message: "Acceptez-vous le paiement de \(order.price)€", preferredStyle: .alert)
+          if let orderObject = notification.body["order"] as? [String:Any] {
+            let id = orderObject["id"] as! Int
+            var price = orderObject["price"] as! Int
+            price /= 100
+              let alert = UIAlertController(title: "Commande \(id)", message: "Acceptez-vous le paiement de \(price) €", preferredStyle: .alert)
               alert.addAction(UIAlertAction(title: "Accepter", style: .default, handler: {
                 _ in
                 firstly {
-                RAPayment().answerOrderRequest(orderID: order.id,
+                RAPayment().answerOrderRequest(orderID: id,
                                                userID: UserManager.instance.retrieveUserId(), answer: true)
                   }.then {
                     _ -> Void in
                     print("Order Answered Correctly")
-                  }.catch { _ in
-                    print("Error")
+                  }.catch { error in
+                    print("Error: \(error)")
                 }
               }))
               alert.addAction(UIAlertAction(title: "Refuser", style: .destructive, handler: {
                 _ in
                 firstly {
-                RAPayment().answerOrderRequest(orderID: order.id,
+                RAPayment().answerOrderRequest(orderID: id,
                                                userID: UserManager.instance.retrieveUserId(), answer: false)
                   }.then { _ -> Void in
                     print("Order Answered corretly")
-                  }.catch { _ in
-                    print("Error")
+                  }.catch { error in
+                    print("Error: \(error)")
                 }
               }))
               self.present(alert, animated: true, completion: nil)
-            }
           }
         case .ready:
           print("ORDER READY")
