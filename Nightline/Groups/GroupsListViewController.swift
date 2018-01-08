@@ -131,14 +131,13 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        if grpInvits.count == 0 {
+        if grpInvits.count == 0 && grpList.count == 0{
             return 1
-        } else if section == 1 {
-            return grpList.count //+ 1
+        } else if grpInvits.count == 0 || section == 1 {
+            return grpList.count
         } else {
             return grpInvits.count
         }
-        //        return grpList.count + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
