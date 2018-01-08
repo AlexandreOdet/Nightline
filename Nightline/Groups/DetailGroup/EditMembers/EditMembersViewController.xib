@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -133,9 +133,8 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="jbd-Dt-qMR"/>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NXx-eh-5IS">
-                    <rect key="frame" x="107" y="618" width="160" height="41"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXx-eh-5IS">
+                    <rect key="frame" x="107.5" y="618" width="160" height="41"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnW-OA-scd">
                             <rect key="frame" x="8" y="5" width="144" height="30"/>
@@ -149,9 +148,14 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="3li-cW-rAS"/>
+                        <constraint firstAttribute="height" constant="41" id="tb6-86-e2E"/>
+                    </constraints>
                 </view>
             </subviews>
             <constraints>
+                <constraint firstItem="NXx-eh-5IS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6Pz-dC-gV0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Pmn-im-Gw1" secondAttribute="bottom" constant="73" id="9xL-FR-4oM"/>
                 <constraint firstItem="TTB-jk-Sav" firstAttribute="height" secondItem="7Ap-py-qOa" secondAttribute="height" id="B5k-IY-gDG"/>
                 <constraint firstItem="V8h-cw-0dV" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Btd-fU-4qY"/>
@@ -163,6 +167,7 @@
                 <constraint firstItem="V8h-cw-0dV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LrC-3l-1Z5"/>
                 <constraint firstItem="Il7-RB-jD3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="13" id="X2g-Ja-rCw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="V8h-cw-0dV" secondAttribute="trailing" id="d76-i3-yBa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="NXx-eh-5IS" secondAttribute="bottom" constant="8" id="e6s-c4-Eid"/>
                 <constraint firstItem="Il7-RB-jD3" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" constant="3.1999999999999886" id="hLb-w7-tjy"/>
                 <constraint firstItem="Oyp-2N-Hhz" firstAttribute="height" secondItem="Lh5-lK-XRJ" secondAttribute="height" id="pmb-aa-yy8"/>
                 <constraint firstItem="V8h-cw-0dV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uX1-x2-Heq"/>

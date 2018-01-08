@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,6 +26,9 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LLG-if-P9N">
                     <rect key="frame" x="16" y="160" width="343" height="180"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="SIn-iz-yUT"/>
+                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5JZ-yA-CLd">
                         <size key="itemSize" width="100" height="100"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -66,7 +68,6 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LLG-if-P9N" secondAttribute="bottom" constant="327" id="6CE-rY-59g"/>
                 <constraint firstItem="LLG-if-P9N" firstAttribute="trailing" secondItem="YBQ-ey-oIr" secondAttribute="trailing" id="9bT-a0-3ow"/>
                 <constraint firstItem="LLG-if-P9N" firstAttribute="leading" secondItem="G3j-FD-Hv9" secondAttribute="leading" id="KiH-NU-tck"/>
                 <constraint firstItem="LLG-if-P9N" firstAttribute="top" secondItem="YBQ-ey-oIr" secondAttribute="bottom" constant="87" id="M8I-JZ-UJb"/>

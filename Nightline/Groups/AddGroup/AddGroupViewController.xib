@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -90,6 +89,7 @@
                         <constraint firstItem="MVD-J3-cjZ" firstAttribute="width" secondItem="rfq-Ka-Q8W" secondAttribute="width" multiplier="0.5" id="a3M-Dq-UTe"/>
                         <constraint firstAttribute="trailing" secondItem="rIj-QP-NqS" secondAttribute="trailing" constant="8" id="beU-Xa-sHw"/>
                         <constraint firstItem="P8C-Mn-hra" firstAttribute="leading" secondItem="rfq-Ka-Q8W" secondAttribute="leading" id="f1g-VJ-aDK"/>
+                        <constraint firstItem="sS4-x8-13S" firstAttribute="top" secondItem="QiG-wd-VIT" secondAttribute="bottom" constant="4" id="fFk-Ma-r81"/>
                         <constraint firstItem="QiG-wd-VIT" firstAttribute="top" secondItem="axl-9m-2Ih" secondAttribute="bottom" constant="8" id="fZK-L2-0Ng"/>
                         <constraint firstAttribute="bottom" secondItem="rIj-QP-NqS" secondAttribute="bottom" constant="8.5" id="fnt-nJ-F5V"/>
                         <constraint firstItem="sS4-x8-13S" firstAttribute="leading" secondItem="rfq-Ka-Q8W" secondAttribute="leading" constant="8" id="fzG-u2-HOp"/>
@@ -104,7 +104,6 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="rfq-Ka-Q8W" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="12l-HS-JJx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rfq-Ka-Q8W" secondAttribute="trailing" constant="16" id="kkU-dv-jEm"/>
                 <constraint firstItem="rfq-Ka-Q8W" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="lfQ-ys-vD0"/>
                 <constraint firstItem="rfq-Ka-Q8W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="vcP-XF-8dH"/>
