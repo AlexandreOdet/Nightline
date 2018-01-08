@@ -12,7 +12,12 @@ import PromiseKit
 class DetailUserViewController: ProfileViewController {
 
     var user : User!
-    var friendship = FriendStatus.notFriend
+    var friendship: FriendStatus! {
+        didSet {
+            self.pictureLabel.text = friendship.text
+            self.pictureImage.image = friendship.image
+        }
+    }
     let invitManager = RAInvitations()
     let friendManager = RAFriends()
 
@@ -20,6 +25,7 @@ class DetailUserViewController: ProfileViewController {
         case notFriend = ""
         case pending = "Pending"
         case friend = "Friend"
+        case unknow = " "
 
         var text: String {
             return self.rawValue
@@ -31,8 +37,10 @@ class DetailUserViewController: ProfileViewController {
                 return UIImage(named: "addFriend")!
             case .pending:
                 return UIImage(named: "pending")!
-            default:
+            case .friend:
                 return UIImage(named: "friend")!
+            default:
+                return UIImage()
             }
         }
     }
@@ -40,6 +48,7 @@ class DetailUserViewController: ProfileViewController {
     override func viewDidLoad() {
         self.isUser = true
         super.viewDidLoad()
+        friendship = .unknow
         checkFriendshipStatus()
         setUpView()
     }
@@ -48,18 +57,11 @@ class DetailUserViewController: ProfileViewController {
         firstly {
             friendManager.getUserFriendsList(userId: String(UserManager.instance.retrieveUserId()))
             }.then { result -> Void in
-                result.friends.forEach({ (user) in
-                    if user.id == self.user.id {
-                        self.friendship = .friend
-                    }
-                })
-        }
-        firstly {
-            invitManager.getUserInvitations(userID: String(UserManager.instance.retrieveUserId()))
-            }.then { result -> Void in
-                result.invitations.forEach({ (inv) in
-
-                })
+                if (result.friends.filter {$0.id == self.user.id}).count > 0 {
+                    self.friendship = .friend
+                } else {
+                    self.friendship = .notFriend
+                }
         }
     }
 
