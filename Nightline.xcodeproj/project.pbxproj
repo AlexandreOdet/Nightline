@@ -149,6 +149,7 @@
 		FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506EA1F4D6E67002060A1 /* PartyPreview.swift */; };
 		FAD506ED1F4D7371002060A1 /* OrderParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506EC1F4D7371002060A1 /* OrderParty.swift */; };
 		FAD506EF1F4D777C002060A1 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506EE1F4D777C002060A1 /* Order.swift */; };
+		FAD9C1822003663F00D0CACB /* PaymentStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9C1812003663F00D0CACB /* PaymentStep.swift */; };
 		FADAF4E71F2BAB7200C779A2 /* LoginSignUpUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADAF4E61F2BAB7200C779A2 /* LoginSignUpUserResponse.swift */; };
 		FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */; };
 		FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF25C91E8746EE00E74439 /* Achievments.swift */; };
@@ -352,6 +353,7 @@
 		FAD506EA1F4D6E67002060A1 /* PartyPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyPreview.swift; path = Models/Parties/PartyPreview.swift; sourceTree = "<group>"; };
 		FAD506EC1F4D7371002060A1 /* OrderParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderParty.swift; path = Models/Parties/OrderParty.swift; sourceTree = "<group>"; };
 		FAD506EE1F4D777C002060A1 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = Models/Parties/Order.swift; sourceTree = "<group>"; };
+		FAD9C1812003663F00D0CACB /* PaymentStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentStep.swift; path = Enums/Payment/PaymentStep.swift; sourceTree = "<group>"; };
 		FADAF4E61F2BAB7200C779A2 /* LoginSignUpUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginSignUpUserResponse.swift; path = Models/User/LoginSignUpUserResponse.swift; sourceTree = "<group>"; };
 		FADF25C71E8736B100E74439 /* UserFriendsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsListTableViewCell.swift; path = Controllers/User/CustomCells/UserFriendsListTableViewCell.swift; sourceTree = "<group>"; };
 		FADF25C91E8746EE00E74439 /* Achievments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Achievments.swift; path = Models/Parties/Achievments.swift; sourceTree = "<group>"; };
@@ -856,6 +858,14 @@
 			name = Messagerie;
 			sourceTree = "<group>";
 		};
+		FAD9C1802003662A00D0CACB /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9C1812003663F00D0CACB /* PaymentStep.swift */,
+			);
+			name = Payment;
+			sourceTree = "<group>";
+		};
 		FADF25C61E87367900E74439 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -988,6 +998,7 @@
 		FAFF37881E034703001B2A8F /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				FAD9C1802003662A00D0CACB /* Payment */,
 				FA5AD86F1FD32DC100ED2FBA /* Notification */,
 				FA5729811E5CFBBC00B36784 /* Routes */,
 				FA75ADB61E4D301F0078FFE9 /* Parties */,
@@ -1514,6 +1525,7 @@
 				FA8851901F4B72CF00647A1F /* Success.swift in Sources */,
 				7BD406E61E9A5204003C09AC /* ProfilePictCell.swift in Sources */,
 				FA158DBA1FB9A3BD00D31BE4 /* RateEstabResponse.swift in Sources */,
+				FAD9C1822003663F00D0CACB /* PaymentStep.swift in Sources */,
 				FA6B01901F54744D00F360B5 /* MenuList.swift in Sources */,
 				FAFF372F1E03402F001B2A8F /* Nightline.xcdatamodeld in Sources */,
 				FAFF37851E034678001B2A8F /* RABase.swift in Sources */,

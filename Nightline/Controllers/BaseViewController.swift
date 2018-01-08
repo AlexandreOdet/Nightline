@@ -11,6 +11,7 @@ import UIKit
 import PromiseKit
 import Starscream
 import TTGSnackbar
+import ObjectMapper
 
 /*
  Controllers: BaseViewController
@@ -129,6 +130,101 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
     let json = text.toDictionary()
     let notification = NotificationManager.manager.buildNotification(from: json)
     
+    print("notification.type = \(notification.type)")
+    switch notification.type {
+    case "success":
+      print("Received Success")
+      let successName = notification.body["name"] as! String
+      let snackbar = TTGSnackbar(message: "Vous venez de débloquer le succès \(successName)", duration: .long)
+      snackbar.show()
+    case "group_invitation":
+      print("Receive Group Invitation")
+      let groupName = notification.body["name"] as! String
+      let snackbar = TTGSnackbar(message: "Vous venez d'être invité dans le groupe \(groupName) !", duration: .long)
+      snackbar.show()
+    case "user_invitation":
+      print("Receive User Invitation")
+      let userName = notification.body["name"] as! String
+      let snackbar = TTGSnackbar(message: "\(userName) vous a demandé en ami !", duration: .long)
+      snackbar.show()
+    case "user_invitation_answered":
+      print("Invitation Answered")
+      let userName = notification.body["name"] as! String
+      let snackbar = TTGSnackbar(message: "\(userName) vous a accepté en tant qu'ami !", duration: .long)
+      snackbar.show()
+    case "group_invitation_answered":
+      print("GroupInvitation Answered")
+      let userID = notification.body["userID"] as! Int
+      firstly {
+        RAUser().getUserInfos(id: "\(userID)")
+        }.then { user -> Void in
+          DispatchQueue.main.async {
+            let groupName = notification.body["name"] as! String
+            let snackbar = TTGSnackbar(message: "\(user.user.nickname) a accepté votre invitation au groupe \(groupName)", duration: .long)
+            snackbar.show()
+          }
+        }.catch { _ in
+          return
+      }
+    case "order_progress":
+      print("ORDER PROGRESS")
+      if let stepRawValue = notification.body["step"] as? String {
+        let step = PaymentStep(step: stepRawValue)
+        switch step {
+        case .issued:
+          ()
+        case .confirmed:
+          if let orderObject = notification.body["order"] as? [String:Any] {
+            let id = orderObject["id"] as! Int
+            var price = orderObject["price"] as! Int
+            price /= 100
+              let alert = UIAlertController(title: "Commande \(id)", message: "Acceptez-vous le paiement de \(price) €", preferredStyle: .alert)
+              alert.addAction(UIAlertAction(title: "Accepter", style: .default, handler: {
+                _ in
+                firstly {
+                RAPayment().answerOrderRequest(orderID: id,
+                                               userID: UserManager.instance.retrieveUserId(), answer: true)
+                  }.then {
+                    response -> Void in
+                    print("Order Answered Correctly")
+                  }.catch { error in
+                    print("Error: \(error)")
+                }
+              }))
+              alert.addAction(UIAlertAction(title: "Refuser", style: .destructive, handler: {
+                _ in
+                firstly {
+                RAPayment().answerOrderRequest(orderID: id,
+                                               userID: UserManager.instance.retrieveUserId(), answer: false)
+                  }.then { response -> Void in
+                    print("Order Answered corretly")
+                  }.catch { error in
+                    print("Error: \(error)")
+                }
+              }))
+              self.present(alert, animated: true, completion: nil)
+          }
+        case .ready:
+          print("ORDER READY")
+        case .delivered:
+          print("Order Delivered")
+        default:()
+        }
+      }
+    default:
+      ()
+    }
+  }
+  
+  func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+    guard let brutJson = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
+    guard let properJSON = brutJson as? [String:Any] else { return }
+    
+    print("ProperJSON = \(properJSON)")
+    
+    let notification = NotificationManager.manager.buildNotification(from: properJSON)
+    print("notification.type = \(notification.type)")
+
     switch notification.type {
     case "success":
       print("Received Success")
@@ -162,51 +258,33 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
         }.catch { _ in
           return
       }
-    default:
-      ()
-    }
-  }
-  
-  func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-    guard let brutJson = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
-    guard let properJSON = brutJson as? [String:Any] else { return }
-    
-    print("ProperJSON = \(properJSON)")
-    
-    let notification = NotificationManager.manager.buildNotification(from: properJSON)
-    
-    switch notification.type {
-    case "success":
-      print("Received Success")
-      let successName = notification.body["name"] as! String
-      let snackbar = TTGSnackbar(message: "Vous venez de débloquer le succès \(successName)", duration: .short)
-      snackbar.show()
-    case "group_invitation":
-      print("Receive Group Invitation")
-      let groupName = notification.body["name"] as! String
-      let snackbar = TTGSnackbar(message: "Vous venez d'être invité dans le groupe \(groupName) !", duration: .short)
-      snackbar.show()
-    case "user_invitation":
-      print("Receive User Invitation")
-      let userName = notification.body["name"] as! String
-      let snackbar = TTGSnackbar(message: "\(userName) vous a demandé en ami !", duration: .short)
-      snackbar.show()
-    case "user_invitation_answered":
-      print("Invitation Answered")
-      let userName = notification.body["name"] as! String
-      let snackbar = TTGSnackbar(message: "\(userName) vous a accepté en tant qu'ami !", duration: .short)
-      snackbar.show()
-    case "group_invitation_answered":
-      print("GroupInvitation Answered")
-      let userID = notification.body["userID"] as! Int
-      firstly {
-        RAUser().getUserInfos(id: "\(userID)")
-        }.then { user -> Void in
-          let groupName = notification.body["name"] as! String
-          let snackbar = TTGSnackbar(message: "\(user.user.nickname) a accepté votre invitation au groupe \(groupName)", duration: .short)
-          snackbar.show()
-        }.catch { _ in
-          return
+    case "order_progress":
+      print("ORDER PROGRESS")
+      if let stepRawValue = notification.body["Step"] as? String {
+        let step = PaymentStep(step: stepRawValue)
+        switch step {
+        case .issued:
+          ()
+        case .confirmed:
+          if let orderObject = notification.body["Order"] as? String {
+            print("Object Order retrieved", orderObject)
+            if let order = Mapper<OrderResponse>().map(JSONString: orderObject) {
+              let alert = UIAlertController(title: "Commande \(order.id)", message: "Acceptez-vous le paiement de \(order.price)€", preferredStyle: .alert)
+              alert.addAction(UIAlertAction(title: "Accepter", style: .default, handler: {
+                _ in
+                RAPayment().answerOrderRequest(orderID: order.id,
+                                               userID: UserManager.instance.retrieveUserId(), answer: true)
+              }))
+              alert.addAction(UIAlertAction(title: "Refuser", style: .destructive, handler: {
+                _ in
+                RAPayment().answerOrderRequest(orderID: order.id,
+                                               userID: UserManager.instance.retrieveUserId(), answer: false)
+              }))
+              self.present(alert, animated: true, completion: nil)
+            }
+          }
+        default:()
+        }
       }
     default:
       ()

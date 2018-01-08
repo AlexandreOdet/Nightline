@@ -11,15 +11,15 @@ import ObjectMapper
 
 class OrderResponse: Mappable {
   
-  var id: Int = 0
-  var price: Int = 0
-  var done: String = ""
-  var orderParty: PartyResult = PartyResult()
-  var begin = ""
-  var end = ""
-  var users = [PartyUser]()
-  var consos = [PartyConsommable]()
-  var steps = [OrderStep]()
+  var id: Int!
+  var price: Int!
+  var done: String!
+  var orderParty: PartyResult!
+  var begin: String!
+  var end: String!
+  var users: [PartyUser]!
+  var consos: [PartyConsommable]!
+  var steps: [OrderStep]!
   
   required init?(map: Map) {
   }
