@@ -32,7 +32,7 @@ class UserProfileViewController: BaseViewController {
     let friendsInstance = RAFriends()
     let userInstance = RAUser()
     var friendList: FriendsList?
-    var photos = [UIImage]()
+    var imgUrls = [String]()
     var successArray = [Success]()
     
     func setTopView() {
@@ -91,7 +91,12 @@ class UserProfileViewController: BaseViewController {
     }
 
     func setMediasView() {
-        photos = MediaManager.instance.getAllImages()
+        CloudinaryManager.shared.getAllImagesUrlFromUser() { urls in
+            self.imgUrls = urls
+            DispatchQueue.main.async {
+                self.mediasCV.reloadData()
+            }
+        }
         mediasCV.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "photoCell")
         mediasView.layer.cornerRadius = 5
         mediasCV.backgroundColor = .clear
@@ -130,10 +135,10 @@ class UserProfileViewController: BaseViewController {
         setTrophyView()
         setMediasView()
         setAchievementsView()
-        let lineNbr = CGFloat(photos.count / 3 + 1)
-        //let sizeCell = (mediasCV.frame.width / 3) - 8
-        //let viewHeight = lineNbr * (sizeCell + 8)
-        mediasView.frame.size.height = 700
+        let lineNbr = CGFloat(imgUrls.count / 3 + 1)
+        let sizeCell = (mediasCV.frame.width / 3) - 8
+        let viewHeight = lineNbr * (sizeCell + 8)
+        mediasView.frame.size.height = viewHeight  //700
         print(lineNbr)
     }
 
@@ -152,7 +157,7 @@ extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case mediasCV:
-            return photos.count
+            return imgUrls.count
         default:
             return successArray.count
         }
@@ -162,7 +167,7 @@ extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewD
         switch collectionView {
         case mediasCV:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCollectionViewCell {
-                cell.setImg(img: photos[indexPath.row])
+                cell.setImg(withUrl: imgUrls[indexPath.row])
                 return cell
             } else {
                 return UICollectionViewCell()

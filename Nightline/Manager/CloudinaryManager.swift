@@ -21,8 +21,8 @@ class CloudinaryManager {
         cloudinary = CLDCloudinary(configuration: config)
     }
 
-    func uploadEstabImg(img: UIImage, estab_id: String, party_id: String? = nil, callback: @escaping () -> ()) {
-        self.uploadImg(img: img, folder: "establishment/" + estab_id, name: Date().toImgName) { callback() }
+    func uploadEstabImg(img: UIImage, estab_id: String, party_id: String = "0", callback: @escaping () -> ()) {
+        self.uploadImg(img: img, folder: "establishment/\(estab_id)/\(party_id)/\(String(UserManager.instance.retrieveUserId()))", name: Date().toImgName) { callback() }
     }
 
     func uploadProfilePict(img: UIImage, user_id: String, callback: @escaping () -> ()) {
@@ -45,6 +45,20 @@ class CloudinaryManager {
                     callback()
                 }
             })
+        }
+    }
+
+    func getAllImagesUrlFromUser(callback: @escaping ([String]) -> Void) {
+        getFolderImgUrls(folder: "establishment/") { (list) in
+            var urlArray = [String]()
+            let id = String(UserManager.instance.retrieveUserId())
+            list.forEach({ (url) in
+                let splited = url.split(separator: "/")
+                if splited[splited.count - 2] == id {
+                    urlArray.append(url)
+                }
+            })
+            callback(urlArray)
         }
     }
 
