@@ -37,6 +37,11 @@ class GroupsListViewController: BaseViewController {
         getGrpList()
     }
 
+    func getData() {
+        getGroupInvits()
+        getGrpList()
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
@@ -126,12 +131,13 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        if grpInvits.count == 0 || section == 1 {
-            return grpList.count + 1
+        if grpInvits.count == 0 && grpList.count == 0{
+            return 1
+        } else if grpInvits.count == 0 || section == 1 {
+            return grpList.count
         } else {
             return grpInvits.count
         }
-        //        return grpList.count + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -190,6 +196,12 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard grpList.count > 0 else {
+            if let index = self.tableView.indexPathForSelectedRow{
+                self.tableView.deselectRow(at: index, animated: true)
+            }
+            return
+        }
         if grpInvits.count == 0 || indexPath.section == 1 {
             let grpId = grpList[indexPath.row].id
             SwiftSpinner.show("Chargement des détails du groupe")
@@ -206,6 +218,10 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
                     SwiftSpinner.hide() {
                         self.showErrorLoadingGrpDetails()
                     }
+            }
+        } else {
+            if let id = grpInvits[indexPath.row].id {
+                answerInvitation(name: grpInvits[indexPath.row].from.name, id: id)
             }
         }
     }
@@ -296,7 +312,7 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
         print("Accept invit nbr : \(id)")
         raInvit.acceptGroupInvitation(invitationID: String(id)) { _ in
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.getData()
             }
         }
     }
@@ -305,7 +321,7 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
         print("Decline invit nbr : \(id)")
         raInvit.declineGroupInvitation(invitationID: String(id)) { _ in
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.getGroupInvits()
             }
         }
     }
@@ -314,5 +330,16 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
         let alert = UIAlertController(title: "Erreur", message: "Le chargement des details du groupe a échoué", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+
+    func answerInvitation(name: String, id: Int) {
+        let answerView = UIAlertController(title: name, message: "Rejoindre le groupe?", preferredStyle: .actionSheet)
+        answerView.addAction(UIAlertAction(title: "Accepter", style: .default) { _ in
+            self.acceptInvit(id: id)
+        })
+        answerView.addAction(UIAlertAction(title: "Refuser", style: .destructive) { _ in
+            self.declineInvit(id: id)
+        })
+        present(answerView, animated: true, completion: nil)
     }
 }
