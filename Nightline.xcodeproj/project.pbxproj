@@ -12,7 +12,6 @@
 		7B092F452002F29A006BEB6B /* SuccessList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B092F442002F29A006BEB6B /* SuccessList.swift */; };
 		7B0EA0311EFD803700FB50DF /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */; };
 		7B37403F1E9FDA7D001163F4 /* EditPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */; };
-		7B4050421F54521F00A2B0A9 /* DetailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4050401F54521F00A2B0A9 /* DetailUserViewController.swift */; };
 		7B4374D01FB4AF40001C53D1 /* EditMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4374CE1FB4AF40001C53D1 /* EditMembersViewController.swift */; };
 		7B4374D11FB4AF41001C53D1 /* EditMembersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B4374CF1FB4AF40001C53D1 /* EditMembersViewController.xib */; };
 		7B46AA601E9F557300529E64 /* EditFirstNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */; };
@@ -34,6 +33,8 @@
 		7B8A75FC2003004100D17933 /* GroupInvitationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8A75FB2003004100D17933 /* GroupInvitationList.swift */; };
 		7B8A75FE2003007800D17933 /* GroupInvitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8A75FD2003007800D17933 /* GroupInvitation.swift */; };
 		7B8A7600200300CC00D17933 /* GroupInvitSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8A75FF200300CC00D17933 /* GroupInvitSender.swift */; };
+		7B8A76032003889800D17933 /* DetailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8A76012003889800D17933 /* DetailUserViewController.swift */; };
+		7B8A76042003889800D17933 /* DetailUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8A76022003889800D17933 /* DetailUserViewController.xib */; };
 		7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */; };
 		7B96E6491FED5F2500E6DFD8 /* CloudinaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96E6481FED5F2500E6DFD8 /* CloudinaryManager.swift */; };
 		7B9C5B7A1F8FCB6000259AC6 /* GroupsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */; };
@@ -211,7 +212,6 @@
 		7B092F442002F29A006BEB6B /* SuccessList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuccessList.swift; path = Models/User/SuccessList.swift; sourceTree = "<group>"; };
 		7B0EA0301EFD803700FB50DF /* CacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 		7B37403E1E9FDA7D001163F4 /* EditPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditPictureViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditPictureViewController.swift; sourceTree = "<group>"; };
-		7B4050401F54521F00A2B0A9 /* DetailUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailUserViewController.swift; path = Controllers/User/DetailUserViewController.swift; sourceTree = "<group>"; };
 		7B4374CE1FB4AF40001C53D1 /* EditMembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMembersViewController.swift; sourceTree = "<group>"; };
 		7B4374CF1FB4AF40001C53D1 /* EditMembersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMembersViewController.xib; sourceTree = "<group>"; };
 		7B46AA5F1E9F557300529E64 /* EditFirstNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditFirstNameViewController.swift; path = Controllers/Settings/EditFieldViewControllers/EditFirstNameViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +233,8 @@
 		7B8A75FB2003004100D17933 /* GroupInvitationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupInvitationList.swift; path = Models/Groups/GroupInvitationList.swift; sourceTree = "<group>"; };
 		7B8A75FD2003007800D17933 /* GroupInvitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInvitation.swift; sourceTree = "<group>"; };
 		7B8A75FF200300CC00D17933 /* GroupInvitSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupInvitSender.swift; path = Models/Groups/GroupInvitSender.swift; sourceTree = "<group>"; };
+		7B8A76012003889800D17933 /* DetailUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailUserViewController.swift; path = Controllers/User/OtherUserProfile/DetailUserViewController.swift; sourceTree = "<group>"; };
+		7B8A76022003889800D17933 /* DetailUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DetailUserViewController.xib; path = Controllers/User/OtherUserProfile/DetailUserViewController.xib; sourceTree = "<group>"; };
 		7B914D3D1E9287D50082E0D2 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileTableViewController.swift; path = Controllers/User/EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		7B96E6481FED5F2500E6DFD8 /* CloudinaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudinaryManager.swift; path = Manager/CloudinaryManager.swift; sourceTree = "<group>"; };
 		7B9C5B781F8FCB6000259AC6 /* GroupsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListViewController.swift; sourceTree = "<group>"; };
@@ -429,7 +431,8 @@
 			children = (
 				7B6074D61F4CD4B400CA7E23 /* SearchUserViewController.swift */,
 				7B6074D71F4CD4B400CA7E23 /* SearchUserViewController.xib */,
-				7B4050401F54521F00A2B0A9 /* DetailUserViewController.swift */,
+				7B8A76012003889800D17933 /* DetailUserViewController.swift */,
+				7B8A76022003889800D17933 /* DetailUserViewController.xib */,
 			);
 			name = SearchView;
 			sourceTree = "<group>";
@@ -1166,6 +1169,7 @@
 				7BBA2DF31FD498E200BAE408 /* PhotoCollectionViewCell.xib in Resources */,
 				FAFF37311E03402F001B2A8F /* Assets.xcassets in Resources */,
 				7B9F1D7B1FD31C6500169002 /* UserProfileViewController.xib in Resources */,
+				7B8A76042003889800D17933 /* DetailUserViewController.xib in Resources */,
 				7B4374D11FB4AF41001C53D1 /* EditMembersViewController.xib in Resources */,
 				FA4FC1B21F91194B003CCCC7 /* SplashScreen.xib in Resources */,
 			);
@@ -1422,6 +1426,7 @@
 				FA0A3A241FD0A247003BA6D9 /* NotificationManager.swift in Sources */,
 				7B50EA9A20013A95003FD065 /* InvitationInformationSenderReceiver.swift in Sources */,
 				FA3AA16B1E576FCD002CF4FC /* Consommation.swift in Sources */,
+				7B8A76032003889800D17933 /* DetailUserViewController.swift in Sources */,
 				FA5C2AA01E5A51B300A0CB56 /* ExtensionConsommation.swift in Sources */,
 				FA0D07851FD0A7F6000E8985 /* InvitationManager.swift in Sources */,
 				FA8851961F4B81A900647A1F /* UserPreview.swift in Sources */,
@@ -1485,7 +1490,6 @@
 				FAB8B8241E8420B700D11755 /* EtablishmentMenuViewController.swift in Sources */,
 				7B914D3E1E9287D50082E0D2 /* EditProfileTableViewController.swift in Sources */,
 				7B8A75FC2003004100D17933 /* GroupInvitationList.swift in Sources */,
-				7B4050421F54521F00A2B0A9 /* DetailUserViewController.swift in Sources */,
 				FA5C2A9D1E5A519700A0CB56 /* UITextFieldExtension.swift in Sources */,
 				FA42C9291E56B50100C6B1C8 /* AlertUtils.swift in Sources */,
 				7B9C5B7D1F8FCF3800259AC6 /* TabBarController.swift in Sources */,
