@@ -57,6 +57,7 @@ class DetailUserViewController: BaseViewController {
     @IBOutlet weak var messagerieTV: UITableView!
     @IBOutlet weak var messagerieInput: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var messagerieBgView: UIView!
     
     var user : User!
     var friendship: FriendStatus! {
@@ -96,6 +97,7 @@ class DetailUserViewController: BaseViewController {
         topView.layer.cornerRadius = 5
         friendshipView.layer.cornerRadius = 5
         trophyView.layer.cornerRadius = 5
+        messagerieBgView.layer.cornerRadius = 5
         trophyLabel.text = "\(user.achievementPoints) points"
         pseudoLabel.text = user.nickname
         firstnameLabel.text = user.firstName
@@ -115,15 +117,20 @@ class DetailUserViewController: BaseViewController {
         messagerieTV.separatorColor = .clear
         messagerieTV.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "messageCell")
         messagerieInput.addTarget(self, action: #selector(sendMessage), for: UIControlEvents.editingDidEndOnExit)
+        messagerieInput.delegate = self
+    }
+
+    func reloadMessagerie() {
+        messagerieTV.reloadData()
+        scrollToLastRow()
     }
 
     @objc func sendMessage() {
         if let message = messagerieInput.text, message != "" {
             let newMessage = Message(msg: message, sender: "moi")
             messages.append(newMessage)
-            messagerieTV.reloadData()
             messagerieInput.text = ""
-            scrollToLastRow()
+            reloadMessagerie()
         }
     }
 
@@ -200,18 +207,14 @@ extension DetailUserViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func scrollToLastRow() {
+        guard messages.count > 0 else { return }
         let indexPath = IndexPath(row: messages.count - 1, section: 0)
         self.messagerieTV.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
 }
 
 extension DetailUserViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        switch reason {
-        case .committed:
-            print("Commited")
-        default:
-            print("other")
-        }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        scrollToLastRow()
     }
 }

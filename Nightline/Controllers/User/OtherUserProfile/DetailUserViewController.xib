@@ -20,6 +20,7 @@
                 <outlet property="friendshipLabel" destination="uwK-Dn-1z9" id="hUc-Ma-KM6"/>
                 <outlet property="friendshipView" destination="fBr-ri-5RK" id="AhF-aF-iIK"/>
                 <outlet property="lastnameLabel" destination="LgJ-NU-JZI" id="AAf-RJ-k9u"/>
+                <outlet property="messagerieBgView" destination="jaY-cu-CEY" id="5Eq-Jv-maZ"/>
                 <outlet property="messagerieInput" destination="hi0-Pw-iGg" id="oAz-bf-r5V"/>
                 <outlet property="messagerieTV" destination="wFi-yj-H6Q" id="usS-te-sdm"/>
                 <outlet property="profilePict" destination="kba-Fl-6xI" id="15k-ag-19V"/>
@@ -123,7 +124,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.40154109589999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="uwK-Dn-1z9" firstAttribute="top" secondItem="fBr-ri-5RK" secondAttribute="top" constant="4" id="6fI-bT-uav"/>
                                                 <constraint firstItem="wQ2-Hm-6Pd" firstAttribute="leading" secondItem="fBr-ri-5RK" secondAttribute="leading" constant="16" id="9oY-Wt-Frm"/>
@@ -155,7 +156,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.40154109589999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="bSY-ev-3Ij" firstAttribute="leading" secondItem="pmN-RF-HJk" secondAttribute="trailing" constant="10" id="1Hi-me-hqW"/>
                                                 <constraint firstAttribute="trailing" secondItem="bSY-ev-3Ij" secondAttribute="trailing" constant="4" id="6Hf-Ua-3Zk"/>
@@ -184,12 +185,13 @@
                                                 </tableView>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hi0-Pw-iGg">
                                                     <rect key="frame" x="8" y="262" width="327" height="30"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                                 </textField>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.40154109589999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="wFi-yj-H6Q" firstAttribute="top" secondItem="rmx-DJ-e6n" secondAttribute="bottom" constant="8" id="IdY-Jn-pq4"/>
                                                 <constraint firstItem="rmx-DJ-e6n" firstAttribute="leading" secondItem="jaY-cu-CEY" secondAttribute="leading" constant="20" id="PIK-cL-Zgy"/>
