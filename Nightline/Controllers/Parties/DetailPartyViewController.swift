@@ -83,6 +83,7 @@ class DetailPartyViewController: BaseViewController {
                 strongSelf.party = result.party
                 DispatchQueue.main.async {
                     strongSelf.setView()
+                    strongSelf.tableView.reloadData()
                 }
             }.catch { error -> Void in
                 print(error)
@@ -120,10 +121,10 @@ extension DetailPartyViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let party = self.party {
+        if let party = self.party, let conso = party.menu.conso {
             let cell = UITableViewCell(style: .value1, reuseIdentifier: reuseIdentifer)
-            cell.textLabel?.text = party.menu.conso![indexPath.row].name
-            let price = String(format: "%.02f €", party.menu.conso![indexPath.row].price!)
+            cell.textLabel?.text = conso[indexPath.row].name
+            let price = String(format: "%.02f €", conso[indexPath.row].price ?? -1)
             cell.detailTextLabel?.text = price
             cell.selectionStyle = .none
             cell.backgroundColor = UIColor(hex: 0x363D4C)
