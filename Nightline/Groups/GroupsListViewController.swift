@@ -15,7 +15,9 @@ class GroupsListViewController: BaseViewController {
 
     let raUser = RAUser()
     let raGrp = RAGroup()
+    let raInvit = RAInvitations()
     var grpList: [GroupPreview] = []
+    var grpInvits = [GroupInvitation]()
     var image = UIImageView()
     let reuseId = "grpCell"
     let deepBlue = UIColor(hex: 0x0e1728)
@@ -26,6 +28,7 @@ class GroupsListViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setTheme()
+        getGroupInvits()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +66,17 @@ class GroupsListViewController: BaseViewController {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(blurEffectView)
+    }
+
+    func getGroupInvits() {
+        firstly {
+            raInvit.getUserGroupsInvitations(userID: String(UserManager.instance.retrieveUserId()))
+            }.then { result -> Void in
+                self.grpInvits = result.list
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+        }
     }
 
     func getGrpList() {
@@ -107,14 +121,132 @@ class GroupsListViewController: BaseViewController {
 
 extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return grpInvits.count > 0 ? 2 : 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return grpList.count + 1
+
+        if grpInvits.count == 0 || section == 1 {
+            return grpList.count + 1
+        } else {
+            return grpInvits.count
+        }
+        //        return grpList.count + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if grpInvits.count == 0 || indexPath.section == 1 {
+            return makeGroupCell(indexPath: indexPath)
+        } else {
+            return makeInvitCell(indexPath: indexPath)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = deepBlue
+        let titleLabel = UILabel()
+        headerView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        titleLabel.textColor = .orange
+        if grpInvits.count == 0 || section == 1 {
+            titleLabel.text = "Vos groupes:"
+        } else {
+            titleLabel.text = "Invitations en attente:"
+        }
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if grpInvits.count == 0 || indexPath.section == 1 {
+            let delete: UITableViewRowAction = UITableViewRowAction(style: .default , title: "Delete") { (action, indexPath) in
+                self.confirmDelete(grp: self.grpList[indexPath.row])
+            }
+            delete.backgroundColor = deepBlue
+            return [delete]
+        } else {
+            let accept: UITableViewRowAction = UITableViewRowAction(style: .default, title: "Accept") { (action, indexPath) in
+                self.acceptInvit(id: self.grpInvits[indexPath.row].id)
+            }
+            accept.backgroundColor = deepBlue
+
+            let decline: UITableViewRowAction = UITableViewRowAction(style: .default, title: "Refuse") { (action, indexPath) in
+                self.declineInvit(id: self.grpInvits[indexPath.row].id)
+            }
+            decline.backgroundColor = deepBlue
+
+            return [accept, decline]
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if grpInvits.count == 0 || indexPath.section == 1 {
+            let grpId = grpList[indexPath.row].id
+            SwiftSpinner.show("Chargement des détails du groupe")
+            firstly {
+                raGrp.getGroupInformations(groupId: grpId ?? 0)
+                }.then { group -> Void in
+                    let nextVC = DetailGroupViewController(grp: group.group)
+                    self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+                    SwiftSpinner.hide()
+                    if let nav = self.navigationController {
+                        nav.pushViewController(nextVC, animated: true)
+                    }
+                }.catch { _ -> Void in
+                    SwiftSpinner.hide() {
+                        self.showErrorLoadingGrpDetails()
+                    }
+            }
+        }
+    }
+
+    func makeInvitCell(indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = deepBlue
+        let bg = UIView()
+        cell.addSubview(bg)
+        bg.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview().inset(4)
+        }
+        bg.layer.cornerRadius = 5
+        bg.backgroundColor = UIColor(hex : 0x363D4C)
+        bg.clipsToBounds = true
+
+        let nameLabel = UILabel()
+        cell.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(cell).inset(5)
+            make.left.right.equalToSuperview().inset(10)
+            make.height.equalTo(25)
+        }
+        nameLabel.text = grpInvits[indexPath.row].from.name
+        nameLabel.textColor = UIColor.orange
+
+        let descTextView = UITextView()
+        cell.addSubview(descTextView)
+        descTextView.snp.makeConstraints { (make) in
+            make.right.left.bottom.equalTo(cell).inset(5)
+            make.height.equalTo(55)
+        }
+        descTextView.isEditable = false
+        descTextView.textColor = UIColor.orange
+        descTextView.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0)
+        descTextView.text = grpInvits[indexPath.row].from.description
+
+        return cell
+    }
+
+    func makeGroupCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.backgroundColor = deepBlue
         if indexPath.row < grpList.count {
@@ -160,51 +292,21 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = deepBlue
-        let titleLabel = UILabel()
-        headerView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+    func acceptInvit(id: Int) {
+        print("Accept invit nbr : \(id)")
+        raInvit.acceptGroupInvitation(invitationID: String(id)) { _ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
-        titleLabel.textColor = .orange
-        titleLabel.text = "Vos groupes:"
-        return headerView
     }
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete: UITableViewRowAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
-            self.confirmDelete(grp: self.grpList[indexPath.row])
-        }
-        delete.backgroundColor = deepBlue
-        return [delete]
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let grpId = grpList[indexPath.row].id
-        SwiftSpinner.show("Chargement des détails du groupe")
-        firstly {
-            raGrp.getGroupInformations(groupId: grpId ?? 0)
-            }.then { group -> Void in
-                let nextVC = DetailGroupViewController(grp: group.group)
-                self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
-                SwiftSpinner.hide()
-                if let nav = self.navigationController {
-                    nav.pushViewController(nextVC, animated: true)
-                }
-            }.catch { _ -> Void in
-                SwiftSpinner.hide() {
-                    self.showErrorLoadingGrpDetails()
-                }
+    func declineInvit(id: Int) {
+        print("Decline invit nbr : \(id)")
+        raInvit.declineGroupInvitation(invitationID: String(id)) { _ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 

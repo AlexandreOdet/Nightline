@@ -73,11 +73,11 @@ class RAInvitations: RABase {
     }
   }
   
-  func getUserGroupsInvitations(userID: String) -> Promise<InvitationsList> {
+  func getUserGroupsInvitations(userID: String) -> Promise<GroupInvitationList> {
     let url = RoutesAPI.baseUrl + AppConstant.Network.user + "/\(userID)/invitations/groups"
     return Promise { fulfill, reject in
       self.request = Alamofire.request(url).responseObject(completionHandler: {
-        (response: DataResponse<InvitationsList>) in
+        (response: DataResponse<GroupInvitationList>) in
         switch response.result {
         case .failure(let error):
           reject(error)
