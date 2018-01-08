@@ -28,30 +28,6 @@ class DetailGroupViewController: BaseViewController {
         self.init()
         self.grp = grp
     }
-
-    func setFakeUserList() {
-        let user1 = User()
-        user1.firstName = "Cedric"
-        user1.lastName = "Moreaux"
-        user1.id = 2
-        let user2 = User()
-        user2.firstName = "Florian"
-        user2.lastName = "Seure"
-        user2.id = 3
-        let user3 = User()
-        user3.firstName = "Maxime"
-        user3.lastName = "Guittet"
-        user3.id = 4
-        let user4 = User()
-        user4.firstName = "Diego"
-        user4.lastName = "Moran"
-        user4.id = 5
-        let user5 = User()
-        user5.firstName = "Leo"
-        user5.lastName = "Bourrel"
-        user5.id = 6
-        grpMembers = [user1, user2, user3, user4, user5]
-    }
     
     init() {
         super.init(nibName: nil, bundle: nil)
