@@ -158,9 +158,11 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
       firstly {
         RAUser().getUserInfos(id: "\(userID)")
         }.then { user -> Void in
-          let groupName = notification.body["name"] as! String
-          let snackbar = TTGSnackbar(message: "\(user.user.nickname) a accepté votre invitation au groupe \(groupName)", duration: .long)
-          snackbar.show()
+          DispatchQueue.main.async {
+            let groupName = notification.body["name"] as! String
+            let snackbar = TTGSnackbar(message: "\(user.user.nickname) a accepté votre invitation au groupe \(groupName)", duration: .long)
+            snackbar.show()
+          }
         }.catch { _ in
           return
       }
@@ -183,7 +185,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
                 RAPayment().answerOrderRequest(orderID: id,
                                                userID: UserManager.instance.retrieveUserId(), answer: true)
                   }.then {
-                    _ -> Void in
+                    response -> Void in
                     print("Order Answered Correctly")
                   }.catch { error in
                     print("Error: \(error)")
@@ -194,7 +196,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
                 firstly {
                 RAPayment().answerOrderRequest(orderID: id,
                                                userID: UserManager.instance.retrieveUserId(), answer: false)
-                  }.then { _ -> Void in
+                  }.then { response -> Void in
                     print("Order Answered corretly")
                   }.catch { error in
                     print("Error: \(error)")
