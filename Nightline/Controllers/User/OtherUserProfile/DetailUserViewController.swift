@@ -73,11 +73,11 @@ class DetailUserViewController: UIViewController {
         lastnameLabel.text = user.lastName
         profilePict.translatesAutoresizingMaskIntoConstraints = false
         profilePict.roundImage(withBorder: true, borderColor: UIColor(hex: 0x0e1728), borderSize: 1.0)
-        profilePict.image = UserManager.instance.getUserPicture(callback: { (img) in
+        CloudinaryManager.shared.downloadProfilePicture(withUserId: String(user.id)) { (img) in
             DispatchQueue.main.async {
                 self.profilePict.image = img
             }
-        })
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
