@@ -136,6 +136,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
       print("Received Success")
       let successName = notification.body["name"] as! String
       let snackbar = TTGSnackbar(message: "Vous venez de débloquer le succès \(successName)", duration: .long)
+      snackbar.icon = R.image.trophy()
       snackbar.show()
     case "group_invitation":
       print("Receive Group Invitation")
