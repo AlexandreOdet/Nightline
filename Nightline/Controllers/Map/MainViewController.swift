@@ -37,7 +37,6 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AchievementManager.instance.initUserAchievementArray()
         if (tokenWrapper.getToken() == nil) {
             self.present(HomeViewController(), animated: false, completion: nil)
         } else {

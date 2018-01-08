@@ -33,23 +33,17 @@ class AchievementCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    var unlocked = true
 
-    var unlocked: Bool {
-        print("Check status for achievement: name = \(achievementName) title = \(title)")
-        print("status = \(UserManager.instance.getAchievementStatus(achievementName) ? "unlocked" : "locked")")
-        return UserManager.instance.getAchievementStatus(achievementName)
-    }
-
-    func setCell(_ hf: Achievement) {
-        self.achievementName = hf.name
-        self.title = hf.title
-        self.image = hf.img.image
-        bgView.layer.cornerRadius = 5
+    func setCell(withSuccess success: Success) {
+        self.title = success.name
+        self.unlocked = success.isUnlocked
+        self.image = UIImage(named: "trophy")
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.textColor = deepBlue
-        // Initialization code
+        bgView.layer.cornerRadius = 5
     }
 }

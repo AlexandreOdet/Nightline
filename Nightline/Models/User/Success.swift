@@ -10,22 +10,29 @@ import Foundation
 import ObjectMapper
 
 class Success: Mappable {
-  
-  var id: Int!
-  var name: String!
-  var description: String!
-  var points: Int!
-  var isLocked: Bool!
-  var icon: String!
-  
-  required init?(map: Map) {}
-  
-  func mapping(map: Map) {
-    id <- map["ID"]
-    name <- map["Name"]
-    description <- map["Description"]
-    points <- map["Points"]
-    isLocked <- map["Locked"]
-    icon <- map["Icon"]
-  }
+
+    var id: Int!
+    var name: String!
+    //  var points: Int!
+    var isUnlocked: Bool!
+    var value: String!
+    //  var icon: String!
+
+    required init?(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+        //    points <- map["Points"]
+        isUnlocked <- map["active"]
+        value <- map["value"]
+        //    icon <- map["Icon"]
+    }
+
+    func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+        //    points <- map["Points"]
+        isUnlocked <- map["active"]
+        value <- map["value"]
+        //    icon <- map["Icon"]
+    }
 }

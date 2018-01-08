@@ -16,7 +16,7 @@ class Preferences: Mappable {
   required init?(map: Map) {}
   
   func mapping(map: Map) {
-    id <- map["ID"]
-    name <- map["Name"]
+    id <- map["id"]
+    name <- map["name"]
   }
 }

@@ -37,18 +37,10 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
         //self.tableView.backgroundColor = UIColor.init(hex: 0xFECA8F)
         self.tableView.backgroundColor = UIColor.init(hex: 0x2E1B0A)
         self.tableView.separatorColor = UIColor.init(hex: 0x3D210A)
-        //    self.tableView.
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
-        testProfileFullyFilled()
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        //        print("view will disappear - start")
-        //        UserManager.instance.pushUserUpdate()
-        //        print("view will disappear - stop")
     }
 
     override func willMove(toParentViewController parent: UIViewController?) {
@@ -143,23 +135,5 @@ class EditProfileTableViewController: BaseViewController, UITableViewDelegate, U
         } else {
             return "Autres informations"
         }
-    }
-
-    func testProfileFullyFilled() {
-        if UserManager.instance.getAchievementStatus("ProfileFullyFilled") {
-            return
-        } else if UserManager.instance.getUserFirstName() != "", UserManager.instance.getUserLastName() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserAge() != "", UserManager.instance.getUserNickname() != "", UserManager.instance.getUserNumber() != "" {
-            AchievementManager.instance.validateAchievement("ProfileFullyFilled", self)
-        }
-    }
-
-    func successProfileFullAchieved() {
-        let achievementPopUp = UIAlertController(title: "Achievement completed!", message: "By fully filling your profile you realized your first Nightline's achievement.\n Go to your profile to see your achievements.", preferredStyle: .alert)
-        present(achievementPopUp, animated: true, completion: nil)
-        let dismissPopUpAction = UIAlertAction(title: "Ok", style: .default) {
-            action in
-            achievementPopUp.dismiss(animated: true, completion: nil)
-        }
-        achievementPopUp.addAction(dismissPopUpAction)
     }
 }

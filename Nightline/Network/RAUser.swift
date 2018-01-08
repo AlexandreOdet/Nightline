@@ -97,12 +97,11 @@ final class RAUser: RABase {
     }
   }
   
-  func getUserAchievementsList(id: String) -> Promise<[Success]> {
-    let parameters = ["UserID":id]
+  func getUserAchievementsList(id: String) -> Promise<SuccessList> {
     let url = RoutesAPI.user.url.appending("/\(id)/success")
     return Promise { (fulfill, reject) in
-      self.request = Alamofire.request(url, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-        .responseArray(completionHandler: { (response: DataResponse<[Success]>) in
+      self.request = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+        .responseObject(completionHandler: { (response: DataResponse<SuccessList>) in
           switch response.result {
           case .success(let array):
             fulfill(array)

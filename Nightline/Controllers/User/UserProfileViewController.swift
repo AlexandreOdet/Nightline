@@ -30,15 +30,29 @@ class UserProfileViewController: BaseViewController {
 
     let deepBlue = UIColor(hex: 0x0e1728)
     let friendsInstance = RAFriends()
+    let userInstance = RAUser()
     var friendList: FriendsList?
     var photos = [UIImage]()
-    let achievementsArray = AchievementManager.instance.achievementArray
+    var successArray = [Success]()
     
     func setTopView() {
         topView.layer.cornerRadius = 5
         topView.clipsToBounds = true
         picture.translatesAutoresizingMaskIntoConstraints = false
         picture.roundImage(withBorder: true, borderColor: UIColor(hex: 0x0e1728), borderSize: 1.0)
+    }
+
+    func getSuccessData() {
+        firstly {
+            userInstance.getUserAchievementsList(id: String(UserManager.instance.retrieveUserId()))
+            }.then { result -> Void in
+                self.successArray = result.success
+                DispatchQueue.main.async {
+                self.achievementsCV.reloadData()
+                }
+            }.catch { (error) in
+                print("Get success data - error")
+        }
     }
 
     func fillTopView() {
@@ -85,6 +99,7 @@ class UserProfileViewController: BaseViewController {
 
     func setAchievementsView() {
         achievementsCV.register(UINib(nibName: "AchievementCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "achievementCell")
+        getSuccessData()
     }
 
     func getFriends() {
@@ -139,7 +154,7 @@ extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewD
         case mediasCV:
             return photos.count
         default:
-            return achievementsArray.count
+            return successArray.count
         }
     }
 
@@ -154,7 +169,7 @@ extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewD
             }
         case achievementsCV:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: indexPath) as? AchievementCollectionViewCell {
-                cell.setCell(achievementsArray[indexPath.row])
+                cell.setCell(withSuccess: successArray[indexPath.row])
                 return cell
             } else {
                 return UICollectionViewCell()
