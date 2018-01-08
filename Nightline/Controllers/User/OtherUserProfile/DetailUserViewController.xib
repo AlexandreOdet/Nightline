@@ -191,7 +191,7 @@
                                                     <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                                 </textField>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.40154109589999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="wFi-yj-H6Q" firstAttribute="top" secondItem="rmx-DJ-e6n" secondAttribute="bottom" constant="8" id="IdY-Jn-pq4"/>
                                                 <constraint firstItem="rmx-DJ-e6n" firstAttribute="leading" secondItem="jaY-cu-CEY" secondAttribute="leading" constant="20" id="PIK-cL-Zgy"/>

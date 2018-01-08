@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import Starscream
 
 class DetailUserViewController: BaseViewController {
     struct Message {
@@ -91,6 +92,7 @@ class DetailUserViewController: BaseViewController {
         checkFriendshipStatus()
         setFakeMessages()
         setView()
+        setUpWebSocket()
     }
 
     func setView() {
@@ -118,6 +120,7 @@ class DetailUserViewController: BaseViewController {
         messagerieTV.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "messageCell")
         messagerieInput.addTarget(self, action: #selector(sendMessage), for: UIControlEvents.editingDidEndOnExit)
         messagerieInput.delegate = self
+        messagerieInput.autocorrectionType = .no
     }
 
     func reloadMessagerie() {
@@ -131,6 +134,7 @@ class DetailUserViewController: BaseViewController {
             messages.append(newMessage)
             messagerieInput.text = ""
             reloadMessagerie()
+            sendMessageWs(message: message)
         }
     }
 
@@ -189,6 +193,35 @@ class DetailUserViewController: BaseViewController {
         var contentInset:UIEdgeInsets = scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height
         scrollView.contentInset = contentInset
+    }
+
+    func setUpWebSocket() {
+        var json = [String:Any]()
+        json["name"] = "get_last_messages"
+        var body = [String:Any]()
+        body["initiator"] = UserManager.instance.retrieveUserId()
+        body["recipient"] = user.id
+        json["body"] = body
+        let data: Data = NSKeyedArchiver.archivedData(withRootObject: json)
+        ws.write(data: data)
+    }
+
+    func sendMessageWs(message: String) {
+        var json = [String:Any]()
+        json["name"] = "new_message"
+        var body = [String:Any]()
+        body["to"] = user.id
+        body["from"] = UserManager.instance.retrieveUserId()
+        body["message"] = message
+
+        json["body"] = body
+        let data: Data = NSKeyedArchiver.archivedData(withRootObject: json)
+        ws.write(data: data)
+    }
+
+    override func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("websocketDidReceiveMessage - Triggered")
+        print(text)
     }
 }
 
