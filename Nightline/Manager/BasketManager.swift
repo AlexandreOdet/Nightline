@@ -13,7 +13,7 @@ class Basket {
   static let manager = Basket()
   
   var paymentInstance = RAPayment()
-  private var order = PartyOrder()
+  var order = PartyOrder()
   var orderHistory = [Int]()
   var totalPrice = 0
   
@@ -29,11 +29,11 @@ class Basket {
     }
     let user = User()
     user.id = userID
-    
     let partyUser = PartyUser()
     partyUser.user = user
-    
+    partyUser.price = 500
     order.users.append(partyUser)
+    order.price = 500
   }
   
   func removeUserFromOrder(userID: Int) {

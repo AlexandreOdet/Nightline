@@ -66,6 +66,17 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
         NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(connexionOK), name: NSNotification.Name(rawValue: SigninViewController.notificationIdentifier), object: nil)
         setUpSearchButton()
+      
+      Basket.manager.addConsommableToOrder(consommableID: 42)
+      Basket.manager.addUserToOrder(userID: UserManager.instance.retrieveUserId())
+      Basket.manager.chooseCurrentParty(partyID: 39)
+      firstly {
+        RAPayment().orderInParty(order: Basket.manager.order)
+        }.then { response  -> Void in
+          print("Order OK")
+        }.catch { error in
+          print("Error \(error)")
+      }
     }
 
     func setUpSearchButton() {

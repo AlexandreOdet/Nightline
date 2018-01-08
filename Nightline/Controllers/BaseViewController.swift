@@ -11,6 +11,7 @@ import UIKit
 import PromiseKit
 import Starscream
 import TTGSnackbar
+import ObjectMapper
 
 /*
  Controllers: BaseViewController
@@ -129,6 +130,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
     let json = text.toDictionary()
     let notification = NotificationManager.manager.buildNotification(from: json)
     
+    print("notification.type = \(notification.type)")
     switch notification.type {
     case "success":
       print("Received Success")
@@ -162,6 +164,51 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
         }.catch { _ in
           return
       }
+    case "order_progress":
+      print("ORDER PROGRESS")
+      if let stepRawValue = notification.body["Step"] as? String {
+        let step = PaymentStep(step: stepRawValue)
+        switch step {
+        case .issued:
+          ()
+        case .confirmed:
+          if let orderObject = notification.body["Order"] as? String {
+            print("Object Order retrieved", orderObject)
+            if let order = Mapper<OrderResponse>().map(JSONString: orderObject) {
+              let alert = UIAlertController(title: "Commande \(order.id)", message: "Acceptez-vous le paiement de \(order.price)€", preferredStyle: .alert)
+              alert.addAction(UIAlertAction(title: "Accepter", style: .default, handler: {
+                _ in
+                firstly {
+                RAPayment().answerOrderRequest(orderID: order.id,
+                                               userID: UserManager.instance.retrieveUserId(), answer: true)
+                  }.then {
+                    _ -> Void in
+                    print("Order Answered Correctly")
+                  }.catch { _ in
+                    print("Error")
+                }
+              }))
+              alert.addAction(UIAlertAction(title: "Refuser", style: .destructive, handler: {
+                _ in
+                firstly {
+                RAPayment().answerOrderRequest(orderID: order.id,
+                                               userID: UserManager.instance.retrieveUserId(), answer: false)
+                  }.then { _ -> Void in
+                    print("Order Answered corretly")
+                  }.catch { _ in
+                    print("Error")
+                }
+              }))
+              self.present(alert, animated: true, completion: nil)
+            }
+          }
+        case .ready:
+          print("ORDER READY")
+        case .delivered:
+          print("Order Delivered")
+        default:()
+        }
+      }
     default:
       ()
     }
@@ -174,7 +221,8 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
     print("ProperJSON = \(properJSON)")
     
     let notification = NotificationManager.manager.buildNotification(from: properJSON)
-    
+    print("notification.type = \(notification.type)")
+
     switch notification.type {
     case "success":
       print("Received Success")
@@ -207,6 +255,34 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
           snackbar.show()
         }.catch { _ in
           return
+      }
+    case "order_progress":
+      print("ORDER PROGRESS")
+      if let stepRawValue = notification.body["Step"] as? String {
+        let step = PaymentStep(step: stepRawValue)
+        switch step {
+        case .issued:
+          ()
+        case .confirmed:
+          if let orderObject = notification.body["Order"] as? String {
+            print("Object Order retrieved", orderObject)
+            if let order = Mapper<OrderResponse>().map(JSONString: orderObject) {
+              let alert = UIAlertController(title: "Commande \(order.id)", message: "Acceptez-vous le paiement de \(order.price)€", preferredStyle: .alert)
+              alert.addAction(UIAlertAction(title: "Accepter", style: .default, handler: {
+                _ in
+                RAPayment().answerOrderRequest(orderID: order.id,
+                                               userID: UserManager.instance.retrieveUserId(), answer: true)
+              }))
+              alert.addAction(UIAlertAction(title: "Refuser", style: .destructive, handler: {
+                _ in
+                RAPayment().answerOrderRequest(orderID: order.id,
+                                               userID: UserManager.instance.retrieveUserId(), answer: false)
+              }))
+              self.present(alert, animated: true, completion: nil)
+            }
+          }
+        default:()
+        }
       }
     default:
       ()
