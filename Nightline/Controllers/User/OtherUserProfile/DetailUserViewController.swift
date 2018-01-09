@@ -8,16 +8,24 @@
 
 import UIKit
 import PromiseKit
+import SwiftyJSON
 import Starscream
 
 class DetailUserViewController: BaseViewController {
     struct Message {
         var message: String = ""
         var sender: String = ""
+        var id: Int = 0
 
         init(msg: String, sender: String) {
             self.message = msg
             self.sender = sender
+        }
+
+        init(msg: String, sender: String, id: Int) {
+            self.message = msg
+            self.sender = sender
+            self.id = id
         }
     }
 
@@ -65,6 +73,10 @@ class DetailUserViewController: BaseViewController {
         didSet {
             friendshipImg.image = friendship.image
             friendshipLabel.text = friendship.text
+            if friendship == .friend {
+                messagerieBgView.isHidden = false
+                setUpWebSocket()
+            }
         }
     }
     let invitManager = RAInvitations()
@@ -90,9 +102,8 @@ class DetailUserViewController: BaseViewController {
         hideKeyboardWhenTappedAround()
         friendship = .unknow
         checkFriendshipStatus()
-        setFakeMessages()
+//        setFakeMessages()
         setView()
-        setUpWebSocket()
     }
 
     func setView() {
@@ -121,6 +132,7 @@ class DetailUserViewController: BaseViewController {
         messagerieInput.addTarget(self, action: #selector(sendMessage), for: UIControlEvents.editingDidEndOnExit)
         messagerieInput.delegate = self
         messagerieInput.autocorrectionType = .no
+        messagerieBgView.isHidden = true
     }
 
     func reloadMessagerie() {
@@ -199,12 +211,25 @@ class DetailUserViewController: BaseViewController {
         var json = [String:Any]()
         json["name"] = "get_last_messages"
         var body = [String:Any]()
-        body["initiator"] = UserManager.instance.retrieveUserId()
         body["recipient"] = user.id
+        body["initiator"] = UserManager.instance.retrieveUserId()
         json["body"] = body
-        //let data: Data = NSKeyedArchiver.archivedData(withRootObject: json)
-      print("JSON = \(json)")
-        ws.write(string: "\(json)")
+        if let str = jsonToString(json: json as AnyObject) {
+            print("Get last msg = \(str)")
+            ws.write(string: str)
+        }
+    }
+
+    func jsonToString(json: AnyObject) -> String? {
+        do {
+            let data1 =  try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let convertedString = String(data: data1, encoding: String.Encoding.utf8)
+            print(convertedString ?? "defaultvalue")
+            return convertedString
+        } catch let myJSONError {
+            print(myJSONError)
+        }
+        return nil
     }
 
     func sendMessageWs(message: String) {
@@ -214,21 +239,47 @@ class DetailUserViewController: BaseViewController {
         body["to"] = user.id
         body["from"] = UserManager.instance.retrieveUserId()
         body["message"] = message
-
         json["body"] = body
-        //let data: Data = NSKeyedArchiver.archivedData(withRootObject: json)
-      print("JSON = \(json)")
-      ws.write(string: "\(json)")
+        if let str = jsonToString(json: json as AnyObject) {
+            ws.write(string: str)
+        }
+        setUpWebSocket()
     }
 
     override func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("websocketDidReceiveMessage - Triggered")
         print(text)
+        let json = JSON(parseJSON: text).dictionary
+        if let dico = json, let name = dico["name"]?.string, name == "message_received" {
+            if let body = dico["body"]?.dictionary,
+                let msg = body["message"]?.string,
+                let id = body["userID"]?.int,
+                let sender = body["userName"]?.string,
+                id == user.id {
+                let newMessage = Message(msg: msg, sender: sender)
+                messages.append(newMessage)
+                reloadMessagerie()
+                return
+            }
+        } else if let dico = json, let msgArray = dico["messages"]?.array {
+            let newMsg: [Message] = msgArray.flatMap {elem in
+                if let msg = elem["message"].string,
+//                    let from = elem["from"].int,
+//                    let to = elem["to"].int,
+                    let id = elem["id"].int {
+                    return Message(msg: msg, sender: "tmp", id: id)
+                } else {
+                    return nil
+                }
+            }
+            let orderedMsg = newMsg.sorted { $0.id < $1.id }
+            return
+        }
+        super.websocketDidReceiveMessage(socket: socket, text: text)
     }
-  
-  override func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-    print("WebSocketDidReceiveData")
-  }
+
+    override func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+    }
 }
 
 extension DetailUserViewController: UITableViewDelegate, UITableViewDataSource {
@@ -239,6 +290,7 @@ extension DetailUserViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = messagerieTV.dequeueReusableCell(withIdentifier: "messageCell") as? MessageTableViewCell {
             cell.setCell(msg: messages[indexPath.row].message, sender: messages[indexPath.row].sender)
+            cell.selectionStyle = .none
             return cell
         } else {
             return UITableViewCell()
@@ -255,5 +307,9 @@ extension DetailUserViewController: UITableViewDelegate, UITableViewDataSource {
 extension DetailUserViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollToLastRow()
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        textField.becomeFirstResponder()
     }
 }
