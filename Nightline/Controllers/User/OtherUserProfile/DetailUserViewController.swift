@@ -243,7 +243,7 @@ class DetailUserViewController: BaseViewController {
         if let str = jsonToString(json: json as AnyObject) {
             ws.write(string: str)
         }
-        setUpWebSocket()
+//        setUpWebSocket()
     }
 
     override func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
@@ -264,15 +264,14 @@ class DetailUserViewController: BaseViewController {
         } else if let dico = json, let msgArray = dico["messages"]?.array {
             let newMsg: [Message] = msgArray.flatMap {elem in
                 if let msg = elem["message"].string,
-//                    let from = elem["from"].int,
-//                    let to = elem["to"].int,
                     let id = elem["id"].int {
-                    return Message(msg: msg, sender: "tmp", id: id)
+                    return Message(msg: msg, sender: self.user.nickname, id: id)
                 } else {
                     return nil
                 }
             }
-            let orderedMsg = newMsg.sorted { $0.id < $1.id }
+            messages = newMsg.sorted { $0.id < $1.id }
+            reloadMessagerie()
             return
         }
         super.websocketDidReceiveMessage(socket: socket, text: text)
