@@ -18,6 +18,11 @@ class MessageTableViewCell: UITableViewCell {
         self.senderNameLabel.text = sender + ":"
         self.bgView.layer.cornerRadius = 5
         self.backgroundColor = .clear
+        if sender == "moi" {
+            senderNameLabel.textColor = .black
+        } else {
+            senderNameLabel.textColor = .orange
+        }
     }
 
     override func awakeFromNib() {

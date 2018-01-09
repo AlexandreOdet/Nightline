@@ -11,23 +11,25 @@ import PromiseKit
 import SwiftyJSON
 import Starscream
 
-class DetailUserViewController: BaseViewController {
-    struct Message {
-        var message: String = ""
-        var sender: String = ""
-        var id: Int = 0
+struct Message {
+    var message: String = ""
+    var sender: String = ""
+    var id: Int = 0
 
-        init(msg: String, sender: String) {
-            self.message = msg
-            self.sender = sender
-        }
-
-        init(msg: String, sender: String, id: Int) {
-            self.message = msg
-            self.sender = sender
-            self.id = id
-        }
+    init(msg: String, sender: String) {
+        self.message = msg
+        self.sender = sender
     }
+
+    init(msg: String, sender: String, id: Int) {
+        self.message = msg
+        self.sender = sender
+        self.id = id
+    }
+}
+
+class DetailUserViewController: BaseViewController {
+
 
     enum FriendStatus: String {
         case notFriend = "Ajouter"
@@ -129,7 +131,6 @@ class DetailUserViewController: BaseViewController {
         messagerieTV.dataSource = self
         messagerieTV.separatorColor = .clear
         messagerieTV.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "messageCell")
-        messagerieInput.addTarget(self, action: #selector(sendMessage), for: UIControlEvents.editingDidEndOnExit)
         messagerieInput.delegate = self
         messagerieInput.autocorrectionType = .no
         messagerieBgView.isHidden = true
@@ -143,9 +144,9 @@ class DetailUserViewController: BaseViewController {
     @objc func sendMessage() {
         if let message = messagerieInput.text, message != "" {
             let newMessage = Message(msg: message, sender: "moi")
-            messages.append(newMessage)
+            insertMessage(newMsg: newMessage)
             messagerieInput.text = ""
-            reloadMessagerie()
+            messagerieInput.becomeFirstResponder()
             sendMessageWs(message: message)
         }
     }
@@ -243,12 +244,19 @@ class DetailUserViewController: BaseViewController {
         if let str = jsonToString(json: json as AnyObject) {
             ws.write(string: str)
         }
-//        setUpWebSocket()
+    }
+
+    func insertMessage(newMsg: Message) {
+        messages.append(newMsg)
+        let indexPath:IndexPath = IndexPath(row:(self.messages.count - 1), section:0)
+        self.messagerieTV.insertRows(at: [indexPath], with: .left)
+        scrollToLastRow()
     }
 
     override func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("websocketDidReceiveMessage - Triggered")
         print(text)
+        let myId = UserManager.instance.retrieveUserId()
         let json = JSON(parseJSON: text).dictionary
         if let dico = json, let name = dico["name"]?.string, name == "message_received" {
             if let body = dico["body"]?.dictionary,
@@ -257,15 +265,23 @@ class DetailUserViewController: BaseViewController {
                 let sender = body["userName"]?.string,
                 id == user.id {
                 let newMessage = Message(msg: msg, sender: sender)
-                messages.append(newMessage)
-                reloadMessagerie()
+                insertMessage(newMsg: newMessage)
                 return
             }
-        } else if let dico = json, let msgArray = dico["messages"]?.array {
+        } else if let dico = json,
+            let name = dico["name"]?.string,
+            let msgArray = dico["messages"]?.array,
+            name == "last_messages" {
             let newMsg: [Message] = msgArray.flatMap {elem in
                 if let msg = elem["message"].string,
+                    let from = elem["from"].int,
                     let id = elem["id"].int {
-                    return Message(msg: msg, sender: self.user.nickname, id: id)
+                    if from == myId {
+                        return Message(msg: msg, sender: self.user.nickname, id: id)
+                    } else {
+                        return Message(msg: msg, sender: "moi", id: id)
+                    }
+
                 } else {
                     return nil
                 }
@@ -275,9 +291,6 @@ class DetailUserViewController: BaseViewController {
             return
         }
         super.websocketDidReceiveMessage(socket: socket, text: text)
-    }
-
-    override func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
     }
 }
 
@@ -307,8 +320,8 @@ extension DetailUserViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         scrollToLastRow()
     }
-
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        textField.becomeFirstResponder()
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendMessage()
+        return false
     }
 }
