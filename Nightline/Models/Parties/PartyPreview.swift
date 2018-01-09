@@ -22,4 +22,6 @@ class PartyPreview: Mappable {
     idUser <- map["userID"]
     token <- map["token"]
   }
+  
+  init() {}
 }

@@ -54,11 +54,16 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                 map.showsUserLocation = true
                 map.isZoomEnabled = true
                 map.delegate = self
-                if let location = locationManager.location {
-                    let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-
-                    self.map.setRegion(region, animated: true)                }
-            }
+//                if let location = locationManager.location {
+//                    let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+//
+//                    self.map.setRegion(region, animated: true)                }
+//            }
+              /*Pour des tests plus conculants */
+              let location = CLLocation(latitude: 48.11146, longitude: -1.685512)
+              let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+              self.map.setRegion(region, animated: true)
+          }
         }
         NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(connexionOK), name: NSNotification.Name(rawValue: SigninViewController.notificationIdentifier), object: nil)

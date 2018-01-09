@@ -15,6 +15,7 @@ class Party: Mappable {
   var begin: String!
   var end: String!
   var menu: Menu!
+  var friends: [User]!
   
   required init?(map: Map) {}
   
@@ -24,6 +25,7 @@ class Party: Mappable {
     begin <- map["begin"]
     end <- map["end"]
     menu <- map["menu"]
+    friends <- map["friends"]
   }
 }
 

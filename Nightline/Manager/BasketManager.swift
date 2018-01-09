@@ -98,4 +98,12 @@ class Basket {
     return totalPrice / order.users.count
   }
   
+  func incrementTotalPrice(price: Int) {
+    totalPrice += price
+  }
+  
+  func decrementTotalPrice(price: Int) {
+    totalPrice -= price
+  }
+  
 }
