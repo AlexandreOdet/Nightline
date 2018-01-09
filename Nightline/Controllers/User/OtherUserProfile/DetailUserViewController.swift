@@ -202,8 +202,9 @@ class DetailUserViewController: BaseViewController {
         body["initiator"] = UserManager.instance.retrieveUserId()
         body["recipient"] = user.id
         json["body"] = body
-        let data: Data = NSKeyedArchiver.archivedData(withRootObject: json)
-        ws.write(data: data)
+        //let data: Data = NSKeyedArchiver.archivedData(withRootObject: json)
+      print("JSON = \(json)")
+        ws.write(string: "\(json)")
     }
 
     func sendMessageWs(message: String) {
@@ -215,14 +216,19 @@ class DetailUserViewController: BaseViewController {
         body["message"] = message
 
         json["body"] = body
-        let data: Data = NSKeyedArchiver.archivedData(withRootObject: json)
-        ws.write(data: data)
+        //let data: Data = NSKeyedArchiver.archivedData(withRootObject: json)
+      print("JSON = \(json)")
+      ws.write(string: "\(json)")
     }
 
     override func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("websocketDidReceiveMessage - Triggered")
         print(text)
     }
+  
+  override func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+    print("WebSocketDidReceiveData")
+  }
 }
 
 extension DetailUserViewController: UITableViewDelegate, UITableViewDataSource {

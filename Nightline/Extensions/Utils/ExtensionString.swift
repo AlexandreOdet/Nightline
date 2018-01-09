@@ -26,7 +26,7 @@ extension String {
       do {
         return (try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any])!
       } catch {
-        print(error.localizedDescription)
+        log.error(error.localizedDescription)
       }
     }
     return [String:Any]()

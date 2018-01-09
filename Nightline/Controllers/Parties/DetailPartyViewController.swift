@@ -86,7 +86,7 @@ class DetailPartyViewController: BaseViewController {
                     strongSelf.tableView.reloadData()
                 }
             }.catch { error -> Void in
-                print(error)
+                log.error(error)
         }
     }
 

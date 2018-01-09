@@ -31,9 +31,9 @@ class Basket {
     user.id = userID
     let partyUser = PartyUser()
     partyUser.user = user
-    partyUser.price = 500
+    partyUser.price = splitPriceBetweenUsers()
     order.users.append(partyUser)
-    order.price = 500
+    order.price = totalPrice
   }
   
   func removeUserFromOrder(userID: Int) {
@@ -64,6 +64,9 @@ class Basket {
   }
 
   func chooseCurrentParty(partyID: Int) {
+    if order.currentParty.id != 0 {
+      clearOrder()
+    }
     order.currentParty.id = partyID
   }
   
@@ -83,6 +86,16 @@ class Basket {
       }
       index += 1
     }
+  }
+  
+  func clearOrder() {
+    order.consos.removeAll()
+    order.users.removeAll()
+    totalPrice = 0
+  }
+  
+  func splitPriceBetweenUsers() -> Int {
+    return totalPrice / order.users.count
   }
   
 }

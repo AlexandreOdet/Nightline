@@ -12,7 +12,7 @@ import ObjectMapper
 class PartyUser: Mappable {
   
   var user: User!
-  var price: Float! = 0
+  var price: Int! = 0
   
   required init?(map: Map) {
   }

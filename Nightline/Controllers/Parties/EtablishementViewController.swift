@@ -159,10 +159,9 @@ class EtablishmentViewController: ProfileViewController {
                 self.restApiUser.rateEstablishment(userId: "\(UserManager.instance.retrieveUserId())",
                     establishmentId: "\(self.idBar!)",
                     rate: integerRating)
-                }.then { response -> Void in
-                    print(response.estab)
+                }.then { _ -> Void in
                 }.catch { error -> Void in
-                    print("\(error)")
+                    log.error("\(error)")
             }
         }
 

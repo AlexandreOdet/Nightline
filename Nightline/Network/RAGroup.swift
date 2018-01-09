@@ -52,7 +52,7 @@ class RAGroup: RABase {
         case .success(_):
           return
         case .failure(let err):
-          print(err.localizedDescription)
+          log.error(err.localizedDescription)
           callbackError()
         }
       })
@@ -65,10 +65,10 @@ class RAGroup: RABase {
         (response: DataResponse<Any>) -> Void in
         switch response.result {
         case .success(_):
-          print("Group deleted")
+          log.verbose("Group deleted")
           callback(.success())
         case .failure(let error):
-          print("deleteGroup: \(error.localizedDescription)")
+          log.error("deleteGroup: \(error.localizedDescription)")
           callback(.failure(error: error))
         }
       })
