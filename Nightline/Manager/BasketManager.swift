@@ -17,7 +17,14 @@ class Basket {
   var orderHistory = [Int]()
   var totalPrice = 0
   
-  private init() {}
+  var isBasketEmpty: Bool = true {
+    didSet {
+      NotificationCenter.default.post(name: Notification.Name(rawValue: "BasketHasChanged"), object: nil)
+    }
+  }
+  
+  private init() {
+  }
   
   func addUserToOrder(userID: Int) {
     for user in order.users {
@@ -31,9 +38,9 @@ class Basket {
     user.id = userID
     let partyUser = PartyUser()
     partyUser.user = user
-    partyUser.price = splitPriceBetweenUsers()
     order.users.append(partyUser)
     order.price = totalPrice
+    partyUser.price = splitPriceBetweenUsers()
   }
   
   func removeUserFromOrder(userID: Int) {
@@ -61,8 +68,27 @@ class Basket {
     consommableOrder.consos.id = consommableID
     
     order.consos.append(consommableOrder)
+    if !order.consos.isEmpty {
+      isBasketEmpty = false
+    }
   }
 
+  func removeConsommableFromOrder(consommableID: Int) {
+    var index = 0
+    for conso in order.consos {
+      if conso.consos.id == consommableID {
+        conso.amount -= 1
+        if conso.amount <= 0 {
+          order.consos.remove(at: index)
+        }
+      }
+      index += 1
+    }
+    if order.consos.isEmpty {
+      isBasketEmpty = true
+    }
+  }
+  
   func chooseCurrentParty(partyID: Int) {
     if order.currentParty.id != 0 {
       clearOrder()
@@ -92,6 +118,7 @@ class Basket {
     order.consos.removeAll()
     order.users.removeAll()
     totalPrice = 0
+    isBasketEmpty = true
   }
   
   func splitPriceBetweenUsers() -> Int {

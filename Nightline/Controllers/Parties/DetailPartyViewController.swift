@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import TTGSnackbar
 
 enum WhichDate {
   case to, from
@@ -47,14 +48,18 @@ class DetailPartyViewController: BaseViewController {
   @IBOutlet weak var menuName: UILabel!
   @IBOutlet weak var tableView: UITableView!
   
+  var basketDetailButton = UIButton()
   
   deinit {
     estabInstance.cancelRequest()
     raPartyInstance.cancelRequest()
+    NotificationCenter.default.removeObserver(self)
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    NotificationCenter.default.addObserver(self, selector: #selector(basketEmptinessHasChanged),
+                                           name: Notification.Name(rawValue: "BasketHasChanged"), object: nil)
     getPartyInfos()
     tableView.delegate = self
     tableView.dataSource = self
@@ -67,6 +72,18 @@ class DetailPartyViewController: BaseViewController {
                                                target: self, action: #selector(rightBarButtonItemTarget))
       navigationItem.rightBarButtonItem = rightBarButtonItem
     }
+    
+    view.addSubview(basketDetailButton)
+    basketDetailButton.snp.makeConstraints { (make) -> Void in
+      make.bottom.equalToSuperview()
+      make.height.equalTo(40)
+      make.width.equalToSuperview()
+    }
+    basketDetailButton.addTarget(self, action: #selector(goToBasketDetail), for: .touchUpInside)
+    basketDetailButton.backgroundColor = .blue
+    basketDetailButton.setTitle("Voir mon panier", for: .normal)
+    basketDetailButton.setTitleColor(.white, for: .normal)
+    basketDetailButton.isHidden = true
     // Do any additional setup after loading the view.
   }
   
@@ -91,9 +108,20 @@ class DetailPartyViewController: BaseViewController {
       }.then { [weak self] result -> Void in
         guard let strongSelf = self else { return }
         strongSelf.party = result.party
-        DispatchQueue.main.async {
-          strongSelf.setView()
-          strongSelf.tableView.reloadData()
+        firstly {
+          strongSelf.raPartyInstance.getPartyMenu(idSoiree: result.party.id!)
+          }.then { response -> Void in
+            print(response.toJSON())
+            if let party = strongSelf.party {
+              party.menu = response.menu
+              party.menu.conso = response.menu.conso
+            }
+            DispatchQueue.main.async {
+              strongSelf.setView()
+              strongSelf.tableView.reloadData()
+            }
+          }.catch { error -> Void in
+            log.error("Error while fetching menu: \(error)")
         }
       }.catch { error -> Void in
         log.error(error)
@@ -128,10 +156,12 @@ class DetailPartyViewController: BaseViewController {
           raPartyInstance.joinParty(idSoiree: "\(party.id!)", idUser: "\(UserManager.instance.retrieveUserId())")
           }.then {
             [weak self] response -> Void in
+            print(response.toJSON())
             guard let `self` = self else { return }
-            self.party = response
+            //self.party = response
             self.hasJoin = true
             self.navigationItem.rightBarButtonItem?.title = "Quitter la soirée"
+            Basket.manager.addUserToOrder(userID: UserManager.instance.retrieveUserId())
           }.catch { error in
             log.error("Error while joining party")
         }
@@ -147,7 +177,19 @@ class DetailPartyViewController: BaseViewController {
         })
         hasJoin = false
         self.navigationItem.rightBarButtonItem?.title = "Rejoindre la soirée"
+        Basket.manager.clearOrder()
       }
+    }
+  }
+  
+  @objc func basketEmptinessHasChanged() {
+    basketDetailButton.isHidden = Basket.manager.isBasketEmpty
+  }
+  
+  @objc func goToBasketDetail() {
+    if let consos = party?.menu.conso {
+      let nextViewController = CurrentBasketFromPartyTableViewController(with: consos)
+      navigationController?.pushViewController(nextViewController, animated: true)
     }
   }
 }
@@ -180,10 +222,15 @@ extension DetailPartyViewController: UITableViewDelegate, UITableViewDataSource 
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let party = self.party, let conso = party.menu.conso {
-      let price = Int((conso[indexPath.row].price ?? -1) * 100)
-      Basket.manager.addConsommableToOrder(consommableID: conso[indexPath.row].id)
-      Basket.manager.incrementTotalPrice(price: price)
+    if hasJoin {
+      if let party = self.party, let conso = party.menu.conso {
+        let price = Int((conso[indexPath.row].price ?? -1) * 100)
+        Basket.manager.addConsommableToOrder(consommableID: conso[indexPath.row].id)
+        Basket.manager.incrementTotalPrice(price: price)
+      }
+    } else {
+      let snackBar = TTGSnackbar(message: "Avant de commander, n'oublie pas de rejoindre la soirée !", duration: .long)
+      snackBar.show()
     }
   }
   

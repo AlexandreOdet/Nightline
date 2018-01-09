@@ -48,4 +48,21 @@ class RAParty: RABase {
         }
       })
   }
+  
+  func getPartyMenu(idSoiree: Int) -> Promise<MenuResponse> {
+    let url = RoutesAPI.party.url + "/\(idSoiree)/menu"
+    return Promise { (fulfill, reject) in
+      self.request = Alamofire.request(url)
+        .responseObject(completionHandler: {
+          (response: DataResponse<MenuResponse>) in
+          switch response.result {
+          case .success(let menu):
+            fulfill(menu)
+          case .failure(let err):
+            reject(err)
+          }
+        })
+    }
+  }
+  
 }

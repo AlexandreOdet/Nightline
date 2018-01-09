@@ -114,6 +114,8 @@
 		FA6302C1200257D700FE97BD /* OrderArrayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6302C0200257D700FE97BD /* OrderArrayResponse.swift */; };
 		FA6302C32002591F00FE97BD /* OrderStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6302C22002591F00FE97BD /* OrderStep.swift */; };
 		FA6302C520025A5500FE97BD /* SingleOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6302C420025A5500FE97BD /* SingleOrderResponse.swift */; };
+		FA69C7E82005043700CAA221 /* CurrentBasketFromPartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69C7E72005043700CAA221 /* CurrentBasketFromPartyTableViewController.swift */; };
+		FA69C7EA2005074300CAA221 /* MenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69C7E92005074300CAA221 /* MenuResponse.swift */; };
 		FA6B01901F54744D00F360B5 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B018F1F54744D00F360B5 /* MenuList.swift */; };
 		FA6B01921F54756800F360B5 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B01911F54756800F360B5 /* UserResponse.swift */; };
 		FA6B019C1F56222900F360B5 /* EstablishmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B019B1F56222900F360B5 /* EstablishmentResponse.swift */; };
@@ -148,8 +150,6 @@
 		FAD506E51F4CD4C9002060A1 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E41F4CD4C9002060A1 /* Menu.swift */; };
 		FAD506E71F4CD8AD002060A1 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E61F4CD8AD002060A1 /* Party.swift */; };
 		FAD506E91F4CDBA4002060A1 /* RAParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506E81F4CDBA4002060A1 /* RAParty.swift */; };
-		FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506EA1F4D6E67002060A1 /* PartyPreview.swift */; };
-		FAD506ED1F4D7371002060A1 /* OrderParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506EC1F4D7371002060A1 /* OrderParty.swift */; };
 		FAD506EF1F4D777C002060A1 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD506EE1F4D777C002060A1 /* Order.swift */; };
 		FAD9C1822003663F00D0CACB /* PaymentStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9C1812003663F00D0CACB /* PaymentStep.swift */; };
 		FADAF4E71F2BAB7200C779A2 /* LoginSignUpUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADAF4E61F2BAB7200C779A2 /* LoginSignUpUserResponse.swift */; };
@@ -321,6 +321,8 @@
 		FA6302C0200257D700FE97BD /* OrderArrayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderArrayResponse.swift; path = Models/Payment/OrderArrayResponse.swift; sourceTree = "<group>"; };
 		FA6302C22002591F00FE97BD /* OrderStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderStep.swift; path = Models/Payment/OrderStep.swift; sourceTree = "<group>"; };
 		FA6302C420025A5500FE97BD /* SingleOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingleOrderResponse.swift; path = Models/Payment/SingleOrderResponse.swift; sourceTree = "<group>"; };
+		FA69C7E72005043700CAA221 /* CurrentBasketFromPartyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentBasketFromPartyTableViewController.swift; path = Controllers/Parties/CurrentBasketFromPartyTableViewController.swift; sourceTree = "<group>"; };
+		FA69C7E92005074300CAA221 /* MenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuResponse.swift; path = Models/Parties/MenuResponse.swift; sourceTree = "<group>"; };
 		FA6B018F1F54744D00F360B5 /* MenuList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuList.swift; path = Models/Parties/MenuList.swift; sourceTree = "<group>"; };
 		FA6B01911F54756800F360B5 /* UserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserResponse.swift; path = Models/User/UserResponse.swift; sourceTree = "<group>"; };
 		FA6B019B1F56222900F360B5 /* EstablishmentResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EstablishmentResponse.swift; path = Models/Parties/EstablishmentResponse.swift; sourceTree = "<group>"; };
@@ -354,8 +356,6 @@
 		FAD506E41F4CD4C9002060A1 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Models/Parties/Menu.swift; sourceTree = "<group>"; };
 		FAD506E61F4CD8AD002060A1 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Party.swift; path = Models/Parties/Party.swift; sourceTree = "<group>"; };
 		FAD506E81F4CDBA4002060A1 /* RAParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAParty.swift; path = Network/RAParty.swift; sourceTree = "<group>"; };
-		FAD506EA1F4D6E67002060A1 /* PartyPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartyPreview.swift; path = Models/Parties/PartyPreview.swift; sourceTree = "<group>"; };
-		FAD506EC1F4D7371002060A1 /* OrderParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderParty.swift; path = Models/Parties/OrderParty.swift; sourceTree = "<group>"; };
 		FAD506EE1F4D777C002060A1 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = Models/Parties/Order.swift; sourceTree = "<group>"; };
 		FAD9C1812003663F00D0CACB /* PaymentStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentStep.swift; path = Enums/Payment/PaymentStep.swift; sourceTree = "<group>"; };
 		FADAF4E61F2BAB7200C779A2 /* LoginSignUpUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginSignUpUserResponse.swift; path = Models/User/LoginSignUpUserResponse.swift; sourceTree = "<group>"; };
@@ -579,6 +579,7 @@
 				7B5B6D351F60B1D000777C78 /* DetailPartyViewController.swift */,
 				7B5B6D361F60B1D000777C78 /* DetailPartyViewController.xib */,
 				FAB8B8231E8420B700D11755 /* EtablishmentMenuViewController.swift */,
+				FA69C7E72005043700CAA221 /* CurrentBasketFromPartyTableViewController.swift */,
 			);
 			name = Parties;
 			sourceTree = "<group>";
@@ -794,14 +795,13 @@
 				FA4548A21F0FD12B0064A1BE /* Consommable.swift */,
 				FAD506E41F4CD4C9002060A1 /* Menu.swift */,
 				FAD506E61F4CD8AD002060A1 /* Party.swift */,
-				FAD506EA1F4D6E67002060A1 /* PartyPreview.swift */,
-				FAD506EC1F4D7371002060A1 /* OrderParty.swift */,
 				FAD506EE1F4D777C002060A1 /* Order.swift */,
 				FA2DFCB21F522DEE00C70C1B /* Owner.swift */,
 				FA2DFCB41F52312F00C70C1B /* EstablishmentList.swift */,
 				FA6B018F1F54744D00F360B5 /* MenuList.swift */,
 				FA6B019B1F56222900F360B5 /* EstablishmentResponse.swift */,
 				FA158DB91FB9A3BD00D31BE4 /* RateEstabResponse.swift */,
+				FA69C7E92005074300CAA221 /* MenuResponse.swift */,
 			);
 			name = Parties;
 			sourceTree = "<group>";
@@ -1466,12 +1466,14 @@
 				FADF25C81E8736B100E74439 /* UserFriendsListTableViewCell.swift in Sources */,
 				7B5A6AD21E9FB5AB00D902C5 /* EditCityViewController.swift in Sources */,
 				FAD506EF1F4D777C002060A1 /* Order.swift in Sources */,
+				FA69C7E82005043700CAA221 /* CurrentBasketFromPartyTableViewController.swift in Sources */,
 				FADAF4E71F2BAB7200C779A2 /* LoginSignUpUserResponse.swift in Sources */,
 				FAFF4EA21E5E4762006582C7 /* ExtensionString.swift in Sources */,
 				FA6302C1200257D700FE97BD /* OrderArrayResponse.swift in Sources */,
 				7BAC21221FB48FB1002FA850 /* GroupMemberCollectionViewCell.swift in Sources */,
 				FA2DFCB31F522DEE00C70C1B /* Owner.swift in Sources */,
 				7B5B6D371F60B1D000777C78 /* DetailPartyViewController.swift in Sources */,
+				FA69C7EA2005074300CAA221 /* MenuResponse.swift in Sources */,
 				FA1DB89E1E03495E00C8E437 /* R.generated.swift in Sources */,
 				FA3AA18D1E57720F002CF4FC /* UserManager.swift in Sources */,
 				FA78B71B1E56978600765056 /* RAUser.swift in Sources */,
@@ -1479,7 +1481,6 @@
 				FADF25CA1E8746EE00E74439 /* Achievments.swift in Sources */,
 				FA8475A41F5F26C800B3E292 /* FriendsList.swift in Sources */,
 				FA3AA16C1E576FCD002CF4FC /* Etablishments.swift in Sources */,
-				FAD506EB1F4D6E67002060A1 /* PartyPreview.swift in Sources */,
 				FAC009321F8F9BDE00D82EB9 /* Group.swift in Sources */,
 				7B96E6491FED5F2500E6DFD8 /* CloudinaryManager.swift in Sources */,
 				7BAC79531FB5D40600186026 /* MemberDragCoordinator.swift in Sources */,
@@ -1517,7 +1518,6 @@
 				FA4548A31F0FD12B0064A1BE /* Consommable.swift in Sources */,
 				FA303F651E5D1C75008961EF /* ExtensionMarker.swift in Sources */,
 				FAFF378B1E03470F001B2A8F /* Gender.swift in Sources */,
-				FAD506ED1F4D7371002060A1 /* OrderParty.swift in Sources */,
 				FA158DBE1FB9D1C100D31BE4 /* Notification.swift in Sources */,
 				FA5AD8711FD32DE000ED2FBA /* NotificationType.swift in Sources */,
 				FA158DC61FB9F17D00D31BE4 /* WebSocketAPI.swift in Sources */,
