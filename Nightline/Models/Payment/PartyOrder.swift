@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class PartyOrder: Mappable {
-  var price: Float = 0
+  var price: Int = 0
   var currentParty: PartyPartyID = PartyPartyID()
   var users: [PartyUser] = []
   var consos: [PartyConsommable] = []

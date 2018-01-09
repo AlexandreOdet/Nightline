@@ -358,12 +358,12 @@ final class SigninViewController: BaseViewController, UITextFieldDelegate, FBSDK
                             }
                     }
                 } else {
-                    print((error?.localizedDescription)!)
+                  log.error((error?.localizedDescription)!)
                 }
             })
         }
         else{
-            print(error.localizedDescription)
+            log.error(error.localizedDescription)
         }
         
     }

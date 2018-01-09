@@ -61,7 +61,7 @@ extension MoreTableViewController: UITableViewDelegate, UITableViewDataSource {
       let nextViewController = EchoTableViewController()
       navigationController?.pushViewController(nextViewController, animated: true)
     } else {
-      print("Not implemented yet")
+      log.debug("Not implemented yet")
     }
   }
   

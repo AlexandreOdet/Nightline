@@ -13,7 +13,8 @@ import PromiseKit
 class RAParty: RABase {
   
   func joinParty(idSoiree: String, idUser: String) -> Promise<Party> {
-    let parameters = ["Current user ID":idUser]
+    var parameters = ["userID":idUser]
+    parameters["soireeID"] = idSoiree
     let url = RoutesAPI.party.url.appending("/\(idSoiree)/join")
     return Promise { (fulfill, reject) in
         self.request = Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
@@ -30,12 +31,15 @@ class RAParty: RABase {
   }
   
   
-  func leaveParty(idSoiree: String, party: PartyPreview,
+  func leaveParty(idSoiree: String, idUser: String,
                   callbackError: @escaping (String) -> ()) {
-    let params = ["SoireeLeavBody":party.toJSONString()!]
+    
+    var parameters = ["userID":idUser]
+    parameters["soireeID"] = idSoiree
+    
     let url = RoutesAPI.party.url.appending("/\(idSoiree)/leave")
-    request = Alamofire.request(url, method: .post, parameters: params, headers: headers)
-      .responseJSON(completionHandler: { (response: DataResponse<Any>) in
+    request = Alamofire.request(url, method: .post, parameters: parameters, headers: headers)
+      .responseData(completionHandler: { (response: DataResponse<Data>) in
         switch response.result {
         case .success(_):
           return
@@ -45,20 +49,20 @@ class RAParty: RABase {
       })
   }
   
-  func orderInParty(idSoiree: String, order: OrderParty) -> Promise<Order> {
-    let params = ["SoireeOrderBody":order.toJSONString()!]
-    let url = RoutesAPI.party.url.appending("/\(idSoiree)/order")
+  func getPartyMenu(idSoiree: Int) -> Promise<MenuResponse> {
+    let url = RoutesAPI.party.url + "/\(idSoiree)/menu"
     return Promise { (fulfill, reject) in
-        self.request = Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
-        .responseObject(completionHandler: { (response: DataResponse<Order>) in
+      self.request = Alamofire.request(url)
+        .responseObject(completionHandler: {
+          (response: DataResponse<MenuResponse>) in
           switch response.result {
-          case .success(let order):
-            fulfill(order)
-          case .failure(let error):
-            log.error("\(error)")
-            reject(error)
+          case .success(let menu):
+            fulfill(menu)
+          case .failure(let err):
+            reject(err)
           }
         })
     }
   }
+  
 }

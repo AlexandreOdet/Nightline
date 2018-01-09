@@ -59,7 +59,7 @@ final class UserFriendsListTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             }.catch { (error) in
-                print(error.localizedDescription)
+                log.error(error.localizedDescription)
         }
     }
 
@@ -69,7 +69,7 @@ final class UserFriendsListTableViewController: UITableViewController {
             case .success:
                 self.getData()
             case .failure(let error):
-                print(error.localizedDescription)
+                log.error(error.localizedDescription)
             }
         }
     }
@@ -80,7 +80,7 @@ final class UserFriendsListTableViewController: UITableViewController {
             case .success:
                 self.getInvits()
             case .failure(let error):
-                print(error.localizedDescription)
+                log.error(error.localizedDescription)
             }
         }
     }
@@ -150,7 +150,7 @@ final class UserFriendsListTableViewController: UITableViewController {
                             strongSelf.presentUserDetails(user: result.user)
                         }
                     }.catch { error -> Void in
-                        print(error)
+                      log.error(error)
                 }
             } else {
                 return
@@ -166,7 +166,7 @@ final class UserFriendsListTableViewController: UITableViewController {
                             strongSelf.presentUserDetails(user: result.user)
                         }
                     }.catch { error -> Void in
-                        print(error)
+                        log.error(error)
                 }
             }
         }

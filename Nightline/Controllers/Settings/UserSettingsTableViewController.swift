@@ -200,7 +200,6 @@ extension UserSettingsTableViewController: STPAddCardViewControllerDelegate {
     }
     
     func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
-      print("tokenID = \(token.tokenId), stripeID = \(token.stripeID)")
         let paymentAPI = RAPayment()
         paymentAPI.sendCardInfos(creditCardToken: token.tokenId, user: UserManager.instance.networkUser) { ret in
             switch ret {

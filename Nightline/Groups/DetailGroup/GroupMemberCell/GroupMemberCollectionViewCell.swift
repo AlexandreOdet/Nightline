@@ -36,7 +36,7 @@ class GroupMemberCollectionViewCell: UICollectionViewCell {
     }
     
     func setData(usr: User) {
-        print("firstname = \(usr.firstName)")
+        log.debug("firstname = \(usr.firstName)")
         firstNameLabel.text = usr.firstName
         lastNameLabel.text = usr.lastName
         img.roundImage(withBorder: true, borderColor: UIColor(hex: 0x0e1728), borderSize: 1.0)

@@ -44,12 +44,11 @@ class DetailGroupViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(grp.id)
-        print(grp.name)
-        print("Owner : ", grp.owner.pseudo)
-        print("Members :")
-        grp.users?.forEach {print($0.nickname)}
-//        setFakeUserList()
+        log.debug(grp.id)
+        log.debug(grp.name)
+        log.debug("Owner : \(grp.owner.pseudo)")
+        log.debug("Members :")
+        grp.users?.forEach { log.debug($0.nickname) }
         setTheme()
         setData()
     }
@@ -84,8 +83,8 @@ class DetailGroupViewController: BaseViewController {
                     self.membersCV.reloadData()
                 }
             }.catch { error -> Void in
-                print("DetailGroupViewController - Error getting owner informations")
-                print(error.localizedDescription)
+                log.error("DetailGroupViewController - Error getting owner informations")
+                log.error(error.localizedDescription)
         }
     }
     

@@ -46,7 +46,7 @@ class MediaManager {
     func listElemInFolder(bar_id: String) -> [URL] {
         let folder = baseUrl.appendingPathComponent(bar_id)
         if !fileManager.fileExists(atPath: folder.path) {
-            print("A priori le dossier : \(folder.path) n'existe pas")
+            log.error("A priori le dossier : \(folder.path) n'existe pas")
             return []
         }
         let contents = try! fileManager.contentsOfDirectory(atPath: folder.path)

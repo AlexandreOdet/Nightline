@@ -57,7 +57,6 @@ class RAPayment: RABase {
   func answerOrderRequest(orderID: Int, userID: Int, answer: Bool) -> Promise<SingleOrderResponse> {
     var parameters = [String:Any]()
     
-    print(orderID, userID, answer)
     parameters["order"] = orderID
     parameters["user"] = userID
     parameters["answer"] = answer
@@ -70,11 +69,12 @@ class RAPayment: RABase {
                                   encoding: JSONEncoding.default,
                                   headers: headers)
         .responseObject(completionHandler: { (response: DataResponse<SingleOrderResponse>) in
-          print(response.result.value)
           switch response.result {
           case .success(let order):
+            log.verbose("RAPayment.answerOrder: Success")
             fulfill(order)
           case .failure(let errror):
+            log.error("RAPayment.answerOrder: Failure \(errror)")
             reject(errror)
           }
         })

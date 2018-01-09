@@ -68,12 +68,12 @@ class SearchUserViewController: BaseViewController {
                         if result.resultUser != nil {
                             strongSelf.userArray.append(contentsOf: result.resultUser)
                             for elem in strongSelf.userArray {
-                                print(elem.name)
+                                log.debug(elem.name)
                             }
                             strongSelf.tableView.reloadData()
                         }
                     }.catch { error -> Void in
-                        print("Error : \(error)")
+                        log.error("Error : \(error)")
                 }
             case 1:
                 firstly {
@@ -84,12 +84,12 @@ class SearchUserViewController: BaseViewController {
                         if result.resultEstab != nil {
                             strongSelf.estabArray.append(contentsOf: result.resultEstab)
                             for elem in strongSelf.estabArray {
-                                print(elem.name)
+                                log.debug(elem.name)
                             }
                             strongSelf.tableView.reloadData()
                         }
                     }.catch { error -> Void in
-                        print("Error : \(error)")
+                        log.error("Error : \(error)")
                 }
             default:
                 break
@@ -155,7 +155,7 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
                         self.presentUserDetails(user: result.user)
                     }
                 }.catch { error -> Void in
-                    print(error)
+                    log.error(error)
                     self.user = nil
             }
         default:
@@ -166,7 +166,7 @@ extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
                         self.presentEstabDetails(estab: result.establishment)
                     }
                 }.catch { error -> Void in
-                    print(error)
+                    log.error(error)
                     self.user = nil
             }
         }

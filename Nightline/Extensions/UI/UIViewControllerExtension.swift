@@ -74,7 +74,7 @@ extension UIViewController {
         if view.window != nil {
             view.window!.layer.add(transition, forKey: kCATransition)
         } else {
-            print("Error during transition direction switch")
+            log.error("Error during transition direction switch")
         }
     }
 }

@@ -371,7 +371,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 12 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 14 nibs.
   struct nib {
     /// Nib `AchievementCollectionViewCell`.
     static let achievementCollectionViewCell = _R.nib._AchievementCollectionViewCell()
@@ -381,6 +381,8 @@ struct R: Rswift.Validatable {
     static let detailGroupViewController = _R.nib._DetailGroupViewController()
     /// Nib `DetailPartyViewController`.
     static let detailPartyViewController = _R.nib._DetailPartyViewController()
+    /// Nib `DetailUserViewController`.
+    static let detailUserViewController = _R.nib._DetailUserViewController()
     /// Nib `EditMembersViewController`.
     static let editMembersViewController = _R.nib._EditMembersViewController()
     /// Nib `GroupMemberCollectionViewCell`.
@@ -389,6 +391,8 @@ struct R: Rswift.Validatable {
     static let groupsListViewController = _R.nib._GroupsListViewController()
     /// Nib `LaunchScreen`.
     static let launchScreen = _R.nib._LaunchScreen()
+    /// Nib `MessageTableViewCell`.
+    static let messageTableViewCell = _R.nib._MessageTableViewCell()
     /// Nib `PhotoCollectionViewCell`.
     static let photoCollectionViewCell = _R.nib._PhotoCollectionViewCell()
     /// Nib `SearchUserViewController`.
@@ -418,6 +422,11 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.detailPartyViewController)
     }
     
+    /// `UINib(name: "DetailUserViewController", in: bundle)`
+    static func detailUserViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.detailUserViewController)
+    }
+    
     /// `UINib(name: "EditMembersViewController", in: bundle)`
     static func editMembersViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.editMembersViewController)
@@ -436,6 +445,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "LaunchScreen", in: bundle)`
     static func launchScreen(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.launchScreen)
+    }
+    
+    /// `UINib(name: "MessageTableViewCell", in: bundle)`
+    static func messageTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.messageTableViewCell)
     }
     
     /// `UINib(name: "PhotoCollectionViewCell", in: bundle)`
@@ -904,9 +918,10 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _DetailPartyViewController.validate()
-      try _UserProfileViewController.validate()
+      try _DetailUserViewController.validate()
       try _AchievementCollectionViewCell.validate()
       try _LaunchScreen.validate()
+      try _UserProfileViewController.validate()
     }
     
     struct _AchievementCollectionViewCell: Rswift.NibResourceType, Rswift.Validatable {
@@ -961,6 +976,22 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _DetailUserViewController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "DetailUserViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "trophy", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'trophy' is used in nib 'DetailUserViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in nib 'DetailUserViewController', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _EditMembersViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "EditMembersViewController"
@@ -1005,6 +1036,17 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "background", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'background' is used in nib 'LaunchScreen', but couldn't be loaded.") }
         if UIKit.UIImage(named: "logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'logo' is used in nib 'LaunchScreen', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _MessageTableViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "MessageTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> MessageTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? MessageTableViewCell
       }
       
       fileprivate init() {}

@@ -37,11 +37,9 @@ class CloudinaryManager {
             params.setPublicId(name)
             cloudinary.createUploader().upload(data: data, uploadPreset: "cdnNightline", params: params, completionHandler: { (result, error) in
                 if let error = error {
-                    print("Upload finished with failure, error:")
-                    print(error)
+                    log.error("Upload finished with failure, error: \(error)")
                 } else {
-                    print("Upload finished with success, image's url:")
-                    print(String(describing: result?.url))
+                    log.verbose("Upload finished with success, image's url: \(String(describing: result?.url))")
                     callback()
                 }
             })
@@ -76,7 +74,7 @@ class CloudinaryManager {
                         }
                     }
                 } catch {
-                    print("getFolderImgUrls - Error parsing json")
+                    log.error("getFolderImgUrls - Error parsing json")
                 }
             }
             callback(urls)
@@ -97,9 +95,9 @@ class CloudinaryManager {
             if let image = img {
                 callback(image)
             } else {
-                print("downloadImg - error downloading img")
-                print("url => \(url)")
-                print("error => \(String(describing: error?.code)) - \(String(describing: error?.debugDescription))")
+                log.error("downloadImg - error downloading img")
+                log.error("url => \(url)")
+                log.error("error => \(String(describing: error?.code)) - \(String(describing: error?.debugDescription))")
                 callback(nil)
             }
         }

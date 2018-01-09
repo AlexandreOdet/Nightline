@@ -28,8 +28,6 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
     var restApiEtablishment = RAEtablissement()
     let searchButton = UIButton()
 
-
-
     deinit {
         restApiUser.cancelRequest()
         restApiEtablishment.cancelRequest()
@@ -56,26 +54,20 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                 map.showsUserLocation = true
                 map.isZoomEnabled = true
                 map.delegate = self
-                if let location = locationManager.location {
-                  print(location.coordinate)
-                    let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-
-                    self.map.setRegion(region, animated: true)                }
-            }
+//                if let location = locationManager.location {
+//                    let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+//
+//                    self.map.setRegion(region, animated: true)                }
+//            }
+              /*Pour des tests plus conculants */
+              let location = CLLocation(latitude: 48.11146, longitude: -1.685512)
+              let region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+              self.map.setRegion(region, animated: true)
+          }
         }
         NotificationCenter.default.addObserver(self, selector: #selector(callbackObserver), name: NSNotification.Name(rawValue: MainViewController.notificationIdentifier), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(connexionOK), name: NSNotification.Name(rawValue: SigninViewController.notificationIdentifier), object: nil)
         setUpSearchButton()
-//      Basket.manager.addConsommableToOrder(consommableID: 42)
-//      Basket.manager.addUserToOrder(userID: UserManager.instance.retrieveUserId())
-//      Basket.manager.chooseCurrentParty(partyID: 39)
-//      firstly {
-//        RAPayment().orderInParty(order: Basket.manager.order)
-//        }.then { response  -> Void in
-//          print("Order OK")
-//        }.catch { error in
-//          print("Error \(error)")
-//      }
     }
 
     func setUpSearchButton() {
@@ -184,10 +176,10 @@ final class MainViewController: BaseViewController, CLLocationManagerDelegate, M
                         strongSelf.map.addAnnotation(marker)
                     }
                 } else {
-                    print("=== Error, the array of establishments is empty ===")
+                    log.error("=== Error, the array of establishments is empty ===")
                 }
             }.catch { error in
-                print("Error = ", error.localizedDescription)
+                log.error("Error = ", error.localizedDescription)
                 AlertUtils.networkErrorAlert(from: self)
         }
     }

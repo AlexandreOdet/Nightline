@@ -51,7 +51,7 @@ class UserProfileViewController: BaseViewController {
                 self.achievementsCV.reloadData()
                 }
             }.catch { (error) in
-                print("Get success data - error")
+                log.error("Get success data - error \(error)")
         }
     }
 
@@ -139,7 +139,7 @@ class UserProfileViewController: BaseViewController {
         let sizeCell = (mediasCV.frame.width / 3) - 8
         let viewHeight = lineNbr * (sizeCell + 8)
         mediasView.frame.size.height = viewHeight  //700
-        print(lineNbr)
+        log.debug(lineNbr)
     }
 
     override func didReceiveMemoryWarning() {

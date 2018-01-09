@@ -58,7 +58,7 @@ class GroupsListViewController: BaseViewController {
     }
 
     @objc func addGrp() {
-        print("Create group triggered")
+        log.verbose("Create group triggered")
         let addGrpVc = AddGroupViewController()
         addGrpVc.modalPresentationStyle = .overCurrentContext
         addGrpVc.reloadTVData = getGrpList
@@ -92,14 +92,14 @@ class GroupsListViewController: BaseViewController {
             }.then { result -> Void in
                 self.grpList = result.groups
                 self.tableView.reloadData()
-                _ = self.grpList.map {print("grp: " + String($0.id!) + " " + $0.name)}
+                _ = self.grpList.map {log.debug("grp: " + String($0.id!) + " " + $0.name )}
             }.catch { error -> Void in
-                print("Error : \(error)")
+                log.error("Error : \(error)")
         }
     }
 
     func deleteGrp(grp: GroupPreview) {
-        print(String(grp.id))
+        log.verbose(String(grp.id))
         raGrp.deleteGroup(groupId: String(grp.id)) { result in
             switch result {
             case .success():
@@ -107,7 +107,7 @@ class GroupsListViewController: BaseViewController {
             case .failure(let error):
                 let alert = UIAlertController(title: "Erreur", message: "La supression du groupe \"\(grp.name!)\" à échouée", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                print(error)
+                log.error(error)
             }
         }
     }
@@ -309,7 +309,7 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func acceptInvit(id: Int) {
-        print("Accept invit nbr : \(id)")
+        log.verbose("Accept invit nbr : \(id)")
         raInvit.acceptGroupInvitation(invitationID: String(id)) { _ in
             DispatchQueue.main.async {
                 self.getData()
@@ -318,7 +318,7 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func declineInvit(id: Int) {
-        print("Decline invit nbr : \(id)")
+        log.verbose("Decline invit nbr : \(id)")
         raInvit.declineGroupInvitation(invitationID: String(id)) { _ in
             DispatchQueue.main.async {
                 self.getGroupInvits()

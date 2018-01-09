@@ -62,10 +62,10 @@ class EditMembersViewController: BaseViewController {
                 guard let strongSelf = self else { return }
                 result.friends.forEach({ (usr) in
                     if strongSelf.lists[.members]?.filter({$0.id == usr.id}).count == 0 {
-                        print("in", usr.nickname)
+                        log.debug("in", usr.nickname)
                         strongSelf.lists[.friends]?.append(usr)
                     } else {
-                        print("out", usr.nickname)
+                        log.debug("out", usr.nickname)
                     }
                 })
                 DispatchQueue.main.async {
@@ -133,8 +133,8 @@ class EditMembersViewController: BaseViewController {
         let idNow = lists[.members]!.map {$0.id}
         let toDelete = idBefore.filter {!idNow.contains($0)}
         let toAdd = idNow.filter {!idBefore.contains($0)}
-        print("id to delete :", toDelete)
-        print("id to add :", toAdd)
+        log.debug("id to delete : \(toDelete)")
+        log.debug("id to add : \(toAdd)")
         toAdd.forEach {addMember(id: String($0))}
         toDelete.forEach {deleteMember(id: String($0))}
     }

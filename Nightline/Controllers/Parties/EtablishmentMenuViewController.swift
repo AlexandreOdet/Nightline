@@ -68,12 +68,12 @@ class EtablishmentMenuViewController: BaseViewController {
             }.then { [weak self] result -> Void in
               guard let strongSelf = self else { return }
                 strongSelf.menuList = result
-                print(result)
+                log.verbose(result)
                 DispatchQueue.main.async {
                     strongSelf.tableView.reloadData()
                 }
             }.catch { error -> Void in
-                print(error)
+                log.error(error)
         }
     }
 }
@@ -106,9 +106,9 @@ extension EtablishmentMenuViewController: UITableViewDelegate, UITableViewDataSo
         }
         cell.detailTextLabel?.text = price
         cell.selectionStyle = .none
-        print("Conso section \(indexPath.section), row \(indexPath.row)")
-        print("\(String(describing: menuList!.menus[indexPath.section].conso?[indexPath.row].name))")
-        print("\(String(describing: menuList!.menus[indexPath.section].conso?[indexPath.row].price))")
+        log.debug("Conso section \(indexPath.section), row \(indexPath.row)")
+        log.debug("\(String(describing: menuList!.menus[indexPath.section].conso?[indexPath.row].name))")
+        log.debug("\(String(describing: menuList!.menus[indexPath.section].conso?[indexPath.row].price))")
 
         return cell
     }
