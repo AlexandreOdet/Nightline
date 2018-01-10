@@ -71,12 +71,14 @@ class CurrentBasketFromPartyTableViewController: BaseViewController {
   }
   
   @objc func didTapRightBarButtonItem() {
-    let alert = UIAlertController(title: "Passer commande", message: "Confirmez-vous votre panier ?", preferredStyle: .actionSheet)
+    let alert = UIAlertController(title: "Confirmez-vous votre panier ?", message: nil, preferredStyle: .actionSheet)
     alert.addAction(UIAlertAction(title: "Passer commande !", style: .default, handler: {
       [unowned self] _ in
+      Basket.manager.orderToString()
       firstly {
         self.paymentInstance.orderInParty(order: Basket.manager.order)
-        }.then { _ -> Void in
+        }.then { resp -> Void in
+          print(resp.order.id)
           DispatchQueue.main.async {
             let snackbar = TTGSnackbar(message: "Votre commande a bien été envoyée. Vous allez recevoir une demande de paiement.", duration: .long)
             snackbar.show()

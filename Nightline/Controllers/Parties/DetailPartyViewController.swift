@@ -164,6 +164,7 @@ class DetailPartyViewController: BaseViewController {
             //self.party = response
             self.hasJoin = true
             self.navigationItem.rightBarButtonItem?.title = "Quitter la soirée"
+            Basket.manager.chooseCurrentParty(partyID: (self.party?.id ?? 0))
             Basket.manager.addUserToOrder(userID: UserManager.instance.retrieveUserId())
           }.catch { error in
             log.error("Error while joining party")
@@ -244,6 +245,7 @@ extension DetailPartyViewController: UITableViewDelegate, UITableViewDataSource 
     if hasJoin {
       if let party = self.party, let conso = party.menu.conso {
         let price = Int((conso[indexPath.row].price ?? -1) * 100)
+        print("Price = \(price)")
         Basket.manager.addConsommableToOrder(consommableID: conso[indexPath.row].id)
         Basket.manager.incrementTotalPrice(price: price)
       }

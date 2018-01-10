@@ -39,8 +39,13 @@ class Basket {
     let partyUser = PartyUser()
     partyUser.user = user
     order.users.append(partyUser)
-    order.price = totalPrice
-    partyUser.price = splitPriceBetweenUsers()
+    updatePricePerUser()
+  }
+  
+  func updatePricePerUser() {
+    for user in order.users {
+      user.price = splitPriceBetweenUsers()
+    }
   }
   
   func removeUserFromOrder(userID: Int) {
@@ -53,6 +58,7 @@ class Basket {
       }
       index += 1
     }
+    updatePricePerUser()
   }
   
   func addConsommableToOrder(consommableID: Int) {
@@ -71,6 +77,7 @@ class Basket {
     if !order.consos.isEmpty {
       isBasketEmpty = false
     }
+    updatePricePerUser()
   }
   
   func removeConsommableFromOrder(consommableID: Int) {
@@ -126,11 +133,17 @@ class Basket {
   }
   
   func incrementTotalPrice(price: Int) {
+    print("totalPrice before : \(totalPrice)")
     totalPrice += price
+    print("totalPrice after: \(totalPrice)")
+    order.price = totalPrice
+    updatePricePerUser()
   }
   
   func decrementTotalPrice(price: Int) {
     totalPrice -= price
+    order.price = totalPrice
+    updatePricePerUser()
   }
   
   func getAmountOfConsommable(consommableID: Int) -> Int {
@@ -157,5 +170,9 @@ class Basket {
     }
     let priceOfConsos = price * amountOfConso
     totalPrice -= priceOfConsos
+  }
+  
+  func orderToString() {
+    print(order.toJSON())
   }
 }

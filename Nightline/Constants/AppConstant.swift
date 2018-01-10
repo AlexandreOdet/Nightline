@@ -56,7 +56,7 @@ final class AppConstant {
    */
   
   final class Network {
-    public class var baseUrl: String { return "http://37.187.124.34:8043"/*"https://api.nightline.fr"*/ }
+    public class var baseUrl: String { return "https://api.nightline.fr" }
     public class var login: String { return "/login" }
     public class var signup: String { return "/register" }
     public class var oauth_login: String { return "/oauth_login" }
@@ -65,7 +65,7 @@ final class AppConstant {
     public class  var party: String { return "/soiree" }
     public class var payment: String { return "/update_stripe_user" }
     public class var groups: String { return "/groups" }
-    public class var websocketsBaseUrl: String { return "ws://37.187.124.34:8048/"/*"ws://nightline.fr:8048/"*/}
+    public class var websocketsBaseUrl: String { return "ws://nightline.fr:8048/" }
     public class var order: String { return "/orders" }
   }
   
