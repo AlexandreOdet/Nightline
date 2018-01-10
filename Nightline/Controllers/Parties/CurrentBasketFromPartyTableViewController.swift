@@ -52,14 +52,6 @@ class CurrentBasketFromPartyTableViewController: BaseViewController {
       make.edges.equalToSuperview()
     }
   }
-  
-//  func mapConsommableFromBasket() {
-//    //let output = fruitsArray.filter(vegArray.contains)
-//  }
-  
-  func mapUserfromBasket() {
-    
-  }
 }
 
 extension CurrentBasketFromPartyTableViewController: UITableViewDelegate, UITableViewDataSource {

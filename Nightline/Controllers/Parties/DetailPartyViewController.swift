@@ -9,6 +9,7 @@
 import UIKit
 import PromiseKit
 import TTGSnackbar
+import SwiftSpinner
 
 enum WhichDate {
   case to, from
@@ -58,6 +59,7 @@ class DetailPartyViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    SwiftSpinner.show("Chargement des infos de la soirée...")
     NotificationCenter.default.addObserver(self, selector: #selector(basketEmptinessHasChanged),
                                            name: Notification.Name(rawValue: "BasketHasChanged"), object: nil)
     getPartyInfos()
@@ -80,10 +82,10 @@ class DetailPartyViewController: BaseViewController {
       make.width.equalToSuperview()
     }
     basketDetailButton.addTarget(self, action: #selector(goToBasketDetail), for: .touchUpInside)
-    basketDetailButton.backgroundColor = .blue
+    basketDetailButton.backgroundColor = UIColor.nightlinePurple
     basketDetailButton.setTitle("Voir mon panier", for: .normal)
     basketDetailButton.setTitleColor(.white, for: .normal)
-    basketDetailButton.isHidden = true
+    basketDetailButton.alpha = 0
     // Do any additional setup after loading the view.
   }
   
@@ -117,6 +119,7 @@ class DetailPartyViewController: BaseViewController {
               party.menu.conso = response.menu.conso
             }
             DispatchQueue.main.async {
+              SwiftSpinner.hide()
               strongSelf.setView()
               strongSelf.tableView.reloadData()
             }
@@ -183,7 +186,11 @@ class DetailPartyViewController: BaseViewController {
   }
   
   @objc func basketEmptinessHasChanged() {
-    basketDetailButton.isHidden = Basket.manager.isBasketEmpty
+    if Basket.manager.isBasketEmpty {
+      hideDetailBasketButton()
+    } else {
+      showDetailBasketButton()
+    }
   }
   
   @objc func goToBasketDetail() {
@@ -191,6 +198,18 @@ class DetailPartyViewController: BaseViewController {
       let nextViewController = CurrentBasketFromPartyTableViewController(with: consos)
       navigationController?.pushViewController(nextViewController, animated: true)
     }
+  }
+  
+  func showDetailBasketButton() {
+    UIView.animate(withDuration: 0.5, animations: {
+      self.basketDetailButton.alpha = 1
+    })
+  }
+  
+  func hideDetailBasketButton() {
+    UIView.animate(withDuration: 0.5, animations: {
+      self.basketDetailButton.alpha = 0
+    })
   }
 }
 
