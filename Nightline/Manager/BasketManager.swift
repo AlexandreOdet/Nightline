@@ -72,7 +72,7 @@ class Basket {
       isBasketEmpty = false
     }
   }
-
+  
   func removeConsommableFromOrder(consommableID: Int) {
     var index = 0
     for conso in order.consos {
@@ -133,4 +133,29 @@ class Basket {
     totalPrice -= price
   }
   
+  func getAmountOfConsommable(consommableID: Int) -> Int {
+    for conso in order.consos {
+      if conso.consos.id == consommableID {
+        return conso.amount
+      }
+    }
+    return -1
+  }
+  
+  func removeAllConsommable(consommableID: Int, price: Int) {
+    var index = 0
+    var amountOfConso = 0
+    for conso in order.consos {
+      if conso.consos.id == consommableID {
+        amountOfConso = conso.amount
+        order.consos.remove(at: index)
+      }
+      index += 1
+    }
+    if order.consos.isEmpty {
+      isBasketEmpty = true
+    }
+    let priceOfConsos = price * amountOfConso
+    totalPrice -= priceOfConsos
+  }
 }

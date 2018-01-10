@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import SnapKit
+import TTGSnackbar
+import PromiseKit
 
 class CurrentBasketFromPartyTableViewController: BaseViewController {
   
@@ -23,6 +25,7 @@ class CurrentBasketFromPartyTableViewController: BaseViewController {
   
   deinit {
     paymentInstance.cancelRequest()
+    NotificationCenter.default.removeObserver(self)
   }
   
   init(with consos: [Consommable]) {
@@ -34,6 +37,8 @@ class CurrentBasketFromPartyTableViewController: BaseViewController {
         }
       }
     }
+    NotificationCenter.default.addObserver(self, selector: #selector(basketEmptinessHasChanged),
+                                           name: Notification.Name(rawValue: "BasketHasChanged"), object: nil)
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -42,6 +47,7 @@ class CurrentBasketFromPartyTableViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setUpRightBarButtonItem()
     tableView = UITableView(frame: view.frame, style: .grouped)
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     tableView.delegate = self
@@ -52,9 +58,50 @@ class CurrentBasketFromPartyTableViewController: BaseViewController {
       make.edges.equalToSuperview()
     }
   }
+  
+  private func setUpRightBarButtonItem() {
+    let barButtonItem = UIBarButtonItem(image: R.image.checked(), style: .plain,
+                                        target: self, action: #selector(didTapRightBarButtonItem))
+    navigationItem.rightBarButtonItem = barButtonItem
+  }
+  
+  @objc func basketEmptinessHasChanged() {
+    //To-Do
+    navigationItem.rightBarButtonItem?.isEnabled = !Basket.manager.isBasketEmpty
+  }
+  
+  @objc func didTapRightBarButtonItem() {
+    let alert = UIAlertController(title: "Passer commande", message: "Confirmez-vous votre panier ?", preferredStyle: .actionSheet)
+    alert.addAction(UIAlertAction(title: "Passer commande !", style: .default, handler: {
+      [unowned self] _ in
+      firstly {
+        self.paymentInstance.orderInParty(order: Basket.manager.order)
+        }.then { _ -> Void in
+          DispatchQueue.main.async {
+            let snackbar = TTGSnackbar(message: "Votre commande a bien été envoyée. Vous allez recevoir une demande de paiement.", duration: .long)
+            snackbar.show()
+          }
+        }.catch { _ in
+          DispatchQueue.main.async {
+            let snackbar = TTGSnackbar(message: "Oups... Il y'a eu une erreur de notre côté.", duration: .long)
+            snackbar.show()
+          }
+      }
+    }))
+    alert.addAction(UIAlertAction(title: "Annuler", style: .destructive, handler: nil))
+    present(alert, animated: true, completion: nil)
+  }
 }
 
 extension CurrentBasketFromPartyTableViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    if section == 0 {
+      return "Mes consos"
+    }
+    return ""
+  }
+  
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
@@ -67,9 +114,50 @@ extension CurrentBasketFromPartyTableViewController: UITableViewDelegate, UITabl
     let cell = UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
     if indexPath.row < consommableItems.count {
       cell.textLabel?.text = consommableItems[indexPath.row].name ?? ""
-      cell.detailTextLabel?.text = "\(consommableItems[indexPath.row].price ?? -1) €"
+      let amountOfConso = Float(Basket.manager.getAmountOfConsommable(consommableID: consommableItems[indexPath.row].id!))
+      let totalPriceForConso = amountOfConso * (consommableItems[indexPath.row].price ?? -1)
+      cell.detailTextLabel?.text = "\(totalPriceForConso) €"
     }
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    if indexPath.row < consommableItems.count {
+      return true
+    }
+    return false
+  }
+  
+  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    if indexPath.row < consommableItems.count {
+      let amountofConso = Basket.manager.getAmountOfConsommable(consommableID: consommableItems[indexPath.row].id!)
+      if amountofConso > 1 {
+        let deleteOne = UITableViewRowAction(style: .normal, title: "Supprimer une", handler: {
+          action, indexPath in
+          Basket.manager.removeConsommableFromOrder(consommableID: self.consommableItems[indexPath.row].id!)
+          self.tableView.reloadData()
+        })
+        deleteOne.backgroundColor = UIColor.nightlineAccent
+        let deleteAll = UITableViewRowAction(style: .normal, title: "Supprimer toutes", handler: {
+          action, indexPath in
+          //Basket.manager.removeConsommableFromOrder(consommableID: self.consommableItems[indexPath.row].id!)
+          let integerPrice = Int((self.consommableItems[indexPath.row].price ?? -1)  * 100)
+          Basket.manager.removeAllConsommable(consommableID: self.consommableItems[indexPath.row].id!, price: integerPrice)
+          self.consommableItems.remove(at: indexPath.row)
+          self.tableView.reloadData()
+        })
+        return [deleteOne, deleteAll]
+      } else {
+        let deleteOne = UITableViewRowAction(style: .normal, title: "Supprimer du panier", handler: {
+          action, indexPath in
+          Basket.manager.removeConsommableFromOrder(consommableID: self.consommableItems[indexPath.row].id!)
+          self.consommableItems.remove(at: indexPath.row)
+          self.tableView.reloadData()
+        })
+        return [deleteOne]
+      }
+    }
+    return []
   }
 }
 
