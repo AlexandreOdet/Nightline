@@ -133,9 +133,7 @@ class Basket {
   }
   
   func incrementTotalPrice(price: Int) {
-    print("totalPrice before : \(totalPrice)")
     totalPrice += price
-    print("totalPrice after: \(totalPrice)")
     order.price = totalPrice
     updatePricePerUser()
   }

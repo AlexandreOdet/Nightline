@@ -115,7 +115,8 @@ extension CurrentBasketFromPartyTableViewController: UITableViewDelegate, UITabl
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
     if indexPath.row < consommableItems.count {
-      cell.textLabel?.text = consommableItems[indexPath.row].name ?? ""
+      let textAmount = Basket.manager.getAmountOfConsommable(consommableID: consommableItems[indexPath.row].id!)
+      cell.textLabel?.text = "\(consommableItems[indexPath.row].name ?? "") x \(textAmount)"
       let amountOfConso = Float(Basket.manager.getAmountOfConsommable(consommableID: consommableItems[indexPath.row].id!))
       let totalPriceForConso = amountOfConso * (consommableItems[indexPath.row].price ?? -1)
       cell.detailTextLabel?.text = "\(totalPriceForConso) €"

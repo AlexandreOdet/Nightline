@@ -185,7 +185,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
                                   }
       })
       snackBar.show()
-     
+      
     case "order_progress":
       log.debug("ORDER PROGRESS")
       if let stepRawValue = notification.body["step"] as? String {
@@ -195,37 +195,17 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
           ()
         case .confirmed:
           if let orderObject = notification.body["order"] as? [String:Any] {
-            let id = orderObject["id"] as! Int
-            var price = orderObject["price"] as! Int
-            price /= 100
-              let alert = UIAlertController(title: "Commande \(id)", message: "Acceptez-vous le paiement de \(price) €", preferredStyle: .alert)
-              alert.addAction(UIAlertAction(title: "Accepter", style: .default, handler: {
-                _ in
-                firstly {
-                RAPayment().answerOrderRequest(orderID: id,
-                                               userID: UserManager.instance.retrieveUserId(), answer: true)
-                  }.then {
-                    _ -> Void in
-                  }.catch { error in
-                    log.error("Error: \(error)")
-                }
-              }))
-              alert.addAction(UIAlertAction(title: "Refuser", style: .destructive, handler: {
-                _ in
-                firstly {
-                RAPayment().answerOrderRequest(orderID: id,
-                                               userID: UserManager.instance.retrieveUserId(), answer: false)
-                  }.then { _ -> Void in
-                  }.catch { error in
-                    log.error("Error: \(error)")
-                }
-              }))
-              self.present(alert, animated: true, completion: nil)
+            extractStepConfirmedFromWebSocket(json: orderObject)
           }
         case .ready:
-          log.debug("Order Ready") //To-Do UI
+          if let orderObject = notification.body["order"] as? [String:Any] {
+            log.debug("--------------------> ReadyStep")
+            extractReadyStepFromJSON(json: orderObject)
+          }
         case .delivered:
-          log.debug("Order Delivered") //To-Do UI
+          if let orderObject = notification.body["order"] as? [String:Any] {
+            extractDeleveredStepFromJSON(json: orderObject)
+          }
         default:()
         }
       }
@@ -234,12 +214,156 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
     }
   }
   
+  func extractStepConfirmedFromWebSocket(json: [String:Any]) {
+    var showConfirmPaymentAlert = false
+    var orderId = -1
+    var pricePerUser = 0
+    
+    if let steps = json["steps"] as? [[String:Any]] {
+      for step in steps {
+        if let stepName = step["name"] as? String {
+          if stepName == PaymentStep.confirmed.rawValue {
+            if let result = step["result"] as? String {
+              if result.isEmpty || result == "true" {
+                showConfirmPaymentAlert = true
+                if let orderID = json["id"] as? Int {
+                  orderId = orderID
+                }
+              } else if result == "false" {
+                let snackBar = TTGSnackbar(message: "Il semble qu'il y ait eu une erreur lors du paiement.", duration: .long)
+                snackBar.show()
+              }
+            }
+          }
+        }
+      }
+    }
+    if let users = json["users"] as? [[String:Any]] {
+      for user in users {
+        if let usr = user["user"] as? [String:Any] {
+          if let usrID = usr["id"] as? Int {
+            if usrID == UserManager.instance.retrieveUserId() {
+              if let price = user["price"] as? Int {
+                pricePerUser = price
+              }
+            }
+          }
+        }
+      }
+    }
+    if showConfirmPaymentAlert {
+      showPaymentAlert(orderId: orderId, pricePerUser: pricePerUser)
+    }
+  }
+  
+  func extractReadyStepFromJSON(json: [String:Any]) {
+    if let steps = json["steps"] as? [[String:Any]] {
+      for step in steps {
+        if let stepName = step["name"] as? String {
+          if stepName == PaymentStep.ready.rawValue {
+            if let result = step["result"] as? String {
+              log.error("Result = \(result)")
+              if result == "true" {
+                showProAccepted()
+              } else if result == "false" {
+                showProRefused()
+              } else if result.isEmpty {
+                showWaitResponseFromPro()
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  func extractDeleveredStepFromJSON(json: [String:Any]) {
+    if let steps = json["steps"] as? [[String:Any]] {
+      for step in steps {
+        if let stepName = step["name"] as? String {
+          if stepName == PaymentStep.delivered.rawValue {
+            if let result = step["result"] as? String {
+              if result == "true" {
+                deliveryOK()
+              } else if result == "false" {
+                deliveryKO()
+              } else if result.isEmpty {
+                waitForDelivery()
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  func showPaymentAlert(orderId: Int, pricePerUser: Int){
+    let price: Float = Float(pricePerUser / 100)
+    let alert = UIAlertController(title: "Commande #\(orderId)",
+      message: "Acceptez-vous le paiement de \(price) €", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Accepter", style: .default, handler: {
+      _ in
+      firstly {
+        RAPayment().answerOrderRequest(orderID: orderId,
+                                       userID: UserManager.instance.retrieveUserId(), answer: true)
+        }.then {
+          _ -> Void in
+        }.catch { error in
+          log.error("Error: \(error)")
+      }
+    }))
+    alert.addAction(UIAlertAction(title: "Refuser", style: .destructive, handler: {
+      _ in
+      firstly {
+        RAPayment().answerOrderRequest(orderID: orderId,
+                                       userID: UserManager.instance.retrieveUserId(), answer: false)
+        }.then { _ -> Void in
+        }.catch { error in
+          log.error("Error: \(error)")
+      }
+    }))
+    self.present(alert, animated: true, completion: nil)
+  }
+  
+  func showWaitResponseFromPro() {
+    let snackbar = TTGSnackbar(message: "Le paiement a fonctionné, le barman a bien reçu ta commande, patiente un peu !", duration: .long)
+    snackbar.show()
+  }
+  
+  func showProAccepted() {
+    let snackbar = TTGSnackbar(message: "Le barman a accepté ta commande, un peu de patience avant de la recevoir !", duration: .long)
+    snackbar.show()
+  }
+  
+  func showProRefused() {
+    let snackbar = TTGSnackbar(message: "Le barman n'a pas pu accepter ta commande, tout est remboursé !", duration: .long)
+    snackbar.show()
+    Basket.manager.clearOrder()
+  }
+  
+  func waitForDelivery() {
+    let snackbar = TTGSnackbar(message: "Ta commande est prête, le barman te dira quand tu pourras aller la chercher !", duration: .long)
+    snackbar.show()
+  }
+  
+  func deliveryOK() {
+    let snackBar = TTGSnackbar(message: "Ta commande est prête, attend le serveur, ou va la chercher directement !", duration: .long)
+    snackBar.show()
+  }
+  
+  func deliveryKO() {
+    let alert = UIAlertController(title: "WOW", message: "Il semble que le barman ait encaissé l'argent sans te servir, nous t'invitons à voir les membres du staff pour cette situation.", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    present(alert, animated: true, completion: nil)
+    Basket.manager.clearOrder()
+  }
+  
   func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
     guard let brutJson = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
     guard let properJSON = brutJson as? [String:Any] else { return }
     
     let notification = NotificationManager.manager.buildNotification(from: properJSON)
-
+    
     switch notification.type {
     case "success":
       let successName = notification.body["name"] as! String

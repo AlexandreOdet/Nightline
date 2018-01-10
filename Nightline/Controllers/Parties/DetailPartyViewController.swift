@@ -245,7 +245,6 @@ extension DetailPartyViewController: UITableViewDelegate, UITableViewDataSource 
     if hasJoin {
       if let party = self.party, let conso = party.menu.conso {
         let price = Int((conso[indexPath.row].price ?? -1) * 100)
-        print("Price = \(price)")
         Basket.manager.addConsommableToOrder(consommableID: conso[indexPath.row].id)
         Basket.manager.incrementTotalPrice(price: price)
       }
