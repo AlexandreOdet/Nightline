@@ -18,11 +18,11 @@ class NotificationManager {
   func buildNotification(from json: [String:Any]) -> NightlineNotification {
     let notification = NightlineNotification()
     print("json = \(json)")
-    let jsn = JSON(arrayLiteral: json)
-    if let type = jsn["name"].string,
-        let body = jsn["body"].dictionary {
+    if let type = json["name"] as? String, let  body = json["body"] as? [String:Any] {
         notification.type = type
         notification.body = body
+    } else {
+        log.debug("La notif n'a pas pu etre parsé")
     }
     return notification
   }
