@@ -87,16 +87,6 @@ class DetailUserViewController: BaseViewController {
     // Messagerie
     var messages = [Message]()
 
-    func setFakeMessages() {
-        messages = [
-            Message(msg: "Message 1Message 1Message 1Message 1Message 1Message 1Message 1Message 1Message 1Message 1Message 1Message 1", sender: "sender1"),
-            Message(msg: "Message 2", sender: "sender2"),
-            Message(msg: "Message 3", sender: "sender3"),
-            Message(msg: "Message 4", sender: "sender4"),
-            Message(msg: "Message 5", sender: "sender5")
-        ]
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(noti:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -104,7 +94,6 @@ class DetailUserViewController: BaseViewController {
         hideKeyboardWhenTappedAround()
         friendship = .unknow
         checkFriendshipStatus()
-//        setFakeMessages()
         setView()
     }
 

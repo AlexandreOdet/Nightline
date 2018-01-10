@@ -46,6 +46,10 @@ class GroupsListViewController: BaseViewController {
         navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        getData()
+    }
+
     func setTheme() {
         self.tableView.backgroundColor = deepBlue
         self.tableView.separatorColor = deepBlue
@@ -209,6 +213,7 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
                 raGrp.getGroupInformations(groupId: grpId ?? 0)
                 }.then { group -> Void in
                     let nextVC = DetailGroupViewController(grp: group.group)
+                    nextVC.grpDescription = self.grpList[indexPath.row].description
                     self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
                     SwiftSpinner.hide()
                     if let nav = self.navigationController {
@@ -245,6 +250,7 @@ extension GroupsListViewController: UITableViewDataSource, UITableViewDelegate {
             make.left.right.equalToSuperview().inset(10)
             make.height.equalTo(25)
         }
+        guard grpInvits.count > indexPath.row else { return cell }
         nameLabel.text = grpInvits[indexPath.row].from.name
         nameLabel.textColor = UIColor.orange
 
