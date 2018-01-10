@@ -308,6 +308,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
                                        userID: UserManager.instance.retrieveUserId(), answer: true)
         }.then {
           _ -> Void in
+          self.showWaitResponseFromPro()
         }.catch { error in
           log.error("Error: \(error)")
       }
