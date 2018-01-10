@@ -68,6 +68,10 @@ class CurrentBasketFromPartyTableViewController: BaseViewController {
   @objc func basketEmptinessHasChanged() {
     //To-Do
     navigationItem.rightBarButtonItem?.isEnabled = !Basket.manager.isBasketEmpty
+    if Basket.manager.isBasketEmpty {
+      consommableItems.removeAll()
+      tableView.reloadData()
+    }
   }
   
   @objc func didTapRightBarButtonItem() {
@@ -99,7 +103,11 @@ extension CurrentBasketFromPartyTableViewController: UITableViewDelegate, UITabl
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if section == 0 {
-      return "Mes consos"
+      if !Basket.manager.isBasketEmpty{
+        return "Mes consos"
+      } else {
+        return "Votre panier est vide."
+      }
     }
     return ""
   }

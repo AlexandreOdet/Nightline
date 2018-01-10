@@ -232,6 +232,7 @@ class BaseViewController: UIViewController, WebSocketDelegate  {
               } else if result == "false" {
                 let snackBar = TTGSnackbar(message: "Il semble qu'il y ait eu une erreur lors du paiement.", duration: .long)
                 snackBar.show()
+                Basket.manager.clearOrder()
               }
             }
           }
